@@ -1073,6 +1073,15 @@ const WORDS = [
     origin: "On-chain PVP",
     cat: "tech",
     votes: { up: 19600, down: 320 }
+  },
+  {
+    word: "MEV Bot",
+    phonetic: "/ɛm-iː-viː bɒt/",
+    def: "Maximal Extractable Value bot. The invisible hand of the blockchain reaching directly into your wallet. An extremely complex algorithm that spots your transaction in the mempool, bribes the network validators to cut in front of you, buys the tokens you wanted to artificially drive the price up, and then instantly sells them back to you at the higher price. You are quite literally paying an invisible tax to anonymous mathematicians every single time you trade.",
+    example: '"I tried to buy a dip with $500 but an MEV bot sandwiched me so hard I only got $380 worth of tokens. The machines are winning."',
+    origin: "Ethereum/Solana Mempool",
+    cat: "tech",
+    votes: { up: 28100, down: 410 }
   }
 ];
 
