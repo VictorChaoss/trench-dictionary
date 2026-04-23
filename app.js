@@ -956,6 +956,33 @@ const WORDS = [
     origin: "Solana Livestream Lore, 2024",
     cat: "person",
     votes: { up: 42100, down: 800 }
+  },
+  {
+    word: "Lazarus Group",
+    phonetic: "/ˈlæz.ər.əs ɡruːp/",
+    def: "The actual final boss of all crypto protocols. When a major decentralized finance bridge mysteriously gets drained for $600 million on a Tuesday morning, the timeline immediately accepts that it was state-sponsored North Korean hackers using Tornado Cash to fund missile programs. The fact that the entire decentralized global economy is locked in a perpetual daily PVP match against North Korean cyber warfare units is simply treated as normal market conditions.",
+    example: '"Bridge just got exploited for half a billion. Looks like Lazarus Group needed to fund another nuclear test. Bullish."',
+    origin: "Global Geopolitics vs Crypto",
+    cat: "culture",
+    votes: { up: 31200, down: 420 }
+  },
+  {
+    word: "Bahamas Polycule",
+    phonetic: "/bəˈhɑː.məz pɒl.i.kjuːl/",
+    def: "The specific group of hyper-credentialed, stimulant-addicted twentysomethings who ran FTX into the ground while living together in a $30M penthouse. A stark reminder that the 'sophisticated institutional money' taking the other side of your serious market trades is often just ten sleep-deprived Excel nerds playing League of Legends during billions of dollars' worth of margin calls.",
+    example: '"I thought I got stopped out by a hedge fund algorithm, but it was just the Bahamas Polycule market selling customer deposits to buy a private island."',
+    origin: "FTX Collapse Lore",
+    cat: "culture",
+    votes: { up: 45100, down: 120 }
+  },
+  {
+    word: "Goblintown Spaces",
+    phonetic: "/ˈɡɒb.lɪn.taʊn speɪ.sɪz/",
+    def: "A deeply traumatizing period during the depths of the 2022 bear market where everyone's portfolios were down so brutally that the community collectively lost its mind. Thousands of grown adults spent 6 hours a day in Twitter Spaces purely making guttural, unhinged goblin noises at each other. Represents the final psychological stage of grief before market acceptance.",
+    example: '"I lost $50k on Luna so I spent four hours screaming like a goblin in a Twitter Space. The trenches truly break you."',
+    origin: "Bear Market Psychology",
+    cat: "culture",
+    votes: { up: 28900, down: 455 }
   }
 ];
 
