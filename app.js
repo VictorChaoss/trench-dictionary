@@ -1,0 +1,923 @@
+// ========================
+// TRENCH DICTIONARY – app.js
+// ========================
+
+const WORDS = [
+  {
+    word: "NGMI",
+    phonetic: "/ɛn-dʒiː-ɛm-aɪ/",
+    def: "Not Gonna Make It. A death sentence handed out to those who sell early, FUD endlessly, or make the kind of moves that would make your on-chain therapist cry. Often self-diagnosed.",
+    example: '"Bro just sold his SOL at $20. NGMI."',
+    origin: "Crypto Twitter, circa 2020",
+    cat: "culture",
+    votes: { up: 2847, down: 41 }
+  },
+  {
+    word: "WAGMI",
+    phonetic: "/wæɡ-miː/",
+    def: "We Are Gonna Make It. The collective hopium of a thousand degens clutching bags. Usually chanted after a -40% candle to restore morale. Also used ironically when nothing is fine.",
+    example: '"Portfolio is down 80% but WAGMI never forget."',
+    origin: "Crypto Twitter, circa 2020",
+    cat: "culture",
+    votes: { up: 3201, down: 89 }
+  },
+  {
+    word: "Rug Pull",
+    phonetic: "/rʌɡ pʊl/",
+    def: "When a project's devs yank all liquidity and vanish into the void, leaving investors holding worthless tokens and profound trust issues. The crypto equivalent of your landlord disappearing with the deposit.",
+    example: '"The dev wallet just swapped everything to ETH. We got rugged, ser."',
+    origin: "DeFi Summer 2020",
+    cat: "risk",
+    votes: { up: 5512, down: 23 }
+  },
+  {
+    word: "Degen",
+    phonetic: "/ˈdiːdʒɛn/",
+    def: "Short for 'degenerate.' A term of endearment for someone who YOLOs into sketchy protocols at 3am, borrows against their bags to buy more bags, and calls it 'risk management.' Worn as a badge of honor.",
+    example: '"Pure degen hours right now. Just aped $10K into a fork of a fork."',
+    origin: "DeFi community, 2020",
+    cat: "culture",
+    votes: { up: 4100, down: 102 }
+  },
+  {
+    word: "Diamond Hands",
+    phonetic: "/ˈdaɪ.mənd hændz/",
+    def: "Holding your bags through 90% drawdowns, liquidations, Twitter meltdowns, and your own mental breakdown. Either the mark of conviction or an inability to accept losses. Often both.",
+    example: '"Down 95% but diamond hands, they can\'t take what they can\'t see."',
+    origin: "WallStreetBets → Crypto, 2021",
+    cat: "trading",
+    votes: { up: 3890, down: 150 }
+  },
+  {
+    word: "Paper Hands",
+    phonetic: "/ˈpeɪ.pər hændz/",
+    def: "Selling at the first sign of danger. If diamond hands is conviction, paper hands is wisdom — but nobody in the trenches will call it that. The ultimate insult hurled at anyone who takes profit.",
+    example: '"He sold at $2 and it went to $200. Paper hands broke his heart."',
+    origin: "WallStreetBets → Crypto, 2021",
+    cat: "trading",
+    votes: { up: 2760, down: 200 }
+  },
+  {
+    word: "Aping",
+    phonetic: "/ˈeɪ.pɪŋ/",
+    def: "To blindly throw money into a project without research, reading the whitepaper, or asking questions. Named because you're acting like an ape — which in crypto circles is considered aspirational.",
+    example: '"I just aped $5K into this new protocol. No idea what it does. LFG."',
+    origin: "DeFi community, 2020",
+    cat: "trading",
+    votes: { up: 4230, down: 67 }
+  },
+  {
+    word: "GM",
+    phonetic: "/dʒiːˈɛm/",
+    def: "Good Morning. A ritual greeting exchanged on Crypto Twitter every morning regardless of timezone, portfolio losses, or personal devastation. The protocol handshake of web3 culture.",
+    example: '"GM ser. Did you see BTC just dumped 15%? GM regardless."',
+    origin: "NFT / Crypto Twitter, 2021",
+    cat: "culture",
+    votes: { up: 2990, down: 30 }
+  },
+  {
+    word: "GN",
+    phonetic: "/dʒiːˈɛn/",
+    def: "Good Night. Crypto Twitter's formal sign-off, usually at 4am after watching candles dump. Often followed by waking up 3 hours later to check charts.",
+    example: '"GN everyone. See you in 2 hours when something crashes."',
+    origin: "NFT / Crypto Twitter, 2021",
+    cat: "culture",
+    votes: { up: 1870, down: 18 }
+  },
+  {
+    word: "Rekt",
+    phonetic: "/rɛkt/",
+    def: "Past tense of being financially obliterated. Could be a bad trade, a liquidation, a rug, a hack, or just the market deciding you personally don't deserve money today. There is no scale — being rekt is rekt. The guy down 5% and the guy who lost his house are both rekt. One of them is just more rekt. Getting rekt is the universe's way of teaching you risk management the hard way. Some people learn. Most don't.",
+    example: '"100x long, no stop loss, fell asleep. Woke up fully rekt. Wife is still asleep. She doesn\'t know yet."',
+    origin: "Gaming slang → Crypto, ~2017",
+    cat: "risk",
+    votes: { up: 9800, down: 44 }
+  },
+  {
+    word: "Hopium",
+    phonetic: "/ˈhoʊ.pi.əm/",
+    def: "The powerful, reality-distorting drug of choice in the trenches. Made from 100% pure hope, usually inhaled when staring at a -80% portfolio. Side effects include delusion, Twitter manifestations, and never selling.",
+    example: '"The chart looks terrible but I\'m on pure hopium right now."',
+    origin: "Crypto Twitter, ~2019",
+    cat: "culture",
+    votes: { up: 3450, down: 55 }
+  },
+  {
+    word: "Probably Nothing",
+    phonetic: "/ˈprɒb.ə.bli ˈnʌθ.ɪŋ/",
+    def: "Sarcastic phrase used when something is obviously a massive signal. Crypto Twitter's way of acknowledging something huge while maintaining plausible deniability. Often followed by quietly buying.",
+    example: '"New partnership with BlackRock leaked. Probably nothing."',
+    origin: "Crypto Twitter, 2021",
+    cat: "culture",
+    votes: { up: 4780, down: 29 }
+  },
+  {
+    word: "Ser",
+    phonetic: "/sɜːr/",
+    def: "Intentional misspelling of 'sir.' The universal form of address in crypto, regardless of the actual gender, title, or psychological state of the recipient. Tone shifts from respectful to condescending based on context.",
+    example: '"Ser, this is not financial advice but you might want to check your portfolio."',
+    origin: "Crypto Twitter, ~2020",
+    cat: "culture",
+    votes: { up: 3100, down: 12 }
+  },
+  {
+    word: "Wen Lambo",
+    phonetic: "/wɛn ˈlæm.boʊ/",
+    def: "The eternal battle cry asking when crypto gains will be enough to buy a Lamborghini. First asked in 2017, still being asked. A philosophical question about wealth, time, and self-delusion.",
+    example: '"Wen lambo ser? I\'ve been holding since 2018."',
+    origin: "Bitcoin community, 2017",
+    cat: "culture",
+    votes: { up: 5200, down: 300 }
+  },
+  {
+    word: "DYOR",
+    phonetic: "/diːˈwɔːr/",
+    def: "Do Your Own Research. The legal disclaimer of the trenches. Used by influencers before shilling garbage and by everyone trying to avoid blame after your bags go to zero. Often abbreviated to avoid responsibility.",
+    example: '"Up 1000% in 2 weeks. DYOR though, NFA."',
+    origin: "Crypto Twitter, ~2017",
+    cat: "trading",
+    votes: { up: 3870, down: 22 }
+  },
+  {
+    word: "NFA",
+    phonetic: "/ɛn-ɛf-eɪ/",
+    def: "Not Financial Advice. The magic words that legally absolve you of responsibility after telling 50,000 followers to buy a coin you're already holding. Similar to 'I'm not a doctor, but' in medicine.",
+    example: '"This could 100x easily. NFA. Do your own research. (I hold 40%)."',
+    origin: "Crypto Twitter, ~2018",
+    cat: "culture",
+    votes: { up: 4910, down: 18 }
+  },
+  {
+    word: "Moonshot",
+    phonetic: "/ˈmuːn.ʃɒt/",
+    def: "A token with such astronomical upside potential that your target is the literal moon. Usually applied with zero basis in fundamentals and maximum basis in vibes and chart patterns.",
+    example: '"This microcap is a moonshot, fundamentals are vibes and founder has 2 followers."',
+    origin: "Crypto community, ~2017",
+    cat: "trading",
+    votes: { up: 2830, down: 60 }
+  },
+  {
+    word: "Whale",
+    phonetic: "/weɪl/",
+    def: "An entity with enough capital to move markets, absorb your stops, and ruin your day with a single transaction. They don't trade the market — the market is their hunting ground and you are the fish.",
+    example: '"Whale just dumped 80K ETH. That explains the candle."',
+    origin: "Trading terminology → Crypto",
+    cat: "trading",
+    votes: { up: 5100, down: 30 }
+  },
+  {
+    word: "Bag Holder",
+    phonetic: "/bæɡ ˈhoʊl.dər/",
+    def: "Someone still holding a position long after rational hope has departed. The bags grow heavier with time. Some bag holders ascend to legend status. Most do not.",
+    example: '"Still holding my 2021 NFTs. Full bag holder mode. Won\'t sell. Can\'t sell."',
+    origin: "Stock trading → Crypto",
+    cat: "trading",
+    votes: { up: 4400, down: 90 }
+  },
+  {
+    word: "Alpha",
+    phonetic: "/ˈæl.fə/",
+    def: "Inside knowledge, early signals, or exclusive tips that give you an edge before the crowd arrives. The most sought-after commodity in crypto next to actual gains. Quality varies wildly — mostly vibes.",
+    example: '"Dropping some alpha in the server. Don\'t share this."',
+    origin: "Finance terminology → Crypto",
+    cat: "trading",
+    votes: { up: 4620, down: 33 }
+  },
+  {
+    word: "Liquidation",
+    phonetic: "/ˌlɪk.wɪˈdeɪ.ʃən/",
+    def: "The moment your leveraged position is forcibly closed by the exchange because you had the audacity to be wrong. The market's way of telling you that 50x leverage was, in fact, not a good idea.",
+    example: '"Got liquidated at $42,001. The wick was 1 dollar. Beautiful."',
+    origin: "Finance → Crypto DeFi",
+    cat: "risk",
+    votes: { up: 5880, down: 22 }
+  },
+  {
+    word: "Airdrop",
+    phonetic: "/ˈɛər.drɒp/",
+    def: "Free tokens rained down on wallets, sometimes as a reward for early usage, sometimes as a scheme to dump on recipients. The crypto equivalent of a free sample — sometimes delicious, sometimes poison.",
+    example: '"Got $4K from an airdrop I forgot I qualified for. This is the way."',
+    origin: "Crypto ecosystem, ~2017",
+    cat: "wallet",
+    votes: { up: 5500, down: 14 }
+  },
+  {
+    word: "Floor Price",
+    phonetic: "/flɔːr praɪs/",
+    def: "The cheapest NFT available in a collection. The floor is both a price point and a state of mind. Degens obsess over whether the floor is 'holding.' It is never truly holding.",
+    example: '"Floor dropped from 5 ETH to 0.05 ETH overnight. The floor is lava."',
+    origin: "NFT ecosystem, 2021",
+    cat: "nft",
+    votes: { up: 3900, down: 110 }
+  },
+  {
+    word: "Sweep the Floor",
+    phonetic: "/swiːp ðə flɔːr/",
+    def: "To buy all the cheapest listings of an NFT collection in one coordinated move. Usually done to artificially pump the floor price. In polite society, considered market manipulation. In the trenches, considered alpha.",
+    example: '"Whales just swept the floor. Get in before the pump."',
+    origin: "NFT community, 2021",
+    cat: "nft",
+    votes: { up: 3100, down: 55 }
+  },
+  {
+    word: "Gas Fees",
+    phonetic: "/ɡæs fiːz/",
+    def: "The toll you pay to the Ethereum blockchain for the privilege of doing anything at all. During peak congestion, gas fees can exceed the value of what you're actually trying to do. Ethereum's way of saying 'please don't.'",
+    example: '"Tried to move $20 of tokens. $180 in gas. Makes sense."',
+    origin: "Ethereum ecosystem",
+    cat: "tech",
+    votes: { up: 6200, down: 88 }
+  },
+  {
+    word: "Mint",
+    phonetic: "/mɪnt/",
+    def: "To create an NFT by committing it to the blockchain. The moment of birth for a JPEG that may one day be worth everything or absolutely nothing. Everyone thinks their mint will be different. Most are not.",
+    example: '"Minting live in 2 mins. Gas is spiking. This is fine."',
+    origin: "NFT ecosystem, 2020+",
+    cat: "nft",
+    votes: { up: 2700, down: 44 }
+  },
+  {
+    word: "Pump and Dump",
+    phonetic: "/pʌmp ænd dʌmp/",
+    def: "A coordinated scheme where early holders hype a token to inflate the price, then sell all their holdings on the excited buyers. As old as markets themselves, but in crypto it happens every 6 minutes.",
+    example: '"That influencer was clearly orchestrating a pump and dump. Clocked that early."',
+    origin: "Stock manipulation → Crypto",
+    cat: "risk",
+    votes: { up: 5700, down: 30 }
+  },
+  {
+    word: "FOMO",
+    phonetic: "/ˈfoʊ.moʊ/",
+    def: "Fear Of Missing Out. The emotional force that causes rational humans to buy tokens at all-time highs because they're going up. The primary driver of every irrationally priced asset in history.",
+    example: '"Pure FOMO buy at $69K. Should have waited 5 minutes."',
+    origin: "Psychology → Crypto/Finance",
+    cat: "trading",
+    votes: { up: 5900, down: 55 }
+  },
+  {
+    word: "FUD",
+    phonetic: "/fʌd/",
+    def: "Fear, Uncertainty, and Doubt. Negative sentiment spread organically by people who are scared, or artificially by people who are short. Part of every crypto cycle. Differentiating real FUD from fake FUD is an art.",
+    example: '"SEC announced an investigation. This is just FUD, probably. Maybe."',
+    origin: "Tech industry → Crypto",
+    cat: "culture",
+    votes: { up: 4800, down: 70 }
+  },
+  {
+    word: "Shill",
+    phonetic: "/ʃɪl/",
+    def: "To aggressively promote a token, project, or investment, usually while holding a bag. Shilling exists on a spectrum from enthusiastic evangelism to outright fraud. CT runs on shilling.",
+    example: '"He\'s been shilling this token for 3 weeks straight. Check his wallet."',
+    origin: "Carnival barker origin → Crypto",
+    cat: "culture",
+    votes: { up: 4100, down: 88 }
+  },
+  {
+    word: "CT",
+    phonetic: "/siːˈtiː/",
+    def: "Crypto Twitter (now Crypto X). The pulsating, chaotic, occasionally brilliant hive mind where price action is predicted, influencers are built and destroyed, and every take is simultaneously right and wrong.",
+    example: '"CT is oscillating between $100K predictions and end-of-bitcoin takes simultaneously."',
+    origin: "Crypto community",
+    cat: "culture",
+    votes: { up: 3300, down: 20 }
+  },
+  {
+    word: "Ponzinomics",
+    phonetic: "/ˌpɒn.ziˈnɒm.ɪks/",
+    def: "Tokenomics designed to enrich early entrants at the cost of later investors. Named after Charles Ponzi. In crypto, recognized as a flaw by observers and as 'innovative yield mechanics' by developers.",
+    example: '"The 10,000% APY is giving ponzinomics. I\'m still aping in."',
+    origin: "Crypto community, DeFi Summer",
+    cat: "risk",
+    votes: { up: 5100, down: 44 }
+  },
+  {
+    word: "Cold Wallet",
+    phonetic: "/koʊld ˈwɒl.ɪt/",
+    def: "A hardware wallet kept offline to protect assets from hacks. The responsible thing all degens say they'll get tomorrow. Some actually use one. Those are the degens who survived.",
+    example: '"Move your stuff off exchanges ser. Cold wallet is non-negotiable."',
+    origin: "Crypto security",
+    cat: "wallet",
+    votes: { up: 4500, down: 11 }
+  },
+  {
+    word: "Seed Phrase",
+    phonetic: "/siːd freɪz/",
+    def: "The 12 or 24 words that are the master key to your entire crypto existence. Losing this means losing everything. Sharing this means losing everything faster. Often stored on a sticky note on a monitor.",
+    example: '"Never share your seed phrase. Not with your wife, not with your therapist, not with God."',
+    origin: "Crypto wallet design",
+    cat: "wallet",
+    votes: { up: 6800, down: 5 }
+  },
+  {
+    word: "Vaporware",
+    phonetic: "/ˈveɪ.pər.wɛər/",
+    def: "A project, product, or feature that has been promised but never shipped. The trenches are littered with beautiful whitepapers for vaporware. Some projects raise millions before anyone notices.",
+    example: '"Four years of roadmap updates and still no product. Peak vaporware."',
+    origin: "Tech industry → Crypto",
+    cat: "tech",
+    votes: { up: 4200, down: 33 }
+  },
+  {
+    word: "Smart Contract",
+    phonetic: "/smɑːrt ˈkɒn.trækt/",
+    def: "Self-executing code on a blockchain that enforces agreements automatically. Called 'smart' because it's smart enough to also contain bugs, backdoors, and logic errors that drain $200M in under 12 seconds.",
+    example: '"Smart contract exploit just drained the protocol. Code is law, apparently."',
+    origin: "Ethereum / blockchain tech",
+    cat: "tech",
+    votes: { up: 3800, down: 60 }
+  },
+  {
+    word: "Cope",
+    phonetic: "/koʊp/",
+    def: "The psychological mechanism employed by bag holders to rationalize why their investment didn't go to zero on purpose. Used as both a noun and a verb. Copium is the gaseous form.",
+    example: '"That\'s just cope. The token is dead, sir. The dev left the Telegram."',
+    origin: "Internet culture → Crypto",
+    cat: "culture",
+    votes: { up: 3600, down: 77 }
+  },
+  {
+    word: "Tokenomics",
+    phonetic: "/ˌtoʊ.kəˈnɒm.ɪks/",
+    def: "The supply, distribution, and economic mechanics of a token. Good tokenomics align incentives. Bad tokenomics are a sophisticated mechanism to distribute wealth from latecomers to early insiders.",
+    example: '"80% to the team, 10% airdrop, 10% public. Interesting tokenomics."',
+    origin: "Crypto community",
+    cat: "tech",
+    votes: { up: 3100, down: 40 }
+  },
+  {
+    word: "Wen Moon",
+    phonetic: "/wɛn muːn/",
+    def: "The question that has haunted every crypto investor since the dawn of time. When will my bags achieve lunar velocity? Nobody knows. Everyone asks. The moon remains elusive.",
+    example: '"Bought in 2019. Wen moon ser. Wen."',
+    origin: "Bitcoin community, ~2017",
+    cat: "culture",
+    votes: { up: 4400, down: 200 }
+  },
+  {
+    word: "LFG",
+    phonetic: "/ɛl-ɛf-dʒiː/",
+    def: "Let's F***ing Go. The battle cry of the trenches. Deployed when a token launches, when price pumps, when you're about to do something probably inadvisable, or when morale needs an emergency injection.",
+    example: '"New ATH. LFG!!!!! We are SO back."',
+    origin: "Gaming → Crypto Twitter",
+    cat: "culture",
+    votes: { up: 5900, down: 22 }
+  },
+  {
+    word: "We Are So Back",
+    phonetic: "/wiː ɑːr soʊ bæk/",
+    def: "Chanted after any positive price movement following a prolonged dump. The amplitude of celebration is inversely proportional to how bad things actually were. Frequently premature.",
+    example: '"Up 3% after -60%. WE ARE SO BACK."',
+    origin: "Crypto Twitter, ~2022",
+    cat: "culture",
+    votes: { up: 5300, down: 90 }
+  },
+  {
+    word: "It's Over",
+    phonetic: "/ɪts ˈoʊ.vər/",
+    def: "Declared at every significant price dip, every regulatory announcement, and every hack. Has been declared hundreds of times. So far, it has not been over. This is crypto's version of 'the boy who cried wolf.'",
+    example: '"BTC under $20K. It\'s over." (It wasn\'t over.)',
+    origin: "Crypto Twitter, recurring",
+    cat: "culture",
+    votes: { up: 4800, down: 55 }
+  },
+  {
+    word: "This Is The Way",
+    phonetic: "/ðɪs ɪz ðə weɪ/",
+    def: "Expression of collective agreement and affirmation. Borrowed from The Mandalorian. Used to endorse both wise security practices and spectacularly reckless financial decisions with equal conviction.",
+    example: '"Hardware wallet, no KYC, self-custody. This is the way."',
+    origin: "The Mandalorian → Crypto",
+    cat: "culture",
+    votes: { up: 3200, down: 44 }
+  },
+  {
+    word: "Alon",
+    phonetic: "/ˈeɪ.lɒn/",
+    def: "The co-creator of Pump.fun and one of the most brazen extractors in crypto history. Built a machine that prints billions in fees off the backs of degens, dangled an airdrop like a carrot for over a year, then quietly shelved it while pocketing the bag. Absolute scum of the earth. The kind of guy who shakes your hand, smiles, and has already emptied your wallet before you finish the handshake. The trenches will never forgive. NGMI in the karma department.",
+    example: '"Waited 14 months for that airdrop. Alon said probably. He meant never. Scum."',
+    origin: "Pump.fun, Solana ecosystem, 2024",
+    cat: "person",
+    votes: { up: 8100, down: 190 }
+  },
+  {
+    word: "Bundling",
+    phonetic: "/ˈbʌn.dl.ɪŋ/",
+    def: "When a dev or insider buys multiple wallets worth of a new token in the same block as the launch, simulating organic demand while secretly hoarding 20-40% of supply. Looks like community excitement. Is actually a coordinated snipe. The on-chain equivalent of a casino dealing from the bottom. Almost always precedes a rug.",
+    example: '"Chain showed 47 buys in block 1. It was one guy bundling. Classic."',
+    origin: "Solana meme coin meta, 2024",
+    cat: "risk",
+    votes: { up: 3700, down: 28 }
+  },
+  {
+    word: "Mooning",
+    phonetic: "/ˈmuː.nɪŋ/",
+    def: "When a token is actively going parabolic — price ascending with such velocity that chart-watchers start manifesting Lamborghinis in real time. Not to be confused with 'about to moon' which is what people say when it's actually distributing. True mooning is rare. Charts claiming to be mooning are not.",
+    example: '"It was mooning so hard I forgot to take profit. Now I\'m poor again. Classic."',
+    origin: "Crypto trading culture, ~2017",
+    cat: "trading",
+    votes: { up: 4900, down: 60 }
+  },
+  {
+    word: "Rugging",
+    phonetic: "/ˈrʌɡ.ɪŋ/",
+    def: "The active, present-tense form of a rug pull — the moment the dev is in the process of draining liquidity, dumping their wallet, and deleting the Telegram while your buy order is still pending. Rugging is to rug pull what dying is to death: the experience in real time. Often detected one block too late.",
+    example: '"Bro the chart just went vertical down. He\'s rugging us live. RIP the chat."',
+    origin: "DeFi / Solana trenches, 2021–present",
+    cat: "risk",
+    votes: { up: 5400, down: 15 }
+  },
+  {
+    word: "Orangie",
+    phonetic: "/ˈɒr.ɪn.dʒi/",
+    def: "Massively large CT influencer with an even bigger appetite for fucking over his own followers. This fat clown buys a bag, tweets the call to his audience, dumps on their heads the moment they ape in, then wipes his mouth and orders another meal. His followers aren't customers — they're the food. Every call is a setup. Every entry alert is a exit notice for him. Probably the most brazen insider-trading grifter on CT. Do not engage. Do not follow. Do not buy what this man tweets. Block and move on.",
+    example: '"Just saw Orangie tweet it with a fire emoji. He\'s already out. His followers are fucked. Again."',
+    origin: "Crypto Twitter influencer lore",
+    cat: "person",
+    votes: { up: 9200, down: 310 }
+  },
+  {
+    word: "KOL",
+    phonetic: "/kɒl/",
+    def: "Key Opinion Leader. Fanciest possible name for a professional liar with a large following. This person woke up, checked their DMs, saw a project offering them $30K worth of tokens to post bullish, accepted, and is now standing in front of their ring light telling YOU this is the next 100x while their sell orders are already queued. They do not believe a single word they are saying. They have not read the whitepaper. They will not hold past the next block. You are not their community — you are their exit. The moment you ape in because your favourite KOL called it, you become the reason they got paid. Your loss is their invoice. Some of them will even come back the next week with another call, and the week after that, forever, because there is always a new project that needs a shill and always a new batch of degens who haven't been burned yet. Block every single one of them.",
+    example: '"Trusted a KOL call. Bought the top. Watched him dump. Saw him post another call 3 days later. I am so tired."',
+    origin: "Crypto marketing, 2022–present",
+    cat: "person",
+    votes: { up: 14800, down: 190 }
+  },
+  {
+    word: "Kek",
+    phonetic: "/kɛk/",
+    def: "The purest unit of crypto laughter. Imported from 4chan where 'kek' replaced 'lol' as the laugh of the terminally online, then colonised by degens who needed a sound for watching charts nuke in real time. Kek is not ha-ha funny. Kek is the laugh you make when you've been rugged three times in a week, your leverage just got liquidated, and someone in chat posts a crying Pepe. It's the sound of someone who has accepted they have no control and found peace in the chaos. Kek is also the name of the ancient frog god of darkness worshipped unironically on the internet. His prophet is Pepe. His currency is chaos. Kek wills what Kek wills.",
+    example: '"Dev just posted \'we are building\' while the chart is down 97%. Kek. Absolute kek."',
+    origin: "4chan → Crypto Twitter, ~2016",
+    cat: "culture",
+    votes: { up: 8800, down: 22 }
+  },
+  {
+    word: "Farmer",
+    phonetic: "/ˈfɑː.mər/",
+    def: "A tragic creature who spends 14 hours a day clicking testnet buttons, bridging 0.001 ETH between obscure Layer-2s, and authenticating in 4,000 different Discord servers. All for the promise of a token airdrop that will ultimately be worth $12 and cost $14 in gas to claim. Farmers don't trade. They perform unpaid data entry for protocols that will eventually rug them.",
+    example: '"Been farming this testnet for 9 months. Token launched. I got 4 tokens. I am broken."',
+    origin: "Crypto airdrop culture",
+    cat: "culture",
+    votes: { up: 6100, down: 45 }
+  },
+  {
+    word: "LARP",
+    phonetic: "/lɑːrp/",
+    def: "Live Action Role Play. Pretending to be rich on Crypto Twitter while eating instant noodles in real life. LARPers post Canva-edited screenshots of $2M portfolios, claim they 'rotated out at the exact top', and give unsolicited trading advice to their 42 followers. The absolute giveaway of a LARP is talking about 'preservation of capital' when their net worth is less than a used Honda Civic.",
+    example: '"Bro is LARPing as a whale again. We literally saw him ask for $5 gas money yesterday."',
+    origin: "Gaming slang → Crypto trenches",
+    cat: "person",
+    votes: { up: 8900, down: 110 }
+  },
+  {
+    word: "TLDR",
+    phonetic: "/tiː-ɛl-diː-ɑːr/",
+    def: "Too Long; Didn't Read. In crypto, this means: 'I refused to read the 40-page whitepaper, I ignored the tokenomics, I skipped the lockup schedule, just tell me what the ticker is so I can market buy the absolute top.' Reading is for people who want to preserve their capital. True degens execute blindly on a single rocket emoji.",
+    example: '"TLDR on this protocol? Is it a dog? Ok aping in."',
+    origin: "Internet culture → Crypto",
+    cat: "culture",
+    votes: { up: 7700, down: 25 }
+  },
+  {
+    word: "Pump.fun",
+    phonetic: "/pʌmp fʌn/",
+    def: "The absolute lowest, darkest ring of the Solana casino. A PvP slaughterhouse where any degenerated teenager with $2 and a stolen JPEG can launch a token. 99.9% of tokens launched here will be brutally rugged within 180 seconds. It is a psychological experiment in how fast human beings can evaporate their own wealth. The developers are extracting millions while the users are fighting over pennies.",
+    example: '"I said I was done with pump.fun. Then I saw a coin named CumRocket69 and went all in. Lost everything."',
+    origin: "Solana ecosystem, 2024",
+    cat: "trading",
+    votes: { up: 12500, down: 420 }
+  },
+  {
+    word: "Retardio",
+    phonetic: "/rɪˈtɑːr.di.oʊ/",
+    def: "The highest state of enlightenment in the meme coin trenches. A total abandonment of logic, charts, and rational thought. Aping blindly into the most catastrophically stupid ticker available. When the market stops making sense, the only way to survive is to become retardio. It is the evolution of the degen. No thoughts. Just pure, unadulterated buy pressure on a coin with a misspelled name and a MS Paint logo. Send it.",
+    example: '"Fundamentals are zero. Dev is high. Going full retardio on this one."',
+    origin: "Solana trenches, 2024",
+    cat: "culture",
+    votes: { up: 15400, down: 88 }
+  },
+  {
+    word: "Study",
+    phonetic: "/ˈstʌ.di/",
+    def: "A patronising, one-word command deployed by CT gigabrains to tell you that you are a complete idiot. Usually placed at the end of an entirely schizo, unhinged thesis about why a shitcoin will 1000x. It implies that if you don't agree with them, it's simply because you haven't done enough homework. The crypto equivalent of 'educate yourself.'",
+    example: '"Solana is going to flip the global real estate market by Friday. Study."',
+    origin: "Crypto Twitter gigabrain culture",
+    cat: "culture",
+    votes: { up: 6600, down: 40 }
+  },
+  {
+    word: "FSH",
+    phonetic: "/ɛf-ɛs-eɪtʃ/",
+    def: "Full Stack Hitler. A deeply hated trader who drops a nuclear bomb on a chart by market selling 100% of their bag in a single transaction, causing an immediate 8%+ slippage and price impact. It instantly shatters the chart structure, triggers a cascade of panic jeeting, and brutally murders the momentum of the run. Absolute financial terrorism. The lowest form of life in any Telegram chat.",
+    example: '"Chart was looking parabolic until some FSH market dumped his whole bag and killed the vibe. We are ruined."',
+    origin: "Deep Solana trenches",
+    cat: "risk",
+    votes: { up: 10200, down: 85 }
+  },
+  {
+    word: "Memescope Monday",
+    phonetic: "/ˈmiːm.skoʊp ˈmʌn.deɪ/",
+    def: "The biggest, most ruthless rapefest of the week. This is when all the KOLs, insiders, and cabals group up, coordinate their targets, and ruthlessly extract maximum liquidity from the innocent degens trying to make a quick buck on pump.fun. It is a scheduled massacre. If you are trading on Memescope Monday and you are not part of the cabal, you are showing up to a firing squad with a water pistol.",
+    example: '"Got completely destroyed on Memescope Monday. They farmed us like cattle."',
+    origin: "Pump.fun culture",
+    cat: "trading",
+    votes: { up: 9500, down: 120 }
+  },
+  {
+    word: "Pajeet",
+    phonetic: "/pəˈdʒiːt/",
+    def: "The archetypal low-effort serial rugger. Deploys 40 identical tokens a day with misspelled tickers, promises '1000x sir' in the Telegram, and nukes the liquidity the exact second it hits $40 profit. Immediately launches the next one without taking a breath. The final boss of the Fiverr dev underworld. The reason your 'safe contract' scanner means absolutely nothing.",
+    example: '"Dev said liquidity burnt sir. Turns out it was a classic Pajeet rug. Lost 2 SOL in four seconds."',
+    origin: "Crypto scammer lore",
+    cat: "person",
+    votes: { up: 13100, down: 340 }
+  },
+  {
+    word: "Cabal",
+    phonetic: "/kəˈbɑːl/",
+    def: "A private, invite-only Telegram group of influencers, whales, and OTC desk managers who secretly coordinate to pump a token and dump it on their collective followers. If you are not in the cabal, you are the cabal's product. Every natural-looking 'community takeover' or organic viral narrative was written in a cabal chat three weeks before you ever heard of it.",
+    example: '"The cabal front-ran the announcement, dumped the top, and left retail holding the bag. Business as usual."',
+    origin: "Crypto Twitter conspiracy → Reality",
+    cat: "culture",
+    votes: { up: 14200, down: 45 }
+  },
+  {
+    word: "Wife Changing Money",
+    phonetic: "/waɪf ˈtʃeɪn.dʒɪŋ ˈmʌn.i/",
+    def: "Profits so disgustingly large they alter your entire socioeconomic reality, enabling you to literally upgrade your spouse. The holy grail of the trenches. Ironically, attempting to achieve wife changing money via 100x leverage usually results in 'wife changing loss,' where your spouse finds out you blew the family savings on a coin called PepeElonCum and leaves you.",
+    example: '"I\'m not selling for a 2x. I am here for wife changing money or absolute ruin. There is no in-between."',
+    origin: "Crypto slang, ~2020",
+    cat: "culture",
+    votes: { up: 18500, down: 120 }
+  },
+  {
+    word: "Round-tripping",
+    phonetic: "/raʊnd ˈtrɪp.ɪŋ/",
+    def: "The psychological torture of watching your portfolio go up 800%, refusing to take a single dollar of profit because you got greedy and convinced yourself it was going to a billion market cap, and then riding it all the way back down past your original entry price. The financial equivalent of climbing Everest just to throw yourself off the peak.",
+    example: '"I was up $60K on Tuesday. Today my bag is worth $400. I round-tripped the entire cycle like a complete retardio."',
+    origin: "Traditional Finance → Trading Trenches",
+    cat: "trading",
+    votes: { up: 16700, down: 88 }
+  },
+  {
+    word: "Cope",
+    phonetic: "/koʊp/",
+    def: "The delusion degens inject straight into their veins when a trade goes horribly wrong. 'The dev is just shaking out weak hands.' 'We are finding the floor here.' 'Zoom out on the monthly.' All of this is cope. It is the lies you tell yourself to avoid clicking the sell button and locking in a 95% loss. If you are explaining why the chart is actually bullish while it looks like a ski slope, you are coping.",
+    example: '"Dev sold his entire wallet and deleted Telegram. Community says it\'s decentralized now. Maximum cope."',
+    origin: "Internet culture → Crypto",
+    cat: "culture",
+    votes: { up: 13900, down: 65 }
+  },
+  {
+    word: "Nuke",
+    phonetic: "/nuːk/",
+    def: "A sudden, apocalyptic red candle that wipes months of chart progress—and your net worth—in a single 1-minute interval. Caused by whales exiting, a protocol getting hacked, or a Full Stack Hitler (FSH) market selling a massive bag. When the nuke hits, Binance stops loading, the Telegram chat freezes in sheer terror, and the suicide hotline gets pinned to the crypto subreddit.",
+    example: '"I stepped away to make a coffee. Came back and the chart had fully nuked. Five years of gains gone in an instant."',
+    origin: "Crypto trading slang",
+    cat: "risk",
+    votes: { up: 15100, down: 22 }
+  },
+  {
+    word: "Bagholder",
+    phonetic: "/ˈbæɡˌhoʊl.dər/",
+    def: "A tragic entity who bought the absolute top and refused to sell as the asset ground down to zero. They are now permanently trapped, holding a heavy bag of worthless tokens. In order to emotionally survive, bagholders often transform into the project's most aggressive defenders on Twitter, desperately trying to convince others to buy so they can finally exit. A bagholder is just exit liquidity that got stuck.",
+    example: '"He\'s still posting bullish charts for a coin that dropped 99.9% in 2021. Terminal bagholder syndrome."',
+    origin: "Stock market → Crypto",
+    cat: "person",
+    votes: { up: 11800, down: 75 }
+  },
+  {
+    word: "Sniper",
+    phonetic: "/ˈsnaɪ.pər/",
+    def: "Bots designed to buy a token the exact millisecond liquidity is added in block zero. Snipers are the reason you can never get a good entry on a hyped launch. They buy the bottom instantaneously, artificially pump the price, and then dump their bags onto the actual humans who are trying to buy manually seconds later. The ultimate PvP weapon in the meme coin wars.",
+    example: '"Liquidity was added and 14 snipers bought 60% of the supply before the tweet even went out. Dead on arrival."',
+    origin: "DeFi / DEX trading",
+    cat: "tech",
+    votes: { up: 9400, down: 40 }
+  },
+  {
+    word: "Dev Did Something",
+    phonetic: "/dɛv dɪd ˈsʌm.θɪŋ/",
+    def: "The infamous battle cry of a community in absolute denial. Shouted in Telegram right after the chart violently nukes by 90%. Instead of accepting that the developer just rugged them and absconded with the liquidity pool, the remaining bagholders try to violently cope by convincing themselves the massive sell-off was a strategic 5D-chess maneuver by the team. They are wrong. The dev did not 'do something'. The dev bought a Porsche with their money.",
+    example: '"Chart is down 95% in one candle. Stay calm guys, dev did something. (Dev is currently on a flight to Dubai)."',
+    origin: "Solana/BSC trenches",
+    cat: "culture",
+    votes: { up: 17200, down: 62 }
+  }
+];
+
+// ---- STATE ----
+let words = [...WORDS];
+let filteredWords = [...words];
+let activeCategory = 'all';
+let activeLetter = 'ALL';
+let searchQuery = '';
+let votes = {};
+
+// ---- INIT ----
+document.addEventListener('DOMContentLoaded', () => {
+  loadVotes();
+  duplicateTicker();
+  setWordOfTheDay();
+  renderWords();
+  bindEvents();
+  updateWordCount();
+  highlightAZButtons();
+});
+
+// ---- WORD COUNT ----
+function updateWordCount() {
+  document.getElementById('word-count').textContent = WORDS.length;
+}
+
+// ---- HIGHLIGHT A-Z ----
+function highlightAZButtons() {
+  const firstLetters = new Set(WORDS.map(w => w.word[0].toUpperCase()));
+  document.querySelectorAll('.az-btn').forEach(btn => {
+    const l = btn.dataset.letter;
+    if (l !== 'ALL' && l !== '#' && firstLetters.has(l)) {
+      btn.classList.add('has-words');
+    }
+  });
+}
+
+// ---- TICKER DUPLICATE ----
+function duplicateTicker() {
+  const track = document.getElementById('ticker');
+  track.innerHTML += track.innerHTML;
+}
+
+// ---- WORD OF THE DAY ----
+function setWordOfTheDay() {
+  const dayIndex = Math.floor(Date.now() / 86400000) % WORDS.length;
+  const w = WORDS[dayIndex];
+  document.getElementById('wotd-word').textContent = w.word;
+  document.getElementById('wotd-phonetic').textContent = w.phonetic || '';
+  document.getElementById('wotd-def').textContent = w.def;
+  document.getElementById('wotd-example').textContent = w.example || '';
+  document.getElementById('wotd-origin').textContent = w.origin ? `📍 Origin: ${w.origin}` : '';
+  const catColors = { trading:'#2ecc71', culture:'#a855f7', risk:'#e84040', wallet:'#60a5fa', nft:'#ec4899', tech:'#eab308', person:'#ff8c00' };
+  const badge = document.getElementById('wotd-cat-badge');
+  badge.textContent = (w.cat || 'culture').toUpperCase();
+  badge.style.background = (catColors[w.cat] || '#d4a017') + '22';
+  badge.style.color = catColors[w.cat] || '#d4a017';
+  badge.style.border = `1px solid ${catColors[w.cat] || '#d4a017'}55`;
+}
+
+// ---- RENDER ----
+function renderWords() {
+  const list = document.getElementById('entries-list');
+  const empty = document.getElementById('empty-state');
+  const resultCount = document.getElementById('result-count');
+
+  let filtered = words.filter(w => {
+    const matchCat = activeCategory === 'all' || w.cat === activeCategory;
+    const matchLetter = activeLetter === 'ALL' ||
+      (activeLetter === '#' ? /^[^a-zA-Z]/.test(w.word) : w.word[0].toUpperCase() === activeLetter);
+    const q = searchQuery.toLowerCase();
+    const matchQ = !q || w.word.toLowerCase().includes(q) || w.def.toLowerCase().includes(q) || (w.example || '').toLowerCase().includes(q);
+    return matchCat && matchLetter && matchQ;
+  });
+
+  filteredWords = filtered;
+  resultCount.textContent = filtered.length ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''}` : '';
+
+  if (!filtered.length) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+
+  empty.style.display = 'none';
+
+  const catAccents = {
+    trading: '#2ecc71',
+    culture: '#a855f7',
+    risk:    '#e84040',
+    wallet:  '#60a5fa',
+    nft:     '#ec4899',
+    tech:    '#eab308',
+    person:  '#ff8c00',
+  };
+
+  // Group by first letter when showing ALL
+  const showGroups = activeLetter === 'ALL' && !searchQuery;
+
+  if (showGroups) {
+    const groups = {};
+    filtered.forEach(w => {
+      const key = /^[^a-zA-Z]/.test(w.word) ? '#' : w.word[0].toUpperCase();
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(w);
+    });
+    const sortedKeys = Object.keys(groups).sort((a, b) => {
+      if (a === '#') return 1;
+      if (b === '#') return -1;
+      return a.localeCompare(b);
+    });
+    list.innerHTML = sortedKeys.map(letter => `
+      <div class="letter-group" id="group-${letter}">
+        <div class="letter-anchor">${letter}</div>
+        ${groups[letter].map(w => buildCard(w, catAccents)).join('')}
+      </div>
+    `).join('');
+  } else {
+    list.innerHTML = filtered.map(w => buildCard(w, catAccents)).join('');
+  }
+}
+
+function buildCard(w, catAccents) {
+  const id = encodeURIComponent(w.word).replace(/'/g, '%27');
+  const safeWord = w.word.replace(/'/g, "\\'");
+  const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
+  const upVoted   = votes[`${w.word}_voted`] === 'up';
+  const downVoted = votes[`${w.word}_voted`] === 'down';
+  const accent = catAccents[w.cat] || '#d4a017';
+  return `
+    <div class="entry-card" style="--card-accent: ${accent};" id="card-${id}">
+      <div class="card-head">
+        <h3 class="card-word">${w.word}</h3>
+        <span class="card-cat cat-${w.cat}">${w.cat.toUpperCase()}</span>
+      </div>
+      ${w.phonetic ? `<p class="card-phonetic">${w.phonetic}</p>` : ''}
+      <p class="card-def">${w.def}</p>
+      ${w.example ? `<p class="card-example">${w.example}</p>` : ''}
+      <div class="card-footer">
+        <div class="vote-wrap">
+          <button class="vote-btn ${upVoted ? 'voted-up' : ''}" id="up-${id}" onclick="vote('${safeWord}', 'up')">
+            👍 ${savedVotes.up.toLocaleString()}
+          </button>
+          <button class="vote-btn ${downVoted ? 'voted-down' : ''}" id="down-${id}" onclick="vote('${safeWord}', 'down')">
+            👎 ${savedVotes.down.toLocaleString()}
+          </button>
+        </div>
+        <span class="card-origin">📍 ${w.origin}</span>
+      </div>
+    </div>
+  `;
+}
+
+// ---- VOTE ----
+function vote(wordName, direction) {
+  const w = words.find(x => x.word === wordName);
+  if (!w) return;
+  if (!votes[wordName]) votes[wordName] = { up: w.votes.up, down: w.votes.down };
+
+  const prev = votes[`${wordName}_voted`];
+  if (prev === direction) return; // already voted this way
+
+  if (prev) votes[wordName][prev]--;
+  votes[wordName][direction]++;
+  votes[`${wordName}_voted`] = direction;
+
+  saveVotes();
+  renderWords();
+}
+
+// ---- PERSIST VOTES ----
+function saveVotes() {
+  try { localStorage.setItem('td_votes', JSON.stringify(votes)); } catch(e) {}
+}
+function loadVotes() {
+  try {
+    const saved = localStorage.getItem('td_votes');
+    if (saved) votes = JSON.parse(saved);
+  } catch(e) { votes = {}; }
+}
+
+// ---- EVENTS ----
+function bindEvents() {
+  const input = document.getElementById('search-input');
+  const clearBtn = document.getElementById('search-clear');
+
+  input.addEventListener('input', () => {
+    searchQuery = input.value.trim();
+    clearBtn.classList.toggle('visible', searchQuery.length > 0);
+    renderWords();
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { searchQuery = input.value.trim(); renderWords(); }
+    if (e.key === 'Escape') { input.value = ''; searchQuery = ''; clearBtn.classList.remove('visible'); renderWords(); }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    searchQuery = '';
+    clearBtn.classList.remove('visible');
+    renderWords();
+  });
+
+  // Category filters
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      activeCategory = tag.dataset.cat;
+      renderWords();
+    });
+  });
+
+  // A-Z nav
+  document.querySelectorAll('.az-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeLetter = btn.dataset.letter;
+      renderWords();
+    });
+  });
+
+  // Submit form
+  document.getElementById('submit-form').addEventListener('submit', handleSubmit);
+
+  // Request form
+  document.getElementById('request-form').addEventListener('submit', handleRequest);
+
+  // Char counter
+  const defArea = document.getElementById('new-def');
+  const defCount = document.getElementById('def-count');
+  defArea.addEventListener('input', () => {
+    defCount.textContent = `${defArea.value.length} / 500`;
+  });
+}
+
+// ---- SUBMIT FORM ----
+function handleSubmit(e) {
+  e.preventDefault();
+  const word    = document.getElementById('new-word').value.trim();
+  const def     = document.getElementById('new-def').value.trim();
+  const example = document.getElementById('new-example').value.trim();
+  const origin  = document.getElementById('new-origin').value.trim();
+  const cat     = document.getElementById('new-cat').value;
+
+  if (!word || !def) {
+    showToast('submit-toast', '⚠️ At least give us a word and a definition, ser.', 'error');
+    return;
+  }
+
+  if (words.find(w => w.word.toLowerCase() === word.toLowerCase())) {
+    showToast('submit-toast', '🔁 That word already exists in the trenches.', 'error');
+    return;
+  }
+
+  const newEntry = {
+    word,
+    phonetic: '',
+    def,
+    example: example || '',
+    origin: origin || 'Community Submission, 2025',
+    cat,
+    votes: { up: 0, down: 0 }
+  };
+
+  words.unshift(newEntry);
+  document.getElementById('submit-form').reset();
+  document.getElementById('def-count').textContent = '0 / 500';
+
+  // Reset to ALL view to show the new word
+  activeLetter = 'ALL';
+  searchQuery = '';
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-clear').classList.remove('visible');
+  document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.az-btn[data-letter="ALL"]').classList.add('active');
+
+  renderWords();
+  showToast('submit-toast', '✅ Word added to the trenches! It\'s live.', 'success');
+}
+
+// ---- REQUEST FORM ----
+function handleRequest(e) {
+  e.preventDefault();
+  const reqWord = document.getElementById('req-word').value.trim();
+  if (!reqWord) {
+    showToast('request-toast', '⚠️ Tell us what word you want defined, ser.', 'error');
+    return;
+  }
+  const list = document.getElementById('pending-list');
+  const li = document.createElement('li');
+  li.className = 'pending-item';
+  li.innerHTML = `${reqWord} <span class="pending-votes" onclick="upvoteRequest(this)">👍 <span>0</span></span>`;
+  list.appendChild(li);
+  document.getElementById('request-form').reset();
+  showToast('request-toast', '📨 Request logged! The trenches will answer.', 'success');
+}
+
+// ---- UPVOTE REQUEST ----
+function upvoteRequest(el) {
+  if (el.classList.contains('voted')) return;
+  el.classList.add('voted');
+  const counter = el.querySelector('span');
+  counter.textContent = parseInt(counter.textContent) + 1;
+}
+
+// ---- TOAST HELPER ----
+function showToast(id, msg, type) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.className = 'submit-toast' + (type === 'error' ? ' toast-error' : '');
+  setTimeout(() => { el.style.display = 'none'; }, 3500);
+}
