@@ -1194,9 +1194,9 @@ const WORDS = [
   {
     word: "FNF (Friends and Family)",
     phonetic: "/ɛf-ɛn-ɛf/",
-    def: "The absolute cancer of the modern cryptocurrency ecosystem. A secret allocation of tokens given to influencers and insiders right before a project publicly launches. They are handed massive quantities of supply for free (or pennies) with the explicit understanding that they will market-sell them directly onto the heads of their own loyal followers when the hype peaks. The primary reason every highly-anticipated 'fair launch' chart looks like a waterfall within 4 seconds.",
-    example: '"The dev promised no presale, but 40% of the supply was discreetly sent to an FNF group that instantly dumped on the opening tick."',
-    origin: "VC mechanics applied to meme coins",
+    def: "The absolute cancer of the modern cryptocurrency ecosystem. Private and highly exclusive Telegram groups formed by cabals of traders who coordinate to mass-extract liquidity from charts together. They frame their coordinated pumping and dumping as sharing 'alpha,' when in reality they are just using retail traders as exit liquidity. If you aren't in the FNF group, you are the yield.",
+    example: '"The chart was looking incredibly bullish until an FNF TG group collectively market-sold 15% of the supply and nuked the project to zero."',
+    origin: "Telegram Cabal Culture",
     cat: "culture",
     votes: { up: 61500, down: 45 }
   },
