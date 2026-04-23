@@ -70,20 +70,16 @@ body {
 
 .logo-wrap {
   width: 100%;
-  height: clamp(60px, 12vw, 95px);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  overflow: hidden; /* Bulletproof: Prevents visual overlap on the tagline */
 }
 
 .logo-img {
-  height: 100%;
-  width: auto;
-  transform: scale(6.0); /* Scales the massive 1024px transparent bounds up, so the inner graphic perfectly fills the 95px overflow box */
+  width: clamp(240px, 60vw, 420px);
+  height: auto;
   object-fit: contain;
-  pointer-events: none;
 }
 
 .header-tagline {
