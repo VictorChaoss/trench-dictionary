@@ -1136,6 +1136,42 @@ const WORDS = [
     origin: "Twitter Monetization Meta",
     cat: "culture",
     votes: { up: 28400, down: 410 }
+  },
+  {
+    word: "Dogwifhat (WIF)",
+    phonetic: "/dɒɡ·wɪf·hæt/",
+    def: "The community that proved that the path to a multi-billion dollar valuation wasn't through complex utility or 'DeFi roadmaps,' but simply by putting a pink beanie on a cute dog. A shockingly pure, organic community built entirely on good vibes, memes, and an absolute refusal to take anything seriously.",
+    example: '"The dev tried to rug a different coin for $50k, meanwhile the WIF community just kept the hat on and went to $4 Billion. The hat stays on."',
+    origin: "Solana Organic Meta, 2024",
+    cat: "culture",
+    votes: { up: 62000, down: 450 }
+  },
+  {
+    word: "Popcat",
+    phonetic: "/ˈpɒp.kæt/",
+    def: "An anomaly in the trenches: a meme coin community explicitly devoid of toxicity. Based entirely on a cat opening and closing its mouth, POPCAT managed to build a massive global cult following just by being universally cute and unbothered by the PVP chaos happening underneath it.",
+    example: '"While everyone else was getting drained by MEV bots and fighting in Telegram, the Popcat community was just posting videos of cats going POP. True enlightenment."',
+    origin: "Solana Feline Meta, 2024",
+    cat: "culture",
+    votes: { up: 51200, down: 120 }
+  },
+  {
+    word: "GigaChad (GIGA)",
+    phonetic: "/ˈɡɪɡ.ə.tʃæd/",
+    def: "A meme coin that accidentally evolved into a legitimate men's self-improvement cult. The community explicitly replaced toxic trading behavior with hitting the gym, getting sober, and holding the token. A weirdly wholesome corner of crypto where weakness is sold and strength is accumulated.",
+    example: '"I joined the GIGA Telegram to trade a meme coin, but now I\'m deadlifting 400 pounds and I deleted my pump.fun bookmarks."',
+    origin: "Memetic Fitness, 2024-2025",
+    cat: "culture",
+    votes: { up: 44300, down: 310 }
+  },
+  {
+    word: "Mog Coin",
+    phonetic: "/mɒɡ kɔɪn/",
+    def: "A hyper-positive, confidence-fueled cult operating entirely on the concept of 'mogging'—being mathematically and aesthetically superior to your competition. The community wears Pit Viper sunglasses and refuses to sell, operating purely on a frequency of 'higher'.",
+    example: '"I tried to complain about the red market today, but a Mog whale just told me to put my glasses on and sent a picture of a cat with Pit Vipers. I feel much better now."',
+    origin: "Cultural Frequency Meta",
+    cat: "culture",
+    votes: { up: 48900, down: 900 }
   }
 ];
 
