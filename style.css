@@ -87,8 +87,84 @@ body {
   color: var(--muted);
   font-size: 13px;
   letter-spacing: 0.3px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   font-style: italic;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.ca-box {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: all;
+}
+
+.ca-box:hover {
+  border-color: var(--gold);
+  background: var(--bg3);
+  transform: translateY(-1px);
+}
+
+.ca-box:active {
+  transform: scale(0.98);
+}
+
+.ca-label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ca-value {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.ca-box svg {
+  color: var(--muted);
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+.ca-box:hover svg {
+  color: var(--gold);
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: #111;
+  border-color: #333;
+  transform: translateY(-1px);
 }
 
 .header-stats {
