@@ -947,6 +947,15 @@ const WORDS = [
     origin: "DeFi Summer 2020",
     cat: "tech",
     votes: { up: 21400, down: 320 }
+  },
+  {
+    word: "Quant Kid",
+    phonetic: "/kwɒnt kɪd/",
+    def: "The final boss of the pump.fun ecosystem and the ultimate humiliation for the entire crypto industry. A literal middle-schooler who livestreamed himself launching a token called $QUANT, waiting for grown adults to invest over $30,000 into it, and then violently rug-pulling the entire liquidity pool while laughing and flipping off his webcam. He extracted more wealth from professional traders before his 9:00 PM bedtime than most of them will make in a fiscal year.",
+    example: '"I spent three years studying Wyckoff distribution models and Fibonacci retracements just to become exit liquidity for the Quant Kid."',
+    origin: "Solana Livestream Lore, 2024",
+    cat: "person",
+    votes: { up: 42100, down: 800 }
   }
 ];
 
