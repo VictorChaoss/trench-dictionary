@@ -1172,6 +1172,24 @@ const WORDS = [
     origin: "Cultural Frequency Meta",
     cat: "culture",
     votes: { up: 48900, down: 900 }
+  },
+  {
+    word: "CZ (Changpeng Zhao)",
+    phonetic: "/siː ziː/",
+    def: "The universally respected former CEO of Binance who effectively operated as the central bank of crypto until the US government decided they wanted a turn. Stepped down, pled guilty, paid a $4.3 billion fine, did four months in a low-security prison, and walked out a complete legend. The absolute antithesis of Sam Bankman-Fried.",
+    example: '"The market crashed 5% but CZ tweeted \'4\' (ignore FUD) so everyone immediately bought the dip out of sheer respect."',
+    origin: "Binance Lore",
+    cat: "person",
+    votes: { up: 72100, down: 450 }
+  },
+  {
+    word: "Chud",
+    phonetic: "/tʃʌd/",
+    def: "A slang term heavily adopted by the PolitiFi and meme coin trenches. Refers to a hyper-online, politically radicalized internet user who bases their entire financial strategy on meme coins. If your portfolio entirely consists of misspelled MS Paint drawings of 2016 politicians, you are proudly operating in the chud economy.",
+    example: '"The chud meta is going crazy right now. Tremp and MAGA coins are up 400% while my venture-backed utility coins are down 20%."',
+    origin: "PolitiFi / 4Chan culture",
+    cat: "culture",
+    votes: { up: 29400, down: 810 }
   }
 ];
 
