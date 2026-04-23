@@ -69,25 +69,29 @@ body {
 .header-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
 
 .logo-wrap {
-  margin-bottom: 10px;
-  line-height: 0;
+  height: clamp(70px, 10vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
 }
 
-/* Crop transparent padding — the logo occupies roughly middle 40% of the 1024px image */
+/* Blows the image size up significantly so the inner graphic scales up, while layout is restricted by the wrap height */
 .logo-img {
-  width: clamp(180px, 32vw, 320px);
-  height: clamp(62px, 11vw, 110px);
+  width: clamp(750px, 120vw, 900px);
+  max-width: none;
   object-fit: contain;
-  object-position: center 30%;
-  display: block;
-  margin: 0 auto;
+  object-position: center;
 }
 
 .header-tagline {
   color: var(--muted);
-  font-size: 13px;
+  font-size: clamp(12px, 3vw, 14px);
   letter-spacing: 0.3px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
+  max-width: 90%;
+  line-height: 1.4;
+
   font-style: italic;
 }
 
