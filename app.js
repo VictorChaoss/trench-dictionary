@@ -1244,6 +1244,24 @@ const WORDS = [
     origin: "On-Chain Forensics",
     cat: "tech",
     votes: { up: 28400, down: 85 }
+  },
+  {
+    word: "Mayhem Mode",
+    phonetic: "/ˈmeɪ.hɛm moʊd/",
+    def: "An experimental pump.fun feature where a token deployer unleashes automated AI 'Mayhem Bots' designed to randomly buy and sell to simulate extreme chart activity. In reality, it operates as a sophisticated trap that brutally liquidates early human buyers through erratic, high-speed automated dumping. You aren't just trading against players; you are trading against the casino's algorithm.",
+    example: '"The dev enabled Mayhem Mode and a bot instantly market-sold 20% of the supply on my head. I got rugged by the platform itself."',
+    origin: "Pump.fun Mechanics",
+    cat: "tech",
+    votes: { up: 18200, down: 450 }
+  },
+  {
+    word: "Mass Deployer",
+    phonetic: "/mæs dɪˈplɔɪ.ər/",
+    def: "A developer strategy operating on pure shotgun mathematics. When a dev uses a script to sequentially launch 50 identical meme coins on pump.fun, completely spamming the \"Recently Created\" tab. They instantly rug 49 of them and solely focus on whichever single token accidentally caught retail volume. The spam folder of decentralized finance.",
+    example: '"I thought I was early to a great ticker, but then I realized the dev was a mass deployer who just launched 85 coins named \'PepeWifHat\' in the last ten minutes."',
+    origin: "Pump.fun Grift Architecture",
+    cat: "tech",
+    votes: { up: 24100, down: 320 }
   }
 ];
 
