@@ -69,19 +69,21 @@ body {
 .header-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
 
 .logo-wrap {
-  height: clamp(65px, 12vw, 90px);
+  width: 100%;
+  height: clamp(60px, 12vw, 95px);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
+  overflow: hidden; /* Bulletproof: Prevents visual overlap on the tagline */
 }
 
 .logo-img {
-  width: clamp(450px, 75vw, 650px);
-  height: auto;
-  max-width: none;
+  height: 100%;
+  width: auto;
+  transform: scale(6.0); /* Scales the massive 1024px transparent bounds up, so the inner graphic perfectly fills the 95px overflow box */
   object-fit: contain;
-  pointer-events: none; /* Prevents the large transparent padding from blocking interaction */
+  pointer-events: none;
 }
 
 .header-tagline {
