@@ -722,6 +722,69 @@ const WORDS = [
     origin: "Crypto YouTube",
     cat: "person",
     votes: { up: 14200, down: 390 }
+  },
+  {
+    word: "ZachXBT",
+    phonetic: "/zæk-ɛks-biː-tiː/",
+    def: "The grim reaper of Crypto Twitter. An anonymous on-chain detective who operates with the cold, mechanical precision of a bloodhound. When ZachXBT quotes your tweet with an incredibly detailed spreadsheet mapping your secret wallets to a previously rugged scam, your crypto career is immediately and permanently over. He is the only entity influencers fear more than the SEC.",
+    example: '"Bro launched a new meme coin but ZachXBT just dropped a 14-part thread exposing his old rugs. Pack it up."',
+    origin: "Crypto Twitter justice",
+    cat: "person",
+    votes: { up: 28400, down: 12 }
+  },
+  {
+    word: "LA Vape Cabal",
+    phonetic: "/ɛl-eɪ veɪp kəˈbɑːl/",
+    def: "A hyper-specific ecosystem of Los Angeles-based crypto streamers and influencers who treat the Solana blockchain like their personal piggy bank. Characterised by podcast mics, disposable vapes, and launching insider-traded meme coins to their audiences. Whenever this group 'organically' rallies around a new ticker, just assume the pre-sale wallets are already queuing market sell orders.",
+    example: '"The LA Vape Cabal is shilling it on stream right now. I give it 45 minutes before the catastrophic dump."',
+    origin: "Solana influencer meta, 2024-2025",
+    cat: "culture",
+    votes: { up: 17300, down: 410 }
+  },
+  {
+    word: "Frank DeGods",
+    phonetic: "/fræŋk diː-ɡɒdz/",
+    def: "A walking masterclass in weaponized hype. Created some of the biggest NFT projects on Solana, bridged them to Ethereum, bridged them back, launched a token, and managed to polarize the entire timeline twice a week. He operates on the philosophy that any attention, whether it's absolute adoration or pure venom, is liquidity. Deeply embedded in the LA Vape Cabal ecosystem.",
+    example: '"Frank just tweeted an upside-down picture of a shoe. The community thinks it\'s a bullish signal for the token. Mass delusion."',
+    origin: "Solana NFT ecosystem",
+    cat: "person",
+    votes: { up: 15100, down: 980 }
+  },
+  {
+    word: "FaZe Banks",
+    phonetic: "/feɪz bæŋks/",
+    def: "A pioneer in the art of deploying gaming audiences as exit liquidity. While his organization was busy promoting 'Save The Kids', he was perfecting the influencer pump-and-dump. He treats crypto the same way he treats highly stylized YouTube drama: loud, heavily monetized, and leaving a trail of furious teenagers in the dust.",
+    example: '"FaZe Banks is hyping up a new Solana coin. Someone lock the kids away from their parents\' credit cards."',
+    origin: "Esports → Crypto Pipeline",
+    cat: "person",
+    votes: { up: 18900, down: 230 }
+  },
+  {
+    word: "Cryptolyxe",
+    phonetic: "/ˈkrɪp.toʊ lɪks/",
+    def: "An on-chain sniper and auditor known for flagging absolute garbage before it ruins the timeline. If an influencer launches a coin and Cryptolyxe highlights the contract, it means there is a 99% chance the dev wallet is currently configured to drain the entire liquidity pool in exactly four minutes. A beacon of warning in a sea of rugs.",
+    example: '"I was about to ape, but Cryptolyxe showed they can pause trading anytime. Dodged a bullet."',
+    origin: "CT contract auditors",
+    cat: "person",
+    votes: { up: 14200, down: 88 }
+  },
+  {
+    word: "Ethan Prosper",
+    phonetic: "/ˈiː.θən ˈprɒs.pər/",
+    def: "A prominent Solana influencer and member of 'SOLMAFIA'. Provides trading tutorials and on-chain analysis to navigate the meme coin trenches. However, in the hyper-paranoid PVP environment of crypto, any prominent figure offering 'education' is simultaneously viewed by the broader timeline as simply training the next generation of exit liquidity for their own bags.",
+    example: '"Ethan Prosper just dropped a thread on how to trade this narrative. That means the narrative is already topping out."',
+    origin: "Solana trading influencers",
+    cat: "person",
+    votes: { up: 11900, down: 340 }
+  },
+  {
+    word: "Scharo",
+    phonetic: "/ˈʃɑːr.oʊ/",
+    def: "Extremely active CT personality deeply embedded in the Web3/NFT/Meme coin crossfire. Known for intense posting schedules and having a meme coin ticker literally named after them. Represents the modern meta where an influencer's primary utility is eventually just becoming a tradable asset themselves.",
+    example: '"We aren\'t even trading coins anymore, we\'re just trading influencer proxy tokens like Scharo. The market is fully broken."',
+    origin: "Crypto Twitter meta",
+    cat: "person",
+    votes: { up: 10400, down: 280 }
   }
 ];
 
