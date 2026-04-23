@@ -1082,6 +1082,42 @@ const WORDS = [
     origin: "Ethereum/Solana Mempool",
     cat: "tech",
     votes: { up: 28100, down: 410 }
+  },
+  {
+    word: "Honeypot",
+    phonetic: "/ˈhʌn.i.pɒt/",
+    def: "A smart contract meticulously designed as a digital roach motel: anyone can buy the token, but absolutely nobody except the developer has permission to sell it. The chart looks like the greatest financial asset of all time because the price literally only goes up—until you realize you are trapped inside an algorithmic prison.",
+    example: '"I bought a token that was up 10,000% within five minutes. Found out it was a honeypot when I tried to sell and the transaction failed 40 times in a row."',
+    origin: "Smart Contract Exploits",
+    cat: "tech",
+    votes: { up: 21900, down: 120 }
+  },
+  {
+    word: "Wallet Drainer",
+    phonetic: "/ˈwɒl.ɪt ˈdreɪ.nər/",
+    def: "A malicious script quietly embedded into fake 'Airdrop Claim' or 'NFT Mint' websites. The exact millisecond you click 'Approve Transaction' on your wallet, the script bypasses all security and violently vacuums every single token and NFT you own into a hacker's wallet. The digital equivalent of stepping on a landmine.",
+    example: '"I clicked a link in the Discord announcements channel to claim my free tokens. A wallet drainer took my entire net worth in 0.4 seconds."',
+    origin: "Phishing Scams",
+    cat: "tech",
+    votes: { up: 24500, down: 410 }
+  },
+  {
+    word: "Front-Running",
+    phonetic: "/frʌnt ˈrʌn.ɪŋ/",
+    def: "The systemic foundation for MEV bots. When a validator or bot sees your pending multi-thousand dollar buy transaction sitting in the public mempool, and purposefully manipulates the blockchain sequence to process their identical buy order immediately before yours. You do the research, they take the profit.",
+    example: '"I tried to market-buy a massive dip but I got aggressively front-run. I ended up buying the local top from the bot that cut in line."',
+    origin: "On-Chain Mechanics",
+    cat: "tech",
+    votes: { up: 18200, down: 520 }
+  },
+  {
+    word: "Dusting",
+    phonetic: "/ˈdʌs.tɪŋ/",
+    def: "A psychological attack vector where hackers send microscopic amounts of obscure tokens or NFTs (dust) to thousands of random wallets. The moment a curious user attempts to sell or interact with the mysterious free tokens, a hidden contract executes and compromises their entire wallet architecture.",
+    example: '"Woke up to 5,000 random ElonMuskInu tokens in my Phantom wallet. If I touch that dusting attack, it\'s game over for my Solana."',
+    origin: "Wallet Security Vulnerabilities",
+    cat: "tech",
+    votes: { up: 15400, down: 230 }
   }
 ];
 
