@@ -1118,6 +1118,24 @@ const WORDS = [
     origin: "Wallet Security Vulnerabilities",
     cat: "tech",
     votes: { up: 15400, down: 230 }
+  },
+  {
+    word: "Grifter",
+    phonetic: "/ˈɡrɪf.tər/",
+    def: "The foundational bedrock of the entire cryptocurrency ecosystem. A charismatic sociopath who uses complex Web3 buzzwords to mask the fact they are simply running an unregulated securities fraud. Often found hosting Twitter Spaces, selling 'Masterminds,' or pivoting to AI as soon as the crypto liquidity dries up. If they say they are 'building for the community,' legally assume they are stealing from you.",
+    example: '"The classic grifter pivot: he rugged his NFT project, went dark for six months, and just came back launching an AI utility token."',
+    origin: "The Human Condition",
+    cat: "person",
+    votes: { up: 45200, down: 890 }
+  },
+  {
+    word: "Engagement Farmer",
+    phonetic: "/ɪnˈɡeɪdʒ.mənt ˈfɑː.mər/",
+    def: "A timeline parasite operating entirely to extract Twitter monetization payouts. Will post 'What is the best crypto to buy right now?' or 'Send me your wallet address' 18 times a day without ever actually trading a single token. They dilute the timeline with meaningless garbage to farm decimal-penny payouts from Elon Musk.",
+    example: '"Don\'t bother giving him actual technical analysis, he\'s just an engagement farmer trying to hit his impression quota for the month."',
+    origin: "Twitter Monetization Meta",
+    cat: "culture",
+    votes: { up: 28400, down: 410 }
   }
 ];
 
