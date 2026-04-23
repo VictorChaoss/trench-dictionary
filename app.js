@@ -1028,6 +1028,51 @@ const WORDS = [
     origin: "PolitiFi Euphoria, 2024",
     cat: "culture",
     votes: { up: 38400, down: 2100 }
+  },
+  {
+    word: "Jeo Boden",
+    phonetic: "/dʒiːoʊ ˈboʊ.dən/",
+    def: "The token that proved functional, highly-liquid financial markets do not require functional spelling. A brief, psychotic period in early 2024 where billions of dollars of trading volume was driven entirely by whether or not developers could creatively misspell the names of global political leaders in MS Paint.",
+    example: '"The market is so chopped right now, I moved my entire 401k into Jeo Boden because the drawing looked funny."',
+    origin: "PolitiFi Spoderman Meta, 2024",
+    cat: "culture",
+    votes: { up: 41200, down: 520 }
+  },
+  {
+    word: "Slow Rug",
+    phonetic: "/sloʊ rʌɡ/",
+    def: "The excruciating process where the core team doesn't pull the liquidity all at once, but rather slowly bleeds the chart out over six months while continually posting 'huge updates coming soon' in the Discord. A financial hostage situation painted as a long-term investment.",
+    example: '"They just delayed the staking dApp for the fifth month in a row while the dev wallet sells 1% a day. It\'s a slow rug."',
+    origin: "NFT and Altcoin roadmaps",
+    cat: "tech",
+    votes: { up: 22100, down: 110 }
+  },
+  {
+    word: "I know the dev",
+    phonetic: "/aɪ noʊ ðə dɛv/",
+    def: "The most dangerous five words you can ever read in a Telegram chat. Scientifically proven to result in a 99% portfolio loss within the next four hours. The person claiming they 'know the dev' is almost certainly the dev's burner account hyping up the chat right before they drain the pool.",
+    example: '"Aped my whole stack. Guy in the voice chat said I know the dev and he is based. (The dev is currently wiring the funds to an offshore exchange)."',
+    origin: "Telegram Grift Culture",
+    cat: "culture",
+    votes: { up: 31000, down: 45 }
+  },
+  {
+    word: "Slippage",
+    phonetic: "/ˈslɪp.ɪdʒ/",
+    def: "The extra 20% to 50% invisible tax you aggressively agree to pay the network just so your trade actually clears during a panic sell. The digital financial equivalent of desperately throwing wads of cash out the window of a crashing car.",
+    example: '"Chart was nuking so bad I had to set my slippage to 40%. I market-sold $1000 worth of tokens and received $12."',
+    origin: "DEX mechanics",
+    cat: "tech",
+    votes: { up: 18400, down: 210 }
+  },
+  {
+    word: "Sniper Bot",
+    phonetic: "/ˈsnaɪ.pər bɒt/",
+    def: "An automated script that buys a coin in the exact same blockchain block that liquidity is originally added. The primary reason you buy a newly launched token and immediately see you are already down 60%. The true apex predator of the Solana ecosystem.",
+    example: '"I clicked buy the absolute split-second the token launched, but a sniper bot had already bought half the supply and dumped it on my head before my screen even refreshed."',
+    origin: "On-chain PVP",
+    cat: "tech",
+    votes: { up: 19600, down: 320 }
   }
 ];
 
