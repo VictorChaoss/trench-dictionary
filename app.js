@@ -911,6 +911,42 @@ const WORDS = [
     origin: "Fintwit → Crypto Pipeline",
     cat: "person",
     votes: { up: 22400, down: 85 }
+  },
+  {
+    word: "Quant",
+    phonetic: "/kwɒnt/",
+    def: "A highly sophisticated algorithmic trader who writes complex Python scripts and utilizes machine learning models to analyze market inefficiencies, only to get completely destroyed and front-run by a 14-year-old on pump.fun using a free Telegram bot. Proof that a Ph.D. in Mathematics is useless against raw, weaponized autism.",
+    example: '"The quant firm deployed a $50M market-making strategy on Solana and got drained by a deployer named \'skibidi_toilet\'. Absolute poetry."',
+    origin: "Traditional Finance vs Crypto",
+    cat: "person",
+    votes: { up: 18400, down: 210 }
+  },
+  {
+    word: "Utility",
+    phonetic: "/juːˈtɪl.ɪ.ti/",
+    def: "The biggest and most persistent lie in all of crypto. The delusional belief that your badly drawn dog coin will eventually be used to purchase real-world goods and services, or power a 'decentralized AI cloud computing ecosystem.' In reality, 'Utility' is just a buzzword developers use to stall for time while they slowly sell their unlocked tokens into the liquidity pool.",
+    example: '"Bro, don\'t sell yet, the dev said the staking utility drops next week. (The dev is currently pricing Lamborghinis)."',
+    origin: "Crypto fundamentals meta",
+    cat: "culture",
+    votes: { up: 26500, down: 450 }
+  },
+  {
+    word: "X (formerly Twitter)",
+    phonetic: "/ɛks/",
+    def: "The digital psychiatric ward where all global financial decisions are made. A scrolling feed of pure, weaponized FOMO, fake PNL screenshots, deeply unhinged conspiracy theories, and influencers coordinating their next massive exit liquidity event. If you are getting your trading alpha from X, you are already the yield.",
+    example: '"I spent 14 hours on X today reading threads about how a cat with a hat represents the singularity. My brain is fully fried."',
+    origin: "The main arena",
+    cat: "culture",
+    votes: { up: 32100, down: 180 }
+  },
+  {
+    word: "Yield Farming",
+    phonetic: "/jiːld ˈfɑː.mɪŋ/",
+    def: "The convoluted, highly stressful process of staking one completely worthless governance token to earn 10,000% APY of a second, even more worthless governance token. Essentially, a digital Ponzi scheme disguised as sophisticated decentralized finance, inevitably ending when the platform gets 'hacked' by its own creator.",
+    example: '"I was yield farming on an obscure DeFi protocol and making $500 a day in emissions, then the dev drained the pool and I lost $40,000."',
+    origin: "DeFi Summer 2020",
+    cat: "tech",
+    votes: { up: 21400, down: 320 }
   }
 ];
 
