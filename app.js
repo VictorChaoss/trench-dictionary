@@ -1208,6 +1208,42 @@ const WORDS = [
     origin: "Crypto folklore",
     cat: "culture",
     votes: { up: 95400, down: 120 }
+  },
+  {
+    word: "Cabal",
+    phonetic: "/kəˈbæl/",
+    def: "A ubiquitous term used to describe the shadowy inner-circle of whales, influencers, and developers who coordinate to control the price action of a token. Often invoked by traders when a chart inexplicably reverses on them. Is the Cabal a legitimate threat manipulating the market, or just a psychological coping mechanism for making a terrible trade? Both.",
+    example: '"I was up 300% but I refused to sell because the Cabal was supposedly pushing it to a billion. Then they dumped the entire supply on my head in one candle."',
+    origin: "Timeline Paranoia Lore",
+    cat: "culture",
+    votes: { up: 51200, down: 480 }
+  },
+  {
+    word: "CTO (Community Takeover)",
+    phonetic: "/siː-tiː-oʊ/",
+    def: "The final, desperate stage of meme coin grief. Occurs immediately after the original developer violently rug-pulls the liquidity pool and deletes all their social media accounts. The traumatized bag-holders band together in a new Telegram group, pooling their last remaining fractions of a Solana to 'take over' the project. It rarely works financially, but provides extreme psychological closure.",
+    example: '"The dev just dumped 15% and nuked the chart. Someone start a CTO Telegram immediately, we can push this back to $1M."',
+    origin: "Pump.fun Mechanics",
+    cat: "culture",
+    votes: { up: 42100, down: 210 }
+  },
+  {
+    word: "KOL Round",
+    phonetic: "/keɪ-oʊ-ɛl raʊnd/",
+    def: "Key Opinion Leader Round. A private, highly exclusive funding phase where Twitter influencers are allowed to purchase tokens at an 80% to 90% discount compared to the public launch price. The financial equivalent of giving your favorite content creator a license to print their own money by using you as organic exit liquidity.",
+    example: '"They announced a massive KOL round before the token launch. Don\'t even bother buying, the timeline is just going to farm you for yield."',
+    origin: "Crypto VC Meta",
+    cat: "tech",
+    votes: { up: 31200, down: 110 }
+  },
+  {
+    word: "Bubble Maps",
+    phonetic: "/ˈbʌ.bəl mæps/",
+    def: "The forensic reality check of the trenches. An on-chain analysis tool that visually connects wallets based on their transactional history. Extremely effective at proving that the 'massive, organic, decentralized community' of a new token actually consists of three guys holding 40% of the supply across 75 interconnected burner wallets.",
+    example: '"The Telegram chat was hype, but I checked Bubble Maps and noticed that the top 20 holders all received their funding from the exact same KuCoin deposit. Cabal confirmed. Hard pass."',
+    origin: "On-Chain Forensics",
+    cat: "tech",
+    votes: { up: 28400, down: 85 }
   }
 ];
 
