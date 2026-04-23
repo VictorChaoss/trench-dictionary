@@ -983,6 +983,51 @@ const WORDS = [
     origin: "Bear Market Psychology",
     cat: "culture",
     votes: { up: 28900, down: 455 }
+  },
+  {
+    word: "Bonding Curve",
+    phonetic: "/ˈbɒn.dɪŋ kɜːv/",
+    def: "The mathematical algorithm on pump.fun that guarantees you are exit liquidity before the token even hits Raydium. A curve designed entirely to visually simulate momentum while mathematically transferring wealth from retail buyers directly to the deployer and their 50 sniper wallets.",
+    example: '"The bonding curve is at 98%, everyone push! (The dev is currently pressing the sell all button)."',
+    origin: "pump.fun mechanics, 2024",
+    cat: "tech",
+    votes: { up: 21300, down: 410 }
+  },
+  {
+    word: "King of the Hill",
+    phonetic: "/kɪŋ əv ðə hɪl/",
+    def: "A sociological experiment on pump.fun where the community must push a token's market cap high enough to break the curve, but instead invariably spends three hours PVP-ing each other at 90% progress until the dev abandons the project and starts a new one. A daily demonstration of the crab bucket mentality.",
+    example: '"We were King of the Hill for 40 seconds before the 2nd biggest holder dumped 8% and killed the chart."',
+    origin: "Token launch meta, 2024-2025",
+    cat: "culture",
+    votes: { up: 18400, down: 320 }
+  },
+  {
+    word: "Livestream Rug",
+    phonetic: "/ˈlaɪv.striːm rʌɡ/",
+    def: "The 2025 evolution of theft where developers realized they didn't just have to steal your money; they could stream themselves doing it for content. The uniquely traumatic act of watching a teenager physically laugh at you while draining the liquidity pool you just bought into.",
+    example: '"He did a livestream rug, flipped off the camera, and then his dad walked in and yelled at him. Generational content."',
+    origin: "pump.fun Livestream lore, 2025",
+    cat: "culture",
+    votes: { up: 32100, down: 890 }
+  },
+  {
+    word: "Melania Token",
+    phonetic: "/məˈlɑː.ni.ə ˈtoʊ.kən/",
+    def: "A case study in forced market participation and catastrophic greed. The absolute grift of attempting to farm the PolitiFi meta with poorly coordinated tokenomics and obvious team dumping. Proof that political brands are not above explicitly pivoting into low-cap meme coin scams to extract money from their most loyal-yet-gullible supporters.",
+    example: '"Bro bought the Melania token at $40M market cap. The team drained the pool and now he\'s voting third party."',
+    origin: "PolitiFi Meta, 2024-2025",
+    cat: "culture",
+    votes: { up: 29500, down: 1200 }
+  },
+  {
+    word: "Trump Token",
+    phonetic: "/trʌmp ˈtoʊ.kən/",
+    def: "The purest distillation of timeline Euphoria. A cultural and financial singularity that absorbed so much retail volume it essentially broke the market. Love him or hate him, when the ticker ran, the entire chart turned into an unstoppable liquidity vacuum that minted 2024 millionaires overnight. The ultimate embodiment of 'ignore the fundamentals, trade the noise.'",
+    example: '"The Trump token hit absolute euphoria phase today. If you faded it because of your geopolitical views, have fun staying poor."',
+    origin: "PolitiFi Euphoria, 2024",
+    cat: "culture",
+    votes: { up: 38400, down: 2100 }
   }
 ];
 
