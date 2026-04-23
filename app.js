@@ -659,6 +659,24 @@ const WORDS = [
     origin: "Solana trading tools",
     cat: "tech",
     votes: { up: 12900, down: 180 }
+  },
+  {
+    word: "Cented",
+    phonetic: "/ˈsɛn.tɪd/",
+    def: "A former Fortnite professional who realized there is significantly more money in dumping on teenagers in the Solana trenches than winning gaming tournaments. He pivoted from cranking 90s directly into cranking pumps and dumps. His trading strategy consists entirely of entering a low-cap coin, waiting for his massive following of underage copy-traders to artificially pump his bags, and then market selling down to zero without hesitation. The transition from eSports athlete to professional grifter was seamless.",
+    example: '"Cented just bought a new wallet. Watch him nuke the chart the second his followers ape in."',
+    origin: "Fortnite → Solana Grift Pipeline",
+    cat: "person",
+    votes: { up: 16500, down: 420 }
+  },
+  {
+    word: "Cupsey",
+    phonetic: "/ˈkʌp.si/",
+    def: "Another branch of the Fortnite-to-fraud pipeline. Moves fast, types fast, and rugs even faster. Teams up with other washed-up gamers to form highly toxic trench cabals that treat the Solana blockchain like a private ATM funded entirely by their fans' lunch money. If you are copy-trading Cupsey, you are not trading — you are actively financing his luxury lifestyle one brutal slippage error at a time.",
+    example: '"Cupsey called it a high-conviction play while simultaneously dumping 10% of the supply. A classic esports maneuver."',
+    origin: "Fortnite culture → Crypto trenches",
+    cat: "person",
+    votes: { up: 15300, down: 380 }
   }
 ];
 
