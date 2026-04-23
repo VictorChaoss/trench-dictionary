@@ -605,6 +605,60 @@ const WORDS = [
     origin: "Solana/BSC trenches",
     cat: "culture",
     votes: { up: 17200, down: 62 }
+  },
+  {
+    word: "Raydium",
+    phonetic: "/ˈreɪ.di.əm/",
+    def: "The Solana decentralized exchange that actively hates you. Raydium will process your FOMO market-buy instantly at the absolute top of the candle, but the exact second the chart begins to nuke and you desperately try to sell, it will fail your transaction 18 times in a row with 'custom program error.' By the time the swap finally clears, your $500 is worth $3.20.",
+    example: '"Chart dumping, trying to sell, but Raydium gave me a slippage error six times. Bag is now dust."',
+    origin: "Solana DeFi ecosystem",
+    cat: "tech",
+    votes: { up: 18500, down: 420 }
+  },
+  {
+    word: "Phantom",
+    phonetic: "/ˈfæn.təm/",
+    def: "A highly polished, aesthetically pleasing wallet extension that exists primarily to hold 0.02 SOL dust and a museum of 400 rugged meme coins you can't bring yourself to hide. Notorious for magically lagging, spinning, or going down for 'node maintenance' the exact critical minute you need to snipe a launch or escape a dump.",
+    example: '"Button is greyed out. Phantom is lagging and the token is up 400%. My life is a tragedy."',
+    origin: "Solana ecosystem",
+    cat: "tech",
+    votes: { up: 14200, down: 210 }
+  },
+  {
+    word: "DexScreener",
+    phonetic: "/dɛks ˈskriː.nər/",
+    def: "The blinking lights of the trench casino. A website that has caused more clinical depression than actual chemical imbalances. Staring at the 1-second candles on DexScreener at 4:30 AM while listening to lo-fi beats is the closest a modern human can get to being completely lobotomized. The UI of financial ruin.",
+    example: '"I haven\'t blinked in 45 minutes. The DexScreener sounds are playing in my head when I try to sleep."',
+    origin: "Crypto trading tooling",
+    cat: "culture",
+    votes: { up: 19600, down: 85 }
+  },
+  {
+    word: "Alpha Group",
+    phonetic: "/ˈæl.fə ɡruːp/",
+    def: "A $150-a-month Discord subscription where a 19-year-old feeds you the exact same trades he is actively front-running you on. Paid alpha groups are the ultimate scam: you pay a monthly fee for the privilege of being someone else's organized exit liquidity.",
+    example: '"Joined the premium tier Alpha Group. They called a token, I bought it, then the admin dumped 5% of the supply on my head."',
+    origin: "Crypto Twitter grifting culture",
+    cat: "culture",
+    votes: { up: 16100, down: 300 }
+  },
+  {
+    word: "Jito Tip",
+    phonetic: "/ˈdʒiː.toʊ tɪp/",
+    def: "The mafia protection money you are forced to pay the Solana validators just to get a transaction through when the network is congested. If you don't pay the Jito bribe, your transaction doesn't exist. If you do pay the Jito bribe, you just get front-run and sandwiched by an MEV bot anyway. Lose-lose.",
+    example: '"Set my Jito tip to 0.1 SOL just to sell this shitcoin and it still failed. I am paying for my own execution."',
+    origin: "Solana infrastructure",
+    cat: "tech",
+    votes: { up: 11200, down: 115 }
+  },
+  {
+    word: "Rugcheck",
+    phonetic: "/rʌɡ tʃɛk/",
+    def: "An automated scanning platform that gives you a false sense of security by telling you a token is 'Good' and 'Safe' exactly 30 seconds before the dev uses a hidden bypass function to mint 5 billion extra tokens and drain the entire pool. A comforting lie for degens who think they can outsmart a 14-year-old sociopath with a laptop.",
+    example: '"Rugcheck said it was 100% safe. Mint revoked. Liquid locked. Still went to zero. Trust nothing."',
+    origin: "Solana trading tools",
+    cat: "tech",
+    votes: { up: 12900, down: 180 }
   }
 ];
 
