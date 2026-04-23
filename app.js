@@ -906,8 +906,8 @@ const WORDS = [
   {
     word: "Zack Morris",
     phonetic: "/zæk ˈmɒr.ɪs/",
-    def: "A battle-tested legendary trader who did the impossible: went head-to-head with the SEC in court over market manipulation charges, beat them, and walked free. However, the ultimate final boss was not the US government—it was the Solana trenches. Shortly after beating the feds, he notoriously got out-PVP'd and farmed as exit liquidity by YouTuber vitalyxyz on a meme coin near a $120M market cap. Absolute, undeniable proof that the SEC is light work compared to a 2024 crypto grifter cabal.",
-    example: '"Zack Morris literally beat the SEC in federal court just to become exit liquidity for a YouTuber\'s scam coin. The timeline is completely undefeated."',
+    def: "A battle-tested legendary trader who did the impossible: went head-to-head with the SEC in court over market manipulation charges, beat them, and walked free. However, the ultimate final boss was not the US government—it was the Solana trenches. Shortly after beating the feds, he notoriously got out-PVP'd and farmed as exit liquidity by KOL vitalyxyz on a meme coin near a $120M market cap. Absolute, undeniable proof that the SEC is light work compared to a 2024 crypto grifter cabal.",
+    example: '"Zack Morris literally beat the SEC in federal court just to become exit liquidity for a KOL\'s scam coin. The timeline is completely undefeated."',
     origin: "Fintwit → Crypto Pipeline",
     cat: "person",
     votes: { up: 22400, down: 85 }
