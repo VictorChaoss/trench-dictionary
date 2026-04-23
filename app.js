@@ -785,6 +785,114 @@ const WORDS = [
     origin: "Crypto Twitter meta",
     cat: "person",
     votes: { up: 10400, down: 280 }
+  },
+  {
+    word: "Rektober",
+    phonetic: "/rɛkˈtoʊ.bər/",
+    def: "The historically cursed month of October where entire portfolios are routinely dragged behind a shed and put out of their misery. Despite historical data suggesting Q4 is bullish, Rektober exists specifically to violently shake out max-leverage degens right before the actual run begins.",
+    example: '"Surviving Rektober is the hardest part. My bag went down 80% just because it got slightly cold outside."',
+    origin: "Crypto cyclical lore",
+    cat: "culture",
+    votes: { up: 16100, down: 45 }
+  },
+  {
+    word: "Beaver",
+    phonetic: "/ˈbiː.vər/",
+    def: "A CT persona known for orchestrating hyper-niche pump and dumps while maintaining the aesthetic of a friendly woodland creature. Classic example of the 'cute animal avatar = absolute sociopath' rule on Crypto Twitter.",
+    example: '"Got completely destroyed by the Beaver token launch. Never trusting an animal pfp again."',
+    origin: "Crypto Twitter persona",
+    cat: "person",
+    votes: { up: 11200, down: 320 }
+  },
+  {
+    word: "Mitch (idrawline)",
+    phonetic: "/mɪtʃ/",
+    def: "A technical analysis account that literally just draws lines on charts to justify pure, unadulterated gambling. Proving that if you draw a triangle big enough, you can convince a thousand degens to buy the absolute top of a dead token.",
+    example: '"Mitch drew a massive cup and handle on a 1-minute chart so obviously I leveraged my house on it."',
+    origin: "CT Charting Lore",
+    cat: "person",
+    votes: { up: 14500, down: 180 }
+  },
+  {
+    word: "Mr Frog",
+    phonetic: "/ˈmɪs.tər frɒɡ/",
+    def: "An unhinged, Pepe-adjacent entity often used as a visual representation of the psychological damage sustained from trading Solana meme coins 18 hours a day. Represents the total collapse of rational thought.",
+    example: '"The dev dumped again. Posting Mr Frog memes until the pain stops."',
+    origin: "Trench meme culture",
+    cat: "culture",
+    votes: { up: 18900, down: 22 }
+  },
+  {
+    word: "Trenchhouse",
+    phonetic: "/ˈtrɛntʃ.haʊs/",
+    def: "A physical location (usually a disgusting Airbnb) where 4-6 degens lock themselves in a room with Monster energy drinks, Adderall, and multiple monitors to trade a specific meta. It usually ends with everyone losing money, not showering for a week, and secretly hating each other.",
+    example: '"The boys got a trenchhouse for the weekend. We are either coming out millionaires or fighting in the driveway."',
+    origin: "Degen IRL culture",
+    cat: "culture",
+    votes: { up: 15400, down: 310 }
+  },
+  {
+    word: "DV",
+    phonetic: "/diː-viː/",
+    def: "Dev Wallet. The single most terrifying wallet on the blockchain. The moment the 'DV' starts moving tokens to Raydium, the chat instantly devolves into pure panic and chaos. When the DV sells, it's over.",
+    example: '"The DV just transferred 20% of the supply to a new wallet. We are about to get nuked from orbit."',
+    origin: "On-chain scanning",
+    cat: "tech",
+    votes: { up: 19800, down: 45 }
+  },
+  {
+    word: "Lexapro",
+    phonetic: "/ˈlɛk.sə.proʊ/",
+    def: "The unofficial sponsor of the Solana trading ecosystem. A required daily medication for anyone trying to manage the extreme chemical imbalances caused by watching a token go from $1M to $0 in five seconds.",
+    example: '"Chart dumping, dev rugged, popping a Lexapro and going back to sleep."',
+    origin: "Degen mental health",
+    cat: "culture",
+    votes: { up: 21200, down: 150 }
+  },
+  {
+    word: "MLG",
+    phonetic: "/ɛm-ɛl-dʒiː/",
+    def: "Major League Gaming. The ancestral origin point for half the current crypto grifters. Back in 2013 they were yelling over Call of Duty matches; now they are yelling over pump.fun charts. The aggression is exactly the same, but the financial ruin is real.",
+    example: '"He brought that 2012 MLG energy to the spaces just to hype up a dog coin."',
+    origin: "Gaming history",
+    cat: "culture",
+    votes: { up: 13400, down: 88 }
+  },
+  {
+    word: "Bonk",
+    phonetic: "/bɒŋk/",
+    def: "The Solana dog coin that paradoxically saved the entire ecosystem from total death during the depths of the bear market. A complete joke that accidentally mutated into a multi-billion dollar financial pillar, proving crypto makes absolutely zero sense.",
+    example: '"I faded Bonk at $10M because it was a stupid dog coin. It is now a multi-billion dollar asset. I am stupid."',
+    origin: "Solana ecosystem, 2022",
+    cat: "trading",
+    votes: { up: 24500, down: 120 }
+  },
+  {
+    word: "Gake",
+    phonetic: "/ɡeɪk/",
+    def: "Meme mispronunciation of 'Fake'. Used to immediately shut down LARPers posting fake PNL screenshots or doctored wallet balances in Telegram chats.",
+    example: '"Bro posted a $1M wallet screenshot but the font was literally Comic Sans. Absolutely gake."',
+    origin: "Crypto Telegram culture",
+    cat: "culture",
+    votes: { up: 10200, down: 400 }
+  },
+  {
+    word: "Letterbomb",
+    phonetic: "/ˈlɛt.ər.bɒm/",
+    def: "When a dev or 'team' drops a massive, devastating medium article or Google Doc explaining why they are shutting down the project or delaying utility for 2 years, intentionally dropping it at 3 AM to avoid immediate backlash while simultaneously dumping their bags.",
+    example: '"They dropped the letterbomb at 3 AM. By the time America woke up, the liquidity was completely drained."',
+    origin: "Project failure meta",
+    cat: "culture",
+    votes: { up: 12800, down: 85 }
+  },
+  {
+    word: "Lynk",
+    phonetic: "/lɪŋk/",
+    def: "An influencer who is physically incapable of not attaching an affiliate link or referral code to every single sentence they type on the internet. Their entire existence revolves around farming literal pennies from their timeline.",
+    example: '"He posted a deeply emotional thread about mental health and put a Bybit referral Lynk at the bottom. Shameless."',
+    origin: "Crypto Twitter affiliate meta",
+    cat: "person",
+    votes: { up: 11500, down: 210 }
   }
 ];
 
