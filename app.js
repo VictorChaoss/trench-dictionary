@@ -807,11 +807,11 @@ const WORDS = [
   {
     word: "Mitch (idrawline)",
     phonetic: "/mɪtʃ/",
-    def: "A technical analysis account that literally just draws lines on charts to justify pure, unadulterated gambling. Proving that if you draw a triangle big enough, you can convince a thousand degens to buy the absolute top of a dead token.",
-    example: '"Mitch drew a massive cup and handle on a 1-minute chart so obviously I leveraged my house on it."',
+    def: "One of the rare, genuinely respected TA (Technical Analysis) accounts in the meme coin space. Famous for his 'I draw line in sand' philosophy, he maps out complex market structures using simple MS Paint lines and is notoriously, shockingly accurate. In an ecosystem full of grifters using overly complex jargon to hide the fact they are dumping on you, Mitch simply draws a line and helps the community survive the chaos. A genuine force for good in the trenches.",
+    example: '"Mitch drew the line in the sand exactly at 50M market cap and the chart bounced off it pixel-perfectly. The man is a wizard."',
     origin: "CT Charting Lore",
     cat: "person",
-    votes: { up: 14500, down: 180 }
+    votes: { up: 21500, down: 45 }
   },
   {
     word: "Mr Frog",
@@ -870,11 +870,11 @@ const WORDS = [
   {
     word: "Gake",
     phonetic: "/ɡeɪk/",
-    def: "Meme mispronunciation of 'Fake'. Used to immediately shut down LARPers posting fake PNL screenshots or doctored wallet balances in Telegram chats.",
-    example: '"Bro posted a $1M wallet screenshot but the font was literally Comic Sans. Absolutely gake."',
-    origin: "Crypto Telegram culture",
-    cat: "culture",
-    votes: { up: 10200, down: 400 }
+    def: "A legendary meme coin trader and influencer operating at the absolute pinnacle of the Solana trenches. Widely regarded as a 'meme god' for his uncanny ability to identify, snipe, and successfully trade early-stage pump.fun coins before they go parabolic. His timeline is obsessively monitored by thousands of degens hoping to catch a sliver of the alpha. When Gake is involved in a ticker, extreme PVP trading immediately follows.",
+    example: '"Just saw Gake enter the chat. This coin is either going to a billion or zero in the next five minutes."',
+    origin: "Solana trader lore",
+    cat: "person",
+    votes: { up: 19200, down: 110 }
   },
   {
     word: "Letterbomb",
