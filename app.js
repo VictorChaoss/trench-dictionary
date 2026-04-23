@@ -677,6 +677,51 @@ const WORDS = [
     origin: "Fortnite culture → Crypto trenches",
     cat: "person",
     votes: { up: 15300, down: 380 }
+  },
+  {
+    word: "Ice Poseidon",
+    phonetic: "/aɪs pəˈsaɪ.dən/",
+    def: "A streamer who raised $500,000 for a token, bought a Tesla with it, and then explicitly told his audience on a livestream that he was keeping the money because 'he was just looking out for himself.' The gold standard of unapologetic crypto sociopathy. If a streamer launches a coin, you are buying their next sports car.",
+    example: '"He pulled an Ice Poseidon. Dumped the liquidity and then went on Twitch to gloat about it."',
+    origin: "Twitch streamer lore",
+    cat: "person",
+    votes: { up: 18400, down: 520 }
+  },
+  {
+    word: "Save The Kids",
+    phonetic: "/seɪv ðə kɪdz/",
+    def: "The token that proved eSports organizations are just organized crime syndicates with energy drink sponsors. FaZe Clan members promoted a 'charity' token to their millions of underage fans, only to instantly dump their pre-sale allocations the second it launched. They trickshotted their own fans' wallets.",
+    example: '"Bro launched a coin for saving the whales but it ended up being a Save The Kids situation. Pure extraction."',
+    origin: "FaZe Clan scandal",
+    cat: "culture",
+    votes: { up: 19100, down: 215 }
+  },
+  {
+    word: "CryptoZoo",
+    phonetic: "/ˈkrɪp.toʊzuː/",
+    def: "The final boss of influencer exit liquidity, orchestrated by Logan Paul. He sold his audience on a multi-million dollar blockchain game that consisted entirely of stolen stock photos of animals, blaming developers, hackers, and the weather when absolutely nothing was delivered. An absolute masterclass in farming your own fans while pretending to be the victim.",
+    example: '"The roadmap looks amazing but I\'m pretty sure it\'s just another CryptoZoo. Not touching it."',
+    origin: "Influencer grift culture",
+    cat: "culture",
+    votes: { up: 21500, down: 480 }
+  },
+  {
+    word: "Teenage Dev",
+    phonetic: "/ˈtiːn.eɪdʒ dɛv/",
+    def: "A 14-year-old sociopath operating out of a suburban bedroom. Launches 10 tokens a day on pump.fun, exploits a hidden mint function, and extracts more wealth in a 48-hour weekend than their parents will accumulate in an entire lifetime. Often types 'im 15 and i just made $1.2M' in Telegram before permanently deleting the group.",
+    example: '"Chart got nuked to zero. Turns out the dev had to leave to do his middle school algebra homework. Teenage dev strikes again."',
+    origin: "Solana pump.fun trenches",
+    cat: "person",
+    votes: { up: 15800, down: 110 }
+  },
+  {
+    word: "BitBoy",
+    phonetic: "/ˈbɪt.bɔɪ/",
+    def: "The loud, sweating, unhinged embodiment of peak crypto grift. Known for shilling pure garbage to his massive YouTube audience at the exact top, then claiming he never told anyone to buy it. Will aggressively threaten to sue anyone who calls him out, while paradoxically begging his community for donations to fund his legal battles.",
+    example: '"He went full BitBoy. Shilled a coin, rugged his fans, then threatened to sue the blockchain explorer for showing his wallet transactions."',
+    origin: "Crypto YouTube",
+    cat: "person",
+    votes: { up: 14200, down: 390 }
   }
 ];
 
