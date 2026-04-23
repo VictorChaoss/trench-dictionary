@@ -1190,6 +1190,24 @@ const WORDS = [
     origin: "PolitiFi / 4Chan culture",
     cat: "culture",
     votes: { up: 29400, down: 810 }
+  },
+  {
+    word: "FNF (Friends and Family)",
+    phonetic: "/ɛf-ɛn-ɛf/",
+    def: "The absolute cancer of the modern cryptocurrency ecosystem. A secret allocation of tokens given to influencers and insiders right before a project publicly launches. They are handed massive quantities of supply for free (or pennies) with the explicit understanding that they will market-sell them directly onto the heads of their own loyal followers when the hype peaks. The primary reason every highly-anticipated 'fair launch' chart looks like a waterfall within 4 seconds.",
+    example: '"The dev promised no presale, but 40% of the supply was discreetly sent to an FNF group that instantly dumped on the opening tick."',
+    origin: "VC mechanics applied to meme coins",
+    cat: "culture",
+    votes: { up: 61500, down: 45 }
+  },
+  {
+    word: "The Trenches",
+    phonetic: "/ðə ˈtrɛn.tʃɪz/",
+    def: "The lowest, darkest, most psychologically damaging layer of the decentralized finance ecosystem. A 24/7 digital warzone where millions of retail traders fight highly sophisticated MEV bots, state-sponsored hackers, and 14-year-old scammers over the liquidity of poorly drawn dog coins. To 'be in the trenches' is to have completely abandoned all traditional financial logic in favor of pure, unregulated, violent speculation.",
+    example: '"I haven\'t seen sunlight in three days, my portfolio is down 80%, and I\'m currently arguing with a guy named GigaPepe in a Telegram voice chat. I am deep in the trenches."',
+    origin: "Crypto folklore",
+    cat: "culture",
+    votes: { up: 95400, down: 120 }
   }
 ];
 
