@@ -1578,3 +1578,65 @@ function showToast(id, msg, type) {
   el.className = 'submit-toast' + (type === 'error' ? ' toast-error' : '');
   setTimeout(() => { el.style.display = 'none'; }, 3500);
 }
+
+// ==== NARRATIVE EXPLAINER BOT ====
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('explainer-btn');
+  const input = document.getElementById('explainer-input');
+  const outBox = document.getElementById('explainer-output');
+  const outHeader = document.getElementById('output-header');
+  const outName = document.getElementById('out-name');
+  const outMc = document.getElementById('out-mc');
+  const outText = document.getElementById('output-text');
+
+  if (!btn || !input) return;
+
+  btn.addEventListener('click', async () => {
+    const ca = input.value.trim();
+    if (!ca) return;
+
+    // UI loading state
+    btn.disabled = true;
+    btn.textContent = "Scanning...";
+    outBox.style.display = 'block';
+    outHeader.style.display = 'none';
+    outText.innerHTML = '<span style="color:var(--brand)">[SYSTEM]</span> Scanning the trenches...';
+
+    try {
+      const res = await fetch('/api/explain', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ca })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        // Handle dev environment vs live
+        outText.innerHTML = `<span style="color:red">[ERROR]</span> ${data.error || 'Check Vercel API keys.'} Make sure you are viewing this via Vercel, not a local file:// path.`;
+      } else {
+        outHeader.style.display = 'flex';
+        outName.textContent = `${data.name} ($${data.symbol})`;
+        outMc.textContent = `FDV: ${data.fdv}`;
+        
+        // Typing effect
+        outText.innerHTML = '';
+        const chars = data.explanation.split('');
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < chars.length) {
+            outText.textContent += chars[i];
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 15);
+      }
+    } catch (err) {
+      outText.innerHTML = '<span style="color:red">[ERROR]</span> Failed to connect to TrenchBot API. You must be on the live Vercel deployment for serverless functions to run.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Analyze";
+    }
+  });
+});
