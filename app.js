@@ -798,20 +798,20 @@ const WORDS = [
   {
     word: "Beaver",
     phonetic: "/ˈbiː.vər/",
-    def: "A CT persona known for orchestrating hyper-niche pump and dumps while maintaining the aesthetic of a friendly woodland creature. Classic example of the 'cute animal avatar = absolute sociopath' rule on Crypto Twitter.",
-    example: '"Got completely destroyed by the Beaver token launch. Never trusting an animal pfp again."',
-    origin: "Crypto Twitter persona",
+    def: "One of the few timeline legends who actually accomplished the ultimate degen dream: winning $1,000,000 in the trenches. While 99% of Crypto Twitter is LARPing about their portfolio sizes, Beaver actually cemented his status by pulling off a million-dollar victory. Living proof that the hyper-volatile upside of the ecosystem is real, even if it's statistically impossible for everyone else.",
+    example: '"Whenever my portfolio goes down 40%, I just look at Beaver\'s $1M win to cope and convince myself I\'m just one trade away from retirement."',
+    origin: "CT Millionaire Lore",
     cat: "person",
-    votes: { up: 11200, down: 320 }
+    votes: { up: 18200, down: 41 }
   },
   {
     word: "Mitch (idrawline)",
     phonetic: "/mɪtʃ/",
-    def: "One of the rare, genuinely respected TA (Technical Analysis) accounts in the meme coin space. Famous for his 'I draw line in sand' philosophy, he maps out complex market structures using simple MS Paint lines and is notoriously, shockingly accurate. In an ecosystem full of grifters using overly complex jargon to hide the fact they are dumping on you, Mitch simply draws a line and helps the community survive the chaos. A genuine force for good in the trenches.",
-    example: '"Mitch drew the line in the sand exactly at 50M market cap and the chart bounced off it pixel-perfectly. The man is a wizard."',
-    origin: "CT Charting Lore",
+    def: "A rare, universally respected Technical Analysis wizard who navigates extreme volatility using simple MS Paint lines. While the rest of the timeline uses 14 overlapping moving averages and Fibonacci spirals just to lose their entire net worth, Mitch simply draws a literal horizontal line in the sand that perfectly predicts the exact bottom of a nuclear dump.",
+    example: '"The chart was crashing 80% straight down, but Mitch drew a line at $3M market cap. It bounced pixel-perfectly off his line and went to $100M."',
+    origin: "CT Charting Meta",
     cat: "person",
-    votes: { up: 21500, down: 45 }
+    votes: { up: 24500, down: 12 }
   },
   {
     word: "Mr Frog",
@@ -1122,11 +1122,11 @@ const WORDS = [
   {
     word: "Grifter",
     phonetic: "/ˈɡrɪf.tər/",
-    def: "The foundational bedrock of the entire cryptocurrency ecosystem. A charismatic sociopath who uses complex Web3 buzzwords to mask the fact they are simply running an unregulated securities fraud. Often found hosting Twitter Spaces, selling 'Masterminds,' or pivoting to AI as soon as the crypto liquidity dries up. If they say they are 'building for the community,' legally assume they are stealing from you.",
-    example: '"The classic grifter pivot: he rugged his NFT project, went dark for six months, and just came back launching an AI utility token."',
-    origin: "The Human Condition",
+    def: "An influencer or developer whose entire presence is mathematically engineered to extract capital from their own audience. Instead of engaging in the PVP trenches fairly, they use secret FNF (Friends and Family) allocations, paid 'alpha' groups, and fake 'utility roadmaps' to guarantee they take your money. They don't trade the market; they trade you.",
+    example: '"He announced a private Discord group where you pay $500 a month to receive his alpha calls, which is just him dumping his bags on his subscribers. Classic grifter playbook."',
+    origin: "Influencer Extraction Meta",
     cat: "person",
-    votes: { up: 45200, down: 890 }
+    votes: { up: 14200, down: 890 }
   },
   {
     word: "Engagement Farmer",
