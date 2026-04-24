@@ -893,8 +893,8 @@ body {
   transition: all 0.2s;
 }
 .share-icon-btn:hover {
-  color: var(--brand);
-  background: rgba(0, 255, 136, 0.1);
+  color: var(--gold);
+  background: rgba(201, 151, 28, 0.1);
 }
 
 /* =========================================
