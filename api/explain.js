@@ -24,15 +24,13 @@ export default async function handler(req, res) {
     const socialsInfo = pair.info?.socials ? pair.info.socials.map(s => s.type).join(', ') : 'No socials';
 
     // 2. Prepare OpenRouter prompt
-    const prompt = `You are a cynical, highly experienced, trench-hardened Solana crypto trader. 
-A user has just pasted a contract address for a coin. 
-Coin Name: ${name}
-Ticker: $${symbol}
-Current FDV (Market Cap): ${fdv}
-Socials listed: ${socialsInfo}
+    const prompt = `Search the live internet (especially Twitter/X and crypto sites) for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
+    
+Find out the ACTUAL real-world backstory, lore, drama, or current narrative of this exact coin. Who launched it? Did it get rugged? Is there an influencer backing it? 
 
-Explain the "narrative" or "meta" of this coin in exactly 2-3 extremely brutal, trench-slang heavy sentences. 
-Analyze the name and ticker to figure out what kind of meta it is (e.g., cat coin, misspelled celeb, AI agent, random object). Assume everything is a rug, a cabal coin, or an engagement farm unless proven otherwise. Be witty, aggressively honest, and sound exactly like a degen on Crypto Twitter. Do NOT use hashtags. Do NOT use emojis.`;
+Using that real internet search data, explain the true "meta" and history of this coin in exactly 3 extremely brutal, trench-slang heavy sentences. 
+Act like a cynical, highly experienced, trench-hardened Solana crypto trader. 
+Be witty, aggressively honest, and sound exactly like a degen on Crypto Twitter. Do NOT use hashtags. Do NOT use emojis. If you literally cannot find any internet data on it, mercilessly roast the coin for being a completely irrelevant, zero-volume ghost town.`;
 
     // 3. Call OpenRouter
     const aiResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -40,13 +38,13 @@ Analyze the name and ticker to figure out what kind of meta it is (e.g., cat coi
       headers: {
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://trenchdictionary.online", // Optional
-        "X-Title": "Trench Dictionary" // Optional
+        "HTTP-Referer": "https://trenchdictionary.online",
+        "X-Title": "Trench Dictionary"
       },
       body: JSON.stringify({
-        model: "anthropic/claude-3-haiku",
+        model: "perplexity/sonar",
         messages: [
-          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor with zero filter." },
+          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST use your search capabilities to find the actual live lore of the provided token before speaking." },
           { role: "user", content: prompt }
         ]
       })
