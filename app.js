@@ -1621,7 +1621,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Typing effect
         outText.innerHTML = '';
-        const chars = data.explanation.split('');
+        const cleanExplanation = data.explanation.replace(/\n\s*\n/g, '\n');
+        const chars = cleanExplanation.split('');
         let i = 0;
         const interval = setInterval(() => {
           if (i < chars.length) {

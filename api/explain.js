@@ -79,7 +79,8 @@ Break down the true "meta" of this coin based on the lore above. You MUST format
 CRITICAL RULES:
 - NEVER break character.
 - ABSOLUTELY NO MARKDOWN. Do NOT use asterisks for bolding.
-- DO NOT output any citations or numbers in brackets.`;
+- DO NOT output any citations or numbers in brackets.
+- Keep it perfectly compact: absolutely NO empty lines between the bullet points.`;
 
     const aiResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
