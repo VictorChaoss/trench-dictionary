@@ -31,13 +31,21 @@ export default async function handler(req, res) {
     // ==========================================
     // PHASE 1: RESEARCH (PERPLEXITY SONAR PRO)
     // ==========================================
-    const researchPrompt = `Perform a DEEP WEB SEARCH for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
+    const researchPrompt = `Perform a DEEP WEB SEARCH to discover the lore and origins of a Solana memecoin named "${name}" with ticker $${symbol} (Contract Address: ${ca}).
     
-CRITICAL INTEL (VISIT THESE LINKS):
+CRITICAL INTEL LINKS:
 - Socials: ${socialsList}
 - Websites: ${websitesList}
 
-Extract every single piece of factual lore, backstory, drama, developer history, or current narrative you can find about this EXACT token on crypto Twitter or forums. Do not roleplay. Do not format. Just give me raw, highly detailed factual findings. If you literally find nothing, simply reply "NO LORE FOUND."`;
+IMPORTANT SEARCH INSTRUCTIONS:
+New memecoins are not usually indexed by their contract address. Instead, you MUST search for the underlying real-world meme, viral event, tweet, or breaking news that this token is based on. 
+Ask yourself: "Why did someone just launch a token named ${name}?" Did a politician just say it? Did an influencer tweet it? Is it an obscure old internet meme?
+
+Extract every single piece of factual information you can find about:
+1. The real-world cultural narrative/tweet/event behind the name "${name}".
+2. Any specific drama, developer history, or crypto-twitter presence for this exact token or its specific domains/socials.
+
+Do not roleplay. Just give me raw, highly detailed factual findings about where the meme came from and what the token's angle is. If you literally find nothing about the name or the meme, reply "NO LORE FOUND."`;
 
     const researchResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
