@@ -26,30 +26,59 @@ export default async function handler(req, res) {
     const socialsList = pair.info?.socials ? pair.info.socials.map(s => s.url).join(' | ') : 'No socials listed';
     const websitesList = pair.info?.websites ? pair.info.websites.map(w => w.url).join(' | ') : 'No website listed';
 
-    // 2. Prepare OpenRouter prompt
-    const prompt = `Perform a DEEP WEB SEARCH for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
+    // ==========================================
+    // PHASE 1: RESEARCH (PERPLEXITY SONAR PRO)
+    // ==========================================
+    const researchPrompt = `Perform a DEEP WEB SEARCH for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
     
 CRITICAL INTEL (VISIT THESE LINKS):
 - Socials: ${socialsList}
 - Websites: ${websitesList}
 
-You MUST go directly into the lore of this exact token. Search Twitter/X, Crypto forums, and the provided links. Find out the ACTUAL real-world backstory, drama, or narrative of this exact coin. Who launched it? Was it a 2013 bitcoin forum dev? Did it get rugged? Is there an influencer backing it?
+Extract every single piece of factual lore, backstory, drama, developer history, or current narrative you can find about this EXACT token on crypto Twitter or forums. Do not roleplay. Do not format. Just give me raw, highly detailed factual findings. If you literally find nothing, simply reply "NO LORE FOUND."`;
 
-Act exactly like @rickburpbot from Telegram/X. Break down the true "meta" of this coin. 
-You MUST format your response exactly like this—no intros, no outros. JUST the three lines below:
+    const researchResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://trenchdictionary.online",
+        "X-Title": "Trench Dictionary"
+      },
+      body: JSON.stringify({
+        model: "perplexity/sonar-pro", 
+        messages: [{ role: "user", content: researchPrompt }]
+      })
+    });
 
-📖 Narrative: (1 brutal sentence explaining the real lore. Do NOT apologize if data is scarce. Just roast it based on the name ${name}.)
+    if (!researchResp.ok) {
+      console.error("Perplexity error:", await researchResp.text());
+      return res.status(500).json({ error: 'Research phase failed. Check OpenRouter key.' });
+    }
+
+    const researchData = await researchResp.json();
+    const rawLore = researchData.choices[0].message.content.trim();
+
+    // ==========================================
+    // PHASE 2: PERSONA FORMATTING (CLAUDE 3.5 SONNET)
+    // ==========================================
+    const personaPrompt = `You are TrenchBot, a brutal, highly experienced, trench-hardened Solana crypto trader (acting exactly like @rickburpbot from X/Telegram).
+You have an absolute zero-tolerance policy for bullshit.
+
+Here is the raw background lore extracted from the internet for a token named ${name} ($${symbol}):
+"${rawLore}"
+
+Break down the true "meta" of this coin based on the lore above. You MUST format your response exactly like this—no intros, no outros, no conversational filler. JUST the three lines below:
+
+📖 Narrative: (1 brutal sentence summarizing the lore. If the lore says "NO LORE FOUND", roast it mercilessly as a zero-volume rug or dead ghost town based entirely on the name ${name}.)
 🌪️ Vibe: (1 short phrase describing the sentiment, e.g., "Sweaty CTO", "Cabal hostage", "Dead on arrival")
 💀 Verdict: (1 brutal summary sentence)
 
-CRITICAL BEHAVIORAL RULES:
-- NEVER break character. You are a toxic crypto degen. 
-- NEVER say "I couldn't find information", "The search results don't contain", or "I need to be straight with you". 
-- If you find zero data on the contract address, NEVER mention the lack of data. Simply rip the coin apart for being an irrelevant, failed launch.
-- ABSOLUTELY NO MARKDOWN. Do NOT use asterisks for bolding. 
-- DO NOT output any citations, references, or numbers in brackets (like [1], [2]).`;
+CRITICAL RULES:
+- NEVER break character.
+- ABSOLUTELY NO MARKDOWN. Do NOT use asterisks for bolding.
+- DO NOT output any citations or numbers in brackets.`;
 
-    // 3. Call OpenRouter
     const aiResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -59,10 +88,10 @@ CRITICAL BEHAVIORAL RULES:
         "X-Title": "Trench Dictionary"
       },
       body: JSON.stringify({
-        model: "perplexity/sonar-pro", // Upgrade to the heavy Pro model for deep web scraping
+        model: "anthropic/claude-3.5-sonnet", // The best model for strict roleplay and formatting
         messages: [
-          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST ALWAYS stay in character. NEVER apologize. NEVER mention AI, search results, or what you couldn't find. You MUST ALWAYS output ONLY the 3 bullet points. No conversational filler." },
-          { role: "user", content: prompt }
+          { role: "system", content: "You are TrenchBot, a deeply cynical degen. You never break character. You always output exactly 3 lines of plain text." },
+          { role: "user", content: personaPrompt }
         ]
       })
     });
