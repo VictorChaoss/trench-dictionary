@@ -807,11 +807,11 @@ const WORDS = [
   {
     word: "Mitch (idrawline)",
     phonetic: "/mɪtʃ/",
-    def: "A deeply respected crypto personality whose lore forms the foundation of 'suffering culture.' Famous for growing a portfolio to multi-millions and then simply choosing not to sell, riding it all the way back down. His 'I draw line' meme embodies the absolute, unbreakable conviction of true diamond hands. While everyone else constantly panic-sells, Mitch proves that the strongest meme is unbothered persistence.",
-    example: '"The chart is down 90%, but I\'m not selling. I\'m pulling a Mitch. I draw line and I hold."',
-    origin: "Diamond Hand Lore",
+    def: "The ultimate protagonist of the trenches and a beacon of hope for zero-capital normies. Famous for his legendary '1 sol in feb' run, Mitch proved that extreme wealth could be willed into existence from nothing. As the de facto face of the $RETARDIO movement, he is universally respected for pushing the absolute limits of meta tokens (famously advocating for assets like 'Niggabutt'). He remains the guy every single trader in the space aspires to become.",
+    example: '"I was about to delete my wallet and get a 9-to-5, but then I read Mitch\'s \'1 sol in feb\' arc and decided to send my last $20 into Retardio."',
+    origin: "Timeline Protagonist Lore",
     cat: "person",
-    votes: { up: 24500, down: 12 }
+    votes: { up: 45500, down: 12 }
   },
   {
     word: "Mr Frog",
