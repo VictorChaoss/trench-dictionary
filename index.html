@@ -222,6 +222,31 @@
     </div>
   </footer>
 
+  <!-- PRE-RENDER POSTER ZONE (Offscreen, for html2canvas to capture) -->
+  <div id="poster-render-zone" style="position: absolute; top: -9999px; left: -9999px; width: 600px; padding: 40px; box-sizing: border-box; background: radial-gradient(circle at top right, rgba(0,255,136,0.2) 0%, #0d0d0d 60%);">
+    <div style="background: rgba(13, 13, 13, 0.9); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 8px; padding: 30px; box-shadow: 0 0 40px rgba(0,255,136,0.1); position: relative; z-index: 2;">
+      <h1 id="poster-word" style="color: #00ff88; font-size: 42px; font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 20px; text-shadow: 0 0 10px rgba(0, 255, 136, 0.5); text-transform: uppercase;"></h1>
+      <p id="poster-definition" style="color: #e0e0e0; font-size: 22px; font-family: 'Space Mono', monospace; line-height: 1.5; margin-bottom: 24px;"></p>
+      <p id="poster-example" style="color: #a0a0a0; font-size: 18px; font-style: italic; font-family: 'Space Mono', monospace; margin-bottom: 30px; line-height: 1.4;"></p>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p style="color: #666; font-size: 14px; font-family: 'Space Mono', monospace; margin-bottom: 15px;">by <span id="poster-author" style="color: #fff; font-weight: 700;"></span></p>
+          <div style="display: flex; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 5px; color: #00ff88; border: 1px solid rgba(0,255,136,0.3); padding: 5px 12px; border-radius: 20px; font-family: 'Space Mono', monospace; background: rgba(0,255,136,0.1);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"></path></svg>
+              <span id="poster-upvotes" style="font-size: 16px;"></span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px;">
+          <img src="/logo_transparent_crop.png" alt="Trench Dictionary Logo" style="width: 50px; opacity: 0.8;">
+          <span style="color: #666; font-size: 12px; font-family: 'Space Mono', monospace; letter-spacing: 1px; text-transform: uppercase;">trenchdictionary.online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -875,6 +875,28 @@ body {
   #explainer-btn { padding: 16px; }
 }
 
+.card-origin {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.share-icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.share-icon-btn:hover {
+  color: var(--brand);
+  background: rgba(0, 255, 136, 0.1);
+}
+
 /* =========================================
    NARRATIVE EXPLAINER BOT (TERMINAL)
    ========================================= */

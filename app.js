@@ -1410,10 +1410,84 @@ function buildCard(w, catAccents) {
             👎 ${savedVotes.down.toLocaleString()}
           </button>
         </div>
-        <span class="card-origin">📍 ${w.origin}</span>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span class="card-origin">📍 ${w.origin}</span>
+          <button class="share-icon-btn" onclick="generatePoster('${safeWord}')" title="Share Poster">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          </button>
+        </div>
       </div>
     </div>
   `;
+}
+
+// ---- SHARE POSTER FUNCTION ----
+async function generatePoster(wordName) {
+  const w = filteredWords.find(item => item.word === wordName);
+  if (!w) return;
+
+  const btnId = encodeURIComponent(w.word).replace(/'/g, '%27');
+  const sb = document.querySelector(`#card-${btnId} .share-icon-btn`);
+  if(sb) sb.style.opacity = '0.5';
+
+  // 1. Populate the offscreen canvas zone
+  document.getElementById('poster-word').textContent = w.word;
+  document.getElementById('poster-definition').innerHTML = w.def.replace(/\n/g, '<br>');
+  document.getElementById('poster-example').innerHTML = w.example ? `"${w.example.replace(/\n/g, '<br>')}"` : '';
+  document.getElementById('poster-author').textContent = w.origin;
+  
+  const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
+  document.getElementById('poster-upvotes').textContent = savedVotes.up.toLocaleString();
+
+  // 2. Render html2canvas
+  const renderZone = document.getElementById('poster-render-zone');
+  
+  try {
+    const canvas = await html2canvas(renderZone, {
+      backgroundColor: null,
+      scale: 2, // High resolution for Retina/Twitter
+      logging: false,
+      useCORS: true
+    });
+
+    // 3. Convert to blob and share
+    canvas.toBlob(async (blob) => {
+      if (!blob) {
+        if(sb) sb.style.opacity = '1';
+        return;
+      }
+      const file = new File([blob], `trench-poster-${w.word.replace(/[^a-zA-Z0-9]/g, '')}.png`, { type: 'image/png' });
+
+      // Check Mobile Share API support
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: `${w.word} - Trench Dictionary`,
+            text: `Definition of ${w.word} from the trenches.\n\n`
+          });
+        } catch (e) {
+          console.log("Share cancelled or failed", e);
+        }
+      } else {
+        // Desktop fallback to manual download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = file.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+      if(sb) sb.style.opacity = '1';
+    }, 'image/png');
+
+  } catch (error) {
+    console.error("Poster generation failed:", error);
+    if(sb) sb.style.opacity = '1';
+    alert("Failed to render poster.");
+  }
 }
 
 // ---- VOTE ----
