@@ -798,18 +798,18 @@ const WORDS = [
   {
     word: "Beaver",
     phonetic: "/ˈbiː.vər/",
-    def: "One of the few timeline legends who actually accomplished the ultimate degen dream: winning $1,000,000 in the trenches. While 99% of Crypto Twitter is LARPing about their portfolio sizes, Beaver actually cemented his status by pulling off a million-dollar victory. Living proof that the hyper-volatile upside of the ecosystem is real, even if it's statistically impossible for everyone else.",
-    example: '"Whenever my portfolio goes down 40%, I just look at Beaver\'s $1M win to cope and convince myself I\'m just one trade away from retirement."',
-    origin: "CT Millionaire Lore",
+    def: "A highly respected crypto persona permanently cemented into timeline lore after famously winning $1,000,000. While 99.9% of the ecosystem is either losing their net worth or LARPing about fake gains, Beaver actually executed the ultimate degen dream. He is the living embodiment of the 'one good trade' hopium that keeps everyone else gambling in the trenches.",
+    example: '"I was going to quit trading after getting rugged again, but then I remembered Beaver won $1M. Just need one good ticker."',
+    origin: "Timeline Lore",
     cat: "person",
     votes: { up: 18200, down: 41 }
   },
   {
     word: "Mitch (idrawline)",
     phonetic: "/mɪtʃ/",
-    def: "A rare, universally respected Technical Analysis wizard who navigates extreme volatility using simple MS Paint lines. While the rest of the timeline uses 14 overlapping moving averages and Fibonacci spirals just to lose their entire net worth, Mitch simply draws a literal horizontal line in the sand that perfectly predicts the exact bottom of a nuclear dump.",
-    example: '"The chart was crashing 80% straight down, but Mitch drew a line at $3M market cap. It bounced pixel-perfectly off his line and went to $100M."',
-    origin: "CT Charting Meta",
+    def: "A legendary pump.fun persona and creator token ($MITCH) built entirely around the 'I draw line' meme. The project is a satirical exploration of the 'suffering culture' inherent to the trenches. It represents the psychological damage and raw persistence of diamond-handing through nuclear volatility. While everyone else is panicking, Mitch simply draws a line and holds. Highly respected.",
+    example: '"The chart was looking apocalyptic, but the community just pulled a Mitch, drew a line, and held through the suffering."',
+    origin: "Pump.fun Suffering Culture",
     cat: "person",
     votes: { up: 24500, down: 12 }
   },
@@ -1122,10 +1122,10 @@ const WORDS = [
   {
     word: "Grifter",
     phonetic: "/ˈɡrɪf.tər/",
-    def: "An influencer or developer whose entire presence is mathematically engineered to extract capital from their own audience. Instead of engaging in the PVP trenches fairly, they use secret FNF (Friends and Family) allocations, paid 'alpha' groups, and fake 'utility roadmaps' to guarantee they take your money. They don't trade the market; they trade you.",
-    example: '"He announced a private Discord group where you pay $500 a month to receive his alpha calls, which is just him dumping his bags on his subscribers. Classic grifter playbook."',
-    origin: "Influencer Extraction Meta",
-    cat: "person",
+    def: "In the modern Solana trenches, a grifter is specifically a washed-up influencer (usually from the 2021 NFT era) who migrated to meme coins to aggressively extract liquidity from retail. They thrive on creating fake hype, launching derivative 'meta' tokens, and acting like community builders while secretly dumping massive FNF allocations on the exact people replying to their tweets.",
+    example: '"He put \'Community First\' in his bio but then dumped 10% of the supply on his own followers. The absolute state of Solana grifters right now."',
+    origin: "Influencer Migration Meta",
+    cat: "culture",
     votes: { up: 14200, down: 890 }
   },
   {
@@ -1315,7 +1315,7 @@ function setWordOfTheDay() {
   document.getElementById('wotd-def').textContent = w.def;
   document.getElementById('wotd-example').textContent = w.example || '';
   document.getElementById('wotd-origin').textContent = w.origin ? `📍 Origin: ${w.origin}` : '';
-  const catColors = { trading:'#2ecc71', culture:'#a855f7', risk:'#e84040', wallet:'#60a5fa', nft:'#ec4899', tech:'#eab308', person:'#ff8c00' };
+  const catColors = { trading: '#2ecc71', culture: '#a855f7', risk: '#e84040', wallet: '#60a5fa', nft: '#ec4899', tech: '#eab308', person: '#ff8c00' };
   const badge = document.getElementById('wotd-cat-badge');
   badge.textContent = (w.cat || 'culture').toUpperCase();
   badge.style.background = (catColors[w.cat] || '#d4a017') + '22';
@@ -1352,11 +1352,11 @@ function renderWords() {
   const catAccents = {
     trading: '#2ecc71',
     culture: '#a855f7',
-    risk:    '#e84040',
-    wallet:  '#60a5fa',
-    nft:     '#ec4899',
-    tech:    '#eab308',
-    person:  '#ff8c00',
+    risk: '#e84040',
+    wallet: '#60a5fa',
+    nft: '#ec4899',
+    tech: '#eab308',
+    person: '#ff8c00',
   };
 
   // Group by first letter when showing ALL
@@ -1389,7 +1389,7 @@ function buildCard(w, catAccents) {
   const id = encodeURIComponent(w.word).replace(/'/g, '%27');
   const safeWord = w.word.replace(/'/g, "\\'");
   const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
-  const upVoted   = votes[`${w.word}_voted`] === 'up';
+  const upVoted = votes[`${w.word}_voted`] === 'up';
   const downVoted = votes[`${w.word}_voted`] === 'down';
   const accent = catAccents[w.cat] || '#d4a017';
   return `
@@ -1435,13 +1435,13 @@ function vote(wordName, direction) {
 
 // ---- PERSIST VOTES ----
 function saveVotes() {
-  try { localStorage.setItem('td_votes', JSON.stringify(votes)); } catch(e) {}
+  try { localStorage.setItem('td_votes', JSON.stringify(votes)); } catch (e) { }
 }
 function loadVotes() {
   try {
     const saved = localStorage.getItem('td_votes');
     if (saved) votes = JSON.parse(saved);
-  } catch(e) { votes = {}; }
+  } catch (e) { votes = {}; }
 }
 
 // ---- EVENTS ----
@@ -1503,11 +1503,11 @@ function bindEvents() {
 // ---- SUBMIT FORM ----
 function handleSubmit(e) {
   e.preventDefault();
-  const word    = document.getElementById('new-word').value.trim();
-  const def     = document.getElementById('new-def').value.trim();
+  const word = document.getElementById('new-word').value.trim();
+  const def = document.getElementById('new-def').value.trim();
   const example = document.getElementById('new-example').value.trim();
-  const origin  = document.getElementById('new-origin').value.trim();
-  const cat     = document.getElementById('new-cat').value;
+  const origin = document.getElementById('new-origin').value.trim();
+  const cat = document.getElementById('new-cat').value;
 
   if (!word || !def) {
     showToast('submit-toast', '⚠️ At least give us a word and a definition, ser.', 'error');
