@@ -1523,22 +1523,24 @@ function bindEvents() {
   const input = document.getElementById('search-input');
   const clearBtn = document.getElementById('search-clear');
 
-  input.addEventListener('input', () => {
-    searchQuery = input.value.trim();
-    clearBtn.classList.toggle('visible', searchQuery.length > 0);
-    renderWords();
-  });
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { searchQuery = input.value.trim(); renderWords(); }
-    if (e.key === 'Escape') { input.value = ''; searchQuery = ''; clearBtn.classList.remove('visible'); renderWords(); }
-  });
+  if (input && clearBtn) {
+    input.addEventListener('input', () => {
+      searchQuery = input.value.trim();
+      clearBtn.classList.toggle('visible', searchQuery.length > 0);
+      renderWords();
+    });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { searchQuery = input.value.trim(); renderWords(); }
+      if (e.key === 'Escape') { input.value = ''; searchQuery = ''; clearBtn.classList.remove('visible'); renderWords(); }
+    });
 
-  clearBtn.addEventListener('click', () => {
-    input.value = '';
-    searchQuery = '';
-    clearBtn.classList.remove('visible');
-    renderWords();
-  });
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      searchQuery = '';
+      clearBtn.classList.remove('visible');
+      renderWords();
+    });
+  }
 
   // Category filters
   document.querySelectorAll('.tag').forEach(tag => {
@@ -1561,17 +1563,21 @@ function bindEvents() {
   });
 
   // Submit form
-  document.getElementById('submit-form').addEventListener('submit', handleSubmit);
+  const submitForm = document.getElementById('submit-form');
+  if (submitForm) submitForm.addEventListener('submit', handleSubmit);
 
   // Request form
-  document.getElementById('request-form').addEventListener('submit', handleRequest);
+  const requestForm = document.getElementById('request-form');
+  if (requestForm) requestForm.addEventListener('submit', handleRequest);
 
   // Char counter
   const defArea = document.getElementById('new-def');
-  const defCount = document.getElementById('def-count');
-  defArea.addEventListener('input', () => {
-    defCount.textContent = `${defArea.value.length} / 500`;
-  });
+  if (defArea) {
+    const defCount = document.getElementById('def-count');
+    defArea.addEventListener('input', () => {
+      defCount.textContent = `${defArea.value.length} / 500`;
+    });
+  }
 }
 
 // ---- SUBMIT FORM ----
