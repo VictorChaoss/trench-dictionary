@@ -798,18 +798,18 @@ const WORDS = [
   {
     word: "Beaver",
     phonetic: "/ˈbiː.vər/",
-    def: "A highly respected crypto persona permanently cemented into timeline lore after famously winning $1,000,000. While 99.9% of the ecosystem is either losing their net worth or LARPing about fake gains, Beaver actually executed the ultimate degen dream. He is the living embodiment of the 'one good trade' hopium that keeps everyone else gambling in the trenches.",
-    example: '"I was going to quit trading after getting rugged again, but then I remembered Beaver won $1M. Just need one good ticker."',
-    origin: "Timeline Lore",
+    def: "The infamous dual-identity of the timeline (@beaverd). Best known for legitimately winning Elon Musk's $1,000,000 X Creator Article Contest for exposing Deloitte's government contracts, only to be immediately outed by Bubblemaps as a serial pump.fun rugger who extracted over $600,000 from retail on tokens like $SIAS. A hero investigator on the main timeline, and an absolute terrorist in the trenches.",
+    example: '"Beaver just won a million dollars for whistleblowing on government corruption, then immediately logged into his burner to rug a coin called CatWifHat."',
+    origin: "X Creator Contest Lore, 2026",
     cat: "person",
     votes: { up: 18200, down: 41 }
   },
   {
     word: "Mitch (idrawline)",
     phonetic: "/mɪtʃ/",
-    def: "A legendary pump.fun persona and creator token ($MITCH) built entirely around the 'I draw line' meme. The project is a satirical exploration of the 'suffering culture' inherent to the trenches. It represents the psychological damage and raw persistence of diamond-handing through nuclear volatility. While everyone else is panicking, Mitch simply draws a line and holds. Highly respected.",
-    example: '"The chart was looking apocalyptic, but the community just pulled a Mitch, drew a line, and held through the suffering."',
-    origin: "Pump.fun Suffering Culture",
+    def: "A deeply respected crypto personality whose lore forms the foundation of 'suffering culture.' Famous for growing a portfolio to multi-millions and then simply choosing not to sell, riding it all the way back down. His 'I draw line' meme embodies the absolute, unbreakable conviction of true diamond hands. While everyone else constantly panic-sells, Mitch proves that the strongest meme is unbothered persistence.",
+    example: '"The chart is down 90%, but I\'m not selling. I\'m pulling a Mitch. I draw line and I hold."',
+    origin: "Diamond Hand Lore",
     cat: "person",
     votes: { up: 24500, down: 12 }
   },
