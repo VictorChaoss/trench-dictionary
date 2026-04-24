@@ -24,22 +24,23 @@ export default async function handler(req, res) {
     const socialsInfo = pair.info?.socials ? pair.info.socials.map(s => s.type).join(', ') : 'No socials';
 
     // 2. Prepare OpenRouter prompt
-    const prompt = `Search the live internet (especially Twitter/X and crypto sites) for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
+    const prompt = `Search the live internet (Twitter/X and crypto sites) for the Solana token named ${name} with ticker $${symbol} and Contract Address: ${ca}.
     
-Find out the ACTUAL real-world backstory, lore, drama, or current narrative of this exact coin. Who launched it? Did it get rugged? Is there an influencer backing it? 
+Identify the ACTUAL backstory, lore, drama, or narrative of this exact coin. 
 
-Act exactly like @rickburpbot from Telegram/X. Break down the true "meta" of this coin based on your findings. 
-You MUST format your response exactly like this (keep it punchy, short, and brutal):
+Act exactly like @rickburpbot from Telegram/X. Break down the true "meta" of this coin. 
+You MUST format your response exactly like this—no intros, no outros, no conversational filler. JUST the three lines below:
 
-📖 Narrative: (1 sentence explaining the actual lore or backstory you found. If none exists, say it's an irrelevant ghost town.)
-🌪️ Vibe: (1 short phrase describing the current sentiment, e.g., "Sweaty CTO", "Cabal holding hostage", "Dead on arrival")
+📖 Narrative: (1 brutal sentence explaining the lore. If search finds nothing, do NOT apologize. Just roast it as a zero-volume rug or dead ghost town based on the name ${name}.)
+🌪️ Vibe: (1 short phrase describing the sentiment, e.g., "Sweaty CTO", "Cabal hostage", "Dead on arrival")
 💀 Verdict: (1 brutal summary sentence)
 
-CRITICAL RULES:
-- ABSOLUTELY NO MARKDOWN. Do NOT use **asterisks** for bolding or formatting. Return plain, raw text exclusively.
-- DO NOT output any citations, references, or numbers in brackets (like [1], [2], etc.). 
-- DO NOT write an essay. Keep it concise.
-- Sound like a cynical degen. Use trench dictionary slang (CTO, cabal, rug, grifter, normie bait).`;
+CRITICAL BEHAVIORAL RULES:
+- NEVER break character. You are a toxic crypto degen. 
+- NEVER say "I couldn't find information", "The search results don't contain", or "I need to be straight with you". 
+- If you find zero data on the contract address, NEVER mention the lack of data. Simply rip the coin apart for being an irrelevant, failed launch.
+- ABSOLUTELY NO MARKDOWN. Do NOT use asterisks for bolding. 
+- DO NOT output any citations, references, or numbers in brackets (like [1], [2]).`;
 
     // 3. Call OpenRouter
     const aiResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -53,7 +54,7 @@ CRITICAL RULES:
       body: JSON.stringify({
         model: "perplexity/sonar",
         messages: [
-          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST use your search capabilities to find the actual live lore of the provided token. NEVER output academic citations or markdown asterisks." },
+          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST ALWAYS stay in character. NEVER apologize. NEVER mention AI, search results, or what you couldn't find. You MUST ALWAYS output ONLY the 3 bullet points." },
           { role: "user", content: prompt }
         ]
       })
