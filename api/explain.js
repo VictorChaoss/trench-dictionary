@@ -31,11 +31,12 @@ Find out the ACTUAL real-world backstory, lore, drama, or current narrative of t
 Act exactly like @rickburpbot from Telegram/X. Break down the true "meta" of this coin based on your findings. 
 You MUST format your response exactly like this (keep it punchy, short, and brutal):
 
-**📖 Narrative:** (1 sentence explaining the actual lore or backstory you found. If none exists, say it's an irrelevant ghost town.)
-**🌪️ Vibe:** (1 short phrase describing the current sentiment, e.g., "Sweaty CTO", "Cabal holding hostage", "Dead on arrival")
-**💀 Verdict:** (1 brutal summary sentence)
+📖 Narrative: (1 sentence explaining the actual lore or backstory you found. If none exists, say it's an irrelevant ghost town.)
+🌪️ Vibe: (1 short phrase describing the current sentiment, e.g., "Sweaty CTO", "Cabal holding hostage", "Dead on arrival")
+💀 Verdict: (1 brutal summary sentence)
 
 CRITICAL RULES:
+- ABSOLUTELY NO MARKDOWN. Do NOT use **asterisks** for bolding or formatting. Return plain, raw text exclusively.
 - DO NOT output any citations, references, or numbers in brackets (like [1], [2], etc.). 
 - DO NOT write an essay. Keep it concise.
 - Sound like a cynical degen. Use trench dictionary slang (CTO, cabal, rug, grifter, normie bait).`;
@@ -52,7 +53,7 @@ CRITICAL RULES:
       body: JSON.stringify({
         model: "perplexity/sonar",
         messages: [
-          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST use your search capabilities to find the actual live lore of the provided token. NEVER output academic citations." },
+          { role: "system", content: "You are TrenchBot, a brutal Solana memecoin auditor. You MUST use your search capabilities to find the actual live lore of the provided token. NEVER output academic citations or markdown asterisks." },
           { role: "user", content: prompt }
         ]
       })
