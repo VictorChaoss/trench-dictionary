@@ -90,7 +90,7 @@ CRITICAL RULES:
         "X-Title": "Trench Dictionary"
       },
       body: JSON.stringify({
-        model: "anthropic/claude-3.5-sonnet", // The best model for strict roleplay and formatting
+        model: "anthropic/claude-3.7-sonnet", // The best model for strict roleplay and formatting
         messages: [
           { role: "system", content: "You are TrenchBot, a deeply cynical degen. You never break character. You always output exactly 3 lines of plain text." },
           { role: "user", content: personaPrompt }
