@@ -28,6 +28,25 @@ export default async function handler(req, res) {
     const socialsList = pair.info?.socials ? pair.info.socials.map(s => s.url).join(' | ') : 'No socials listed';
     const websitesList = pair.info?.websites ? pair.info.websites.map(w => w.url).join(' | ') : 'No website listed';
 
+    // 1.5. Extract Pump.fun metadata (Where the real lore usually lives)
+    let pumpDescription = "No Pump.fun metadata found or not a Pump.fun coin.";
+    if (ca.trim().endsWith('pump')) {
+      try {
+        const pumpResp = await fetch(`https://frontend-api.pump.fun/coins/${ca.trim()}`, {
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "application/json"
+          }
+        });
+        if (pumpResp.ok) {
+          const pumpData = await pumpResp.json();
+          pumpDescription = pumpData.description || "No description provided by dev.";
+        }
+      } catch (e) {
+        console.error("Pump info error:", e);
+      }
+    }
+
     // ==========================================
     // PHASE 1: RESEARCH (PERPLEXITY SONAR PRO)
     // ==========================================
@@ -37,8 +56,11 @@ CRITICAL INTEL LINKS:
 - Socials: ${socialsList}
 - Websites: ${websitesList}
 
+DEVELOPER'S TOKEN DESCRIPTION (FROM PUMP.FUN ON-CHAIN DATA):
+"${pumpDescription}"
+
 IMPORTANT SEARCH INSTRUCTIONS:
-New memecoins are not usually indexed by their contract address. Instead, you MUST search for the underlying real-world meme, viral event, tweet, or breaking news that this token is based on. 
+New memecoins are not usually indexed by their contract address. Instead, you MUST use the Developer's Description above to understand what real-world meme or event this is based on, and search for that.
 Ask yourself: "Why did someone just launch a token named ${name}?" Did a politician just say it? Did an influencer tweet it? Is it an obscure old internet meme?
 
 Extract every single piece of factual information you can find about:
