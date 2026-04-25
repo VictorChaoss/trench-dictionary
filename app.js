@@ -1316,12 +1316,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // ---- WORD COUNT ----
 function updateWordCount() {
-  document.getElementById('word-count').textContent = WORDS.length;
+  const countEl = document.getElementById('word-count');
+  if (countEl) countEl.textContent = words.length;
 }
 
 // ---- HIGHLIGHT A-Z ----
 function highlightAZButtons() {
-  const firstLetters = new Set(WORDS.map(w => w.word[0].toUpperCase()));
+  const firstLetters = new Set(words.map(w => w.word[0].toUpperCase()));
   document.querySelectorAll('.az-btn').forEach(btn => {
     const l = btn.dataset.letter;
     if (l !== 'ALL' && l !== '#' && firstLetters.has(l)) {
@@ -1333,11 +1334,12 @@ function highlightAZButtons() {
 // ---- TICKER DUPLICATE ----
 function duplicateTicker() {
   const track = document.getElementById('ticker');
-  track.innerHTML += track.innerHTML;
+  if (track) track.innerHTML += track.innerHTML;
 }
 
 // ---- WORD OF THE DAY ----
 function setWordOfTheDay() {
+  if (!document.getElementById('wotd-word')) return;
   const dayIndex = Math.floor(Date.now() / 86400000) % WORDS.length;
   const w = WORDS[dayIndex];
   document.getElementById('wotd-word').textContent = w.word;
@@ -1356,6 +1358,7 @@ function setWordOfTheDay() {
 // ---- RENDER ----
 function renderWords() {
   const list = document.getElementById('entries-list');
+  if (!list) return;
   const empty = document.getElementById('empty-state');
   const resultCount = document.getElementById('result-count');
 
