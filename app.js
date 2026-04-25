@@ -10,7 +10,7 @@ const WORDS = [
     example: '"Bro just sold his SOL at $20. NGMI."',
     origin: "Crypto Twitter, circa 2020",
     cat: "culture",
-    votes: { up: 2847, down: 41 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "WAGMI",
@@ -19,7 +19,7 @@ const WORDS = [
     example: '"Portfolio is down 80% but WAGMI never forget."',
     origin: "Crypto Twitter, circa 2020",
     cat: "culture",
-    votes: { up: 3201, down: 89 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Rug Pull",
@@ -28,7 +28,7 @@ const WORDS = [
     example: '"The dev wallet just swapped everything to ETH. We got rugged, ser."',
     origin: "DeFi Summer 2020",
     cat: "risk",
-    votes: { up: 5512, down: 23 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Degen",
@@ -37,7 +37,7 @@ const WORDS = [
     example: '"Pure degen hours right now. Just aped $10K into a fork of a fork."',
     origin: "DeFi community, 2020",
     cat: "culture",
-    votes: { up: 4100, down: 102 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Diamond Hands",
@@ -46,7 +46,7 @@ const WORDS = [
     example: '"Down 95% but diamond hands, they can\'t take what they can\'t see."',
     origin: "WallStreetBets → Crypto, 2021",
     cat: "trading",
-    votes: { up: 3890, down: 150 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Paper Hands",
@@ -55,7 +55,7 @@ const WORDS = [
     example: '"He sold at $2 and it went to $200. Paper hands broke his heart."',
     origin: "WallStreetBets → Crypto, 2021",
     cat: "trading",
-    votes: { up: 2760, down: 200 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Aping",
@@ -64,7 +64,7 @@ const WORDS = [
     example: '"I just aped $5K into this new protocol. No idea what it does. LFG."',
     origin: "DeFi community, 2020",
     cat: "trading",
-    votes: { up: 4230, down: 67 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "GM",
@@ -73,7 +73,7 @@ const WORDS = [
     example: '"GM ser. Did you see BTC just dumped 15%? GM regardless."',
     origin: "NFT / Crypto Twitter, 2021",
     cat: "culture",
-    votes: { up: 2990, down: 30 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "GN",
@@ -82,7 +82,7 @@ const WORDS = [
     example: '"GN everyone. See you in 2 hours when something crashes."',
     origin: "NFT / Crypto Twitter, 2021",
     cat: "culture",
-    votes: { up: 1870, down: 18 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Rekt",
@@ -91,7 +91,7 @@ const WORDS = [
     example: '"100x long, no stop loss, fell asleep. Woke up fully rekt. Wife is still asleep. She doesn\'t know yet."',
     origin: "Gaming slang → Crypto, ~2017",
     cat: "risk",
-    votes: { up: 9800, down: 44 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Hopium",
@@ -100,7 +100,7 @@ const WORDS = [
     example: '"The chart looks terrible but I\'m on pure hopium right now."',
     origin: "Crypto Twitter, ~2019",
     cat: "culture",
-    votes: { up: 3450, down: 55 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Probably Nothing",
@@ -109,7 +109,7 @@ const WORDS = [
     example: '"New partnership with BlackRock leaked. Probably nothing."',
     origin: "Crypto Twitter, 2021",
     cat: "culture",
-    votes: { up: 4780, down: 29 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Ser",
@@ -118,7 +118,7 @@ const WORDS = [
     example: '"Ser, this is not financial advice but you might want to check your portfolio."',
     origin: "Crypto Twitter, ~2020",
     cat: "culture",
-    votes: { up: 3100, down: 12 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Wen Lambo",
@@ -127,7 +127,7 @@ const WORDS = [
     example: '"Wen lambo ser? I\'ve been holding since 2018."',
     origin: "Bitcoin community, 2017",
     cat: "culture",
-    votes: { up: 5200, down: 300 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "DYOR",
@@ -136,7 +136,7 @@ const WORDS = [
     example: '"Up 1000% in 2 weeks. DYOR though, NFA."',
     origin: "Crypto Twitter, ~2017",
     cat: "trading",
-    votes: { up: 3870, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "NFA",
@@ -145,7 +145,7 @@ const WORDS = [
     example: '"This could 100x easily. NFA. Do your own research. (I hold 40%)."',
     origin: "Crypto Twitter, ~2018",
     cat: "culture",
-    votes: { up: 4910, down: 18 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Moonshot",
@@ -154,7 +154,7 @@ const WORDS = [
     example: '"This microcap is a moonshot, fundamentals are vibes and founder has 2 followers."',
     origin: "Crypto community, ~2017",
     cat: "trading",
-    votes: { up: 2830, down: 60 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Whale",
@@ -163,7 +163,7 @@ const WORDS = [
     example: '"Whale just dumped 80K ETH. That explains the candle."',
     origin: "Trading terminology → Crypto",
     cat: "trading",
-    votes: { up: 5100, down: 30 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bag Holder",
@@ -172,7 +172,7 @@ const WORDS = [
     example: '"Still holding my 2021 NFTs. Full bag holder mode. Won\'t sell. Can\'t sell."',
     origin: "Stock trading → Crypto",
     cat: "trading",
-    votes: { up: 4400, down: 90 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Alpha",
@@ -181,7 +181,7 @@ const WORDS = [
     example: '"Dropping some alpha in the server. Don\'t share this."',
     origin: "Finance terminology → Crypto",
     cat: "trading",
-    votes: { up: 4620, down: 33 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Liquidation",
@@ -190,7 +190,7 @@ const WORDS = [
     example: '"Got liquidated at $42,001. The wick was 1 dollar. Beautiful."',
     origin: "Finance → Crypto DeFi",
     cat: "risk",
-    votes: { up: 5880, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Airdrop",
@@ -199,7 +199,7 @@ const WORDS = [
     example: '"Got $4K from an airdrop I forgot I qualified for. This is the way."',
     origin: "Crypto ecosystem, ~2017",
     cat: "wallet",
-    votes: { up: 5500, down: 14 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Floor Price",
@@ -208,7 +208,7 @@ const WORDS = [
     example: '"Floor dropped from 5 ETH to 0.05 ETH overnight. The floor is lava."',
     origin: "NFT ecosystem, 2021",
     cat: "nft",
-    votes: { up: 3900, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Sweep the Floor",
@@ -217,7 +217,7 @@ const WORDS = [
     example: '"Whales just swept the floor. Get in before the pump."',
     origin: "NFT community, 2021",
     cat: "nft",
-    votes: { up: 3100, down: 55 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Gas Fees",
@@ -226,7 +226,7 @@ const WORDS = [
     example: '"Tried to move $20 of tokens. $180 in gas. Makes sense."',
     origin: "Ethereum ecosystem",
     cat: "tech",
-    votes: { up: 6200, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mint",
@@ -235,7 +235,7 @@ const WORDS = [
     example: '"Minting live in 2 mins. Gas is spiking. This is fine."',
     origin: "NFT ecosystem, 2020+",
     cat: "nft",
-    votes: { up: 2700, down: 44 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Pump and Dump",
@@ -244,7 +244,7 @@ const WORDS = [
     example: '"That influencer was clearly orchestrating a pump and dump. Clocked that early."',
     origin: "Stock manipulation → Crypto",
     cat: "risk",
-    votes: { up: 5700, down: 30 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "FOMO",
@@ -253,7 +253,7 @@ const WORDS = [
     example: '"Pure FOMO buy at $69K. Should have waited 5 minutes."',
     origin: "Psychology → Crypto/Finance",
     cat: "trading",
-    votes: { up: 5900, down: 55 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "FUD",
@@ -262,7 +262,7 @@ const WORDS = [
     example: '"SEC announced an investigation. This is just FUD, probably. Maybe."',
     origin: "Tech industry → Crypto",
     cat: "culture",
-    votes: { up: 4800, down: 70 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Shill",
@@ -271,7 +271,7 @@ const WORDS = [
     example: '"He\'s been shilling this token for 3 weeks straight. Check his wallet."',
     origin: "Carnival barker origin → Crypto",
     cat: "culture",
-    votes: { up: 4100, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "CT",
@@ -280,7 +280,7 @@ const WORDS = [
     example: '"CT is oscillating between $100K predictions and end-of-bitcoin takes simultaneously."',
     origin: "Crypto community",
     cat: "culture",
-    votes: { up: 3300, down: 20 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Ponzinomics",
@@ -289,7 +289,7 @@ const WORDS = [
     example: '"The 10,000% APY is giving ponzinomics. I\'m still aping in."',
     origin: "Crypto community, DeFi Summer",
     cat: "risk",
-    votes: { up: 5100, down: 44 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cold Wallet",
@@ -298,7 +298,7 @@ const WORDS = [
     example: '"Move your stuff off exchanges ser. Cold wallet is non-negotiable."',
     origin: "Crypto security",
     cat: "wallet",
-    votes: { up: 4500, down: 11 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Seed Phrase",
@@ -307,7 +307,7 @@ const WORDS = [
     example: '"Never share your seed phrase. Not with your wife, not with your therapist, not with God."',
     origin: "Crypto wallet design",
     cat: "wallet",
-    votes: { up: 6800, down: 5 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Vaporware",
@@ -316,7 +316,7 @@ const WORDS = [
     example: '"Four years of roadmap updates and still no product. Peak vaporware."',
     origin: "Tech industry → Crypto",
     cat: "tech",
-    votes: { up: 4200, down: 33 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Smart Contract",
@@ -325,7 +325,7 @@ const WORDS = [
     example: '"Smart contract exploit just drained the protocol. Code is law, apparently."',
     origin: "Ethereum / blockchain tech",
     cat: "tech",
-    votes: { up: 3800, down: 60 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cope",
@@ -334,7 +334,7 @@ const WORDS = [
     example: '"That\'s just cope. The token is dead, sir. The dev left the Telegram."',
     origin: "Internet culture → Crypto",
     cat: "culture",
-    votes: { up: 3600, down: 77 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Tokenomics",
@@ -343,7 +343,7 @@ const WORDS = [
     example: '"80% to the team, 10% airdrop, 10% public. Interesting tokenomics."',
     origin: "Crypto community",
     cat: "tech",
-    votes: { up: 3100, down: 40 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Wen Moon",
@@ -352,7 +352,7 @@ const WORDS = [
     example: '"Bought in 2019. Wen moon ser. Wen."',
     origin: "Bitcoin community, ~2017",
     cat: "culture",
-    votes: { up: 4400, down: 200 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "LFG",
@@ -361,7 +361,7 @@ const WORDS = [
     example: '"New ATH. LFG!!!!! We are SO back."',
     origin: "Gaming → Crypto Twitter",
     cat: "culture",
-    votes: { up: 5900, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "We Are So Back",
@@ -370,7 +370,7 @@ const WORDS = [
     example: '"Up 3% after -60%. WE ARE SO BACK."',
     origin: "Crypto Twitter, ~2022",
     cat: "culture",
-    votes: { up: 5300, down: 90 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "It's Over",
@@ -379,7 +379,7 @@ const WORDS = [
     example: '"BTC under $20K. It\'s over." (It wasn\'t over.)',
     origin: "Crypto Twitter, recurring",
     cat: "culture",
-    votes: { up: 4800, down: 55 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "This Is The Way",
@@ -388,7 +388,7 @@ const WORDS = [
     example: '"Hardware wallet, no KYC, self-custody. This is the way."',
     origin: "The Mandalorian → Crypto",
     cat: "culture",
-    votes: { up: 3200, down: 44 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Alon",
@@ -397,7 +397,7 @@ const WORDS = [
     example: '"Waited 14 months for that airdrop. Alon said probably. He meant never. Scum."',
     origin: "Pump.fun, Solana ecosystem, 2024",
     cat: "person",
-    votes: { up: 8100, down: 190 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bundling",
@@ -406,7 +406,7 @@ const WORDS = [
     example: '"Chain showed 47 buys in block 1. It was one guy bundling. Classic."',
     origin: "Solana meme coin meta, 2024",
     cat: "risk",
-    votes: { up: 3700, down: 28 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mooning",
@@ -415,7 +415,7 @@ const WORDS = [
     example: '"It was mooning so hard I forgot to take profit. Now I\'m poor again. Classic."',
     origin: "Crypto trading culture, ~2017",
     cat: "trading",
-    votes: { up: 4900, down: 60 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Rugging",
@@ -424,7 +424,7 @@ const WORDS = [
     example: '"Bro the chart just went vertical down. He\'s rugging us live. RIP the chat."',
     origin: "DeFi / Solana trenches, 2021–present",
     cat: "risk",
-    votes: { up: 5400, down: 15 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Orangie",
@@ -433,7 +433,7 @@ const WORDS = [
     example: '"Just saw Orangie tweet it with a fire emoji. He\'s already out. His followers are fucked. Again."',
     origin: "Crypto Twitter influencer lore",
     cat: "person",
-    votes: { up: 9200, down: 310 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "KOL",
@@ -442,7 +442,7 @@ const WORDS = [
     example: '"Trusted a KOL call. Bought the top. Watched him dump. Saw him post another call 3 days later. I am so tired."',
     origin: "Crypto marketing, 2022–present",
     cat: "person",
-    votes: { up: 14800, down: 190 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Kek",
@@ -451,7 +451,7 @@ const WORDS = [
     example: '"Dev just posted \'we are building\' while the chart is down 97%. Kek. Absolute kek."',
     origin: "4chan → Crypto Twitter, ~2016",
     cat: "culture",
-    votes: { up: 8800, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Farmer",
@@ -460,7 +460,7 @@ const WORDS = [
     example: '"Been farming this testnet for 9 months. Token launched. I got 4 tokens. I am broken."',
     origin: "Crypto airdrop culture",
     cat: "culture",
-    votes: { up: 6100, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "LARP",
@@ -469,7 +469,7 @@ const WORDS = [
     example: '"Bro is LARPing as a whale again. We literally saw him ask for $5 gas money yesterday."',
     origin: "Gaming slang → Crypto trenches",
     cat: "person",
-    votes: { up: 8900, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "TLDR",
@@ -478,7 +478,7 @@ const WORDS = [
     example: '"TLDR on this protocol? Is it a dog? Ok aping in."',
     origin: "Internet culture → Crypto",
     cat: "culture",
-    votes: { up: 7700, down: 25 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Pump.fun",
@@ -487,7 +487,7 @@ const WORDS = [
     example: '"I said I was done with pump.fun. Then I saw a coin named CumRocket69 and went all in. Lost everything."',
     origin: "Solana ecosystem, 2024",
     cat: "trading",
-    votes: { up: 12500, down: 420 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Retardio",
@@ -496,7 +496,7 @@ const WORDS = [
     example: '"Fundamentals are zero. Dev is high. Going full retardio on this one."',
     origin: "Solana trenches, 2024",
     cat: "culture",
-    votes: { up: 15400, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Study",
@@ -505,7 +505,7 @@ const WORDS = [
     example: '"Solana is going to flip the global real estate market by Friday. Study."',
     origin: "Crypto Twitter gigabrain culture",
     cat: "culture",
-    votes: { up: 6600, down: 40 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "FSH",
@@ -514,7 +514,7 @@ const WORDS = [
     example: '"Chart was looking parabolic until some FSH market dumped his whole bag and killed the vibe. We are ruined."',
     origin: "Deep Solana trenches",
     cat: "risk",
-    votes: { up: 10200, down: 85 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Memescope Monday",
@@ -523,7 +523,7 @@ const WORDS = [
     example: '"Got completely destroyed on Memescope Monday. They farmed us like cattle."',
     origin: "Pump.fun culture",
     cat: "trading",
-    votes: { up: 9500, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Pajeet",
@@ -532,7 +532,7 @@ const WORDS = [
     example: '"Dev said liquidity burnt sir. Turns out it was a classic Pajeet rug. Lost 2 SOL in four seconds."',
     origin: "Crypto scammer lore",
     cat: "person",
-    votes: { up: 13100, down: 340 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cabal",
@@ -541,7 +541,7 @@ const WORDS = [
     example: '"The cabal front-ran the announcement, dumped the top, and left retail holding the bag. Business as usual."',
     origin: "Crypto Twitter conspiracy → Reality",
     cat: "culture",
-    votes: { up: 14200, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Wife Changing Money",
@@ -550,7 +550,7 @@ const WORDS = [
     example: '"I\'m not selling for a 2x. I am here for wife changing money or absolute ruin. There is no in-between."',
     origin: "Crypto slang, ~2020",
     cat: "culture",
-    votes: { up: 18500, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Round-tripping",
@@ -559,7 +559,7 @@ const WORDS = [
     example: '"I was up $60K on Tuesday. Today my bag is worth $400. I round-tripped the entire cycle like a complete retardio."',
     origin: "Traditional Finance → Trading Trenches",
     cat: "trading",
-    votes: { up: 16700, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cope",
@@ -568,7 +568,7 @@ const WORDS = [
     example: '"Dev sold his entire wallet and deleted Telegram. Community says it\'s decentralized now. Maximum cope."',
     origin: "Internet culture → Crypto",
     cat: "culture",
-    votes: { up: 13900, down: 65 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Nuke",
@@ -577,7 +577,7 @@ const WORDS = [
     example: '"I stepped away to make a coffee. Came back and the chart had fully nuked. Five years of gains gone in an instant."',
     origin: "Crypto trading slang",
     cat: "risk",
-    votes: { up: 15100, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bagholder",
@@ -586,7 +586,7 @@ const WORDS = [
     example: '"He\'s still posting bullish charts for a coin that dropped 99.9% in 2021. Terminal bagholder syndrome."',
     origin: "Stock market → Crypto",
     cat: "person",
-    votes: { up: 11800, down: 75 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Sniper",
@@ -595,7 +595,7 @@ const WORDS = [
     example: '"Liquidity was added and 14 snipers bought 60% of the supply before the tweet even went out. Dead on arrival."',
     origin: "DeFi / DEX trading",
     cat: "tech",
-    votes: { up: 9400, down: 40 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Dev Did Something",
@@ -604,7 +604,7 @@ const WORDS = [
     example: '"Chart is down 95% in one candle. Stay calm guys, dev did something. (Dev is currently on a flight to Dubai)."',
     origin: "Solana/BSC trenches",
     cat: "culture",
-    votes: { up: 17200, down: 62 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Raydium",
@@ -613,7 +613,7 @@ const WORDS = [
     example: '"Chart dumping, trying to sell, but Raydium gave me a slippage error six times. Bag is now dust."',
     origin: "Solana DeFi ecosystem",
     cat: "tech",
-    votes: { up: 18500, down: 420 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Phantom",
@@ -622,7 +622,7 @@ const WORDS = [
     example: '"Button is greyed out. Phantom is lagging and the token is up 400%. My life is a tragedy."',
     origin: "Solana ecosystem",
     cat: "tech",
-    votes: { up: 14200, down: 210 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "DexScreener",
@@ -631,7 +631,7 @@ const WORDS = [
     example: '"I haven\'t blinked in 45 minutes. The DexScreener sounds are playing in my head when I try to sleep."',
     origin: "Crypto trading tooling",
     cat: "culture",
-    votes: { up: 19600, down: 85 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Alpha Group",
@@ -640,7 +640,7 @@ const WORDS = [
     example: '"Joined the premium tier Alpha Group. They called a token, I bought it, then the admin dumped 5% of the supply on my head."',
     origin: "Crypto Twitter grifting culture",
     cat: "culture",
-    votes: { up: 16100, down: 300 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Jito Tip",
@@ -649,7 +649,7 @@ const WORDS = [
     example: '"Set my Jito tip to 0.1 SOL just to sell this shitcoin and it still failed. I am paying for my own execution."',
     origin: "Solana infrastructure",
     cat: "tech",
-    votes: { up: 11200, down: 115 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Rugcheck",
@@ -658,7 +658,7 @@ const WORDS = [
     example: '"Rugcheck said it was 100% safe. Mint revoked. Liquid locked. Still went to zero. Trust nothing."',
     origin: "Solana trading tools",
     cat: "tech",
-    votes: { up: 12900, down: 180 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cented",
@@ -667,7 +667,7 @@ const WORDS = [
     example: '"Cented just bought a new wallet. Watch him nuke the chart the second his followers ape in."',
     origin: "Fortnite → Solana Grift Pipeline",
     cat: "person",
-    votes: { up: 16500, down: 420 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cupsey",
@@ -676,7 +676,7 @@ const WORDS = [
     example: '"Cupsey called it a high-conviction play while simultaneously dumping 10% of the supply. A classic esports maneuver."',
     origin: "Fortnite culture → Crypto trenches",
     cat: "person",
-    votes: { up: 15300, down: 380 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Ice Poseidon",
@@ -685,7 +685,7 @@ const WORDS = [
     example: '"He pulled an Ice Poseidon. Dumped the liquidity and then went on Twitch to gloat about it."',
     origin: "Twitch streamer lore",
     cat: "person",
-    votes: { up: 18400, down: 520 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Save The Kids",
@@ -694,7 +694,7 @@ const WORDS = [
     example: '"Bro launched a coin for saving the whales but it ended up being a Save The Kids situation. Pure extraction."',
     origin: "FaZe Clan scandal",
     cat: "culture",
-    votes: { up: 19100, down: 215 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "CryptoZoo",
@@ -703,7 +703,7 @@ const WORDS = [
     example: '"The roadmap looks amazing but I\'m pretty sure it\'s just another CryptoZoo. Not touching it."',
     origin: "Influencer grift culture",
     cat: "culture",
-    votes: { up: 21500, down: 480 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Teenage Dev",
@@ -712,7 +712,7 @@ const WORDS = [
     example: '"Chart got nuked to zero. Turns out the dev had to leave to do his middle school algebra homework. Teenage dev strikes again."',
     origin: "Solana pump.fun trenches",
     cat: "person",
-    votes: { up: 15800, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "BitBoy",
@@ -721,7 +721,7 @@ const WORDS = [
     example: '"He went full BitBoy. Shilled a coin, rugged his fans, then threatened to sue the blockchain explorer for showing his wallet transactions."',
     origin: "Crypto YouTube",
     cat: "person",
-    votes: { up: 14200, down: 390 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "ZachXBT",
@@ -730,7 +730,7 @@ const WORDS = [
     example: '"Bro launched a new meme coin but ZachXBT just dropped a 14-part thread exposing his old rugs. Pack it up."',
     origin: "Crypto Twitter justice",
     cat: "person",
-    votes: { up: 28400, down: 12 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "LA Vape Cabal",
@@ -739,7 +739,7 @@ const WORDS = [
     example: '"The LA Vape Cabal is shilling it on stream right now. I give it 45 minutes before the catastrophic dump."',
     origin: "Solana influencer meta, 2024-2025",
     cat: "culture",
-    votes: { up: 17300, down: 410 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Frank DeGods",
@@ -748,7 +748,7 @@ const WORDS = [
     example: '"Frank just tweeted an upside-down picture of a shoe. The community thinks it\'s a bullish signal for the token. Mass delusion."',
     origin: "Solana NFT ecosystem",
     cat: "person",
-    votes: { up: 15100, down: 980 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "FaZe Banks",
@@ -757,7 +757,7 @@ const WORDS = [
     example: '"FaZe Banks is hyping up a new Solana coin. Someone lock the kids away from their parents\' credit cards."',
     origin: "Esports → Crypto Pipeline",
     cat: "person",
-    votes: { up: 18900, down: 230 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cryptolyxe",
@@ -766,7 +766,7 @@ const WORDS = [
     example: '"I was about to ape, but Cryptolyxe showed they can pause trading anytime. Dodged a bullet."',
     origin: "CT contract auditors",
     cat: "person",
-    votes: { up: 14200, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Ethan Prosper",
@@ -775,7 +775,7 @@ const WORDS = [
     example: '"Ethan Prosper just dropped a thread on how to trade this narrative. That means the narrative is already topping out."',
     origin: "Solana trading influencers",
     cat: "person",
-    votes: { up: 11900, down: 340 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Scharo",
@@ -784,7 +784,7 @@ const WORDS = [
     example: '"We aren\'t even trading coins anymore, we\'re just trading influencer proxy tokens like Scharo. The market is fully broken."',
     origin: "Crypto Twitter meta",
     cat: "person",
-    votes: { up: 10400, down: 280 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Rektober",
@@ -793,7 +793,7 @@ const WORDS = [
     example: '"Surviving Rektober is the hardest part. My bag went down 80% just because it got slightly cold outside."',
     origin: "Crypto cyclical lore",
     cat: "culture",
-    votes: { up: 16100, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Beaver",
@@ -802,7 +802,7 @@ const WORDS = [
     example: '"Beaver just won a million dollars for whistleblowing on government corruption, then immediately logged into his burner to rug a coin called CatWifHat."',
     origin: "X Creator Contest Lore, 2026",
     cat: "person",
-    votes: { up: 18200, down: 41 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mitch (idrawline)",
@@ -811,7 +811,7 @@ const WORDS = [
     example: '"I was about to delete my wallet and get a 9-to-5, but then I read Mitch\'s \'1 sol in feb\' arc and decided to send my last $20 into Retardio."',
     origin: "Timeline Protagonist Lore",
     cat: "person",
-    votes: { up: 45500, down: 12 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mr Frog",
@@ -820,7 +820,7 @@ const WORDS = [
     example: '"The dev dumped again. Posting Mr Frog memes until the pain stops."',
     origin: "Trench meme culture",
     cat: "culture",
-    votes: { up: 18900, down: 22 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Trenchhouse",
@@ -829,7 +829,7 @@ const WORDS = [
     example: '"The boys got a trenchhouse for the weekend. We are either coming out millionaires or fighting in the driveway."',
     origin: "Degen IRL culture",
     cat: "culture",
-    votes: { up: 15400, down: 310 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "DV",
@@ -838,7 +838,7 @@ const WORDS = [
     example: '"The DV just transferred 20% of the supply to a new wallet. We are about to get nuked from orbit."',
     origin: "On-chain scanning",
     cat: "tech",
-    votes: { up: 19800, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Lexapro",
@@ -847,7 +847,7 @@ const WORDS = [
     example: '"Chart dumping, dev rugged, popping a Lexapro and going back to sleep."',
     origin: "Degen mental health",
     cat: "culture",
-    votes: { up: 21200, down: 150 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "MLG",
@@ -856,7 +856,7 @@ const WORDS = [
     example: '"He brought that 2012 MLG energy to the spaces just to hype up a dog coin."',
     origin: "Gaming history",
     cat: "culture",
-    votes: { up: 13400, down: 88 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bonk",
@@ -865,7 +865,7 @@ const WORDS = [
     example: '"I faded Bonk at $10M because it was a stupid dog coin. It is now a multi-billion dollar asset. I am stupid."',
     origin: "Solana ecosystem, 2022",
     cat: "trading",
-    votes: { up: 24500, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Gake",
@@ -874,7 +874,7 @@ const WORDS = [
     example: '"Just saw Gake enter the chat. This coin is either going to a billion or zero in the next five minutes."',
     origin: "Solana trader lore",
     cat: "person",
-    votes: { up: 19200, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Letterbomb",
@@ -883,7 +883,7 @@ const WORDS = [
     example: '"They dropped the letterbomb at 3 AM. By the time America woke up, the liquidity was completely drained."',
     origin: "Project failure meta",
     cat: "culture",
-    votes: { up: 12800, down: 85 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Lynk",
@@ -892,7 +892,7 @@ const WORDS = [
     example: '"He posted a deeply emotional thread about mental health and put a Bybit referral Lynk at the bottom. Shameless."',
     origin: "Crypto Twitter affiliate meta",
     cat: "person",
-    votes: { up: 11500, down: 210 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Ansem (Sphere)",
@@ -901,7 +901,7 @@ const WORDS = [
     example: '"Ansem is calling for 100x. Don\'t forget we are still waiting for the hat on the Sphere. I will ape anyway."',
     origin: "Solana WIF Lore, 2024",
     cat: "person",
-    votes: { up: 31200, down: 1200 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Zack Morris",
@@ -910,7 +910,7 @@ const WORDS = [
     example: '"Zack Morris literally beat the SEC in federal court just to become exit liquidity for a KOL\'s scam coin. The timeline is completely undefeated."',
     origin: "Fintwit → Crypto Pipeline",
     cat: "person",
-    votes: { up: 22400, down: 85 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Quant",
@@ -919,7 +919,7 @@ const WORDS = [
     example: '"The quant firm deployed a $50M market-making strategy on Solana and got drained by a deployer named \'skibidi_toilet\'. Absolute poetry."',
     origin: "Traditional Finance vs Crypto",
     cat: "person",
-    votes: { up: 18400, down: 210 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Utility",
@@ -928,7 +928,7 @@ const WORDS = [
     example: '"Bro, don\'t sell yet, the dev said the staking utility drops next week. (The dev is currently pricing Lamborghinis)."',
     origin: "Crypto fundamentals meta",
     cat: "culture",
-    votes: { up: 26500, down: 450 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "X (formerly Twitter)",
@@ -937,7 +937,7 @@ const WORDS = [
     example: '"I spent 14 hours on X today reading threads about how a cat with a hat represents the singularity. My brain is fully fried."',
     origin: "The main arena",
     cat: "culture",
-    votes: { up: 32100, down: 180 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Yield Farming",
@@ -946,7 +946,7 @@ const WORDS = [
     example: '"I was yield farming on an obscure DeFi protocol and making $500 a day in emissions, then the dev drained the pool and I lost $40,000."',
     origin: "DeFi Summer 2020",
     cat: "tech",
-    votes: { up: 21400, down: 320 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Quant Kid",
@@ -955,7 +955,7 @@ const WORDS = [
     example: '"I spent three years studying Wyckoff distribution models and Fibonacci retracements just to become exit liquidity for the Quant Kid."',
     origin: "Solana Livestream Lore, 2024",
     cat: "person",
-    votes: { up: 42100, down: 800 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Lazarus Group",
@@ -964,7 +964,7 @@ const WORDS = [
     example: '"Bridge just got exploited for half a billion. Looks like Lazarus Group needed to fund another nuclear test. Bullish."',
     origin: "Global Geopolitics vs Crypto",
     cat: "culture",
-    votes: { up: 31200, down: 420 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bahamas Polycule",
@@ -973,7 +973,7 @@ const WORDS = [
     example: '"I thought I got stopped out by a hedge fund algorithm, but it was just the Bahamas Polycule market selling customer deposits to buy a private island."',
     origin: "FTX Collapse Lore",
     cat: "culture",
-    votes: { up: 45100, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Goblintown Spaces",
@@ -982,7 +982,7 @@ const WORDS = [
     example: '"I lost $50k on Luna so I spent four hours screaming like a goblin in a Twitter Space. The trenches truly break you."',
     origin: "Bear Market Psychology",
     cat: "culture",
-    votes: { up: 28900, down: 455 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bonding Curve",
@@ -991,7 +991,7 @@ const WORDS = [
     example: '"The bonding curve is at 98%, everyone push! (The dev is currently pressing the sell all button)."',
     origin: "pump.fun mechanics, 2024",
     cat: "tech",
-    votes: { up: 21300, down: 410 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "King of the Hill",
@@ -1000,7 +1000,7 @@ const WORDS = [
     example: '"We were King of the Hill for 40 seconds before the 2nd biggest holder dumped 8% and killed the chart."',
     origin: "Token launch meta, 2024-2025",
     cat: "culture",
-    votes: { up: 18400, down: 320 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Livestream Rug",
@@ -1009,7 +1009,7 @@ const WORDS = [
     example: '"He did a livestream rug, flipped off the camera, and then his dad walked in and yelled at him. Generational content."',
     origin: "pump.fun Livestream lore, 2025",
     cat: "culture",
-    votes: { up: 32100, down: 890 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Melania Token",
@@ -1018,7 +1018,7 @@ const WORDS = [
     example: '"Bro bought the Melania token at $40M market cap. The team drained the pool and now he\'s voting third party."',
     origin: "PolitiFi Meta, 2024-2025",
     cat: "culture",
-    votes: { up: 29500, down: 1200 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Trump Token",
@@ -1027,7 +1027,7 @@ const WORDS = [
     example: '"The Trump token hit absolute euphoria phase today. If you faded it because of your geopolitical views, have fun staying poor."',
     origin: "PolitiFi Euphoria, 2024",
     cat: "culture",
-    votes: { up: 38400, down: 2100 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Jeo Boden",
@@ -1036,7 +1036,7 @@ const WORDS = [
     example: '"The market is so chopped right now, I moved my entire 401k into Jeo Boden because the drawing looked funny."',
     origin: "PolitiFi Spoderman Meta, 2024",
     cat: "culture",
-    votes: { up: 41200, down: 520 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Slow Rug",
@@ -1045,7 +1045,7 @@ const WORDS = [
     example: '"They just delayed the staking dApp for the fifth month in a row while the dev wallet sells 1% a day. It\'s a slow rug."',
     origin: "NFT and Altcoin roadmaps",
     cat: "tech",
-    votes: { up: 22100, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "I know the dev",
@@ -1054,7 +1054,7 @@ const WORDS = [
     example: '"Aped my whole stack. Guy in the voice chat said I know the dev and he is based. (The dev is currently wiring the funds to an offshore exchange)."',
     origin: "Telegram Grift Culture",
     cat: "culture",
-    votes: { up: 31000, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Slippage",
@@ -1063,7 +1063,7 @@ const WORDS = [
     example: '"Chart was nuking so bad I had to set my slippage to 40%. I market-sold $1000 worth of tokens and received $12."',
     origin: "DEX mechanics",
     cat: "tech",
-    votes: { up: 18400, down: 210 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Sniper Bot",
@@ -1072,7 +1072,7 @@ const WORDS = [
     example: '"I clicked buy the absolute split-second the token launched, but a sniper bot had already bought half the supply and dumped it on my head before my screen even refreshed."',
     origin: "On-chain PVP",
     cat: "tech",
-    votes: { up: 19600, down: 320 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "MEV Bot",
@@ -1081,7 +1081,7 @@ const WORDS = [
     example: '"I tried to buy a dip with $500 but an MEV bot sandwiched me so hard I only got $380 worth of tokens. The machines are winning."',
     origin: "Ethereum/Solana Mempool",
     cat: "tech",
-    votes: { up: 28100, down: 410 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Honeypot",
@@ -1090,7 +1090,7 @@ const WORDS = [
     example: '"I bought a token that was up 10,000% within five minutes. Found out it was a honeypot when I tried to sell and the transaction failed 40 times in a row."',
     origin: "Smart Contract Exploits",
     cat: "tech",
-    votes: { up: 21900, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Wallet Drainer",
@@ -1099,7 +1099,7 @@ const WORDS = [
     example: '"I clicked a link in the Discord announcements channel to claim my free tokens. A wallet drainer took my entire net worth in 0.4 seconds."',
     origin: "Phishing Scams",
     cat: "tech",
-    votes: { up: 24500, down: 410 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Front-Running",
@@ -1108,7 +1108,7 @@ const WORDS = [
     example: '"I tried to market-buy a massive dip but I got aggressively front-run. I ended up buying the local top from the bot that cut in line."',
     origin: "On-Chain Mechanics",
     cat: "tech",
-    votes: { up: 18200, down: 520 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Dusting",
@@ -1117,7 +1117,7 @@ const WORDS = [
     example: '"Woke up to 5,000 random ElonMuskInu tokens in my Phantom wallet. If I touch that dusting attack, it\'s game over for my Solana."',
     origin: "Wallet Security Vulnerabilities",
     cat: "tech",
-    votes: { up: 15400, down: 230 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Grifter",
@@ -1126,7 +1126,7 @@ const WORDS = [
     example: '"He put \'Community First\' in his bio but then dumped 10% of the supply on his own followers. The absolute state of Solana grifters right now."',
     origin: "Influencer Migration Meta",
     cat: "culture",
-    votes: { up: 14200, down: 890 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Engagement Farmer",
@@ -1135,7 +1135,7 @@ const WORDS = [
     example: '"Don\'t bother giving him actual technical analysis, he\'s just an engagement farmer trying to hit his impression quota for the month."',
     origin: "Twitter Monetization Meta",
     cat: "culture",
-    votes: { up: 28400, down: 410 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Dogwifhat (WIF)",
@@ -1144,7 +1144,7 @@ const WORDS = [
     example: '"The dev tried to rug a different coin for $50k, meanwhile the WIF community just kept the hat on and went to $4 Billion. The hat stays on."',
     origin: "Solana Organic Meta, 2024",
     cat: "culture",
-    votes: { up: 62000, down: 450 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Popcat",
@@ -1153,7 +1153,7 @@ const WORDS = [
     example: '"While everyone else was getting drained by MEV bots and fighting in Telegram, the Popcat community was just posting videos of cats going POP. True enlightenment."',
     origin: "Solana Feline Meta, 2024",
     cat: "culture",
-    votes: { up: 51200, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "GigaChad (GIGA)",
@@ -1162,7 +1162,7 @@ const WORDS = [
     example: '"I joined the GIGA Telegram to trade a meme coin, but now I\'m deadlifting 400 pounds and I deleted my pump.fun bookmarks."',
     origin: "Memetic Fitness, 2024-2025",
     cat: "culture",
-    votes: { up: 44300, down: 310 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mog Coin",
@@ -1171,7 +1171,7 @@ const WORDS = [
     example: '"I tried to complain about the red market today, but a Mog whale just told me to put my glasses on and sent a picture of a cat with Pit Vipers. I feel much better now."',
     origin: "Cultural Frequency Meta",
     cat: "culture",
-    votes: { up: 48900, down: 900 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "CZ (Changpeng Zhao)",
@@ -1180,7 +1180,7 @@ const WORDS = [
     example: '"The market crashed 5% but CZ tweeted \'4\' (ignore FUD) so everyone immediately bought the dip out of sheer respect."',
     origin: "Binance Lore",
     cat: "person",
-    votes: { up: 72100, down: 450 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Chud",
@@ -1189,7 +1189,7 @@ const WORDS = [
     example: '"The chud meta is going crazy right now. Tremp and MAGA coins are up 400% while my venture-backed utility coins are down 20%."',
     origin: "PolitiFi / 4Chan culture",
     cat: "culture",
-    votes: { up: 29400, down: 810 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "FNF (Friends and Family)",
@@ -1198,7 +1198,7 @@ const WORDS = [
     example: '"The chart was looking incredibly bullish until an FNF TG group collectively market-sold 15% of the supply and nuked the project to zero."',
     origin: "Telegram Cabal Culture",
     cat: "culture",
-    votes: { up: 61500, down: 45 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "The Trenches",
@@ -1207,7 +1207,7 @@ const WORDS = [
     example: '"I haven\'t seen sunlight in three days, my portfolio is down 80%, and I\'m currently arguing with a guy named GigaPepe in a Telegram voice chat. I am deep in the trenches."',
     origin: "Crypto folklore",
     cat: "culture",
-    votes: { up: 95400, down: 120 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Cabal",
@@ -1216,7 +1216,7 @@ const WORDS = [
     example: '"I was up 300% but I refused to sell because the Cabal was supposedly pushing it to a billion. Then they dumped the entire supply on my head in one candle."',
     origin: "Timeline Paranoia Lore",
     cat: "culture",
-    votes: { up: 51200, down: 480 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "CTO (Community Takeover)",
@@ -1225,7 +1225,7 @@ const WORDS = [
     example: '"The dev just dumped 15% and nuked the chart. Someone start a CTO Telegram immediately, we can push this back to $1M."',
     origin: "Pump.fun Mechanics",
     cat: "culture",
-    votes: { up: 42100, down: 210 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "KOL Round",
@@ -1234,7 +1234,7 @@ const WORDS = [
     example: '"They announced a massive KOL round before the token launch. Don\'t even bother buying, the timeline is just going to farm you for yield."',
     origin: "Crypto VC Meta",
     cat: "tech",
-    votes: { up: 31200, down: 110 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Bubble Maps",
@@ -1243,7 +1243,7 @@ const WORDS = [
     example: '"The Telegram chat was hype, but I checked Bubble Maps and noticed that the top 20 holders all received their funding from the exact same KuCoin deposit. Cabal confirmed. Hard pass."',
     origin: "On-Chain Forensics",
     cat: "tech",
-    votes: { up: 28400, down: 85 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mayhem Mode",
@@ -1252,7 +1252,7 @@ const WORDS = [
     example: '"The dev enabled Mayhem Mode and a bot instantly market-sold 20% of the supply on my head. I got rugged by the platform itself."',
     origin: "Pump.fun Mechanics",
     cat: "tech",
-    votes: { up: 18200, down: 450 }
+    votes: { up: 0, down: 0 }
   },
   {
     word: "Mass Deployer",
@@ -1261,7 +1261,7 @@ const WORDS = [
     example: '"I thought I was early to a great ticker, but then I realized the dev was a mass deployer who just launched 85 coins named \'PepeWifHat\' in the last ten minutes."',
     origin: "Pump.fun Grift Architecture",
     cat: "tech",
-    votes: { up: 24100, down: 320 }
+    votes: { up: 0, down: 0 }
   }
 ];
 
