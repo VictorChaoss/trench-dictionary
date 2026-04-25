@@ -1531,8 +1531,10 @@ async function generatePoster(wordName) {
       }
       const file = new File([blob], `trench-poster-${w.word.replace(/[^a-zA-Z0-9]/g, '')}.png`, { type: 'image/png' });
 
-      // Check Mobile Share API support
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      // Strictly check for mobile devices. Desktop OS share sheets (like MacOS Safari) don't handle image saves properly.
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
           await navigator.share({
             files: [file],
