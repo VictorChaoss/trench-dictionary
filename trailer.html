@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trench Dictionary - Director's Cut Trailer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      background: #000; color: #fff; overflow: hidden;
+      font-family: var(--font-mono);
+      display: flex; justify-content: center; align-items: center;
+    }
+    
+    /* 16:9 Cinema Container to record cleanly */
+    #cinema {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      background: #050506;
+      border: 1px solid #111;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+
+    #btn-play {
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 15px 40px;
+      font-size: 24px;
+      font-family: var(--font-head);
+      cursor: pointer;
+      z-index: 1000;
+      letter-spacing: 2px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    #btn-play:hover { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 20px rgba(201, 151, 28, 0.4); }
+
+    .scene {
+      position: absolute; inset: 0;
+      opacity: 0; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      transition: opacity 0.1s;
+      pointer-events: none;
+    }
+    .active { opacity: 1; }
+
+    /* Scene 1: Pitch black / Corrupted */
+    .glitch-text { font-size: 20px; color: #333; font-family: var(--font-mono); animation: flicker 0.1s infinite; }
+    
+    /* Scene 2: The Rug */
+    .blood-red { font-size: 150px; color: #e04040; font-family: var(--font-head); text-shadow: 0 0 40px rgba(224, 64, 64, 0.5); }
+    .rug-chart { width: 80%; height: 300px; margin-top: 20px; stroke: #e04040; stroke-width: 8; fill: none; }
+    
+    /* Scene 3: Emerges */
+    .subliminal-word { font-family: var(--font-head); font-size: 180px; color: #fff; position: absolute; white-space: nowrap; }
+
+    /* Scene 4: Logo Slam */
+    .logo-slam {
+      width: 600px;
+      animation: slam 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      filter: drop-shadow(0 0 30px rgba(201, 151, 28, 0.6));
+    }
+    
+    /* Scene 5: Scanner */
+    .scanner-ui {
+      background: var(--bg2); border: 1px solid var(--gold); border-radius: 12px;
+      padding: 30px; width: 600px; transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(201, 151, 28, 0.2);
+    }
+    
+    /* Scene 6: Outro */
+    .url { font-family: var(--font-head); font-size: 80px; color: var(--gold); letter-spacing: 4px; text-shadow: 0 0 20px var(--gold); }
+    
+    @keyframes flicker {
+      0% { opacity: 0.1; } 50% { opacity: 0.8; } 100% { opacity: 0.2; }
+    }
+    @keyframes slam {
+      0% { transform: scale(5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="cinema">
+    <button id="btn-play">START DIRECTOR'S CUT</button>
+    
+    <audio id="audio" src="trailer.m4a"></audio>
+
+    <div class="scene" id="scene-1">
+      <div class="glitch-text">[ SYSTEM COMPROMISED ]<br/>run extraction.sh</div>
+    </div>
+
+    <div class="scene" id="scene-2" style="background: rgba(224, 64, 64, 0.05);">
+      <h1 class="blood-red">-99.9%</h1>
+      <svg class="rug-chart" viewBox="0 0 100 50">
+        <polyline points="0,10 20,5 30,15 40,0 45,45 100,50" />
+      </svg>
+    </div>
+
+    <div class="scene" id="scene-3">
+      <div class="subliminal-word" id="sub-1" style="display:none; transform: rotate(-5deg);">PUMP FUN</div>
+      <div class="subliminal-word" id="sub-2" style="display:none; transform: scale(1.5);">EXIT LIQUIDITY</div>
+      <div class="subliminal-word" id="sub-3" style="display:none; color: var(--red);">RUGGED</div>
+    </div>
+
+    <div class="scene" id="scene-4">
+      <img src="logo_transparent.png" class="logo-slam" />
+    </div>
+
+    <div class="scene" id="scene-5">
+      <div class="scanner-ui">
+        <h2 style="color:var(--gold); font-family:var(--font-head); font-size:40px; margin-bottom: 20px;">🤖 TRENCHBOT SCANNER</h2>
+        <div style="font-family:var(--font-mono); font-size: 14px; color: #0f0;">> Analyzing contract...<br/>> WARNING: Dev holds 40%<br/>> Sentiment: Apocalyptic</div>
+      </div>
+    </div>
+
+    <div class="scene" id="scene-6">
+      <div class="url">TRENCHDICTIONARY.ONLINE</div>
+      <div style="margin-top: 20px; color:var(--text); font-family:var(--font-mono);">SUBMIT YOUR SLANG. EXPOSE THE RATS.</div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('btn-play');
+    const audio = document.getElementById('audio');
+    
+    const s1 = document.getElementById('scene-1');
+    const s2 = document.getElementById('scene-2');
+    const s3 = document.getElementById('scene-3');
+    const s4 = document.getElementById('scene-4');
+    const s5 = document.getElementById('scene-5');
+    const s6 = document.getElementById('scene-6');
+
+    // Subliminals
+    const sub1 = document.getElementById('sub-1');
+    const sub2 = document.getElementById('sub-2');
+    const sub3 = document.getElementById('sub-3');
+
+    function clearScenes() {
+      document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+    }
+
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      
+      // Request full screen of cinema wrapper to make recording perfect
+      const cinema = document.getElementById('cinema');
+      if (cinema.requestFullscreen) cinema.requestFullscreen();
+
+      audio.play();
+      animLoop();
+    });
+
+    function animLoop() {
+      const t = audio.currentTime;
+
+      clearScenes();
+
+      // "In a world corrupted by suits..."
+      if (t > 0.5 && t < 3.5) {
+        s1.classList.add('active');
+      }
+      
+      // "Where your dev rugs you while you sleep..."
+      else if (t >= 3.5 && t < 7.0) {
+        s2.classList.add('active');
+      }
+
+      // "One dictionary emerges from the darkness."
+      else if (t >= 7.0 && t < 9.5) {
+        s3.classList.add('active');
+        // Flash subliminals manually using decimal modulus hacks for hyper speed
+        sub1.style.display = (t % 0.3 < 0.1) ? 'block' : 'none';
+        sub2.style.display = (t % 0.3 > 0.1 && t % 0.3 < 0.2) ? 'block' : 'none';
+        sub3.style.display = (t % 0.3 > 0.2) ? 'block' : 'none';
+      }
+
+      // "The Trench Dictionary... The crypto slang bible."
+      else if (t >= 9.5 && t < 13.5) {
+        s4.classList.add('active');
+      }
+
+      // "Featuring the TrenchBot AI Scanner."
+      else if (t >= 13.5 && t < 17.5) {
+        s5.classList.add('active');
+      }
+
+      // "Submit your slang. Expose the rats..."
+      else if (t >= 17.5 && t < 22) {
+        s6.classList.add('active');
+      }
+
+      if (t < audio.duration) {
+        requestAnimationFrame(animLoop);
+      } else {
+        // Exit full screen when done
+        if (document.exitFullscreen) document.exitFullscreen();
+        btn.style.display = 'block';
+        btn.textContent = 'REPLAY TRAILER';
+      }
+    }
+  </script>
+</body>
+</html>
