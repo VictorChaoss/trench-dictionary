@@ -1512,10 +1512,10 @@ async function generatePoster(wordName) {
 }
 
 // ---- VOTE ----
-function vote(wordName, direction) {
+async function vote(wordName, direction) {
   const w = words.find(x => x.word === wordName);
   if (!w) return;
-  if (!votes[wordName]) votes[wordName] = { up: w.votes.up, down: w.votes.down };
+  if (!votes[wordName]) votes[wordName] = { up: w.votes.up || 0, down: w.votes.down || 0 };
 
   const prev = votes[`${wordName}_voted`];
   if (prev === direction) return; // already voted this way
@@ -1526,6 +1526,17 @@ function vote(wordName, direction) {
 
   saveVotes();
   renderWords();
+
+  // Optimistic Global Sync
+  try {
+    await fetch('/api/voteWord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ wordObj: w, direction })
+    });
+  } catch (e) {
+    console.error("Failed to sync vote to DB:", e);
+  }
 }
 
 // ---- PERSIST VOTES ----
