@@ -834,10 +834,19 @@ const WORDS = [
   {
     word: "DV",
     phonetic: "/diː-viː/",
-    def: "One of the most notorious whale traders in the Solana trenches (@vibed333 on X). Known for aping massive volume into memecoins on Pump.fun and terrorizing the leaderboards. When DV enters a token, retail traders either panic buy or pray he doesn't dump on them.",
-    example: '"Bro, DV just bought 5% of the supply. We are absolutely sending to Raydium or going to zero."',
-    origin: "Solana KOLs & Whales",
+    def: "A Twitch streamer and notorious 'rat extractor' (@vibed333). Cultivates an audience only to use them as exit liquidity, dumping massive bags on poor people's heads the second his tokens pump.",
+    example: '"Don\'t buy that coin bro, DV is streaming right now and he\'s about to extract the rats."',
+    origin: "Twitch Crypto Streams",
     cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Vamping",
+    phonetic: "/væmp.ɪŋ/",
+    def: "Short for 'Vampire Attack'. Launching an identical copycat of a trending token to intentionally siphon all its liquidity, attention, and volume away from the original.",
+    example: '"The original dev rug-pulled but the community is vamping the liquidity into a fresh CTO coin."',
+    origin: "DeFi Warfare",
+    cat: "risk",
     votes: { up: 0, down: 0 }
   },
   {
