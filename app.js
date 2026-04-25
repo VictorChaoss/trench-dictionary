@@ -1341,8 +1341,10 @@ async function loadTrendingMeta() {
 }
 
 // ---- AUDIO TTS ----
-function playAudio(word, text) {
+function playAudio(encodedWord, encodedText) {
   if ('speechSynthesis' in window) {
+    const word = decodeURIComponent(encodedWord);
+    const text = decodeURIComponent(encodedText);
     window.speechSynthesis.cancel(); // kill active speech
     const utterance = new SpeechSynthesisUtterance(`${word}. ${text}`);
     utterance.rate = 0.9;
@@ -1380,7 +1382,7 @@ function setWordOfTheDay() {
   const dayIndex = Math.floor(Date.now() / 86400000) % WORDS.length;
   const w = WORDS[dayIndex];
   document.getElementById('wotd-word').textContent = w.word;
-  document.getElementById('wotd-phonetic').innerHTML = (w.phonetic || '') + ` <button class="audio-btn" onclick="playAudio('${w.word.replace(/'/g, "\\'")}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce">🔊</button>`;
+  document.getElementById('wotd-phonetic').innerHTML = (w.phonetic || '') + ` <button class="audio-btn" onclick="playAudio('${encodeURIComponent(w.word)}', '${encodeURIComponent(w.example || w.def)}')" title="Pronounce">🔊</button>`;
   document.getElementById('wotd-def').textContent = w.def;
   document.getElementById('wotd-example').textContent = w.example || '';
   document.getElementById('wotd-origin').textContent = w.origin ? `📍 Origin: ${w.origin}` : '';
@@ -1468,7 +1470,8 @@ function buildCard(w, catAccents) {
         <h3 class="card-word">${w.word}</h3>
         <span class="card-cat cat-${w.cat}">${w.cat.toUpperCase()}</span>
       </div>
-      ${w.phonetic ? `<p class="card-phonetic">${w.phonetic} <button class="audio-btn" onclick="playAudio('${safeWord}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce">🔊</button></p>` : `<button class="audio-btn" onclick="playAudio('${safeWord}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce" style="margin-left: 0; margin-bottom: 8px; display:block;">🔊</button>`}
+      ${w.phonetic ? `<p class="card-phonetic">${w.phonetic}</p>` : ''}
+      <button class="audio-btn" onclick="playAudio('${encodeURIComponent(w.word)}', '${encodeURIComponent(w.example || w.def)}')" title="Pronounce" style="${w.phonetic ? 'display:inline-block;' : 'margin-bottom:8px; display:block;'}">🔊</button>
       <p class="card-def">${w.def}</p>
       ${w.example ? `<p class="card-example">${w.example}</p>` : ''}
       <div class="card-footer">
