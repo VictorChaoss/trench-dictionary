@@ -970,12 +970,12 @@ body {
   font-weight: normal;
 }
 #explainer-btn {
-  background: var(--brand);
+  background: var(--gold);
   color: #000;
   border: none;
   border-radius: 8px;
   padding: 0 32px;
-  font-family: var(--font-header);
+  font-family: var(--font-head);
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s;
