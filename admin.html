@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Trench Dictionary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .admin-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .db-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .db-card h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-family: var(--font-head);
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    .db-card p {
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .db-actions {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+    .btn-approve {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-reject {
+      background: #e04040;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 style="color:var(--gold); font-family:var(--font-head); font-size: 40px; margin-bottom: 10px;">🛡️ ADMIN DASHBOARD</h1>
+      <p style="color:var(--text2); font-family:var(--font-mono);">Review pending submissions from the trenches.</p>
+    </div>
+  </header>
+
+  <main class="admin-container" id="admin-container">
+    <div style="text-align: center; margin-top: 50px;" id="auth-box">
+      <h2 style="color:var(--text); margin-bottom: 15px; font-family:var(--font-mono);">Enter Admin Password</h2>
+      <input type="password" id="admin-pass" placeholder="Password..." style="padding: 10px; background:var(--bg3); color:white; border: 1px solid var(--border); border-radius: 4px;" />
+      <button onclick="loadPending()" class="btn-approve" style="margin-left: 10px;">Login</button>
+    </div>
+    
+    <div id="pending-list" style="display:none; margin-top: 30px;">
+      <h2 style="color:var(--text); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">Pending Words</h2>
+      <div id="cards-wrapper"></div>
+    </div>
+  </main>
+
+  <script>
+    let ADMIN_PASSWORD = '';
+
+    async function loadPending() {
+      const pass = document.getElementById('admin-pass').value;
+      if (!pass) return alert("Enter password");
+      
+      ADMIN_PASSWORD = pass;
+      document.getElementById('auth-box').style.display = 'none';
+      document.getElementById('pending-list').style.display = 'block';
+      
+      const wrapper = document.getElementById('cards-wrapper');
+      wrapper.innerHTML = '<p style="color:var(--text2);">Loading...</p>';
+
+      try {
+        const res = await fetch('/api/getWords?status=pending');
+        if (!res.ok) throw new Error(await res.text());
+        const data = await res.json();
+        
+        if (data.length === 0) {
+          wrapper.innerHTML = '<p style="color:var(--text); font-family:var(--font-mono);">No pending words. The trenches are quiet.</p>';
+          return;
+        }
+
+        wrapper.innerHTML = data.map(item => `
+          <div class="db-card" id="card-${item.id}">
+            <h3>${item.word} <span style="font-size:12px; color:#666;">[${item.cat}]</span></h3>
+            <p><strong>Def:</strong> ${item.def}</p>
+            <p><strong>Example:</strong> ${item.example}</p>
+            <p><strong>Origin:</strong> ${item.origin}</p>
+            <div class="db-actions">
+              <button class="btn-approve" onclick="moderate('${item.id}', 'approve')">✅ Approve</button>
+              <button class="btn-reject" onclick="moderate('${item.id}', 'reject')">❌ Delete</button>
+            </div>
+          </div>
+        `).join('');
+
+      } catch (e) {
+        console.error(e);
+        wrapper.innerHTML = `<p style="color:#e04040;">Failed to load. Is Supabase configured?</p>`;
+      }
+    }
+
+    async function moderate(id, action) {
+      if (!confirm(`Are you sure you want to ${action} this word?`)) return;
+      
+      try {
+        const res = await fetch('/api/adminWord', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id, action, password: ADMIN_PASSWORD })
+        });
+        
+        if (!res.ok) {
+          const err = await res.json();
+          return alert('Error: ' + err.error);
+        }
+        
+        document.getElementById(`card-${id}`).remove();
+      } catch (e) {
+        alert("Failed to process request: " + e.message);
+      }
+    }
+  </script>
+</body>
+</html>

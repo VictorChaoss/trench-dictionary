@@ -1274,14 +1274,35 @@ let searchQuery = '';
 let votes = {};
 
 // ---- INIT ----
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   loadVotes();
+  
+  // Hybrid fetch: Merge DB-approved elements into the core 'words' array seamlessly
+  try {
+    const res = await fetch('/api/getWords?status=approved');
+    if (res.ok) {
+      const dbWords = await res.json();
+      if (dbWords && dbWords.length > 0) {
+        dbWords.forEach(dw => {
+          // ensure votes object is intact
+          dw.votes = { up: dw.votes_up || 0, down: dw.votes_down || 0 };
+        });
+        words.push(...dbWords);
+      }
+    }
+  } catch (e) {
+    console.error("Failed to sync remote dictionary:", e);
+  }
+
+  // Deduplicate in case of overlaps
+  words = Array.from(new Map(words.map(item => [item.word.toLowerCase(), item])).values());
+  
   duplicateTicker();
   setWordOfTheDay();
   renderWords();
   bindEvents();
-  updateWordCount();
-  highlightAZButtons();
+  if (typeof updateWordCount === 'function') updateWordCount();
+  if (typeof highlightAZButtons === 'function') highlightAZButtons();
 });
 
 // ---- WORD COUNT ----
@@ -1581,7 +1602,7 @@ function bindEvents() {
 }
 
 // ---- SUBMIT FORM ----
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const word = document.getElementById('new-word').value.trim();
   const def = document.getElementById('new-def').value.trim();
@@ -1599,30 +1620,32 @@ function handleSubmit(e) {
     return;
   }
 
-  const newEntry = {
-    word,
-    phonetic: '',
-    def,
-    example: example || '',
-    origin: origin || 'Community Submission, 2025',
-    cat,
-    votes: { up: 0, down: 0 }
-  };
+  const btn = document.getElementById('submit-btn');
+  const ogText = btn.textContent;
+  btn.textContent = '⏳ Sending to trenches...';
+  btn.disabled = true;
 
-  words.unshift(newEntry);
-  document.getElementById('submit-form').reset();
-  document.getElementById('def-count').textContent = '0 / 500';
+  try {
+    const res = await fetch('/api/submitWord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ word, def, example, origin, cat })
+    });
 
-  // Reset to ALL view to show the new word
-  activeLetter = 'ALL';
-  searchQuery = '';
-  document.getElementById('search-input').value = '';
-  document.getElementById('search-clear').classList.remove('visible');
-  document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.az-btn[data-letter="ALL"]').classList.add('active');
-
-  renderWords();
-  showToast('submit-toast', '✅ Word added to the trenches! It\'s live.', 'success');
+    if (res.ok) {
+      document.getElementById('submit-form').reset();
+      document.getElementById('def-count').textContent = '0 / 500';
+      showToast('submit-toast', '✅ Word submitted to the trenches! Awaiting community approval.', 'success');
+    } else {
+      const errData = await res.json();
+      showToast('submit-toast', '❌ Failed to submit: ' + (errData.error || 'Server Error'), 'error');
+    }
+  } catch(e) {
+    showToast('submit-toast', '❌ Cannot connect to the trenches right now.', 'error');
+  } finally {
+    btn.textContent = ogText;
+    btn.disabled = false;
+  }
 }
 
 // ---- REQUEST FORM ----
