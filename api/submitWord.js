@@ -16,11 +16,11 @@ export default async function handler(req, res) {
 
     const payload = {
       word: word,
-      def: def,
+      def: def || (req.body.isRequest ? "Pending Request" : ""),
       example: example || "",
       origin: origin || "",
-      cat: cat || "culture",
-      status: "pending"
+      cat: cat || (req.body.isRequest ? "request" : "culture"),
+      status: req.body.isRequest ? "request" : "pending"
     };
 
     const response = await fetch(SUPA_URL, {

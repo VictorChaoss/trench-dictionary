@@ -1312,6 +1312,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindEvents();
   if (typeof updateWordCount === 'function') updateWordCount();
   if (typeof highlightAZButtons === 'function') highlightAZButtons();
+  if (typeof loadRequests === 'function') loadRequests();
 });
 
 // ---- WORD COUNT ----
@@ -1672,28 +1673,91 @@ async function handleSubmit(e) {
 }
 
 // ---- REQUEST FORM ----
-function handleRequest(e) {
+async function handleRequest(e) {
   e.preventDefault();
   const reqWord = document.getElementById('req-word').value.trim();
   if (!reqWord) {
     showToast('request-toast', 'Tell us what word you want defined, ser.', 'error');
     return;
   }
+
+  const btn = document.querySelector('#request-form .submit-btn');
+  const ogText = btn.textContent;
+  btn.textContent = 'Logging...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/submitWord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ word: reqWord, isRequest: true })
+    });
+    if (res.ok) {
+      document.getElementById('request-form').reset();
+      showToast('request-toast', 'Request logged! The trenches will answer.', 'success');
+      loadRequests(); // Refresh the list globally
+    } else {
+      showToast('request-toast', 'Failed to log request.', 'error');
+    }
+  } catch (e) {
+    showToast('request-toast', 'Connection failed.', 'error');
+  } finally {
+    btn.textContent = ogText;
+    btn.disabled = false;
+  }
+}
+
+// ---- FETCH GLOBAL REQUESTS ----
+async function loadRequests() {
   const list = document.getElementById('pending-list');
-  const li = document.createElement('li');
-  li.className = 'pending-item';
-  li.innerHTML = `${reqWord} <span class="pending-votes" onclick="upvoteRequest(this)">👍 <span>0</span></span>`;
-  list.appendChild(li);
-  document.getElementById('request-form').reset();
-  showToast('request-toast', 'Request logged! The trenches will answer.', 'success');
+  if (!list) return; // Only exists on submit.html
+  
+  try {
+    const res = await fetch('/api/getWords?status=request');
+    if (res.ok) {
+      const data = await res.json();
+      list.innerHTML = '';
+      if (data.length === 0) {
+        list.innerHTML = '<li class="pending-item" style="opacity:0.5">No pending requests yet.</li>';
+        return;
+      }
+      // Sort by upvotes
+      data.sort((a,b) => (b.votes_up || 0) - (a.votes_up || 0));
+      data.forEach(req => {
+        const li = document.createElement('li');
+        li.className = 'pending-item';
+        li.innerHTML = `${req.word} <span class="pending-votes" onclick="upvoteRequest('${req.word}', this)">👍 <span>${req.votes_up || 0}</span></span>`;
+        list.appendChild(li);
+      });
+    }
+  } catch (e) {
+    console.error("Failed to load requests:", e);
+  }
 }
 
 // ---- UPVOTE REQUEST ----
-function upvoteRequest(el) {
+async function upvoteRequest(wordParam, el) {
   if (el.classList.contains('voted')) return;
-  el.classList.add('voted');
+  
   const counter = el.querySelector('span');
-  counter.textContent = parseInt(counter.textContent) + 1;
+  const originalCount = parseInt(counter.textContent);
+  counter.textContent = originalCount + 1;
+  el.classList.add('voted');
+
+  try {
+    await fetch('/api/voteWord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        wordObj: { word: wordParam },
+        direction: 'up'
+      })
+    });
+  } catch (e) {
+    counter.textContent = originalCount;
+    el.classList.remove('voted');
+    console.error("Failed to upvote request", e);
+  }
 }
 
 // ---- TOAST HELPER ----
