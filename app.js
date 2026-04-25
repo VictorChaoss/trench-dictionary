@@ -1313,12 +1313,48 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (typeof updateWordCount === 'function') updateWordCount();
   if (typeof highlightAZButtons === 'function') highlightAZButtons();
   if (typeof loadRequests === 'function') loadRequests();
+  if (typeof loadTrendingMeta === 'function') loadTrendingMeta();
 });
 
 // ---- WORD COUNT ----
 function updateWordCount() {
   const countEl = document.getElementById('word-count');
   if (countEl) countEl.textContent = words.length;
+}
+
+// ---- TRENDING META (API) ----
+async function loadTrendingMeta() {
+  const pill = document.getElementById('trending-meta-pill');
+  if (!pill) return;
+  try {
+    const res = await fetch('/api/trendingMeta');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.meta !== "Unknown") {
+        pill.innerHTML = `🔥 META: <span style="color:#fff; font-family:var(--font-mono);">${data.meta}</span>`;
+        pill.style.display = 'inline-block';
+      }
+    }
+  } catch (e) {
+    console.log("Meta API blocked or failed");
+  }
+}
+
+// ---- AUDIO TTS ----
+function playAudio(word, text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel(); // kill active speech
+    const utterance = new SpeechSynthesisUtterance(`${word}. ${text}`);
+    utterance.rate = 0.9;
+    utterance.pitch = 0.8;
+    // Attempt to use a natural, deep English voice if available
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoice = voices.find(v => v.name.includes("Alex") || v.name.includes("Daniel") || v.name.includes("Google UK"));
+    if (preferredVoice) utterance.voice = preferredVoice;
+    window.speechSynthesis.speak(utterance);
+  } else {
+    alert("Your browser doesn't support the Voice of the Trenches.");
+  }
 }
 
 // ---- HIGHLIGHT A-Z ----
@@ -1344,7 +1380,7 @@ function setWordOfTheDay() {
   const dayIndex = Math.floor(Date.now() / 86400000) % WORDS.length;
   const w = WORDS[dayIndex];
   document.getElementById('wotd-word').textContent = w.word;
-  document.getElementById('wotd-phonetic').textContent = w.phonetic || '';
+  document.getElementById('wotd-phonetic').innerHTML = (w.phonetic || '') + ` <button class="audio-btn" onclick="playAudio('${w.word.replace(/'/g, "\\'")}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce">🔊</button>`;
   document.getElementById('wotd-def').textContent = w.def;
   document.getElementById('wotd-example').textContent = w.example || '';
   document.getElementById('wotd-origin').textContent = w.origin ? `📍 Origin: ${w.origin}` : '';
@@ -1432,7 +1468,7 @@ function buildCard(w, catAccents) {
         <h3 class="card-word">${w.word}</h3>
         <span class="card-cat cat-${w.cat}">${w.cat.toUpperCase()}</span>
       </div>
-      ${w.phonetic ? `<p class="card-phonetic">${w.phonetic}</p>` : ''}
+      ${w.phonetic ? `<p class="card-phonetic">${w.phonetic} <button class="audio-btn" onclick="playAudio('${safeWord}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce">🔊</button></p>` : `<button class="audio-btn" onclick="playAudio('${safeWord}', '${w.example ? w.example.replace(/'/g, "\\'") : w.def.replace(/'/g, "\\'")}')" title="Pronounce" style="margin-left: 0; margin-bottom: 8px; display:block;">🔊</button>`}
       <p class="card-def">${w.def}</p>
       ${w.example ? `<p class="card-example">${w.example}</p>` : ''}
       <div class="card-footer">
