@@ -919,7 +919,7 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; height: 3px;
-  background: var(--brand);
+  background: var(--gold);
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 .explainer-header {
@@ -954,7 +954,7 @@ body {
   border: 1px solid var(--border2);
   padding: 16px 20px;
   border-radius: 8px;
-  color: var(--brand);
+  color: var(--gold);
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: bold;
@@ -962,7 +962,7 @@ body {
   transition: all 0.2s;
 }
 #explainer-input:focus {
-  border-color: var(--brand);
+  border-color: var(--gold);
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
 }
 #explainer-input::placeholder {
@@ -1008,7 +1008,7 @@ body {
   margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
-  color: var(--brand);
+  color: var(--gold);
   font-weight: bold;
   font-size: 0.95rem;
 }

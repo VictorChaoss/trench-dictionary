@@ -1639,13 +1639,13 @@ async function handleSubmit(e) {
   }
 
   if (words.find(w => w.word.toLowerCase() === word.toLowerCase())) {
-    showToast('submit-toast', '🔁 That word already exists in the trenches.', 'error');
+    showToast('submit-toast', 'That word already exists in the trenches.', 'error');
     return;
   }
 
   const btn = document.getElementById('submit-btn');
   const ogText = btn.textContent;
-  btn.textContent = '⏳ Sending to trenches...';
+  btn.textContent = 'Sending to trenches...';
   btn.disabled = true;
 
   try {
@@ -1658,13 +1658,13 @@ async function handleSubmit(e) {
     if (res.ok) {
       document.getElementById('submit-form').reset();
       document.getElementById('def-count').textContent = '0 / 500';
-      showToast('submit-toast', '✅ Word submitted to the trenches! Awaiting community approval.', 'success');
+      showToast('submit-toast', 'Word submitted to the trenches! Awaiting community approval.', 'success');
     } else {
       const errData = await res.json();
-      showToast('submit-toast', '❌ Failed to submit: ' + (errData.error || 'Server Error'), 'error');
+      showToast('submit-toast', 'Failed to submit: ' + (errData.error || 'Server Error'), 'error');
     }
   } catch(e) {
-    showToast('submit-toast', '❌ Cannot connect to the trenches right now.', 'error');
+    showToast('submit-toast', 'Cannot connect to the trenches right now.', 'error');
   } finally {
     btn.textContent = ogText;
     btn.disabled = false;
@@ -1676,7 +1676,7 @@ function handleRequest(e) {
   e.preventDefault();
   const reqWord = document.getElementById('req-word').value.trim();
   if (!reqWord) {
-    showToast('request-toast', '⚠️ Tell us what word you want defined, ser.', 'error');
+    showToast('request-toast', 'Tell us what word you want defined, ser.', 'error');
     return;
   }
   const list = document.getElementById('pending-list');
@@ -1685,7 +1685,7 @@ function handleRequest(e) {
   li.innerHTML = `${reqWord} <span class="pending-votes" onclick="upvoteRequest(this)">👍 <span>0</span></span>`;
   list.appendChild(li);
   document.getElementById('request-form').reset();
-  showToast('request-toast', '📨 Request logged! The trenches will answer.', 'success');
+  showToast('request-toast', 'Request logged! The trenches will answer.', 'success');
 }
 
 // ---- UPVOTE REQUEST ----
