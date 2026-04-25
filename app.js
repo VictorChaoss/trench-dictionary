@@ -1541,11 +1541,11 @@ async function vote(wordName, direction) {
 
 // ---- PERSIST VOTES ----
 function saveVotes() {
-  try { localStorage.setItem('td_votes', JSON.stringify(votes)); } catch (e) { }
+  try { localStorage.setItem('td_votes_v2', JSON.stringify(votes)); } catch (e) { }
 }
 function loadVotes() {
   try {
-    const saved = localStorage.getItem('td_votes');
+    const saved = localStorage.getItem('td_votes_v2');
     if (saved) votes = JSON.parse(saved);
   } catch (e) { votes = {}; }
 }
