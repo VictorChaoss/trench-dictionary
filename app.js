@@ -834,10 +834,10 @@ const WORDS = [
   {
     word: "DV",
     phonetic: "/diː-viː/",
-    def: "Dev Wallet. The single most terrifying wallet on the blockchain. The moment the 'DV' starts moving tokens to Raydium, the chat instantly devolves into pure panic and chaos. When the DV sells, it's over.",
-    example: '"The DV just transferred 20% of the supply to a new wallet. We are about to get nuked from orbit."',
-    origin: "On-chain scanning",
-    cat: "tech",
+    def: "One of the most notorious whale traders in the Solana trenches (@vibed333 on X). Known for aping massive volume into memecoins on Pump.fun and terrorizing the leaderboards. When DV enters a token, retail traders either panic buy or pray he doesn't dump on them.",
+    example: '"Bro, DV just bought 5% of the supply. We are absolutely sending to Raydium or going to zero."',
+    origin: "Solana KOLs & Whales",
+    cat: "person",
     votes: { up: 0, down: 0 }
   },
   {
