@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contribute – Trench Dictionary</title>
-  <meta name="description" content="Submit new crypto slang to the Trench Dictionary. Built from the trenches, for the trenches." />
+  <title>Trench Dictionary – The Crypto Slang Bible</title>
+  <meta name="description" content="The realest crypto slang dictionary from the trenches. A-Z of degen terminology. No suits. No fluff." />
   <meta name="theme-color" content="#d4a017" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -36,9 +36,9 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </div>
         
-        <a href="dictionary.html" class="social-btn btn-x" style="border: 1px solid var(--border);">📖 Dictionary</a>
+        <a href="dictionary.html" class="social-btn btn-x" style="background:var(--gold); color:black; font-weight:bold; border-color:var(--gold);">📖 Dictionary</a>
         <a href="scanner.html" class="social-btn btn-x" style="border: 1px solid var(--border);">🤖 Scanner</a>
-        <a href="submit.html" class="social-btn btn-x" style="background:var(--gold); color:black; font-weight:bold; border-color:var(--gold);">✏️ Contribute</a>
+        <a href="submit.html" class="social-btn btn-x" style="border: 1px solid var(--border);">✏️ Contribute</a>
         
         <a href="https://x.com/TrenchDictX" target="_blank" class="social-btn btn-x">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -55,71 +55,104 @@
     </div>
   </header>
 
-  <!-- EXCLUSIVE SUBMIT SECTION FOR SUBMIT.HTML -->
-    <section class="submit-section" id="submit-section">
-      <div class="submit-header-row">
-        <div>
-          <h2 class="submit-title">➕ Submit a Word</h2>
-          <p class="submit-subtitle">Think you coined something the trenches need? Drop it here. Community votes decide if it stays.</p>
-        </div>
-        <div class="submit-rules">
-          <p>📜 <strong>Rules:</strong> Keep it crypto. Make it real. No corporate buzzwords. No suits.</p>
-        </div>
-      </div>
-      <div class="submit-grid">
-        <form class="submit-form" id="submit-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="new-word">Word / Phrase *</label>
-              <input type="text" id="new-word" placeholder="e.g. &quot;Diamond Rug&quot;" maxlength="60" />
-            </div>
-            <div class="form-group">
-              <label for="new-cat">Category *</label>
-              <select id="new-cat">
-                <option value="culture">🐸 Culture</option>
-                <option value="trading">📈 Trading</option>
-                <option value="risk">💀 Risk</option>
-                <option value="wallet">👛 Wallet</option>
-                <option value="nft">🖼️ NFT</option>
-                <option value="tech">⚙️ Tech</option>
-                <option value="person">🧍 Person</option>
-              </select>
-            </div>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker">
+      <span>NGMI 📉</span><span>WAGMI 🚀</span><span>Rug Pull Szn 😭</span><span>Buy the Dip 💸</span><span>Diamond Hands 💎</span><span>Paper Hands 🧻</span><span>To the Moon 🌕</span><span>Rekt 💀</span><span>Degen Hours 🌙</span><span>CT is cooked 🐦</span><span>LFG 🔥</span><span>Ser, this is a Wendy's 🍔</span><span>Probably Nothing 👀</span><span>Have fun staying poor 😂</span><span>Wen Lambo 🏎️</span><span>Zoom Out 📊</span><span>Down Bad 😔</span><span>Alpha Drop 🧠</span><span>We Are So Back 🫡</span><span>It's Over 💀</span>
+    </div>
+  </div>
+
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar-outer">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search the trenches… e.g. 'rug', 'moon', 'degen'" autocomplete="off" />
+      <button class="search-clear" id="search-clear" title="Clear">✕</button>
+    </div>
+  </div>
+
+  <!-- A–Z NAV -->
+  <nav class="az-nav" id="az-nav" aria-label="A to Z navigation">
+    <button class="az-btn active" data-letter="ALL">ALL</button>
+    <button class="az-btn" data-letter="#">#</button>
+    <button class="az-btn" data-letter="A">A</button>
+    <button class="az-btn" data-letter="B">B</button>
+    <button class="az-btn" data-letter="C">C</button>
+    <button class="az-btn" data-letter="D">D</button>
+    <button class="az-btn" data-letter="E">E</button>
+    <button class="az-btn" data-letter="F">F</button>
+    <button class="az-btn" data-letter="G">G</button>
+    <button class="az-btn" data-letter="H">H</button>
+    <button class="az-btn" data-letter="I">I</button>
+    <button class="az-btn" data-letter="J">J</button>
+    <button class="az-btn" data-letter="K">K</button>
+    <button class="az-btn" data-letter="L">L</button>
+    <button class="az-btn" data-letter="M">M</button>
+    <button class="az-btn" data-letter="N">N</button>
+    <button class="az-btn" data-letter="O">O</button>
+    <button class="az-btn" data-letter="P">P</button>
+    <button class="az-btn" data-letter="Q">Q</button>
+    <button class="az-btn" data-letter="R">R</button>
+    <button class="az-btn" data-letter="S">S</button>
+    <button class="az-btn" data-letter="T">T</button>
+    <button class="az-btn" data-letter="U">U</button>
+    <button class="az-btn" data-letter="V">V</button>
+    <button class="az-btn" data-letter="W">W</button>
+    <button class="az-btn" data-letter="X">X</button>
+    <button class="az-btn" data-letter="Y">Y</button>
+    <button class="az-btn" data-letter="Z">Z</button>
+  </nav>
+
+  <!-- CATEGORY FILTERS -->
+  <div class="filter-row">
+    <div class="filter-tags" id="filter-tags">
+      <button class="tag active" data-cat="all">🌐 All</button>
+      <button class="tag" data-cat="trading">📈 Trading</button>
+      <button class="tag" data-cat="culture">🐸 Culture</button>
+      <button class="tag" data-cat="risk">💀 Risk</button>
+      <button class="tag" data-cat="wallet">👛 Wallet</button>
+      <button class="tag" data-cat="nft">🖼️ NFT</button>
+      <button class="tag" data-cat="tech">⚙️ Tech</button>
+      <button class="tag" data-cat="person">🧍 Person</button>
+    </div>
+  </div>
+
+  <main class="main-content">
+
+    <!-- WORD OF THE DAY -->
+    <section class="wotd-section">
+      <div class="wotd-badge">🔥 Word of the Day</div>
+      <div class="wotd-card">
+        <div class="wotd-body">
+          <div>
+            <h2 class="wotd-word" id="wotd-word"></h2>
+            <p class="wotd-phonetic" id="wotd-phonetic"></p>
+            <p class="wotd-def" id="wotd-def"></p>
+            <p class="wotd-example" id="wotd-example"></p>
+            <p class="wotd-origin" id="wotd-origin"></p>
           </div>
-          <div class="form-group">
-            <label for="new-def">Definition * <span class="label-hint">(be real, be raw, max 500 chars)</span></label>
-            <textarea id="new-def" placeholder="Define it like you're explaining to someone who just found out Bitcoin exists." maxlength="500" rows="4"></textarea>
-            <span class="char-count" id="def-count">0 / 500</span>
-          </div>
-          <div class="form-group">
-            <label for="new-example">Example sentence <span class="label-hint">(optional but appreciated)</span></label>
-            <input type="text" id="new-example" placeholder='"bro just diamond-rugged his own project lmaooo"' maxlength="200" />
-          </div>
-          <div class="form-group">
-            <label for="new-origin">Origin / Context <span class="label-hint">(optional)</span></label>
-            <input type="text" id="new-origin" placeholder="e.g. CT after the 2022 crash" maxlength="100" />
-          </div>
-          <button type="submit" class="submit-btn" id="submit-btn">Drop it into the trenches</button>
-          <div class="submit-toast" id="submit-toast">✅ Word added to the trenches! It's live.</div>
-        </form>
-        <div class="submit-sidebar">
-          <h3 class="sidebar-title">Request a Word</h3>
-          <p class="sidebar-sub">Heard something in the trenches you can't define? Request it and the community will define it.</p>
-          <form class="request-form" id="request-form">
-            <input type="text" id="req-word" placeholder="What word needs defining?" maxlength="80" />
-            <textarea id="req-context" placeholder="Any context? Where did you hear it?" maxlength="300" rows="3"></textarea>
-            <button type="submit" class="submit-btn" id="request-btn">Request a Definition</button>
-            <div class="submit-toast" id="request-toast">Request logged! The trenches will answer.</div>
-          </form>
-          <div class="pending-requests" id="pending-requests">
-            <h4 class="pending-title">🕐 Pending Requests</h4>
-            <ul class="pending-list" id="pending-list">
-              <li class="pending-item" style="opacity: 0.5;">Loading trenches queue...</li>
-            </ul>
-          </div>
+          <div class="wotd-badge-cat" id="wotd-cat-badge"></div>
         </div>
       </div>
     </section>
+
+    <!-- ENTRIES -->
+    <section class="entries-section">
+      <div class="section-header">
+        <h2 class="section-title" id="section-title">📚 The Full Lexicon</h2>
+        <span class="result-count" id="result-count"></span>
+      </div>
+      <div class="entries-list" id="entries-list">
+        <!-- JS populated -->
+      </div>
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <p>😭 No words found. You might be too early — or too late.</p>
+        <button class="submit-inline-btn" onclick="document.getElementById('submit-section').scrollIntoView({behavior:'smooth'})">➕ Submit this word</button>
+      </div>
+    </section>
+
+  </main>
 
   </main>
 
@@ -161,7 +194,9 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
+        navigator.serviceWorker.register('/sw.js').catch(() => {
+          // sw.js only works on a server — silent fail for file:// dev
+        });
       });
     }
   </script>
