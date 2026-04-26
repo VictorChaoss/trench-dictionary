@@ -19,10 +19,17 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: 'Token not found on DexScreener. It might be too fresh or the dev rugged it unconditionally.' });
     }
 
-    const pair = dexData.pairs[0];
+    // Use the pair with most liquidity for accurate FDV
+    const pair = dexData.pairs.reduce((best, p) => {
+      const bestLiq = best.liquidity?.usd || 0;
+      const pLiq = p.liquidity?.usd || 0;
+      return pLiq > bestLiq ? p : best;
+    }, dexData.pairs[0]);
+
     const name = pair.baseToken.name;
     const symbol = pair.baseToken.symbol;
-    const fdv = pair.fdv ? `$${pair.fdv.toLocaleString()}` : 'Unknown';
+    const rawFdv = pair.fdv || 0;
+    const fdv = rawFdv ? `$${Number(rawFdv).toLocaleString('en-US', { maximumFractionDigits: 0 })}` : 'Unknown';
     
     // EXTREMELY CRITICAL: Extract actual URLs so Perplexity knows exactly what to scrape
     const socialsList = pair.info?.socials ? pair.info.socials.map(s => s.url).join(' | ') : 'No socials listed';
@@ -105,17 +112,18 @@ Analyze this coin based on the lore. Do not be formulaic.
 - If it is a blatantly stupid or dead memecoin, roast it mercilessly.
 Avoid starting sentences with "Just another shameless..."—be creative.
 
-Format your response exactly like this (NO intros, NO conversational filler):
+Format your response exactly like this (NO intros, NO conversational filler, NO emojis):
 
-📖 Narrative: (1 precise sentence summarizing what this actually is. Adapt to the lore. Make it smart.)
-🌪️ Vibe: (1 short creative phrase describing the sentiment, e.g., "Sweaty CTO", "Institutional DeFi", "Generational Wealth")
-💀 Verdict: (1 brutal or totally bullish summary sentence.)
+Narrative: (1 precise sentence summarizing what this actually is. Adapt to the lore. Make it smart.)
+Vibe: (1 short creative phrase describing the sentiment, e.g., "Sweaty CTO", "Institutional DeFi", "Generational Wealth")
+Verdict: (1 brutal or totally bullish summary sentence.)
 
 CRITICAL RULES:
 - NEVER break character.
 - ABSOLUTELY NO MARKDOWN. Do NOT use asterisks for bolding.
+- NO EMOJIS of any kind.
 - DO NOT output any citations or numbers in brackets.
-- Keep it perfectly compact: absolutely NO empty lines between the bullet points.`;
+- Keep it perfectly compact: absolutely NO empty lines between the three lines.`;
 
     const aiResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
