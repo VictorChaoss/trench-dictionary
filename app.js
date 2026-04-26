@@ -1385,7 +1385,7 @@ function setWordOfTheDay() {
   document.getElementById('wotd-phonetic').innerHTML = (w.phonetic || '') + ` <button class="audio-btn" onclick="playAudio('${encodeURIComponent(w.word)}', '${encodeURIComponent(w.example || w.def)}')" title="Pronounce">🔊</button>`;
   document.getElementById('wotd-def').textContent = w.def;
   document.getElementById('wotd-example').textContent = w.example || '';
-  document.getElementById('wotd-origin').textContent = w.origin ? `📍 Origin: ${w.origin}` : '';
+  document.getElementById('wotd-origin').textContent = w.origin ? `Origin: ${w.origin}` : '';
   const catColors = { trading: '#2ecc71', culture: '#a855f7', risk: '#e84040', wallet: '#60a5fa', nft: '#ec4899', tech: '#eab308', person: '#ff8c00' };
   const badge = document.getElementById('wotd-cat-badge');
   badge.textContent = (w.cat || 'culture').toUpperCase();
@@ -1484,7 +1484,7 @@ function buildCard(w, catAccents) {
           </button>
         </div>
         <div style="display: flex; gap: 10px; align-items: center;">
-          <span class="card-origin">📍 ${w.origin}</span>
+          <span class="card-origin">${w.origin}</span>
           <button class="share-icon-btn" onclick="generatePoster('${safeWord}')" title="Share Poster">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           </button>
