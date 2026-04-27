@@ -1483,15 +1483,51 @@ function buildCard(w, catAccents) {
             👎 ${savedVotes.down.toLocaleString()}
           </button>
         </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center;">
           <span class="card-origin">${w.origin}</span>
+          <button class="share-icon-btn" onclick="copyDefinition('${safeWord}')" title="Copy definition" style="font-size:11px; font-weight:700; font-family:var(--font-mono); padding:4px 10px; letter-spacing:0.3px;">COPY</button>
           <button class="share-icon-btn" onclick="generatePoster('${safeWord}')" title="Share Poster">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           </button>
         </div>
       </div>
     </div>
   `;
+}
+
+// ---- COPY DEFINITION ----
+function copyDefinition(wordName) {
+  const w = WORDS.find(item => item.word === wordName) || (typeof filteredWords !== 'undefined' && filteredWords.find(item => item.word === wordName));
+  if (!w) return;
+  const text = `${w.word}\n${w.phonetic ? w.phonetic + '\n' : ''}${w.def}${w.example ? '\n\n' + w.example : ''}\n\ntrenchdictionary.online`;
+  navigator.clipboard.writeText(text).then(() => {
+    showCopyToast();
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showCopyToast();
+  });
+}
+
+function showCopyToast() {
+  let t = document.getElementById('copy-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'copy-toast';
+    t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#111;border:1px solid #c9971c;color:#c9971c;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:10px 20px;border-radius:8px;z-index:9999;letter-spacing:0.5px;pointer-events:none;transition:opacity 0.3s;';
+    document.body.appendChild(t);
+  }
+  t.textContent = 'COPIED TO CLIPBOARD';
+  t.style.opacity = '1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2000);
 }
 
 // ---- SHARE POSTER FUNCTION ----
