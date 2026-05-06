@@ -217,6 +217,17 @@
       50% { opacity: 0.4; transform: scale(0.8); }
     }
 
+    .hero-logo-wrap {
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.05s ease both;
+    }
+    .hero-logo {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(212,160,23,0.3));
+    }
+
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(52px, 10vw, 100px);
@@ -643,6 +654,9 @@
     <div class="hero-eyebrow">
       <span class="pulse"></span>
       139+ Words &amp; Counting
+    </div>
+    <div class="hero-logo-wrap">
+      <img src="logo_transparent_crop.png" alt="Trench Dictionary" class="hero-logo" />
     </div>
     <h1 class="hero-title">THE <span class="gold">CRYPTO SLANG</span> BIBLE</h1>
     <p class="hero-desc">Written from the trenches, for the trenches. The most comprehensive A–Z encyclopedia of degen culture, crypto scams, and the unhinged vocabulary of on-chain survival.</p>
