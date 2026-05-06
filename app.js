@@ -4,6 +4,15 @@
 
 const WORDS = [
   {
+    word: "Trench Dictionary",
+    phonetic: "/trɛntʃ ˈdɪk.ʃən.ər.i/",
+    def: "The definitive A-Z encyclopedia of on-chain survival. The project you are currently reading. Born from the chaos of the crypto ecosystem to document every rug pull, moonshot, and coping mechanism before they are lost to history. Written by degens, for degens.",
+    example: '\"Bro tried to tell me what NGMI meant but he got it wrong. I told him to study the Trench Dictionary.\"',
+    origin: "The Trenches, 2026",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "NGMI",
     phonetic: "/ɛn-dʒiː-ɛm-aɪ/",
     def: "Not Gonna Make It. A death sentence handed out to those who sell early, FUD endlessly, or make the kind of moves that would make your on-chain therapist cry. Often self-diagnosed.",
