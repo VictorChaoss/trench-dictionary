@@ -22,6 +22,33 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
+    word: "Exit Liquidity",
+    phonetic: "/ˈɛk.sɪt lɪˈkwɪd.ɪ.ti/",
+    def: "What you become when you buy a coin based on a massive influencer's 'hidden gem' recommendation. You are not 'early to a community'—you are literally just the liquidity they need to exit their bags. A painful rite of passage.",
+    example: '\"I bought the top of that YouTuber\'s coin and now I\'m stuck as permanent exit liquidity.\"',
+    origin: "Crypto Twitter",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Jeet",
+    phonetic: "/dʒiːt/",
+    def: "The noun or verb for someone who panic-sells their bags for a pathetic 2% profit (or a massive loss), instantly ruining the chart's momentum for everyone else. The lowest form of life in a Solana memecoin trench.",
+    example: '\"Chart was looking so bullish until some jeet dumped 50 million tokens for a $12 profit.\"',
+    origin: "Solana Trenches, ~2023",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Generational Wealth",
+    phonetic: "/ˌdʒɛn.əˈreɪ.ʃən.əl wɛlθ/",
+    def: "The mythical amount of money every trader claims they are holding their bag for. Usually results in holding a memecoin all the way back down to zero and creating generational poverty instead.",
+    example: '\"I\'m not selling a single token until generational wealth. (He was liquidated 4 hours later).\"',
+    origin: "Crypto Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "NGMI",
     phonetic: "/ɛn-dʒiː-ɛm-aɪ/",
     def: "Not Gonna Make It. A death sentence handed out to those who sell early, FUD endlessly, or make the kind of moves that would make your on-chain therapist cry. Often self-diagnosed.",
