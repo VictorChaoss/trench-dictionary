@@ -13,6 +13,15 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
+    word: "God Candle",
+    phonetic: "/ɡɒd ˈkæn.dəl/",
+    def: "A massive, unexplainable, purely vertical green candle that appears on a chart and obliterates all short sellers instantly. The God Candle defies all technical analysis and fundamentals. It is pure, divine intervention by whales or market makers. Staring at a God Candle forming in real-time is considered a religious experience in the trenches.",
+    example: '\"I was 3 seconds away from being liquidated and then a God Candle saved my entire portfolio. Praise be.\"',
+    origin: "Crypto Twitter trading lore",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "NGMI",
     phonetic: "/ɛn-dʒiː-ɛm-aɪ/",
     def: "Not Gonna Make It. A death sentence handed out to those who sell early, FUD endlessly, or make the kind of moves that would make your on-chain therapist cry. Often self-diagnosed.",
