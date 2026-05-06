@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Banner Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1500px;
+      height: 500px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #banner {
+      width: 1500px;
+      height: 500px;
+      background: #080808;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    /* Grain overlay */
+    #banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0.5;
+    }
+
+    /* Gold glow left */
+    .glow-left {
+      position: absolute;
+      left: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(212,160,23,0.18) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Green glow right edge */
+    .glow-right {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(0,255,136,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Subtle gold horizontal streak */
+    .streak {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,160,23,0.15) 30%, rgba(212,160,23,0.3) 50%, rgba(212,160,23,0.15) 70%, transparent 100%);
+      z-index: 2;
+    }
+
+    /* Logo section */
+    .logo-wrap {
+      position: relative;
+      z-index: 5;
+      width: 520px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 60px;
+    }
+
+    .logo-wrap img {
+      width: 380px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 40px rgba(212,160,23,0.4)) drop-shadow(0 0 80px rgba(212,160,23,0.2));
+    }
+
+    /* Divider */
+    .divider {
+      position: relative;
+      z-index: 5;
+      width: 1px;
+      height: 200px;
+      background: linear-gradient(180deg, transparent 0%, rgba(212,160,23,0.4) 30%, rgba(212,160,23,0.4) 70%, transparent 100%);
+      flex-shrink: 0;
+      margin: 0 60px;
+    }
+
+    /* Text section */
+    .text-wrap {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 60px;
+    }
+
+    .text-trench {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      line-height: 0.88;
+      color: #ffffff;
+      letter-spacing: 4px;
+    }
+
+    .text-dictionary {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      line-height: 0.88;
+      color: #d4a017;
+      letter-spacing: 4px;
+    }
+
+    .text-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #888;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 18px;
+    }
+
+    /* Handle */
+    .handle {
+      position: absolute;
+      bottom: 24px;
+      right: 40px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: rgba(212,160,23,0.5);
+      letter-spacing: 1px;
+      z-index: 10;
+    }
+
+    /* Top border accent */
+    .top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #d4a017 40%, #d4a017 60%, transparent 100%);
+      z-index: 10;
+    }
+    .bottom-border {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,160,23,0.4) 40%, rgba(212,160,23,0.4) 60%, transparent 100%);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div id="banner">
+    <div class="top-border"></div>
+    <div class="bottom-border"></div>
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+    <div class="streak"></div>
+
+    <div class="logo-wrap">
+      <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="text-wrap">
+      <div class="text-trench">TRENCH</div>
+      <div class="text-dictionary">DICTIONARY</div>
+      <div class="text-tagline">The Crypto Slang Bible</div>
+    </div>
+
+    <div class="handle">@TrenchDictX</div>
+  </div>
+</body>
+</html>
