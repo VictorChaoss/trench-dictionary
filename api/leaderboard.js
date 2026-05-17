@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     }
 
     const leaderboard = Object.values(map)
-      .sort((a, b) => b.approved - a.approved || b.votes - a.votes)
+      .sort((a, b) => b.votes - a.votes || b.approved - a.approved)
       .slice(0, 50);
 
     return res.status(200).json(leaderboard);

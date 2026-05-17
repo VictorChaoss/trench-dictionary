@@ -522,11 +522,11 @@
         </div>
         <div class="rule-item">
           <div class="rule-num">3</div>
-          <p class="rule-text"><strong>Earn upvotes.</strong> Community upvotes on your approved words boost your score as a tiebreaker.</p>
+          <p class="rule-text"><strong>Earn upvotes.</strong> Community upvotes on your approved words are the <strong style="color:var(--gold)">primary ranking metric</strong> — more thumbs up = higher rank.</p>
         </div>
         <div class="rule-item">
           <div class="rule-num">4</div>
-          <p class="rule-text"><strong>Top 3 wins.</strong> After 2 weeks, the 3 handles with the most approved words take the prizes.</p>
+          <p class="rule-text"><strong>Top 3 wins.</strong> After 2 weeks, the 3 handles with the most upvotes take the prizes. Approved word count is the tiebreaker.</p>
         </div>
       </div>
     </section>
@@ -541,8 +541,8 @@
         <div class="lb-table-head">
           <span class="lb-th">Rank</span>
           <span class="lb-th">Contributor</span>
+          <span class="lb-th">Upvotes</span>
           <span class="lb-th">Approved</span>
-          <span class="lb-th">Votes</span>
         </div>
         <div id="lb-body">
           <div class="lb-empty">Loading the trenches rankings...</div>
@@ -637,8 +637,8 @@
                   <a href="https://x.com/${row.handle}" target="_blank" rel="noopener">@${row.handle}</a>
                 </div>
               </div>
-              <div class="lb-stat">${row.approved}<br><span class="lb-stat-sub">approved</span></div>
               <div class="lb-stat">${row.votes}<br><span class="lb-stat-sub">upvotes</span></div>
+              <div class="lb-stat">${row.approved}<br><span class="lb-stat-sub">approved</span></div>
             </div>`;
         }).join('');
 
