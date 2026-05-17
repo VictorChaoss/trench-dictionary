@@ -1756,6 +1756,8 @@ async function handleSubmit(e) {
   const origin = document.getElementById('new-origin').value.trim();
   const cat = document.getElementById('new-cat').value;
 
+  const twitter_handle = (document.getElementById('new-handle')?.value || '').trim().replace(/^@/, '') || null;
+
   if (!word || !def) {
     showToast('submit-toast', '⚠️ At least give us a word and a definition, ser.', 'error');
     return;
@@ -1775,7 +1777,7 @@ async function handleSubmit(e) {
     const res = await fetch('/api/submitWord', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word, def, example, origin, cat })
+      body: JSON.stringify({ word, def, example, origin, cat, twitter_handle })
     });
 
     if (res.ok) {
