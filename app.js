@@ -843,7 +843,7 @@ const WORDS = [
   {
     word: "Beaver",
     phonetic: "/ˈbiː.vər/",
-    def: "The infamous dual-identity of the timeline (@beaverd). Best known for legitimately winning Elon Musk's $1,000,000 X Creator Article Contest for exposing Deloitte's government contracts, only to be immediately outed by Bubblemaps as a serial pump.fun rugger who extracted over $600,000 from retail on tokens like $SIAS. A hero investigator on the main timeline, and an absolute terrorist in the trenches.",
+    def: "The infamous dual-identity of the timeline (@beaverd). Best known for legitimately winning Elon Musk's $1,000,000 X Creator Article Contest for exposing Deloitte's government contracts. A hero investigator on the main timeline, and an absolute terrorist in the trenches.",
     example: '"Beaver just won a million dollars for whistleblowing on government corruption, then immediately logged into his burner to rug a coin called CatWifHat."',
     origin: "X Creator Contest Lore, 2026",
     cat: "person",
