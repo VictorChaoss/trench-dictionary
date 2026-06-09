@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   const SUPA_KEY = "sb_publishable_naX6qqbRp_AdtXNpHtpI2g_bHhNAErA";
 
   try {
-    const { word, def, example, origin, cat } = req.body;
+    const { word, def, example, origin, cat, twitter_handle } = req.body;
 
     const authHeaders = {
       "apikey": SUPA_KEY,
@@ -20,7 +20,8 @@ export default async function handler(req, res) {
       example: example || "",
       origin: origin || "",
       cat: cat || (req.body.isRequest ? "request" : "culture"),
-      status: req.body.isRequest ? "request" : "pending"
+      status: req.body.isRequest ? "request" : "pending",
+      twitter_handle: twitter_handle ? twitter_handle.replace(/^@/, '').trim() : null
     };
 
     const response = await fetch(SUPA_URL, {

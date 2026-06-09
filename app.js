@@ -4,6 +4,51 @@
 
 const WORDS = [
   {
+    word: "Trench Dictionary",
+    phonetic: "/trɛntʃ ˈdɪk.ʃən.ər.i/",
+    def: "The definitive A-Z encyclopedia of on-chain survival. The project you are currently reading. Born from the chaos of the crypto ecosystem to document every rug pull, moonshot, and coping mechanism before they are lost to history. Written by degens, for degens.",
+    example: '\"Bro tried to tell me what NGMI meant but he got it wrong. I told him to study the Trench Dictionary.\"',
+    origin: "The Trenches, 2026",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "God Candle",
+    phonetic: "/ɡɒd ˈkæn.dəl/",
+    def: "A massive, unexplainable, purely vertical green candle that appears on a chart and obliterates all short sellers instantly. The God Candle defies all technical analysis and fundamentals. It is pure, divine intervention by whales or market makers. Staring at a God Candle forming in real-time is considered a religious experience in the trenches.",
+    example: '\"I was 3 seconds away from being liquidated and then a God Candle saved my entire portfolio. Praise be.\"',
+    origin: "Crypto Twitter trading lore",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Exit Liquidity",
+    phonetic: "/ˈɛk.sɪt lɪˈkwɪd.ɪ.ti/",
+    def: "What you become when you buy a coin based on a massive influencer's 'hidden gem' recommendation. You are not 'early to a community'—you are literally just the liquidity they need to exit their bags. A painful rite of passage.",
+    example: '\"I bought the top of that YouTuber\'s coin and now I\'m stuck as permanent exit liquidity.\"',
+    origin: "Crypto Twitter",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Jeet",
+    phonetic: "/dʒiːt/",
+    def: "The noun or verb for someone who panic-sells their bags for a pathetic 2% profit (or a massive loss), instantly ruining the chart's momentum for everyone else. The lowest form of life in a Solana memecoin trench.",
+    example: '\"Chart was looking so bullish until some jeet dumped 50 million tokens for a $12 profit.\"',
+    origin: "Solana Trenches, ~2023",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Generational Wealth",
+    phonetic: "/ˌdʒɛn.əˈreɪ.ʃən.əl wɛlθ/",
+    def: "The mythical amount of money every trader claims they are holding their bag for. Usually results in holding a memecoin all the way back down to zero and creating generational poverty instead.",
+    example: '\"I\'m not selling a single token until generational wealth. (He was liquidated 4 hours later).\"',
+    origin: "Crypto Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "NGMI",
     phonetic: "/ɛn-dʒiː-ɛm-aɪ/",
     def: "Not Gonna Make It. A death sentence handed out to those who sell early, FUD endlessly, or make the kind of moves that would make your on-chain therapist cry. Often self-diagnosed.",
@@ -798,7 +843,7 @@ const WORDS = [
   {
     word: "Beaver",
     phonetic: "/ˈbiː.vər/",
-    def: "The infamous dual-identity of the timeline (@beaverd). Best known for legitimately winning Elon Musk's $1,000,000 X Creator Article Contest for exposing Deloitte's government contracts, only to be immediately outed by Bubblemaps as a serial pump.fun rugger who extracted over $600,000 from retail on tokens like $SIAS. A hero investigator on the main timeline, and an absolute terrorist in the trenches.",
+    def: "The infamous dual-identity of the timeline (@beaverd). Best known for legitimately winning Elon Musk's $1,000,000 X Creator Article Contest for exposing Deloitte's government contracts. A hero investigator on the main timeline, and an absolute terrorist in the trenches.",
     example: '"Beaver just won a million dollars for whistleblowing on government corruption, then immediately logged into his burner to rug a coin called CatWifHat."',
     origin: "X Creator Contest Lore, 2026",
     cat: "person",
@@ -1711,6 +1756,8 @@ async function handleSubmit(e) {
   const origin = document.getElementById('new-origin').value.trim();
   const cat = document.getElementById('new-cat').value;
 
+  const twitter_handle = (document.getElementById('new-handle')?.value || '').trim().replace(/^@/, '') || null;
+
   if (!word || !def) {
     showToast('submit-toast', '⚠️ At least give us a word and a definition, ser.', 'error');
     return;
@@ -1730,7 +1777,7 @@ async function handleSubmit(e) {
     const res = await fetch('/api/submitWord', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word, def, example, origin, cat })
+      body: JSON.stringify({ word, def, example, origin, cat, twitter_handle })
     });
 
     if (res.ok) {

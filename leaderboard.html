@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard – Trench Dictionary</title>
+  <meta name="description" content="Top contributors to the Trench Dictionary. Submit words, get upvotes, win prizes." />
+  <meta name="theme-color" content="#d4a017" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- LEADERBOARD PAGE STYLES ---- */
+    .lb-hero {
+      text-align: center;
+      padding: 52px 24px 40px;
+      position: relative;
+    }
+    .lb-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,151,28,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .lb-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,151,28,0.1);
+      border: 1px solid rgba(201,151,28,0.3);
+      border-radius: 999px;
+      padding: 5px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--gold2);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .lb-title {
+      font-family: var(--font-head);
+      font-size: clamp(44px, 8vw, 80px);
+      letter-spacing: 3px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .lb-title span { color: var(--gold); }
+    .lb-subtitle {
+      color: var(--text2);
+      font-size: 15px;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* ---- COUNTDOWN ---- */
+    .countdown-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .cd-unit {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 18px 24px;
+      text-align: center;
+      min-width: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cd-unit::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .cd-num {
+      font-family: var(--font-head);
+      font-size: 46px;
+      color: var(--gold2);
+      line-height: 1;
+      display: block;
+      letter-spacing: 1px;
+    }
+    .cd-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      display: block;
+    }
+    .cd-sep {
+      font-family: var(--font-head);
+      font-size: 36px;
+      color: var(--border3);
+      align-self: center;
+      margin-top: -8px;
+    }
+    .cd-ended {
+      font-family: var(--font-head);
+      font-size: 28px;
+      color: var(--red);
+      letter-spacing: 2px;
+    }
+
+    /* ---- PRIZES ---- */
+    .prizes-section {
+      max-width: 860px;
+      margin: 0 auto 52px;
+      padding: 0 20px;
+    }
+    .prizes-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .podium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+    .podium-card {
+      border-radius: var(--radius-lg);
+      padding: 24px 20px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+    }
+    .podium-card.rank-1 {
+      background: linear-gradient(160deg, rgba(201,151,28,0.15) 0%, var(--bg3) 60%);
+      border-color: rgba(201,151,28,0.4);
+      padding-top: 32px;
+      padding-bottom: 36px;
+    }
+    .podium-card.rank-2 {
+      background: linear-gradient(160deg, rgba(150,150,160,0.1) 0%, var(--bg3) 60%);
+      border-color: rgba(150,150,160,0.3);
+    }
+    .podium-card.rank-3 {
+      background: linear-gradient(160deg, rgba(180,100,40,0.1) 0%, var(--bg3) 60%);
+      border-color: rgba(180,100,40,0.3);
+    }
+    .podium-medal {
+      font-size: 38px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .podium-rank {
+      font-family: var(--font-head);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .podium-prize {
+      font-family: var(--font-head);
+      font-size: 32px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .rank-1 .podium-prize { color: var(--gold2); }
+    .rank-2 .podium-prize { color: #c0c0d0; }
+    .rank-3 .podium-prize { color: #cd7f32; }
+    .podium-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .podium-tbd {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--border3);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    /* ---- RULES ---- */
+    .rules-section {
+      max-width: 860px;
+      margin: 0 auto 52px;
+      padding: 0 20px;
+    }
+    .rules-inner {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+    .rules-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin-bottom: 16px;
+      grid-column: 1 / -1;
+    }
+    .rule-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .rule-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: rgba(201,151,28,0.12);
+      border: 1px solid rgba(201,151,28,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold2);
+      margin-top: 1px;
+    }
+    .rule-text {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+    .rule-text strong { color: var(--text); }
+    @media (max-width: 600px) {
+      .rules-inner { grid-template-columns: 1fr; }
+      .podium-grid { grid-template-columns: 1fr; align-items: start; }
+      .podium-card.rank-1 { order: -1; }
+    }
+
+    /* ---- LEADERBOARD TABLE ---- */
+    .lb-section {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+    .lb-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .lb-section-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+    .lb-refresh-btn {
+      background: transparent;
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lb-refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .lb-table {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .lb-table-head {
+      display: grid;
+      grid-template-columns: 52px 1fr 100px 100px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg4);
+    }
+    .lb-th {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .lb-row {
+      display: grid;
+      grid-template-columns: 52px 1fr 100px 100px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .lb-row:last-child { border-bottom: none; }
+    .lb-row:hover { background: var(--bg4); }
+    .lb-row.top-1 { background: rgba(201,151,28,0.05); }
+    .lb-row.top-2 { background: rgba(150,150,160,0.04); }
+    .lb-row.top-3 { background: rgba(180,100,40,0.04); }
+    .lb-rank {
+      font-family: var(--font-head);
+      font-size: 22px;
+      color: var(--border3);
+      letter-spacing: 1px;
+    }
+    .lb-row.top-1 .lb-rank { color: var(--gold2); }
+    .lb-row.top-2 .lb-rank { color: #c0c0d0; }
+    .lb-row.top-3 .lb-rank { color: #cd7f32; }
+    .lb-handle-wrap { display: flex; align-items: center; gap: 10px; }
+    .lb-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-size: 15px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .lb-handle {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .lb-handle a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .lb-handle a:hover { color: var(--gold); }
+    .lb-stat {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold2);
+    }
+    .lb-stat-sub { font-size: 11px; color: var(--muted); font-weight: 400; }
+    .lb-empty {
+      padding: 48px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .lb-empty-cta {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--gold);
+      color: #1a0e00;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .lb-empty-cta:hover { background: var(--gold2); }
+
+    /* ---- SUBMIT CTA BANNER ---- */
+    .lb-cta-banner {
+      max-width: 860px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .lb-cta-inner {
+      background: linear-gradient(135deg, rgba(201,151,28,0.12) 0%, rgba(13,13,16,0.9) 100%);
+      border: 1px solid rgba(201,151,28,0.3);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .lb-cta-text h3 {
+      font-family: var(--font-head);
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .lb-cta-text p { font-size: 13px; color: var(--text2); line-height: 1.6; max-width: 380px; }
+    .lb-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #1a0e00;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 13px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .lb-cta-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <a href="index.html" style="display:inline-block; line-height:0;">
+          <img src="logo_transparent_crop.png" alt="Trench Dictionary" class="logo-img" />
+        </a>
+      </div>
+      <p class="header-tagline">The realest crypto slang bible. Written from the trenches, for the trenches.</p>
+      <div class="hero-actions">
+        <div class="ca-box" onclick="navigator.clipboard.writeText('TrenchPump11111111111111111111111111111111')">
+          <span class="ca-label">CA:</span>
+          <span class="ca-value">TrenchPump... (TBD)</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </div>
+        <a href="index.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Home</a>
+        <a href="dictionary.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Dictionary</a>
+        <a href="scanner.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Scanner</a>
+        <a href="submit.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Contribute</a>
+        <a href="leaderboard.html" class="social-btn btn-x" style="background:var(--gold); color:black; font-weight:bold; border-color:var(--gold);">🏆 Leaderboard</a>
+        <a href="https://x.com/TrenchDictX" target="_blank" class="social-btn btn-x">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="header-stats">
+        <span class="stat-pill" id="trending-meta-pill" style="display:none; color: var(--gold); border-color: var(--gold);">🔥 LIVE META: Scanning...</span>
+        <span class="stat-pill"><strong id="word-count">0</strong> Words</span>
+        <span class="stat-pill">A–Z Coverage</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="lb-hero">
+      <div class="lb-eyebrow">🏆 Season 1 — Launch Competition</div>
+      <h1 class="lb-title">THE <span>TRENCH</span> LEADERBOARD</h1>
+      <p class="lb-subtitle">Submit words. Get approved. Earn votes. Top 3 contributors at the end of the 2-week window take the prizes.</p>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-wrap" id="countdown-wrap">
+        <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-label">Days</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Mins</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Secs</span></div>
+      </div>
+    </section>
+
+    <!-- PRIZES -->
+    <section class="prizes-section">
+      <h2 class="prizes-title">🎁 Prize Pool</h2>
+      <div class="podium-grid">
+        <!-- 2nd -->
+        <div class="podium-card rank-2">
+          <span class="podium-medal">🥈</span>
+          <div class="podium-rank">2nd Place</div>
+          <div class="podium-prize">TBD</div>
+          <p class="podium-desc">Second most approved words in the window</p>
+          <span class="podium-tbd">Announced at launch</span>
+        </div>
+        <!-- 1st -->
+        <div class="podium-card rank-1">
+          <span class="podium-medal">🥇</span>
+          <div class="podium-rank">1st Place</div>
+          <div class="podium-prize">TBD</div>
+          <p class="podium-desc">Most approved word submissions during the 2-week window</p>
+          <span class="podium-tbd">Announced at launch</span>
+        </div>
+        <!-- 3rd -->
+        <div class="podium-card rank-3">
+          <span class="podium-medal">🥉</span>
+          <div class="podium-rank">3rd Place</div>
+          <div class="podium-prize">TBD</div>
+          <p class="podium-desc">Third most approved words in the window</p>
+          <span class="podium-tbd">Announced at launch</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="rules-section">
+      <div class="rules-inner">
+        <h3 class="rules-title">📋 How It Works</h3>
+        <div class="rule-item">
+          <div class="rule-num">1</div>
+          <p class="rule-text"><strong>Submit a word</strong> via the Contribute page. Include your @ handle so you get credit.</p>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">2</div>
+          <p class="rule-text"><strong>Get approved.</strong> The team reviews and approves genuine submissions. Only approved words count.</p>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">3</div>
+          <p class="rule-text"><strong>Earn upvotes.</strong> Community upvotes on your approved words are the <strong style="color:var(--gold)">primary ranking metric</strong> — more thumbs up = higher rank.</p>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">4</div>
+          <p class="rule-text"><strong>Top 3 wins.</strong> After 2 weeks, the 3 handles with the most upvotes take the prizes. Approved word count is the tiebreaker.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD TABLE -->
+    <section class="lb-section">
+      <div class="lb-section-header">
+        <h2 class="lb-section-title">Current Rankings</h2>
+        <button class="lb-refresh-btn" onclick="loadLeaderboard()">↻ Refresh</button>
+      </div>
+      <div class="lb-table" id="lb-table">
+        <div class="lb-table-head">
+          <span class="lb-th">Rank</span>
+          <span class="lb-th">Contributor</span>
+          <span class="lb-th">Upvotes</span>
+          <span class="lb-th">Approved</span>
+        </div>
+        <div id="lb-body">
+          <div class="lb-empty">Loading the trenches rankings...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBMIT CTA -->
+    <section class="lb-cta-banner">
+      <div class="lb-cta-inner">
+        <div class="lb-cta-text">
+          <h3>Drop Your Words. Claim Your Spot.</h3>
+          <p>Every approved submission counts. Add your @ handle on the contribute page and start climbing the board.</p>
+        </div>
+        <a href="submit.html" class="lb-cta-btn">✏️ Submit a Word</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="logo_transparent_crop.png" alt="Trench Dictionary" class="footer-logo" />
+      <p>© 2025 Trench Dictionary. DYOR. NFA. WAGMI (probably).</p>
+      <p class="footer-sub">Built from the trenches &nbsp;|&nbsp; No rugs were pulled in the making of this site &nbsp;|&nbsp; Probably nothing.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // ---- COUNTDOWN ----
+    // CHANGE THIS DATE WHEN YOU LAUNCH PROPERLY
+    // Format: 'YYYY-MM-DDTHH:mm:ss' in UTC
+    const COMPETITION_END = new Date('2026-06-01T00:00:00Z');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = COMPETITION_END - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown-wrap').innerHTML =
+          '<div class="cd-ended">🏁 Competition Ended — Winners Being Announced</div>';
+        return;
+      }
+
+      const days  = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins  = Math.floor((diff % 3600000)  / 60000);
+      const secs  = Math.floor((diff % 60000)    / 1000);
+
+      document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+      document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ---- LEADERBOARD ----
+    const MEDALS = ['🥇','🥈','🥉'];
+
+    async function loadLeaderboard() {
+      const body = document.getElementById('lb-body');
+      body.innerHTML = '<div class="lb-empty">Fetching rankings from the trenches...</div>';
+
+      try {
+        const res = await fetch('/api/leaderboard');
+        if (!res.ok) throw new Error('Failed');
+        const data = await res.json();
+
+        if (!data.length) {
+          body.innerHTML = `
+            <div class="lb-empty">
+              <p>No rankings yet — be the first to submit with your @ handle!</p>
+              <a href="submit.html" class="lb-empty-cta">Submit a Word →</a>
+            </div>`;
+          return;
+        }
+
+        body.innerHTML = data.map((row, i) => {
+          const rank = i + 1;
+          const medal = MEDALS[i] || '';
+          const cls = rank <= 3 ? ` top-${rank}` : '';
+          const initial = (row.handle || '?')[0].toUpperCase();
+          return `
+            <div class="lb-row${cls}">
+              <div class="lb-rank">${medal || rank}</div>
+              <div class="lb-handle-wrap">
+                <div class="lb-avatar">${initial}</div>
+                <div class="lb-handle">
+                  <a href="https://x.com/${row.handle}" target="_blank" rel="noopener">@${row.handle}</a>
+                </div>
+              </div>
+              <div class="lb-stat">${row.votes}<br><span class="lb-stat-sub">upvotes</span></div>
+              <div class="lb-stat">${row.approved}<br><span class="lb-stat-sub">approved</span></div>
+            </div>`;
+        }).join('');
+
+      } catch(e) {
+        body.innerHTML = `
+          <div class="lb-empty">
+            <p>Could not load rankings right now. Try again shortly.</p>
+          </div>`;
+      }
+    }
+
+    loadLeaderboard();
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

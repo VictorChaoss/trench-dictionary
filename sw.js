@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trench-dict-v1';
+const CACHE_NAME = 'trench-dict-v2';
 
 const CORE_ASSETS = [
   '/',
