@@ -459,11 +459,20 @@
   </header>
 
   <main>
+    <!-- BOUNTY STATUS BANNER -->
+    <div class="bounty-status-bar" id="bounty-status-bar">
+      <div class="bounty-status-inner">
+        <span class="bsb-dot" id="bsb-dot"></span>
+        <span class="bsb-text" id="bsb-text">Bounty drops within 24hrs of launch — locked in escrow on go.pump.fun</span>
+        <a href="https://go.pump.fun" target="_blank" class="bsb-link" id="bsb-link">View on GO →</a>
+      </div>
+    </div>
+
     <!-- HERO -->
     <section class="lb-hero">
-      <div class="lb-eyebrow">🏆 Season 1 — Launch Competition</div>
+      <div class="lb-eyebrow">🏆 Season 1 — Weekly Bounty</div>
       <h1 class="lb-title">THE <span>TRENCH</span> LEADERBOARD</h1>
-      <p class="lb-subtitle">Submit words. Get approved. Earn votes. Top 3 contributors at the end of the 2-week window take the prizes.</p>
+      <p class="lb-subtitle">Submit words. Get upvoted. Hold #1 at the end of the week. The winner gets verified and claims SOL on <strong style="color:var(--gold)">go.pump.fun</strong>.</p>
 
       <!-- COUNTDOWN -->
       <div class="countdown-wrap" id="countdown-wrap">
@@ -486,24 +495,24 @@
           <span class="podium-medal">🥈</span>
           <div class="podium-rank">2nd Place</div>
           <div class="podium-prize">TBD</div>
-          <p class="podium-desc">Second most approved words in the window</p>
-          <span class="podium-tbd">Announced at launch</span>
+          <p class="podium-desc">Second most upvoted word submission this week</p>
+          <span class="podium-tbd">More prizes coming</span>
         </div>
         <!-- 1st -->
         <div class="podium-card rank-1">
           <span class="podium-medal">🥇</span>
           <div class="podium-rank">1st Place</div>
-          <div class="podium-prize">TBD</div>
-          <p class="podium-desc">Most approved word submissions during the 2-week window</p>
-          <span class="podium-tbd">Announced at launch</span>
+          <div class="podium-prize" id="prize-1st">TBD</div>
+          <p class="podium-desc">Most upvoted community word at the end of the week</p>
+          <a href="https://go.pump.fun" target="_blank" id="prize-go-link" class="podium-tbd" style="text-decoration:none; border:1px solid rgba(201,151,28,0.4); color:var(--gold); background:rgba(201,151,28,0.08); cursor:pointer;">🎯 Bounty on go.pump.fun</a>
         </div>
         <!-- 3rd -->
         <div class="podium-card rank-3">
           <span class="podium-medal">🥉</span>
           <div class="podium-rank">3rd Place</div>
           <div class="podium-prize">TBD</div>
-          <p class="podium-desc">Third most approved words in the window</p>
-          <span class="podium-tbd">Announced at launch</span>
+          <p class="podium-desc">Third most upvoted word submission this week</p>
+          <span class="podium-tbd">More prizes coming</span>
         </div>
       </div>
     </section>
@@ -514,19 +523,27 @@
         <h3 class="rules-title">📋 How It Works</h3>
         <div class="rule-item">
           <div class="rule-num">1</div>
-          <p class="rule-text"><strong>Submit a word</strong> via the Contribute page. Include your @ handle so you get credit.</p>
+          <p class="rule-text"><strong>Submit a word</strong> on the Contribute page with your X @ handle so you get credit.</p>
         </div>
         <div class="rule-item">
           <div class="rule-num">2</div>
-          <p class="rule-text"><strong>Get approved.</strong> The team reviews and approves genuine submissions. Only approved words count.</p>
+          <p class="rule-text"><strong>Get approved.</strong> The team reviews submissions. Only approved words count toward your ranking.</p>
         </div>
         <div class="rule-item">
           <div class="rule-num">3</div>
-          <p class="rule-text"><strong>Earn upvotes.</strong> Community upvotes on your approved words are the <strong style="color:var(--gold)">primary ranking metric</strong> — more thumbs up = higher rank.</p>
+          <p class="rule-text"><strong>Earn upvotes.</strong> Community upvotes are the <strong style="color:var(--gold)">primary ranking metric</strong>. Get people voting on your word.</p>
         </div>
         <div class="rule-item">
           <div class="rule-num">4</div>
-          <p class="rule-text"><strong>Top 3 wins.</strong> After 2 weeks, the 3 handles with the most upvotes take the prizes. Approved word count is the tiebreaker.</p>
+          <p class="rule-text"><strong>#1 at week's end wins.</strong> The top contributor when the timer hits zero is the bounty winner. Approved word count breaks ties.</p>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">5</div>
+          <p class="rule-text"><strong>Get verified.</strong> Screenshot the leaderboard showing your handle at #1, post it on X tagging <strong style="color:var(--gold)">@TrenchDictX</strong> to begin verification.</p>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">6</div>
+          <p class="rule-text"><strong>Claim on GO.</strong> Once verified, submit proof on <strong style="color:var(--gold)">go.pump.fun</strong> and the SOL bounty is released from escrow to your wallet. No middleman.</p>
         </div>
       </div>
     </section>
@@ -573,10 +590,44 @@
 
   <script src="app.js"></script>
   <script>
-    // ---- COUNTDOWN ----
-    // CHANGE THIS DATE WHEN YOU LAUNCH PROPERLY
-    // Format: 'YYYY-MM-DDTHH:mm:ss' in UTC
-    const COMPETITION_END = new Date('2026-06-01T00:00:00Z');
+    // ---- CONFIG ---- (update when bounty goes live on go.pump.fun)
+    const BOUNTY_LIVE   = false;
+    const BOUNTY_SOL    = '0.5 SOL';       // e.g. '0.5 SOL'
+    const BOUNTY_GO_URL = 'https://go.pump.fun'; // replace with your specific bounty URL
+
+    // Auto-calc next Sunday midnight UTC
+    function getNextSundayMidnight() {
+      const now = new Date();
+      const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+      const dow = d.getUTCDay();
+      d.setUTCDate(d.getUTCDate() + (dow === 0 ? 7 : 7 - dow));
+      return d;
+    }
+    const COMPETITION_END = getNextSundayMidnight();
+
+    // ---- BOUNTY STATUS BAR ----
+    const bsbDot  = document.getElementById('bsb-dot');
+    const bsbText = document.getElementById('bsb-text');
+    const bsbLink = document.getElementById('bsb-link');
+    const prize1st = document.getElementById('prize-1st');
+    const prizeGoLink = document.getElementById('prize-go-link');
+
+    if (BOUNTY_LIVE) {
+      bsbDot.style.background  = 'var(--green)';
+      bsbDot.style.animation   = 'blink 2s infinite';
+      bsbText.textContent = `🎯 BOUNTY LIVE: ${BOUNTY_SOL} locked in escrow on go.pump.fun — race to #1!`;
+      bsbLink.href = BOUNTY_GO_URL;
+      bsbLink.style.opacity = '1';
+      prize1st.textContent = BOUNTY_SOL;
+      prizeGoLink.href = BOUNTY_GO_URL;
+    } else {
+      bsbDot.style.background = 'var(--muted)';
+      bsbText.textContent = '⏳ Bounty drops within 24hrs of launch — watch this space';
+      bsbLink.style.opacity = '0.4';
+      bsbLink.style.pointerEvents = 'none';
+      bsbLink.textContent = 'Coming Soon';
+      prize1st.textContent = 'TBD';
+    }
 
     function updateCountdown() {
       const now = new Date();
@@ -657,6 +708,48 @@
         navigator.serviceWorker.register('/sw.js').catch(() => {});
       });
     }
+
+    // ---- BOUNTY BAR + PRIZE CARD STYLES (injected) ----
+    const s = document.createElement('style');
+    s.textContent = `
+      .bounty-status-bar {
+        background: rgba(201,151,28,0.06);
+        border-bottom: 1px solid rgba(201,151,28,0.18);
+        padding: 10px 20px;
+      }
+      .bounty-status-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .bsb-dot {
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+      .bsb-text {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text2);
+        letter-spacing: 0.3px;
+      }
+      .bsb-link {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: opacity 0.2s;
+      }
+      .bsb-link:hover { opacity: 0.7; }
+    `;
+    document.head.appendChild(s);
   </script>
 </body>
 </html>
