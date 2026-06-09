@@ -59,6 +59,526 @@
     </div>
   </header>
 
+  <!-- BOUNTY LEADERBOARD SECTION -->
+  <section class="bounty-section" id="bounty-section">
+
+    <!-- BOUNTY BANNER -->
+    <div class="bounty-banner">
+      <div class="bounty-banner-inner">
+        <div class="bounty-left">
+          <div class="bounty-eyebrow">
+            <span class="bounty-dot"></span>
+            POWERED BY go.pump.fun
+          </div>
+          <h2 class="bounty-title">🏆 Weekly Word Bounty</h2>
+          <p class="bounty-desc">Submit a word. Get voted to #1. Claim real SOL.<br>The top submission at the end of the week wins the bounty — verified on-chain.</p>
+          <div class="bounty-how">
+            <div class="bounty-step">
+              <span class="bounty-step-num">1</span>
+              <span>Submit a trench slang word below</span>
+            </div>
+            <div class="bounty-step">
+              <span class="bounty-step-num">2</span>
+              <span>Community upvotes decide the rankings</span>
+            </div>
+            <div class="bounty-step">
+              <span class="bounty-step-num">3</span>
+              <span>#1 at week's end gets verified &amp; claims SOL on go.pump.fun</span>
+            </div>
+          </div>
+        </div>
+        <div class="bounty-right">
+          <div class="bounty-prize-card">
+            <div class="bounty-prize-label">THIS WEEK'S PRIZE</div>
+            <div class="bounty-prize-amount" id="bounty-prize">⏳ PENDING</div>
+            <div class="bounty-prize-sub" id="bounty-status-label">Bounty goes live 24hrs after launch</div>
+            <div class="bounty-timer-wrap">
+              <div class="bounty-timer-label">WEEK ENDS IN</div>
+              <div class="bounty-timer" id="bounty-timer">
+                <div class="timer-block"><span id="t-days">--</span><small>DAYS</small></div>
+                <div class="timer-sep">:</div>
+                <div class="timer-block"><span id="t-hours">--</span><small>HRS</small></div>
+                <div class="timer-sep">:</div>
+                <div class="timer-block"><span id="t-mins">--</span><small>MIN</small></div>
+                <div class="timer-sep">:</div>
+                <div class="timer-block"><span id="t-secs">--</span><small>SEC</small></div>
+              </div>
+            </div>
+            <a href="https://go.pump.fun" target="_blank" class="bounty-go-btn" id="bounty-go-link">View Bounty on GO →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW TO CLAIM -->
+      <div class="bounty-claim-info">
+        <div class="claim-info-title">⚡ How to Claim</div>
+        <div class="claim-steps">
+          <div class="claim-step">
+            <span class="claim-icon">📊</span>
+            <div>
+              <strong>Hold #1</strong>
+              <p>Be the most-upvoted community submission at the end of the 7-day window</p>
+            </div>
+          </div>
+          <div class="claim-step">
+            <span class="claim-icon">✅</span>
+            <div>
+              <strong>Get Verified</strong>
+              <p>Submit proof via X — screenshot of the leaderboard showing your word at #1 with your handle visible</p>
+            </div>
+          </div>
+          <div class="claim-step">
+            <span class="claim-icon">💰</span>
+            <div>
+              <strong>Claim on GO</strong>
+              <p>Head to go.pump.fun, find the active Trench Dictionary bounty, submit your proof &amp; receive SOL direct to your wallet</p>
+            </div>
+          </div>
+        </div>
+        <div class="bounty-disclaimer">Bounty is locked in escrow on-chain from the moment it goes live. Decisions on verification are final. DYOR. NFA.</div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div class="leaderboard-wrap">
+      <div class="leaderboard-header">
+        <h3 class="leaderboard-title">📈 Live Leaderboard</h3>
+        <span class="leaderboard-sub">Community submissions ranked by votes</span>
+      </div>
+      <div class="leaderboard-list" id="leaderboard-list">
+        <div class="leaderboard-loading">Loading rankings...</div>
+      </div>
+    </div>
+
+  </section>
+
+  <style>
+    /* ---- BOUNTY SECTION ---- */
+    .bounty-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px 0;
+    }
+
+    .bounty-banner {
+      border: 1px solid rgba(201,151,28,0.25);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(201,151,28,0.06) 0%, rgba(13,13,16,0.95) 50%);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .bounty-banner-inner {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      padding: 36px 36px 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 760px) {
+      .bounty-banner-inner { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+    }
+
+    .bounty-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .bounty-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.2; } }
+
+    .bounty-title {
+      font-family: var(--font-head);
+      font-size: 38px;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .bounty-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text2);
+      margin-bottom: 22px;
+    }
+
+    .bounty-how {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bounty-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text2);
+    }
+
+    .bounty-step-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(201,151,28,0.15);
+      border: 1px solid rgba(201,151,28,0.35);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Prize card */
+    .bounty-prize-card {
+      background: var(--bg3);
+      border: 1px solid rgba(201,151,28,0.3);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bounty-prize-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .bounty-prize-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .bounty-prize-amount {
+      font-family: var(--font-head);
+      font-size: 44px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .bounty-prize-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .bounty-timer-wrap {
+      margin-bottom: 18px;
+    }
+
+    .bounty-timer-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .bounty-timer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .timer-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-width: 48px;
+    }
+
+    .timer-block span {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .timer-block small {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .timer-sep {
+      font-size: 18px;
+      color: var(--border3);
+      font-weight: 700;
+      padding-bottom: 12px;
+    }
+
+    .bounty-go-btn {
+      display: block;
+      background: var(--gold);
+      color: #1a0e00;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.3px;
+    }
+
+    .bounty-go-btn:hover {
+      background: var(--gold2);
+      transform: translateY(-1px);
+    }
+
+    /* Claim info strip */
+    .bounty-claim-info {
+      border-top: 1px solid rgba(201,151,28,0.12);
+      padding: 24px 36px;
+      background: rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 760px) {
+      .bounty-claim-info { padding: 20px 24px; }
+    }
+
+    .claim-info-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .claim-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .claim-steps { grid-template-columns: 1fr; gap: 12px; }
+    }
+
+    .claim-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .claim-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .claim-step strong {
+      display: block;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .claim-step p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .bounty-disclaimer {
+      font-size: 10px;
+      color: var(--border3);
+      font-family: var(--font-mono);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    /* ---- LEADERBOARD ---- */
+    .leaderboard-wrap {
+      margin-bottom: 52px;
+    }
+
+    .leaderboard-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .leaderboard-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+
+    .leaderboard-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .leaderboard-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .leaderboard-loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--font-mono);
+    }
+
+    .lb-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lb-row:hover {
+      background: var(--bg4);
+      border-color: var(--border2);
+    }
+
+    .lb-row.rank-1 {
+      border-color: rgba(201,151,28,0.4);
+      background: linear-gradient(90deg, rgba(201,151,28,0.07) 0%, var(--bg3) 40%);
+    }
+
+    .lb-row.rank-1::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+
+    .lb-rank {
+      font-family: var(--font-head);
+      font-size: 22px;
+      letter-spacing: 1px;
+      min-width: 36px;
+      text-align: center;
+      color: var(--border3);
+      flex-shrink: 0;
+    }
+
+    .lb-row.rank-1 .lb-rank { color: var(--gold); }
+    .lb-row.rank-2 .lb-rank { color: var(--text2); }
+    .lb-row.rank-3 .lb-rank { color: #cd7f32; }
+
+    .lb-word {
+      flex: 1;
+    }
+
+    .lb-word-name {
+      font-family: var(--font-head);
+      font-size: 20px;
+      letter-spacing: 1px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .lb-word-def {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .lb-votes {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .lb-votes-icon { font-size: 12px; }
+
+    .lb-bounty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(201,151,28,0.15);
+      border: 1px solid rgba(201,151,28,0.4);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      animation: pulse-gold 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-gold {
+      0%,100% { box-shadow: 0 0 0 0 rgba(201,151,28,0); }
+      50%      { box-shadow: 0 0 0 4px rgba(201,151,28,0.1); }
+    }
+
+    .lb-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+  </style>
+
   <!-- EXCLUSIVE SUBMIT SECTION FOR SUBMIT.HTML -->
     <section class="submit-section" id="submit-section">
       <div class="submit-header-row">
@@ -168,6 +688,118 @@
         navigator.serviceWorker.register('/sw.js').catch(() => {});
       });
     }
+
+    /* ---- BOUNTY LEADERBOARD ---- */
+    (function() {
+      // ── CONFIG ─────────────────────────────────────────────────────────
+      // Set BOUNTY_LIVE = true and fill BOUNTY_SOL + BOUNTY_GO_URL once
+      // you've posted the bounty on go.pump.fun
+      const BOUNTY_LIVE    = false;
+      const BOUNTY_SOL     = '0.5 SOL';      // e.g. '0.5 SOL'
+      const BOUNTY_GO_URL  = 'https://go.pump.fun'; // replace with your bounty URL
+      // Week end: set to your target Sunday midnight UTC
+      // Format: 'YYYY-MM-DDTHH:MM:SSZ'
+      const WEEK_END_UTC   = getNextSundayMidnightUTC();
+
+      function getNextSundayMidnightUTC() {
+        const now = new Date();
+        const d   = new Date(Date.UTC(
+          now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()
+        ));
+        const dayOfWeek = d.getUTCDay(); // 0=Sun
+        const daysUntilSunday = dayOfWeek === 0 ? 7 : 7 - dayOfWeek;
+        d.setUTCDate(d.getUTCDate() + daysUntilSunday);
+        return d;
+      }
+
+      // ── PRIZE / STATUS ─────────────────────────────────────────────────
+      const prizeEl  = document.getElementById('bounty-prize');
+      const statusEl = document.getElementById('bounty-status-label');
+      const goLink   = document.getElementById('bounty-go-link');
+
+      if (BOUNTY_LIVE) {
+        prizeEl.textContent  = BOUNTY_SOL;
+        prizeEl.style.color  = 'var(--gold)';
+        statusEl.textContent = 'Locked in escrow on go.pump.fun';
+        goLink.href          = BOUNTY_GO_URL;
+      } else {
+        prizeEl.textContent  = '⏳ PENDING';
+        prizeEl.style.color  = 'var(--muted)';
+        statusEl.textContent = 'Bounty goes live within 24hrs of launch';
+        goLink.style.opacity = '0.4';
+        goLink.style.pointerEvents = 'none';
+        goLink.textContent   = 'Bounty Dropping Soon...';
+      }
+
+      // ── COUNTDOWN TIMER ────────────────────────────────────────────────
+      function updateTimer() {
+        const now  = Date.now();
+        const end  = WEEK_END_UTC instanceof Date ? WEEK_END_UTC.getTime() : new Date(WEEK_END_UTC).getTime();
+        const diff = Math.max(0, end - now);
+
+        const days  = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins  = Math.floor((diff % 3600000)  / 60000);
+        const secs  = Math.floor((diff % 60000)    / 1000);
+
+        document.getElementById('t-days').textContent  = String(days).padStart(2,'0');
+        document.getElementById('t-hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('t-mins').textContent  = String(mins).padStart(2,'0');
+        document.getElementById('t-secs').textContent  = String(secs).padStart(2,'0');
+      }
+      updateTimer();
+      setInterval(updateTimer, 1000);
+
+      // ── LEADERBOARD ────────────────────────────────────────────────────
+      const SUPA_URL = 'https://hyblyfssbjozuctekuak.supabase.co/rest/v1/dictionary';
+      const SUPA_KEY = 'sb_publishable_naX6qqbRp_AdtXNpHtpI2g_bHhNAErA';
+
+      async function loadLeaderboard() {
+        const list = document.getElementById('leaderboard-list');
+        try {
+          const res = await fetch(
+            `${SUPA_URL}?select=word,def,votes_up,votes_down,status&status=eq.approved&order=votes_up.desc&limit=10`,
+            { headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` } }
+          );
+          if (!res.ok) throw new Error('fetch failed');
+          const words = await res.json();
+
+          if (!words.length) {
+            list.innerHTML = '<div class="lb-empty">No submissions yet. Be first to drop a word 👇</div>';
+            return;
+          }
+
+          list.innerHTML = words.map((w, i) => {
+            const rank       = i + 1;
+            const netVotes   = (w.votes_up || 0) - (w.votes_down || 0);
+            const rankClass  = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+            const rankLabel  = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
+            const bountyBadge = rank === 1
+              ? `<span class="lb-bounty-badge">🎯 ${BOUNTY_LIVE ? BOUNTY_SOL + ' BOUNTY' : 'BOUNTY POSITION'}</span>`
+              : '';
+
+            return `
+              <div class="lb-row ${rankClass}">
+                <div class="lb-rank">${rankLabel}</div>
+                <div class="lb-word">
+                  <div class="lb-word-name">${w.word}</div>
+                  <div class="lb-word-def">${w.def || ''}</div>
+                </div>
+                ${bountyBadge}
+                <div class="lb-votes">
+                  <span class="lb-votes-icon">▲</span>
+                  ${netVotes}
+                </div>
+              </div>
+            `;
+          }).join('');
+        } catch (e) {
+          list.innerHTML = '<div class="lb-empty">Could not load leaderboard right now.</div>';
+        }
+      }
+
+      loadLeaderboard();
+    })();
   </script>
 </body>
 </html>
