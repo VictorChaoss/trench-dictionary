@@ -890,16 +890,186 @@ body {
 .site-footer p { color: var(--muted); font-size: 12px; }
 .footer-sub { font-size: 11px; color: var(--border3); }
 
+/* ==============================
+   MOBILE NAV BAR (bottom)
+   ============================== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: rgba(8,8,9,0.97);
+  border-top: 1px solid var(--border2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0;
+  safe-area-inset-bottom: env(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mobile-nav-inner {
+  display: flex;
+  align-items: stretch;
+  height: 58px;
+}
+
+.mobile-nav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  padding: 8px 4px;
+}
+
+.mobile-nav-btn svg,
+.mobile-nav-btn .mnb-icon {
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.15s;
+}
+
+.mobile-nav-btn:active .mnb-icon,
+.mobile-nav-btn:active svg { transform: scale(0.88); }
+
+.mobile-nav-btn.active { color: var(--gold); }
+.mobile-nav-btn:hover  { color: var(--text2); }
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 600px) {
-  .main-content { padding: 24px 14px 80px; }
-  .wotd-card { padding: 20px 18px; }
-  .wotd-body { flex-direction: column; }
-  .submit-header-row { flex-direction: column; }
+  /* Show mobile bottom nav */
+  .mobile-nav { display: block; }
+
+  /* Hide the desktop button row in header */
+  .hero-actions { display: none !important; }
+
+  /* Header tightening */
+  .site-header { padding: 18px 16px 14px; }
+  .logo-wrap { margin-bottom: 14px; }
+  .logo-img { width: clamp(180px, 55vw, 280px); }
+  .header-tagline { margin-bottom: 12px; font-size: 12px; }
+  .header-stats { gap: 5px; }
+  .stat-pill { font-size: 10px; padding: 3px 10px; }
+
+  /* Dictionary page */
+  .main-content { padding: 20px 12px 90px; }
+  .wotd-card { padding: 18px 16px; }
+  .wotd-word { font-size: clamp(32px, 10vw, 52px); }
+  .wotd-body { flex-direction: column; gap: 12px; }
+  .wotd-badge-cat { align-self: flex-start; }
   .entry-card { padding: 16px 14px; }
-  .letter-anchor { font-size: 32px; }
-  .explainer-input-wrap { flex-direction: column; }
-  #explainer-btn { padding: 16px; }
+  .card-word { font-size: 22px; }
+  .card-def { font-size: 13px; }
+  .letter-anchor { font-size: 30px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+
+  /* A–Z nav — scrollable horizontal strip */
+  .az-nav {
+    padding: 8px 10px;
+    gap: 2px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .az-nav::-webkit-scrollbar { display: none; }
+  .az-btn { min-width: 28px; font-size: 10px; padding: 5px 4px; }
+
+  /* Category filter — scrollable */
+  .filter-row { padding: 8px 10px; }
+  .filter-tags {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .filter-tags::-webkit-scrollbar { display: none; }
+  .tag { white-space: nowrap; padding: 5px 12px; font-size: 11px; }
+
+  /* Search bar */
+  .search-bar-outer { padding: 10px 12px; }
+  .search-wrap input { font-size: 15px; } /* 16px prevents iOS zoom */
+
+  /* Vote buttons — bigger tap targets */
+  .vote-btn { padding: 6px 13px; font-size: 12px; }
+  .card-footer { gap: 10px; }
+
+  /* Submit page */
+  .submit-header-row { flex-direction: column; gap: 12px; }
+  .submit-section { padding-top: 32px; margin-top: 32px; }
+  .submit-title { font-size: 28px; }
+  .submit-form, .request-form { padding: 18px; }
+  .form-row { grid-template-columns: 1fr; gap: 12px; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; } /* prevents iOS zoom */
+
+  /* Leaderboard */
+  .lb-hero { padding: 32px 16px 28px; }
+  .prizes-section { padding: 0 14px; }
+  .podium-grid { grid-template-columns: 1fr; gap: 10px; }
+  .podium-card.rank-1 { order: -1; }
+  .rules-section { padding: 0 14px; }
+  .rules-inner { grid-template-columns: 1fr; padding: 20px 18px; gap: 16px; }
+  .lb-section { padding: 0 14px; }
+  .lb-table-head { display: none; }
+  .lb-row { grid-template-columns: 40px 1fr 70px; }
+  .lb-row > :last-child { display: none; } /* hide approved col on mobile */
+  .lb-cta-banner { padding: 0 14px; }
+  .lb-cta-inner { flex-direction: column; padding: 24px 20px; text-align: center; }
+  .lb-cta-text p { max-width: 100%; }
+
+  /* Bounty section (submit page) */
+  .bounty-banner-inner { padding: 20px 18px; gap: 20px; }
+  .bounty-title { font-size: 28px; }
+  .claim-steps { grid-template-columns: 1fr; gap: 12px; }
+  .bounty-claim-info { padding: 18px; }
+  .timer-block { min-width: 40px; padding: 6px 8px; }
+  .timer-block span { font-size: 18px; }
+
+  /* Scanner page */
+  .explainer-input-wrap { flex-direction: column; gap: 10px; }
+  #explainer-btn { padding: 16px; width: 100%; }
+  #explainer-input { font-size: 16px; } /* prevent iOS zoom */
+  .explainer-inner { padding: 20px 16px; }
+
+  /* Countdown timer (leaderboard) */
+  .countdown-wrap { gap: 6px; }
+  .cd-unit { padding: 12px 14px; min-width: 60px; }
+  .cd-num { font-size: 32px; }
+
+  /* Scroll-to-top btn — clear of bottom nav */
+  #scroll-top-btn { bottom: 72px !important; }
+
+  /* Footer breathing room */
+  .site-footer { padding: 24px 16px 100px; }
+}
+
+/* Tablet tweaks */
+@media (max-width: 900px) and (min-width: 601px) {
+  .hero-actions { gap: 8px; flex-wrap: wrap; }
+  .social-btn { font-size: 12px; padding: 8px 12px; }
+  .ca-value { display: none; }
+  .ca-box { padding: 9px 12px; }
+  .submit-grid { grid-template-columns: 1fr; }
+  .podium-grid { grid-template-columns: 1fr; gap: 10px; }
+  .podium-card.rank-1 { order: -1; }
+  .rules-inner { grid-template-columns: 1fr; }
 }
 
 .card-origin {
