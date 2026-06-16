@@ -1367,14 +1367,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error("Failed to sync remote dictionary:", e);
   }
 
-  // Deduplicate: WORDS array always wins over DB entries for same word name
+  // Deduplicate: WORDS array always wins over DB entries for same word name.
+  // Also normalises spacing so e.g. "Bag Holder" and "Bagholder" are treated as the same.
+  const normalise = str => str.toLowerCase().replace(/\s+/g, '');
   const wordsMap = new Map();
   // DB words go in first (lower priority)
-  words.filter(w => !WORDS.find(ww => ww.word.toLowerCase() === w.word.toLowerCase()) || WORDS.indexOf(w) !== -1).forEach(w => wordsMap.set(w.word.toLowerCase(), w));
-  // Then overwrite with WORDS entries (higher priority)
-  WORDS.forEach(w => wordsMap.set(w.word.toLowerCase(), w));
-  // Add any DB-only words (not in WORDS) back in
-  words.forEach(w => { if (!wordsMap.has(w.word.toLowerCase())) wordsMap.set(w.word.toLowerCase(), w); });
+  words.forEach(w => wordsMap.set(normalise(w.word), w));
+  // WORDS entries overwrite DB entries (higher priority)
+  WORDS.forEach(w => wordsMap.set(normalise(w.word), w));
   words = Array.from(wordsMap.values());
   
   duplicateTicker();
