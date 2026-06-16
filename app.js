@@ -1349,15 +1349,14 @@ let votes = {};
 // ---- INIT ----
 document.addEventListener('DOMContentLoaded', async () => {
   loadVotes();
-  
-  // Hybrid fetch: Merge DB-approved elements into the core 'words' array seamlessly
+
+  // Hybrid fetch: Merge DB-approved words into the core 'words' array
   try {
     const res = await fetch('/api/getWords?status=approved');
     if (res.ok) {
       const dbWords = await res.json();
       if (dbWords && dbWords.length > 0) {
         dbWords.forEach(dw => {
-          // ensure votes object is intact
           dw.votes = { up: dw.votes_up || 0, down: dw.votes_down || 0 };
         });
         words.push(...dbWords);
@@ -1367,16 +1366,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error("Failed to sync remote dictionary:", e);
   }
 
-  // Deduplicate: WORDS array always wins over DB entries for same word name.
-  // Also normalises spacing so e.g. "Bag Holder" and "Bagholder" are treated as the same.
-  const normalise = str => str.toLowerCase().replace(/\s+/g, '');
+  // Deduplicate safely — WORDS array always wins over DB entries.
+  // Normalise spaces so "Bag Holder" and "Bagholder" are treated as the same.
+  const normalise = str => (str || '').toLowerCase().replace(/\s+/g, '');
   const wordsMap = new Map();
-  // DB words go in first (lower priority)
-  words.forEach(w => wordsMap.set(normalise(w.word), w));
-  // WORDS entries overwrite DB entries (higher priority)
-  WORDS.forEach(w => wordsMap.set(normalise(w.word), w));
+  words.forEach(w => { if (w && w.word) wordsMap.set(normalise(w.word), w); });
+  WORDS.forEach(w => { if (w && w.word) wordsMap.set(normalise(w.word), w); });
   words = Array.from(wordsMap.values());
-  
+
   duplicateTicker();
   setWordOfTheDay();
   renderWords();
