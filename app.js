@@ -1613,12 +1613,14 @@ async function generatePoster(wordName) {
   const sb = document.querySelector(`#card-${btnId} .share-icon-btn`);
   if(sb) sb.style.opacity = '0.5';
 
-  // 1. Populate the offscreen canvas zone
+  // Populate the offscreen canvas zone
   document.getElementById('poster-word').textContent = w.word;
-  document.getElementById('poster-definition').innerHTML = w.def.replace(/\n/g, '<br>');
-  document.getElementById('poster-example').innerHTML = w.example ? `"${w.example.replace(/\n/g, '<br>')}"` : '';
+  const phoneticEl = document.getElementById('poster-phonetic');
+  if (phoneticEl) phoneticEl.textContent = w.phonetic || '';
+  document.getElementById('poster-definition').textContent = w.def;
+  const exEl = document.getElementById('poster-example');
+  if (exEl) exEl.textContent = w.example ? w.example : '';
   document.getElementById('poster-author').textContent = w.origin;
-  
   const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
   document.getElementById('poster-upvotes').textContent = savedVotes.up.toLocaleString();
 
