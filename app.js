@@ -210,15 +210,7 @@ const WORDS = [
     cat: "trading",
     votes: { up: 0, down: 0 }
   },
-  {
-    word: "Bag Holder",
-    phonetic: "/bæɡ ˈhoʊl.dər/",
-    def: "Someone still holding a position long after rational hope has departed. The bags grow heavier with time. Some bag holders ascend to legend status. Most do not.",
-    example: '"Still holding my 2021 NFTs. Full bag holder mode. Won\'t sell. Can\'t sell."',
-    origin: "Stock trading → Crypto",
-    cat: "trading",
-    votes: { up: 0, down: 0 }
-  },
+
   {
     word: "Alpha",
     phonetic: "/ˈæl.fə/",
@@ -1315,6 +1307,51 @@ const WORDS = [
     example: '"I thought I was early to a great ticker, but then I realized the dev was a mass deployer who just launched 85 coins named \'PepeWifHat\' in the last ten minutes."',
     origin: "Pump.fun Grift Architecture",
     cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bitcoin",
+    phonetic: "/ˈbɪt.kɔɪn/",
+    def: "The original. The grandfather. The boomer of blockchains. Bitcoin moves slower than a grandma trying to send an email — transactions take ten minutes, fees spike randomly, and the culture is 90% men in their 40s telling you to \"just buy BTC and stop overthinking it.\" It does not do NFTs, meme coins, or smart contracts with any enthusiasm. And yet — it's still the only crypto your parents have actually heard of, it's still the benchmark everything else is measured against, and it's still the asset that sends the entire market into either euphoria or cardiac arrest every four years. Humble, immovable, infuriatingly slow. The original digital gold.",
+    example: '"I explained DeFi, yield farming, and perpetual futures to my dad. He said, \'so why not just buy Bitcoin?\' I had no answer."',
+    origin: "Satoshi Nakamoto, 2009",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Ethereum",
+    phonetic: "/ɪˈθɪər.i.əm/",
+    def: "The smart contract layer that tried to be everything to everyone and mostly succeeded, at the cost of your gas fees and sanity. Ethereum is where the ideas happen — DeFi, NFTs, DAOs, every financial primitive of the on-chain economy was born here. The problem is that during peak usage it will charge you $200 to send $50 and take 30 seconds to confirm it. Transitioning from Proof of Work to Proof of Stake was supposed to fix everything. It fixed some things. Developers still love it. Traders hate paying to use it. The Layer 2 ecosystem exists entirely because Ethereum was too successful for its own infrastructure.",
+    example: '"I tried to mint an NFT and paid more in gas than the NFT was worth. Ethereum experience."',
+    origin: "Vitalik Buterin, 2015",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Solana",
+    phonetic: "/soʊˈlɑː.nə/",
+    def: "The chain built for speed, degens, and disaster. Solana processes thousands of transactions per second — which is exactly what you need when 14,000 jeets are simultaneously trying to dump the same dog coin they bought 8 seconds ago. It's the spiritual home of the meme coin supercycle, pump.fun, and every 30-second market cap spike you've ever witnessed at 3AM. The culture here is pure chaos: influencer rugs, coordinated cabal launches, KOL-seeded exits, and enough scandal to fill a Netflix documentary. The network also has a recurring habit of going offline at the worst possible moments — always during peak volume, always during a crash. Solana doesn't have users. It has survivors.",
+    example: '"Ape in, got rugged in 4 minutes, network went down, came back up, the coin was gone. Classic Solana Tuesday."',
+    origin: "Anatoly Yakovenko, 2020",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "It's Over",
+    phonetic: "/ɪts ˈoʊ.vər/",
+    def: "Two words that have defined every bear market, every crash, every regulatory crackdown, and every hack since 2011. Posted with maximum conviction whenever the chart does something scary. Bitcoin has been declared dead over 400 times by mainstream media. It's over has been wrong every single time — and yet it never stops being posted with the confidence of someone who just figured out gravity. The phrase exists in permanent tension with its twin: We Are So Back.",
+    example: '"BTC down 30% in a week. Crypto is dead. It\'s over." (Six months later: new all-time high.)',
+    origin: "Crypto Twitter, recurring since 2011",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "We're Back",
+    phonetic: "/wɪər bæk/",
+    def: "The triumphant counter-cry to It's Over, deployed the moment any green candle appears after a prolonged bloodbath. It does not matter if the recovery is 2% after a 70% dump — we are back. Screamed in Telegram groups, blasted on Crypto Twitter, accompanied by rocket emojis and videos of people crying happy tears. Frequently premature. The emotional whiplash between It's Over and We're Back is the defining psychological experience of being in this space. Some people have oscillated between both phrases within the same hour.",
+    example: '"Up 4% from the bottom. WE ARE SO BACK. (We were not fully back yet.)"',
+    origin: "Crypto Twitter, ~2022 bear market",
+    cat: "culture",
     votes: { up: 0, down: 0 }
   }
 ];

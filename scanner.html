@@ -67,7 +67,119 @@
     </div>
   </div>
   <!-- NARRATIVE EXPLAINER BOT -->
-  <section class="explainer-section">
+  <style>
+    .scanner-wrapper {
+      position: relative;
+    }
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(8, 8, 8, 0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: not-allowed;
+    }
+    .cs-lock-icon {
+      font-size: 42px;
+      animation: cs-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes cs-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.12); opacity: 0.7; }
+    }
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid rgba(212, 160, 23, 0.45);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-family: var(--font-mono, monospace);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4a017;
+    }
+    .cs-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #d4a017;
+      animation: cs-blink 1.4s ease-in-out infinite;
+    }
+    @keyframes cs-blink {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
+    }
+    .cs-title {
+      font-family: var(--font-display, sans-serif);
+      font-size: clamp(28px, 5vw, 46px);
+      color: #fff;
+      letter-spacing: 3px;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .cs-title span { color: #d4a017; }
+    .cs-sub {
+      font-size: 14px;
+      color: #888;
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.6;
+      font-family: var(--font-body, sans-serif);
+    }
+    .cs-progress-wrap {
+      width: 220px;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .cs-progress-bar {
+      height: 100%;
+      width: 72%;
+      background: linear-gradient(90deg, #d4a017, #f5c842);
+      border-radius: 100px;
+      animation: cs-shimmer 2s ease-in-out infinite alternate;
+    }
+    @keyframes cs-shimmer {
+      from { opacity: 0.7; } to { opacity: 1; }
+    }
+    .cs-progress-label {
+      font-size: 11px;
+      font-family: var(--font-mono, monospace);
+      color: #555;
+      letter-spacing: 1px;
+    }
+    /* Blur the scanner content behind overlay */
+    .scanner-wrapper .explainer-inner {
+      filter: blur(2px);
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+
+  <section class="explainer-section scanner-wrapper">
+    <!-- COMING SOON OVERLAY -->
+    <div class="coming-soon-overlay" aria-label="Coming Soon">
+      <div class="cs-lock-icon">🔒</div>
+      <div class="cs-badge"><span class="cs-dot"></span>In Development</div>
+      <div class="cs-title">TRENCH<span>BOT</span><br>COMING SOON</div>
+      <p class="cs-sub">The AI-powered CA scanner is being forged in the trenches. Drop your address when it's live.</p>
+      <div class="cs-progress-wrap">
+        <div class="cs-progress-bar"></div>
+      </div>
+      <span class="cs-progress-label">72% COMPLETE</span>
+    </div>
+
+    <!-- BLURRED SCANNER (non-interactive) -->
     <div class="explainer-inner">
       <div class="explainer-header">
         <span class="explainer-icon">🤖</span>
@@ -77,8 +189,8 @@
         </div>
       </div>
       <div class="explainer-input-wrap">
-        <input type="text" id="explainer-input" placeholder="Paste Solana CA here..." autocomplete="off" />
-        <button id="explainer-btn">Analyze</button>
+        <input type="text" id="explainer-input" placeholder="Paste Solana CA here..." autocomplete="off" disabled />
+        <button id="explainer-btn" disabled>Analyze</button>
       </div>
       <div class="explainer-output" id="explainer-output" style="display: none;">
         <div class="output-header" id="output-header" style="display: none;">
