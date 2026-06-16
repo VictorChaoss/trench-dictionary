@@ -1614,7 +1614,11 @@ async function generatePoster(wordName) {
   if (sb) sb.style.opacity = '0.5';
 
   try {
-    await document.fonts.ready;
+    // Wait for fonts with a 2s timeout — mobile connections can be slow
+    await Promise.race([
+      document.fonts.ready,
+      new Promise(resolve => setTimeout(resolve, 2000))
+    ]);
 
     const PW = 1280;
     const PAD = 80;
