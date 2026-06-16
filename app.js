@@ -1527,7 +1527,7 @@ function renderWords() {
 
 function buildCard(w, catAccents) {
   const id = encodeURIComponent(w.word).replace(/'/g, '%27');
-  const safeWord = w.word.replace(/'/g, "\\'");
+  const safeWord = encodeURIComponent(w.word);
   const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
   const upVoted = votes[`${w.word}_voted`] === 'up';
   const downVoted = votes[`${w.word}_voted`] === 'down';
@@ -1565,7 +1565,7 @@ function buildCard(w, catAccents) {
 
 // ---- COPY DEFINITION ----
 function copyDefinition(wordName) {
-  const resolvedName = wordName.replace(/\\'/g, "'");
+  const resolvedName = decodeURIComponent(wordName);
   const w = WORDS.find(item => item.word === resolvedName)
          || words.find(item => item.word === resolvedName)
          || (typeof filteredWords !== 'undefined' && filteredWords.find(item => item.word === resolvedName));
@@ -1603,8 +1603,7 @@ function showCopyToast() {
 
 // ---- SHARE POSTER FUNCTION ----
 async function generatePoster(wordName) {
-  // Unescape apostrophes that were escaped in the onclick safeWord encoding
-  const resolvedName = wordName.replace(/\\'/g, "'");
+  const resolvedName = decodeURIComponent(wordName);
   const w = filteredWords.find(item => item.word === resolvedName)
          || words.find(item => item.word === resolvedName)
          || WORDS.find(item => item.word === resolvedName);
@@ -1678,16 +1677,17 @@ async function generatePoster(wordName) {
 
 // ---- VOTE ----
 async function vote(wordName, direction) {
-  const w = words.find(x => x.word === wordName);
+  const resolvedName = decodeURIComponent(wordName);
+  const w = words.find(x => x.word === resolvedName);
   if (!w) return;
-  if (!votes[wordName]) votes[wordName] = { up: w.votes.up || 0, down: w.votes.down || 0 };
+  if (!votes[resolvedName]) votes[resolvedName] = { up: w.votes.up || 0, down: w.votes.down || 0 };
 
-  const prev = votes[`${wordName}_voted`];
+  const prev = votes[`${resolvedName}_voted`];
   if (prev === direction) return; // already voted this way
 
-  if (prev) votes[wordName][prev]--;
-  votes[wordName][direction]++;
-  votes[`${wordName}_voted`] = direction;
+  if (prev) votes[resolvedName][prev]--;
+  votes[resolvedName][direction]++;
+  votes[`${resolvedName}_voted`] = direction;
 
   saveVotes();
   renderWords();
