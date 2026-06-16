@@ -520,10 +520,10 @@ const WORDS = [
   {
     word: "Farmer",
     phonetic: "/ˈfɑː.mər/",
-    def: "A tragic creature who spends 14 hours a day clicking testnet buttons, bridging 0.001 ETH between obscure Layer-2s, and authenticating in 4,000 different Discord servers. All for the promise of a token airdrop that will ultimately be worth $12 and cost $14 in gas to claim. Farmers don't trade. They perform unpaid data entry for protocols that will eventually rug them.",
-    example: '"Been farming this testnet for 9 months. Token launched. I got 4 tokens. I am broken."',
-    origin: "Crypto airdrop culture",
-    cat: "culture",
+    def: "A KOL, influencer, or group who shills a Solana memecoin to their audience while quietly selling into every single buy. The playbook is simple: hype the coin, watch the followers ape in, sell a slice of the supply, repeat. Each shill is a harvest. Each tweet is a shovel. By the time the audience figures out what happened, the farmer has already dumped the bag to near zero and moved on to the next crop. The audience isn't an investor base — they're a liquidity source being farmed down to nothing. The worst part? The farmer will do it again tomorrow, to the same people, with a different ticker.",
+    example: '"He\'s been shilling this coin every day for a week. Chart keeps dumping after each tweet. He\'s not a caller. He\'s a farmer."',
+    origin: "Solana memecoin meta, Crypto Twitter",
+    cat: "person",
     votes: { up: 0, down: 0 }
   },
   {
