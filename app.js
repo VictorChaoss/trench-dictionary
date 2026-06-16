@@ -445,7 +445,7 @@ const WORDS = [
     cat: "culture",
     votes: { up: 0, down: 0 }
   },
-
+  {
     word: "This Is The Way",
     phonetic: "/ðɪs ɪz ðə weɪ/",
     def: "Expression of collective agreement and affirmation. Borrowed from The Mandalorian. Used to endorse both wise security practices and spectacularly reckless financial decisions with equal conviction.",
