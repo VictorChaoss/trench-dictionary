@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trench-dict-v4';
+const CACHE_NAME = 'trench-dict-v5';
 
 const CORE_ASSETS = [
   '/',
@@ -12,7 +12,7 @@ const CORE_ASSETS = [
   '/icon-512.png',
   '/apple-touch-icon.png',
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'
+
 ];
 
 // ---- INSTALL: Cache all core assets ----

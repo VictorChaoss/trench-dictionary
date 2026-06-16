@@ -1601,7 +1601,7 @@ function showCopyToast() {
   t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2000);
 }
 
-// ---- SHARE POSTER FUNCTION ----
+// ---- SHARE POSTER FUNCTION (Pure Canvas — no html2canvas) ----
 async function generatePoster(wordName) {
   const resolvedName = decodeURIComponent(wordName);
   const w = filteredWords.find(item => item.word === resolvedName)
@@ -1610,72 +1610,181 @@ async function generatePoster(wordName) {
   if (!w) return;
 
   const btnId = encodeURIComponent(w.word).replace(/'/g, '%27');
-  const sb = document.querySelector(`#card-${btnId} .share-icon-btn`);
-  if(sb) sb.style.opacity = '0.5';
+  const sb = document.querySelector(`#card-${btnId} .share-icon-btn:last-of-type`);
+  if (sb) sb.style.opacity = '0.5';
 
-  // Populate the offscreen canvas zone
-  document.getElementById('poster-word').textContent = w.word;
-  const phoneticEl = document.getElementById('poster-phonetic');
-  if (phoneticEl) phoneticEl.textContent = w.phonetic || '';
-  document.getElementById('poster-definition').textContent = w.def;
-  const exEl = document.getElementById('poster-example');
-  if (exEl) exEl.textContent = w.example ? w.example : '';
-  document.getElementById('poster-author').textContent = w.origin;
-  const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
-  document.getElementById('poster-upvotes').textContent = savedVotes.up.toLocaleString();
-
-  // 2. Render html2canvas
-  const renderZone = document.getElementById('poster-render-zone');
-  
   try {
-    const canvas = await html2canvas(renderZone, {
-      backgroundColor: null,
-      scale: 2, // High resolution for Retina/Twitter
-      logging: false,
-      useCORS: true
-    });
+    await document.fonts.ready;
 
-    // 3. Convert to blob and share
-    canvas.toBlob(async (blob) => {
-      if (!blob) {
-        if(sb) sb.style.opacity = '1';
-        return;
+    const PW = 1280;
+    const PAD = 80;
+    const CW = PW - PAD * 2;
+
+    function wrapLines(ctx, text, maxW, font) {
+      ctx.font = font;
+      const wordList = text.split(' ');
+      const lines = [];
+      let line = '';
+      for (const word of wordList) {
+        const test = line ? line + ' ' + word : word;
+        if (ctx.measureText(test).width > maxW && line) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = test;
+        }
       }
-      const file = new File([blob], `trench-poster-${w.word.replace(/[^a-zA-Z0-9]/g, '')}.png`, { type: 'image/png' });
+      if (line) lines.push(line);
+      return lines;
+    }
 
-      // Strictly check for mobile devices. Desktop OS share sheets (like MacOS Safari) don't handle image saves properly.
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    const tmpC = document.createElement('canvas');
+    tmpC.width = PW; tmpC.height = 10;
+    const tmpCtx = tmpC.getContext('2d');
+    const defFont = '500 30px Inter';
+    const exFont  = 'italic 24px "JetBrains Mono"';
+    const defLines = wrapLines(tmpCtx, w.def, CW, defFont).slice(0, 5);
+    const exLines  = w.example ? wrapLines(tmpCtx, w.example, CW - 24, exFont).slice(0, 2) : [];
+
+    let H = 8 + 80 + 48 + 16 + 120;
+    if (w.phonetic) H += 44;
+    H += 32 + defLines.length * 50 + 30;
+    if (exLines.length) H += exLines.length * 44 + 50;
+    H += 70 + 20 + 4;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = PW; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = '#0d0d0d';
+    ctx.fillRect(0, 0, PW, H);
+
+    const g1 = ctx.createLinearGradient(0, 0, PW, 0);
+    g1.addColorStop(0, '#d4a017'); g1.addColorStop(0.5, '#f5c842'); g1.addColorStop(1, '#d4a017');
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, PW, 8);
+
+    let y = 80;
+
+    ctx.font = '700 20px "JetBrains Mono"';
+    ctx.fillStyle = '#d4a017';
+    const badgeTxt = 'TRENCH DICTIONARY';
+    const bW = ctx.measureText(badgeTxt).width + 40;
+    roundRect(ctx, PAD, y, bW, 36, 18);
+    ctx.strokeStyle = 'rgba(212,160,23,0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.fillText(badgeTxt, PAD + 20, y + 24);
+
+    ctx.font = '18px "JetBrains Mono"';
+    ctx.fillStyle = '#555';
+    ctx.textAlign = 'right';
+    ctx.fillText('trenchdictionary.online', PW - PAD, y + 24);
+    ctx.textAlign = 'left';
+    y += 68;
+
+    ctx.font = '700 108px "Bebas Neue"';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(w.word, PAD, y + 96);
+    y += 120;
+
+    if (w.phonetic) {
+      ctx.font = '26px "JetBrains Mono"';
+      ctx.fillStyle = '#666';
+      ctx.fillText(w.phonetic, PAD, y);
+      y += 44;
+    }
+
+    y += 24;
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(PAD, y); ctx.lineTo(PW - PAD, y);
+    ctx.stroke();
+    y += 32;
+
+    ctx.font = defFont;
+    ctx.fillStyle = '#cccccc';
+    for (const line of defLines) {
+      ctx.fillText(line, PAD, y);
+      y += 50;
+    }
+    y += 20;
+
+    if (exLines.length) {
+      ctx.strokeStyle = 'rgba(212,160,23,0.5)';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(PAD, y); ctx.lineTo(PAD, y + exLines.length * 44);
+      ctx.stroke();
+      ctx.font = exFont;
+      ctx.fillStyle = '#888';
+      for (const line of exLines) {
+        ctx.fillText(line, PAD + 20, y + 28);
+        y += 44;
+      }
+      y += 40;
+    }
+
+    const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
+    ctx.font = '20px "JetBrains Mono"';
+    ctx.fillStyle = '#555';
+    ctx.fillText('Origin: ' + (w.origin || ''), PAD, H - 30);
+    ctx.font = '700 22px "JetBrains Mono"';
+    ctx.fillStyle = '#d4a017';
+    ctx.textAlign = 'right';
+    ctx.fillText('\uD83D\uDC4D ' + savedVotes.up.toLocaleString(), PW - PAD, H - 30);
+    ctx.textAlign = 'left';
+
+    ctx.fillStyle = 'rgba(212,160,23,0.25)';
+    ctx.fillRect(0, H - 4, PW, 4);
+
+    canvas.toBlob(async (blob) => {
+      if (!blob) { if (sb) sb.style.opacity = '1'; return; }
+      const fname = `trench-${w.word.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
+      const file = new File([blob], fname, { type: 'image/png' });
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
       if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
-          await navigator.share({
-            files: [file],
-            title: `${w.word} - Trench Dictionary`,
-            text: `Definition of ${w.word} from the trenches.\n\n`
-          });
+          await navigator.share({ files: [file], title: `${w.word} - Trench Dictionary`, text: 'trenchdictionary.online' });
         } catch (e) {
-          console.log("Share cancelled or failed", e);
+          if (e.name !== 'AbortError') posterDownload(blob, fname);
         }
       } else {
-        // Desktop fallback to manual download
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = file.name;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        posterDownload(blob, fname);
       }
-      if(sb) sb.style.opacity = '1';
+      if (sb) sb.style.opacity = '1';
     }, 'image/png');
 
-  } catch (error) {
-    console.error("Poster generation failed:", error);
-    if(sb) sb.style.opacity = '1';
-    alert("Failed to render poster.");
+  } catch (err) {
+    console.error('Poster error:', err);
+    if (sb) sb.style.opacity = '1';
   }
 }
+
+function posterDownload(blob, fname) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = fname;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 
 // ---- VOTE ----
 async function vote(wordName, direction) {
