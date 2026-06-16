@@ -1579,7 +1579,10 @@ function buildCard(w, catAccents) {
 
 // ---- COPY DEFINITION ----
 function copyDefinition(wordName) {
-  const w = WORDS.find(item => item.word === wordName) || (typeof filteredWords !== 'undefined' && filteredWords.find(item => item.word === wordName));
+  const resolvedName = wordName.replace(/\\'/g, "'");
+  const w = WORDS.find(item => item.word === resolvedName)
+         || words.find(item => item.word === resolvedName)
+         || (typeof filteredWords !== 'undefined' && filteredWords.find(item => item.word === resolvedName));
   if (!w) return;
   const text = `${w.word}\n${w.phonetic ? w.phonetic + '\n' : ''}${w.def}${w.example ? '\n\n' + w.example : ''}\n\ntrenchdictionary.online`;
   navigator.clipboard.writeText(text).then(() => {
@@ -1614,7 +1617,11 @@ function showCopyToast() {
 
 // ---- SHARE POSTER FUNCTION ----
 async function generatePoster(wordName) {
-  const w = filteredWords.find(item => item.word === wordName);
+  // Unescape apostrophes that were escaped in the onclick safeWord encoding
+  const resolvedName = wordName.replace(/\\'/g, "'");
+  const w = filteredWords.find(item => item.word === resolvedName)
+         || words.find(item => item.word === resolvedName)
+         || WORDS.find(item => item.word === resolvedName);
   if (!w) return;
 
   const btnId = encodeURIComponent(w.word).replace(/'/g, '%27');
