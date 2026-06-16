@@ -1610,182 +1610,210 @@ function showCopyToast() {
   t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2000);
 }
 
-// ---- SHARE POSTER FUNCTION (Pure Canvas — no html2canvas) ----
+// ---- SHARE POSTER FUNCTION (Pure Canvas) ----
 async function generatePoster(wordName) {
   const resolvedName = decodeURIComponent(wordName);
-  const w = filteredWords.find(item => item.word === resolvedName)
-         || words.find(item => item.word === resolvedName)
-         || WORDS.find(item => item.word === resolvedName);
+  const w = filteredWords.find(i => i.word === resolvedName)
+         || words.find(i => i.word === resolvedName)
+         || WORDS.find(i => i.word === resolvedName);
   if (!w) return;
 
   const btnId = encodeURIComponent(w.word).replace(/'/g, '%27');
   const sb = document.querySelector(`#card-${btnId} .share-icon-btn:last-of-type`);
-  if (sb) sb.style.opacity = '0.5';
+  if (sb) { sb.style.opacity = '0.5'; sb.disabled = true; }
+
+  // Show generating toast
+  let toast = document.getElementById('poster-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'poster-toast';
+    toast.style.cssText = 'position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#111;border:1px solid #d4a017;color:#d4a017;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:10px 24px;border-radius:8px;z-index:9999;letter-spacing:0.5px;transition:opacity 0.3s;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = 'GENERATING POSTER...';
+  toast.style.opacity = '1';
+
+  const done = () => {
+    if (sb) { sb.style.opacity = '1'; sb.disabled = false; }
+    toast.style.opacity = '0';
+  };
 
   try {
-    // Wait for fonts with a 2s timeout — mobile connections can be slow
-    await Promise.race([
-      document.fonts.ready,
-      new Promise(resolve => setTimeout(resolve, 2000))
-    ]);
+    await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]);
 
-    const PW = 1280;
-    const PAD = 80;
-    const CW = PW - PAD * 2;
+    // Use 640px — safe for all mobile browsers, still sharp at 2x
+    const PW = 640, PAD = 40, CW = PW - PAD * 2;
 
-    function wrapLines(ctx, text, maxW, font) {
+    // Word-wrap helper
+    function wrap(ctx, text, maxW, font, maxLines) {
       ctx.font = font;
-      const wordList = text.split(' ');
+      const tokens = (text || '').split(' ');
       const lines = [];
-      let line = '';
-      for (const word of wordList) {
-        const test = line ? line + ' ' + word : word;
-        if (ctx.measureText(test).width > maxW && line) {
-          lines.push(line);
-          line = word;
-        } else {
-          line = test;
-        }
+      let cur = '';
+      for (const t of tokens) {
+        const test = cur ? cur + ' ' + t : t;
+        if (cur && ctx.measureText(test).width > maxW) {
+          lines.push(cur);
+          if (lines.length >= maxLines) return lines;
+          cur = t;
+        } else { cur = test; }
       }
-      if (line) lines.push(line);
+      if (cur && lines.length < maxLines) lines.push(cur);
       return lines;
     }
 
-    function roundRect(ctx, x, y, w, h, r) {
+    // Rounded rect
+    function rr(ctx, x, y, w, h, r) {
       ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.lineTo(x + w - r, y);
-      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-      ctx.lineTo(x + w, y + h - r);
-      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-      ctx.lineTo(x + r, y + h);
-      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+      ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+      ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+      ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+      ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
       ctx.closePath();
     }
 
-    const tmpC = document.createElement('canvas');
-    tmpC.width = PW; tmpC.height = 10;
-    const tmpCtx = tmpC.getContext('2d');
-    const defFont = '500 30px Inter';
-    const exFont  = 'italic 24px "JetBrains Mono"';
-    const defLines = wrapLines(tmpCtx, w.def, CW, defFont).slice(0, 5);
-    const exLines  = w.example ? wrapLines(tmpCtx, w.example, CW - 24, exFont).slice(0, 2) : [];
+    // Pre-measure with a small scratch canvas
+    const sc = document.createElement('canvas');
+    sc.width = PW; sc.height = 200;
+    const sx = sc.getContext('2d');
+    if (!sx) throw new Error('canvas context unavailable');
 
-    let H = 8 + 80 + 48 + 16 + 120;
-    if (w.phonetic) H += 44;
-    H += 32 + defLines.length * 50 + 30;
-    if (exLines.length) H += exLines.length * 44 + 50;
-    H += 70 + 20 + 4;
+    const defFont = '500 15px Inter';
+    const exFont  = 'italic 12px "JetBrains Mono"';
+    const defLines = wrap(sx, w.def, CW, defFont, 6);
+    const exLines  = w.example ? wrap(sx, w.example, CW - 14, exFont, 2) : [];
+
+    // Calculate total height
+    let H = 4;         // top bar
+    H += 44;           // top padding
+    H += 28;           // badge row
+    H += 12;           // gap
+    H += 56;           // word (Bebas Neue 54px)
+    if (w.phonetic) H += 22;
+    H += 16;           // divider
+    H += defLines.length * 24 + 12;
+    if (exLines.length) H += exLines.length * 20 + 24;
+    H += 44;           // footer
+    H += 4;            // bottom bar
 
     const canvas = document.createElement('canvas');
-    canvas.width = PW; canvas.height = H;
+    canvas.width = PW;
+    canvas.height = Math.max(H, 300);
     const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('canvas context unavailable');
 
+    // Background
     ctx.fillStyle = '#0d0d0d';
-    ctx.fillRect(0, 0, PW, H);
+    ctx.fillRect(0, 0, PW, canvas.height);
 
-    const g1 = ctx.createLinearGradient(0, 0, PW, 0);
-    g1.addColorStop(0, '#d4a017'); g1.addColorStop(0.5, '#f5c842'); g1.addColorStop(1, '#d4a017');
-    ctx.fillStyle = g1;
-    ctx.fillRect(0, 0, PW, 8);
+    // Top gold bar
+    const g = ctx.createLinearGradient(0,0,PW,0);
+    g.addColorStop(0,'#d4a017'); g.addColorStop(0.5,'#f5c842'); g.addColorStop(1,'#d4a017');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, PW, 4);
 
-    let y = 80;
+    let y = 44;
 
-    ctx.font = '700 20px "JetBrains Mono"';
+    // Badge
+    ctx.font = '700 10px "JetBrains Mono"';
     ctx.fillStyle = '#d4a017';
-    const badgeTxt = 'TRENCH DICTIONARY';
-    const bW = ctx.measureText(badgeTxt).width + 40;
-    roundRect(ctx, PAD, y, bW, 36, 18);
-    ctx.strokeStyle = 'rgba(212,160,23,0.4)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    ctx.fillText(badgeTxt, PAD + 20, y + 24);
+    const bt = 'TRENCH DICTIONARY';
+    const bw = ctx.measureText(bt).width + 24;
+    rr(ctx, PAD, y, bw, 20, 10);
+    ctx.strokeStyle = 'rgba(212,160,23,0.4)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillText(bt, PAD + 12, y + 13);
 
-    ctx.font = '18px "JetBrains Mono"';
-    ctx.fillStyle = '#555';
+    // URL
+    ctx.font = '10px "JetBrains Mono"'; ctx.fillStyle = '#555';
     ctx.textAlign = 'right';
-    ctx.fillText('trenchdictionary.online', PW - PAD, y + 24);
+    ctx.fillText('trenchdictionary.online', PW - PAD, y + 13);
     ctx.textAlign = 'left';
-    y += 68;
-
-    ctx.font = '700 108px "Bebas Neue"';
-    ctx.fillStyle = '#ffffff';
-    ctx.fillText(w.word, PAD, y + 96);
-    y += 120;
-
-    if (w.phonetic) {
-      ctx.font = '26px "JetBrains Mono"';
-      ctx.fillStyle = '#666';
-      ctx.fillText(w.phonetic, PAD, y);
-      y += 44;
-    }
-
-    y += 24;
-    ctx.strokeStyle = 'rgba(255,255,255,0.07)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(PAD, y); ctx.lineTo(PW - PAD, y);
-    ctx.stroke();
     y += 32;
 
-    ctx.font = defFont;
-    ctx.fillStyle = '#cccccc';
-    for (const line of defLines) {
-      ctx.fillText(line, PAD, y);
-      y += 50;
-    }
-    y += 20;
+    // Word
+    ctx.font = '700 54px "Bebas Neue"'; ctx.fillStyle = '#fff';
+    ctx.fillText(w.word, PAD, y + 44);
+    y += 56;
 
+    // Phonetic
+    if (w.phonetic) {
+      ctx.font = '13px "JetBrains Mono"'; ctx.fillStyle = '#666';
+      ctx.fillText(w.phonetic, PAD, y);
+      y += 22;
+    }
+
+    // Divider
+    y += 8;
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(PAD,y); ctx.lineTo(PW-PAD,y); ctx.stroke();
+    y += 12;
+
+    // Definition
+    ctx.font = defFont; ctx.fillStyle = '#ccc';
+    for (const line of defLines) { ctx.fillText(line, PAD, y); y += 24; }
+    y += 8;
+
+    // Example
     if (exLines.length) {
-      ctx.strokeStyle = 'rgba(212,160,23,0.5)';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(PAD, y); ctx.lineTo(PAD, y + exLines.length * 44);
-      ctx.stroke();
-      ctx.font = exFont;
-      ctx.fillStyle = '#888';
-      for (const line of exLines) {
-        ctx.fillText(line, PAD + 20, y + 28);
-        y += 44;
-      }
-      y += 40;
+      ctx.strokeStyle = 'rgba(212,160,23,0.5)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(PAD,y); ctx.lineTo(PAD, y + exLines.length*20); ctx.stroke();
+      ctx.font = exFont; ctx.fillStyle = '#888';
+      for (const line of exLines) { ctx.fillText(line, PAD+10, y+14); y += 20; }
+      y += 12;
     }
 
-    const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
-    ctx.font = '20px "JetBrains Mono"';
-    ctx.fillStyle = '#555';
-    ctx.fillText('Origin: ' + (w.origin || ''), PAD, H - 30);
-    ctx.font = '700 22px "JetBrains Mono"';
-    ctx.fillStyle = '#d4a017';
+    // Footer
+    const FY = canvas.height - 14;
+    const sv = votes[w.word] || { up: w.votes.up || 0, down: w.votes.down || 0 };
+    ctx.font = '10px "JetBrains Mono"'; ctx.fillStyle = '#555';
+    ctx.fillText('Origin: ' + (w.origin || ''), PAD, FY);
+    ctx.font = '700 11px "JetBrains Mono"'; ctx.fillStyle = '#d4a017';
     ctx.textAlign = 'right';
-    ctx.fillText('\uD83D\uDC4D ' + savedVotes.up.toLocaleString(), PW - PAD, H - 30);
+    ctx.fillText('\uD83D\uDC4D ' + sv.up.toLocaleString(), PW - PAD, FY);
     ctx.textAlign = 'left';
 
+    // Bottom bar
     ctx.fillStyle = 'rgba(212,160,23,0.25)';
-    ctx.fillRect(0, H - 4, PW, 4);
+    ctx.fillRect(0, canvas.height-4, PW, 4);
 
-    canvas.toBlob(async (blob) => {
-      if (!blob) { if (sb) sb.style.opacity = '1'; return; }
-      const fname = `trench-${w.word.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
-      const file = new File([blob], fname, { type: 'image/png' });
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
-        try {
-          await navigator.share({ files: [file], title: `${w.word} - Trench Dictionary`, text: 'trenchdictionary.online' });
-        } catch (e) {
-          if (e.name !== 'AbortError') posterDownload(blob, fname);
-        }
+    // Export — support both toBlob and toDataURL fallback
+    const fname = 'trench-' + w.word.replace(/[^a-zA-Z0-9]/g,'-') + '.png';
+
+    const exportBlob = () => new Promise((resolve, reject) => {
+      if (canvas.toBlob) {
+        canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('toBlob returned null')), 'image/png');
       } else {
-        posterDownload(blob, fname);
+        // Fallback: toDataURL → Blob
+        const dataURL = canvas.toDataURL('image/png');
+        const bytes = atob(dataURL.split(',')[1]);
+        const arr = new Uint8Array(bytes.length);
+        for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+        resolve(new Blob([arr], { type: 'image/png' }));
       }
-      if (sb) sb.style.opacity = '1';
-    }, 'image/png');
+    });
+
+    const blob = await exportBlob();
+    const file = new File([blob], fname, { type: 'image/png' });
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: w.word + ' — Trench Dictionary', text: 'trenchdictionary.online' });
+      } catch (e) {
+        if (e.name !== 'AbortError') posterDownload(blob, fname);
+      }
+    } else {
+      posterDownload(blob, fname);
+    }
 
   } catch (err) {
     console.error('Poster error:', err);
-    if (sb) sb.style.opacity = '1';
+    toast.textContent = 'POSTER FAILED — TRY AGAIN';
+    toast.style.color = '#ff6b6b';
+    toast.style.borderColor = '#ff6b6b';
+    setTimeout(() => { toast.style.opacity = '0'; toast.style.color = '#d4a017'; toast.style.borderColor = '#d4a017'; }, 3000);
+  } finally {
+    done();
   }
 }
 
