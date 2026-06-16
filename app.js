@@ -1049,12 +1049,21 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
-    word: "Goblintown Spaces",
-    phonetic: "/ˈɡɒb.lɪn.taʊn speɪ.sɪz/",
-    def: "A deeply traumatizing period during the depths of the 2022 bear market where everyone's portfolios were down so brutally that the community collectively lost its mind. Thousands of grown adults spent 6 hours a day in Twitter Spaces purely making guttural, unhinged goblin noises at each other. Represents the final psychological stage of grief before market acceptance.",
-    example: '"I lost $50k on Luna so I spent four hours screaming like a goblin in a Twitter Space. The trenches truly break you."',
-    origin: "Bear Market Psychology",
+    word: "Goblintown",
+    phonetic: "/ˈɡɒb.lɪn.taʊn/",
+    def: "Where the market sends you when the bull run is over and nobody told you. Goblintown is the bear market in its rawest form — portfolios down 90%, project floors collapsed, VCs long gone, and the entire crypto community spiralling into collective madness. The term captures the exact energy of a market in freefall: chaotic, unhinged, dark, and somehow still full of people who refuse to leave. When someone says 'we're going to Goblintown' they mean the good times are ending, bags are getting heavy, and the vibes are about to get very ugly. First popularised during the 2022 crash when NFT floors disintegrated overnight and Twitter Spaces devolved into hours of adults making guttural goblin noises at each other as a coping mechanism. That was Goblintown. We live here now.",
+    example: '"Portfolio down 80%, three projects I held rugged this week. We are so in Goblintown right now."',
+    origin: "NFT / Bear Market culture, 2022",
     cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Full Port",
+    phonetic: "/fʊl pɔːt/",
+    def: "Going all-in. Every single dollar of your portfolio thrown into one trade, one token, one bet. Full port is the purest expression of conviction — or delusion, depending on the outcome. There is no hedge, no diversification, no plan B. You have decided that this is the trade and you are fully committed. The upside is life-changing money. The downside is explaining to yourself why you put everything into a dog coin with a 3-day-old Twitter account. Full port is either the best decision of your life or the story you tell people years later as a cautionary tale. There is no in between.",
+    example: '"Full ported into this at 200k market cap. Either I retire or I don\'t talk about this. No updates until moon or zero."',
+    origin: "Crypto trading slang",
+    cat: "trading",
     votes: { up: 0, down: 0 }
   },
   {
