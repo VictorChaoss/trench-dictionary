@@ -1535,7 +1535,7 @@ function renderWords() {
 }
 
 function buildCard(w, catAccents) {
-  const id = encodeURIComponent(w.word).replace(/'/g, '%27');
+  const id = w.word.replace(/[^a-zA-Z0-9-]/g, '_');
   const safeWord = encodeURIComponent(w.word);
   const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
   const upVoted = votes[`${w.word}_voted`] === 'up';
@@ -1618,7 +1618,7 @@ async function generatePoster(wordName) {
          || WORDS.find(i => i.word === resolvedName);
   if (!w) return;
 
-  const btnId = encodeURIComponent(w.word).replace(/'/g, '%27');
+  const btnId = w.word.replace(/[^a-zA-Z0-9-]/g, '_');
   const sb = document.querySelector(`#card-${btnId} .share-icon-btn:last-of-type`);
   if (sb) { sb.style.opacity = '0.5'; sb.disabled = true; }
 
