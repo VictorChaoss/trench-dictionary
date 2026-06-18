@@ -1267,10 +1267,10 @@ const WORDS = [
   {
     word: "Chud",
     phonetic: "/tʃʌd/",
-    def: "A slang term heavily adopted by the PolitiFi and meme coin trenches. Refers to a hyper-online, politically radicalized internet user who bases their entire financial strategy on meme coins. If your portfolio entirely consists of misspelled MS Paint drawings of 2016 politicians, you are proudly operating in the chud economy.",
-    example: '"The chud meta is going crazy right now. Tremp and MAGA coins are up 400% while my venture-backed utility coins are down 20%."',
-    origin: "PolitiFi / 4Chan culture",
-    cat: "culture",
+    def: "An insult for someone considered terminally online, socially unhinged, and deeply unpleasant to be around. Originally taken from a 1984 horror film where CHUD stood for Cannibalistic Humanoid Underground Dwellers — creatures that lived underground, away from normal society, and came up only to cause chaos. The internet repurposed it perfectly. A chud is someone who has spent so long in the darkest corners of the internet that they've lost the ability to interact like a normal human being. In crypto, it's thrown at the most aggressive, irrational, and chronically-online participants — the ones who spend 18 hours a day posting unhinged replies, calling everyone a fed, and going absolutely feral in comment sections. Being called a chud is not a compliment. It means you've gone too deep.",
+    example: '"Absolute chud behaviour. This guy has replied to every tweet about this coin 47 times today. Touch grass."',
+    origin: "1984 horror film → 4chan → Crypto Twitter",
+    cat: "person",
     votes: { up: 0, down: 0 }
   },
   {
