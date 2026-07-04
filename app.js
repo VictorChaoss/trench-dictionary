@@ -963,10 +963,7 @@ const WORDS = [
     phonetic: "/ˈlɛt.ər.bɒm/",
     def: "When a dev or 'team' drops a massive, devastating medium article or Google Doc explaining why they are shutting down the project or delaying utility for 2 years, intentionally dropping it at 3 AM to avoid immediate backlash while simultaneously dumping their bags.",
     example: '"They dropped the letterbomb at 3 AM. By the time America woke up, the liquidity was completely drained."',
-    origin: "Project failure meta",
-    cat: "culture",
-    votes: { up: 0, down: 0 }
-  },
+},
   {
     word: "Lynk",
     phonetic: "/lɪŋk/",
@@ -977,11 +974,11 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
-    word: "Ansem (Sphere)",
+    word: "Ansem",
     phonetic: "/ˈæn.sɛm/",
-    def: "The cat-wearing prophet of the Solana supercycle. Ansem built his legend by calling the WIF supercycle early and successfully mobilizing the timeline to donate over $650,000 to put the Dogwifhat logo on the Las Vegas Sphere — a feat that technically happened, eventually, after months of staring at an empty skyline. But the chapter that cemented his status as a genuine trenches operator came in 2025 when he launched his own coin and ran it to a $400 million market cap. Not a meme he stumbled into. Not a community token he got gifted. His own project, his own launch, nine figures of market cap. Some people talk about the supercycle. Ansem participates in it.",
-    example: '"Ansem launched his own coin and walked it to 400m. Some guys just live different."',
-    origin: "Solana WIF Lore / Own Coin Launch, 2024–2025",
+    def: "The cat-wearing prophet of the Solana supercycle. Known only as @blknoiz06, Ansem is the kind of figure the trenches produce once a cycle — if that. The move that defined him: in mid-2026 an anonymous dev launched $ANSEM — The Black Bull — on pump.fun and airdropped 65% of the total supply straight into his wallet. Most people dump a gift like that and disappear. Ansem went the other direction. He pledged his accumulated pump.fun creator fees — millions of dollars — as weekly airdrops back to holders, converting a random anon's token into a fully functioning stimulus economy with a cult following. The market cap ran past $340 million. He didn't create the coin. He didn't need to. The trenches sent it to him and he ran it to nine figures through reputation alone. That is the Ansem operating model.",
+    example: '"An anon airdropped 65% of $ANSEM to his wallet. He pledged his creator fees back to holders every week and walked it to 340m. The Black Bull just lives different."',
+    origin: "Solana / pump.fun, 2026",
     cat: "person",
     votes: { up: 0, down: 0 }
   },
