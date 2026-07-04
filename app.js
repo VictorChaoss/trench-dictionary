@@ -963,7 +963,10 @@ const WORDS = [
     phonetic: "/ˈlɛt.ər.bɒm/",
     def: "When a dev or 'team' drops a massive, devastating medium article or Google Doc explaining why they are shutting down the project or delaying utility for 2 years, intentionally dropping it at 3 AM to avoid immediate backlash while simultaneously dumping their bags.",
     example: '"They dropped the letterbomb at 3 AM. By the time America woke up, the liquidity was completely drained."',
-},
+    origin: "Project failure meta",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
   {
     word: "Lynk",
     phonetic: "/lɪŋk/",
