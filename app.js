@@ -22,6 +22,15 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
+    word: "BWAM",
+    phonetic: "/bwæm/",
+    def: "The most goated deployer in the trenches. BWAM is the guy who was first to every meta, first to every news event, and first to every pump.fun narrative before you even knew it existed. While you were still reading the tweet, BWAM already deployed, sniped his own launch, and was counting bags. Estimated to have made eight figures from deploying pump.fun tokens alone — not because he got lucky, but because he understood the game at a level most people never will. Does not hate the player. Hates nothing. Just wins. The benchmark by which all other deployers are judged and found wanting.",
+    example: '"That news token that did a 50x in 4 minutes? BWAM was the dev. Obviously."',
+    origin: "The Trenches, pump.fun era",
+    cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Ethereum",
     phonetic: "/ɪˈθɪər.i.əm/",
     def: "The smart contract layer that tried to be everything to everyone and mostly succeeded, at the cost of your gas fees and sanity. Ethereum is where the ideas happen — DeFi, NFTs, DAOs, every financial primitive of the on-chain economy was born here. The problem is that during peak usage it will charge you $200 to send $50 and take 30 seconds to confirm it. Transitioning from Proof of Work to Proof of Stake was supposed to fix everything. It fixed some things. Developers still love it. Traders hate paying to use it. The Layer 2 ecosystem exists entirely because Ethereum was too successful for its own infrastructure.",
@@ -970,9 +979,9 @@ const WORDS = [
   {
     word: "Ansem (Sphere)",
     phonetic: "/ˈæn.sɛm/",
-    def: "The cat-wearing prophet of the Solana supercycle who successfully mobilized the timeline to donate over $650,000 to put the Dogwifhat (WIF) logo on the Las Vegas Sphere. The timeline spent months staring at an empty Vegas skyline while the funds sat in a multisig wallet. A masterclass where the meme transitioned from organic hype into a half-million-dollar phantom event.",
-    example: '"Ansem is calling for 100x. Don\'t forget we are still waiting for the hat on the Sphere. I will ape anyway."',
-    origin: "Solana WIF Lore, 2024",
+    def: "The cat-wearing prophet of the Solana supercycle. Ansem built his legend by calling the WIF supercycle early and successfully mobilizing the timeline to donate over $650,000 to put the Dogwifhat logo on the Las Vegas Sphere — a feat that technically happened, eventually, after months of staring at an empty skyline. But the chapter that cemented his status as a genuine trenches operator came in 2025 when he launched his own coin and ran it to a $400 million market cap. Not a meme he stumbled into. Not a community token he got gifted. His own project, his own launch, nine figures of market cap. Some people talk about the supercycle. Ansem participates in it.",
+    example: '"Ansem launched his own coin and walked it to 400m. Some guys just live different."',
+    origin: "Solana WIF Lore / Own Coin Launch, 2024–2025",
     cat: "person",
     votes: { up: 0, down: 0 }
   },
