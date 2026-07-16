@@ -50,8 +50,14 @@
       color: var(--text);
       line-height: 1;
       margin-bottom: 12px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
-    .lb-title span { color: var(--gold); }
+    .lb-title span { 
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+    }
     .lb-subtitle {
       color: var(--text2);
       font-size: 15px;
@@ -69,14 +75,16 @@
       margin-bottom: 48px;
     }
     .cd-unit {
-      background: var(--bg3);
-      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,151,28,0.3);
       border-radius: 12px;
       padding: 18px 24px;
       text-align: center;
       min-width: 80px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
     }
     .cd-unit::before {
       content: '';
@@ -84,7 +92,8 @@
       top: 0; left: 0; right: 0;
       height: 2px;
       background: var(--gold);
-      opacity: 0.6;
+      box-shadow: 0 0 10px var(--gold);
+      opacity: 0.8;
     }
     .cd-num {
       font-family: var(--font-head);
@@ -424,39 +433,31 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-wrap">
-        <a href="index.html" style="display:inline-block; line-height:0;">
-          <img src="logo_transparent_crop.png" alt="Trench Dictionary" class="logo-img" />
-        </a>
-      </div>
-      <p class="header-tagline">The realest crypto slang bible. Written from the trenches, for the trenches.</p>
-      <div class="hero-actions">
-        <div class="ca-box" onclick="navigator.clipboard.writeText('TrenchPump11111111111111111111111111111111')">
-          <span class="ca-label">CA:</span>
-          <span class="ca-value">TrenchPump... (TBD)</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </div>
-        <a href="index.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Home</a>
-        <a href="dictionary.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Dictionary</a>
-        <a href="scanner.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Scanner</a>
-        <a href="submit.html" class="social-btn btn-x" style="border: 1px solid var(--border);">Contribute</a>
-        <a href="leaderboard.html" class="social-btn btn-x" style="background:var(--gold); color:black; font-weight:bold; border-color:var(--gold);">🏆 Leaderboard</a>
-        <a href="https://x.com/T_Dictionary" target="_blank" class="social-btn btn-x">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
-          </svg>
-        </a>
-      </div>
-      <div class="header-stats">
-        <span class="stat-pill" id="trending-meta-pill" style="display:none; color: var(--gold); border-color: var(--gold);">🔥 LIVE META: Scanning...</span>
-        <span class="stat-pill"><strong id="word-count">0</strong> Words</span>
-        <span class="stat-pill">A–Z Coverage</span>
-      </div>
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
+      <span class="nav-logo-text">TRENCH</span>
+    </a>
+    <div class="nav-links">
+      <a href="dictionary.html" class="nav-btn">Dictionary</a>
+      <a href="scanner.html" class="nav-btn">Scanner</a>
+      <a href="submit.html" class="nav-btn">Contribute</a>
+      <a href="leaderboard.html" class="nav-btn primary active">🏆 Leaderboard</a>
     </div>
-  </header>
+  </nav>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="ca-box" onclick="navigator.clipboard.writeText('TrenchPump11111111111111111111111111111111')">
+      <span class="ca-label">CA:</span>
+      <span class="ca-value">TrenchPump... (TBD)</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    </div>
+    <span>|</span>
+    <span id="trending-meta-pill" style="display:none; color: var(--gold);">🔥 LIVE META: Scanning...</span>
+    <span class="stat-pill"><strong id="word-count">0</strong> Words</span>
+  </div>
 
   <main>
     <!-- BOUNTY STATUS BANNER -->
@@ -710,13 +711,14 @@
       });
     }
 
-    // ---- BOUNTY BAR + PRIZE CARD STYLES (injected) ----
     const s = document.createElement('style');
     s.textContent = `
       .bounty-status-bar {
-        background: rgba(201,151,28,0.06);
-        border-bottom: 1px solid rgba(201,151,28,0.18);
+        background: linear-gradient(90deg, rgba(201,151,28,0.1), rgba(201,151,28,0.02));
+        border-bottom: 1px solid rgba(201,151,28,0.3);
+        border-top: 1px solid rgba(201,151,28,0.3);
         padding: 10px 20px;
+        box-shadow: 0 4px 15px rgba(201,151,28,0.05);
       }
       .bounty-status-inner {
         max-width: 860px;
@@ -734,10 +736,11 @@
       }
       @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
       .bsb-text {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--text2);
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--text);
         letter-spacing: 0.3px;
+        font-weight: 500;
       }
       .bsb-link {
         font-family: var(--font-mono);
