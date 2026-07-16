@@ -26,7 +26,6 @@
   <nav class="nav">
     <a href="index.html" class="nav-logo">
       <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
-      <span class="nav-logo-text">TRENCH</span>
     </a>
     <div class="nav-links">
       <a href="dictionary.html" class="nav-btn">Dictionary</a>
@@ -202,9 +201,9 @@
   <script src="app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-        // Unregister any cached service workers to ensure fresh code always loads
-        navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
-      });
+      // Unregister any cached service workers to ensure fresh code always loads
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(r => r.unregister());
       });
     }
   </script>
