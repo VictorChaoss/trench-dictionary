@@ -1095,7 +1095,7 @@ body {
 .mobile-nav-btn:hover  { color: var(--text2); }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   /* Show mobile bottom nav */
   .mobile-nav { display: block; }
 
