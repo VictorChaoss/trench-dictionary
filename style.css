@@ -217,14 +217,15 @@ body {
 
 /* ---- SEARCH BAR ---- */
 .search-bar-outer {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
+  background: rgba(13, 13, 16, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 14px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
 .search-wrap {
@@ -362,12 +363,13 @@ body {
 }
 
 .wotd-card {
-  background: var(--bg3);
-  border: 1px solid var(--border2);
+  background: linear-gradient(135deg, var(--bg3) 0%, rgba(201,151,28,0.06) 100%);
+  border: 1px solid rgba(201,151,28,0.25);
   border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
   padding: 28px 32px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 40px rgba(201,151,28,0.15);
 }
 
 .wotd-card::before {
@@ -376,9 +378,25 @@ body {
   top: 0; left: 0; right: 0;
   height: 1px;
   background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  z-index: 2;
 }
 
-.wotd-body { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.wotd-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; right: -50%; bottom: -50%;
+  background: radial-gradient(circle at center, rgba(201,151,28,0.12) 0%, transparent 50%);
+  animation: slowSpin 15s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes slowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.wotd-body { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
 
 .wotd-word {
   font-family: var(--font-head);
@@ -469,14 +487,21 @@ body {
 
 /* ---- ENTRY CARD ---- */
 .entry-card {
-  background: var(--bg3);
+  background: rgba(17, 17, 22, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 22px;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: cardFadeUp 0.5s ease backwards;
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .entry-card::before {
@@ -485,18 +510,21 @@ body {
   left: 0; top: 0; bottom: 0;
   width: 2px;
   background: var(--card-accent, transparent);
-  opacity: 0;
-  transition: opacity 0.2s;
+  opacity: 0.5;
+  transition: opacity 0.3s, width 0.3s;
 }
 
 .entry-card:hover {
-  background: var(--bg4);
-  border-color: var(--border2);
-  transform: translateX(2px);
+  background: rgba(23, 23, 30, 0.95);
+  border-color: rgba(201,151,28,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 151, 28, 0.08);
+  z-index: 2;
 }
 
 .entry-card:hover::before {
   opacity: 1;
+  width: 4px;
 }
 
 .card-head {
@@ -616,27 +644,48 @@ body {
 /* ---- EMPTY STATE ---- */
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   color: var(--muted);
   font-size: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-state::before {
+  content: 'NOTHING HERE';
+  display: block;
+  font-family: var(--font-head);
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
 }
 
 .submit-inline-btn {
-  margin-top: 16px;
+  margin-top: 24px;
   display: inline-block;
-  background: var(--gold);
-  color: #1a0e00;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
   font-weight: 700;
-  padding: 9px 18px;
+  padding: 12px 24px;
   border-radius: 8px;
-  border: none;
   cursor: pointer;
   font-size: 13px;
   font-family: var(--font-body);
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
-.submit-inline-btn:hover { background: var(--gold2); }
+.submit-inline-btn:hover {
+  background: var(--gold);
+  color: #1a0e00;
+  box-shadow: 0 4px 15px rgba(201,151,28,0.3);
+}
 
 /* ---- SUBMIT SECTION ---- */
 .submit-section {

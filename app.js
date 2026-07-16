@@ -4,6 +4,33 @@
 
 const WORDS = [
   {
+    word: "Robinhood Markets",
+    phonetic: "/ˈrɒb.ɪn.hʊd ˈmɑr.kɪts/",
+    def: "The retail trading app that gamified finance and brought millions of normies into the casino. Best known for their sleek UI, zero commissions, and the infamous incident where they turned off the buy button on GameStop in 2021. They've since leaned heavily into crypto, hoping degens have short memories.",
+    example: '\"My buddy started trading on Robinhood Markets. He thinks he\'s an investor now but he just bought $50 of Dogecoin.\"',
+    origin: "TradFi meets Tech, 2013",
+    cat: "entities",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Robinhood Chain",
+    phonetic: "/ˈrɒb.ɪn.hʊd tʃeɪn/",
+    def: "Robinhood's Layer 2 network on Ethereum, built on Arbitrum technology and launched in 2026. Designed to bring 'DeFi to the masses' and tokenize real-world assets. Mostly, it's just another place for degens to bridge ETH, farm incentives, and complain about gas fees.",
+    example: '\"Did you bridge your ETH to the Robinhood Chain yet? They have a 90-day gas subsidy program, it\'s free money.\"',
+    origin: "Crypto Expansion, 2026",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Vlad Tenev",
+    phonetic: "/vlæd ˈtɛn.ɛv/",
+    def: "Co-founder and CEO of Robinhood. Often remembered for looking incredibly stressed during congressional hearings and attempting to explain market mechanics to politicians. To retail traders, he is forever associated with restricting trading on meme stocks, earning him mixed legendary status in the trenches.",
+    example: '\"Every time the market dumps, I just imagine Vlad Tenev sweating in front of a webcam.\"',
+    origin: "Robinhood CEO",
+    cat: "people",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Trench Dictionary",
     phonetic: "/trɛntʃ ˈdɪk.ʃən.ər.i/",
     def: "The definitive A-Z encyclopedia of on-chain survival. The project you are currently reading. Born from the chaos of the crypto ecosystem to document every rug pull, moonshot, and coping mechanism before they are lost to history. Written by degens, for degens.",
@@ -1535,23 +1562,24 @@ function renderWords() {
     list.innerHTML = sortedKeys.map(letter => `
       <div class="letter-group" id="group-${letter}">
         <div class="letter-anchor">${letter}</div>
-        ${groups[letter].map(w => buildCard(w, catAccents)).join('')}
+        ${groups[letter].map((w, i) => buildCard(w, catAccents, i)).join('')}
       </div>
     `).join('');
   } else {
-    list.innerHTML = filtered.map(w => buildCard(w, catAccents)).join('');
+    list.innerHTML = filtered.map((w, i) => buildCard(w, catAccents, i)).join('');
   }
 }
 
-function buildCard(w, catAccents) {
+function buildCard(w, catAccents, index = 0) {
   const id = w.word.replace(/[^a-zA-Z0-9-]/g, '_');
   const safeWord = encodeURIComponent(w.word);
   const savedVotes = votes[w.word] || { up: w.votes.up, down: w.votes.down };
   const upVoted = votes[`${w.word}_voted`] === 'up';
   const downVoted = votes[`${w.word}_voted`] === 'down';
   const accent = catAccents[w.cat] || '#d4a017';
+  const delay = Math.min(index * 0.05, 0.5).toFixed(2);
   return `
-    <div class="entry-card" style="--card-accent: ${accent};" id="card-${id}">
+    <div class="entry-card" style="--card-accent: ${accent}; animation-delay: ${delay}s;" id="card-${id}">
       <div class="card-head">
         <h3 class="card-word">${w.word}</h3>
         <span class="card-cat cat-${w.cat}">${w.cat.toUpperCase()}</span>
@@ -1571,6 +1599,9 @@ function buildCard(w, catAccents) {
         </div>
         <div style="display: flex; gap: 8px; align-items: center;">
           <span class="card-origin">${w.origin}</span>
+          <button class="share-icon-btn" onclick="copyLink('${safeWord}')" title="Copy direct link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          </button>
           <button class="share-icon-btn" onclick="copyDefinition('${safeWord}')" title="Copy definition" style="font-size:11px; font-weight:700; font-family:var(--font-mono); padding:4px 10px; letter-spacing:0.3px;">COPY</button>
           <button class="share-icon-btn" onclick="generatePoster('${safeWord}')" title="Share Poster">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
@@ -1590,7 +1621,7 @@ function copyDefinition(wordName) {
   if (!w) return;
   const text = `${w.word}\n${w.phonetic ? w.phonetic + '\n' : ''}${w.def}${w.example ? '\n\n' + w.example : ''}\n\ntrenchdictionary.online`;
   navigator.clipboard.writeText(text).then(() => {
-    showCopyToast();
+    showCopyToast('DEFINITION COPIED');
   }).catch(() => {
     // Fallback for older browsers
     const ta = document.createElement('textarea');
@@ -1601,11 +1632,28 @@ function copyDefinition(wordName) {
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showCopyToast();
+    showCopyToast('DEFINITION COPIED');
   });
 }
 
-function showCopyToast() {
+function copyLink(wordName) {
+  const url = window.location.origin + window.location.pathname + '#card-' + wordName.replace(/[^a-zA-Z0-9-]/g, '_');
+  navigator.clipboard.writeText(url).then(() => {
+    showCopyToast('LINK COPIED');
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showCopyToast('LINK COPIED');
+  });
+}
+
+function showCopyToast(msg = 'COPIED TO CLIPBOARD') {
   let t = document.getElementById('copy-toast');
   if (!t) {
     t = document.createElement('div');
