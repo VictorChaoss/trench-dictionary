@@ -431,6 +431,9 @@
     }
     .lb-cta-btn:hover { background: var(--gold2); transform: translateY(-1px); }
   </style>
+<script>
+  (function(){var t=localStorage.getItem('td_theme');if(t==='oled')document.documentElement.classList.add('theme-oled-preload');if(t==='light')document.documentElement.classList.add('theme-light-preload');})();
+</script>
 </head>
 <body>
   <!-- NAV -->
@@ -439,6 +442,10 @@
       <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
     </a>
     <div class="nav-links">
+      <button class="nav-btn theme-toggle-btn" id="theme-toggle" title="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="timeline.html" class="nav-btn">📜 Timeline</a>
       <a href="dictionary.html" class="nav-btn">Dictionary</a>
       <a href="scanner.html" class="nav-btn">Scanner</a>
       <a href="submit.html" class="nav-btn">Contribute</a>

@@ -18,6 +18,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+<script>
+  (function(){var t=localStorage.getItem('td_theme');if(t==='oled')document.documentElement.classList.add('theme-oled-preload');if(t==='light')document.documentElement.classList.add('theme-light-preload');})();
+</script>
 </head>
 <body>
   
@@ -28,6 +31,10 @@
       <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
     </a>
     <div class="nav-links">
+      <button class="nav-btn theme-toggle-btn" id="theme-toggle" title="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="timeline.html" class="nav-btn">📜 Timeline</a>
       <a href="dictionary.html" class="nav-btn">Dictionary</a>
       <a href="scanner.html" class="nav-btn active">Scanner</a>
       <a href="submit.html" class="nav-btn">Contribute</a>

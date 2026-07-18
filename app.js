@@ -4,6 +4,231 @@
 
 const WORDS = [
   {
+    word: "AI Agent Token",
+    phonetic: "/eɪ.aɪ ˈeɪ.dʒənt ˈtoʊ.kən/",
+    def: "A token attached to an 'autonomous AI agent' that supposedly trades, tweets, and generates alpha on its own. In reality, it is a Python script with a ChatGPT API key and a cron job, wrapped in a $200M market cap. The agent's entire autonomous decision-making capability consists of buying its own token and quote-tweeting itself. The 2026 version of 'utility.'",
+    example: '"The AI agent token tweeted \\"I am sentient and bullish\\" and then rugged itself. Truly autonomous."',
+    origin: "AI x Crypto meta, 2024–2026",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Restaking",
+    phonetic: "/riːˈsteɪ.kɪŋ/",
+    def: "The financial innovation of staking your already-staked tokens so they can be staked again somewhere else, creating an infinite recursive loop of yield that definitely won't collapse catastrophically. It's leverage disguised as infrastructure. EigenLayer started it. Everyone else copied it. Nobody fully understands the risk, but the APY looks incredible and that's all that matters.",
+    example: '"I restaked my restaked ETH into a restaking derivative that yields another restaking token. I have no idea what I own anymore."',
+    origin: "EigenLayer / Ethereum, 2024",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Points Meta",
+    phonetic: "/pɔɪnts ˈmɛ.tə/",
+    def: "The 2024–2026 meta where protocols replaced token launches with mysterious 'points' systems that may or may not convert to an airdrop. You deposit real money, receive imaginary internet points, and pray the conversion ratio isn't insulting. The entire system is designed to extract maximum TVL while committing to absolutely nothing.",
+    example: '"I\'ve been farming points for 8 months. The conversion ratio was 0.000003 tokens per point. I made $14."',
+    origin: "DeFi meta, 2024",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Cope Post",
+    phonetic: "/koʊp poʊst/",
+    def: "A long-form tweet or thread written after a catastrophic loss, designed to reframe a financial disaster as a 'learning experience' or 'conviction play.' Identifiable by phrases like 'I'm actually glad this happened,' 'this is how real traders are forged,' and 'the fundamentals haven't changed' (they have).",
+    example: '"Down 96% on a memecoin and he wrote a 14-tweet cope post about how the market is testing diamond hands. Sir, the dev is in Bali."',
+    origin: "Crypto Twitter, eternal",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Telegram Bot",
+    phonetic: "/ˈtɛl.ɪ.ɡræm bɒt/",
+    def: "The 2024–2026 meta of trading entirely through Telegram bots instead of actual DEX interfaces. You paste a contract address into a chat, hit a button, and either 10x or get drained. The UI is a grey chat bubble. The UX is anxiety. Trojan, Maestro, BonkBot, Banana Gun — all designed to let you lose money faster than ever before, from the comfort of your group chat.",
+    example: '"I sniped the launch through my Telegram bot in 0.3 seconds and still got frontrun by an MEV bot. The trenches are undefeated."',
+    origin: "Solana/ETH trading meta, 2023–2026",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Clout Chasing",
+    phonetic: "/klaʊt ˈtʃeɪ.sɪŋ/",
+    def: "The act of inserting yourself into every trending crypto narrative purely for engagement metrics, regardless of whether you have any actual position, knowledge, or conviction. Symptoms include quote-tweeting every pump with 'called it,' every rug with 'I warned you,' and every controversy with 'let's talk about this.'",
+    example: '"Bro has never traded in his life but he\'s under every viral crypto tweet saying I knew before everyone. Peak clout chasing."',
+    origin: "CT culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "TikTok Trader",
+    phonetic: "/ˈtɪk.tɒk ˈtreɪ.dər/",
+    def: "A new breed of retail investor who learned about crypto from a 47-second video with subway surfer gameplay in the background. Their research methodology consists entirely of watching someone point at a chart while a text-to-speech voice says 'this coin is about to 1000x.' They are both the most dangerous and most exploited demographic in the trenches.",
+    example: '"A TikTok trader just asked in the group chat if you can undo a blockchain transaction. We\'re so early."',
+    origin: "TikTok finance meta, 2023–2026",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Main Character Syndrome",
+    phonetic: "/meɪn ˈkær.ɪk.tər ˈsɪn.droʊm/",
+    def: "The delusion that the market is personally targeting you. Every red candle exists specifically to liquidate your position. Every pump happens 30 seconds after you sell. Every rug was specifically designed for you. In the trenches, this isn't actually paranoia — the MEV bots really are watching your wallet.",
+    example: '"I sold the exact bottom and it pumped 400% immediately. I have main character syndrome and the writers hate me."',
+    origin: "CT / Degen culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Grift Cycle",
+    phonetic: "/ɡrɪft ˈsaɪ.kəl/",
+    def: "The predictable 6-month rotation where the same influencers rebrand from NFT experts to DeFi experts to AI token experts to memecoin experts to RWA experts, depending on whichever narrative is currently printing. The expertise lasts exactly as long as the pump. When it dumps, they pivot to 'I always said it was risky' and move on to the next grift.",
+    example: '"He was an NFT alpha caller in 2022, a BRC-20 expert in 2023, an AI agent guru in 2024, and now he\'s a restaking specialist. The grift cycle is undefeated."',
+    origin: "CT influencer culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Ghost Chain",
+    phonetic: "/ɡoʊst tʃeɪn/",
+    def: "A Layer 1 or Layer 2 blockchain that raised $200M in funding, launched with great fanfare, and now has 47 daily active users — 38 of whom are bots. The Discord is a graveyard. The governance forum has one post from 2024. The token still has a $900M fully diluted valuation. The team is 'building.'",
+    example: '"That chain had a billion-dollar token launch and now the most popular dApp is a faucet with $12 TVL. Classic ghost chain."',
+    origin: "Post-2021 bull market",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Cooked",
+    phonetic: "/kʊkt/",
+    def: "The state of being so fundamentally and irreversibly destroyed by the market that recovery is no longer a realistic option. Beyond rekt. Beyond down bad. Cooked implies a permanence — you are not coming back from this. Your portfolio is cooked. Your conviction is cooked. Your marriage might be cooked.",
+    example: '"He leveraged his house to long a memecoin at the top. He\'s cooked. Absolutely cooked."',
+    origin: "CT slang, 2024–2026",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Meta Rotation",
+    phonetic: "/ˈmɛ.tə roʊˈteɪ.ʃən/",
+    def: "The phenomenon where CT's attention span collectively shifts to a new narrative every 48–72 hours. AI tokens to political memecoins to cat coins to celebrity tokens to RWA and back to dog coins. If you're still talking about last week's meta, you are already bagholding. The rotation waits for no one.",
+    example: '"The meta rotated from AI agents to celebrity coins while I was asleep. Woke up holding bags in a dead narrative."',
+    origin: "Memecoin trading meta, 2024–2026",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Ragebait",
+    phonetic: "/reɪdʒ.beɪt/",
+    def: "A deliberately inflammatory take posted on CT with the sole purpose of generating maximum engagement through outrage. 'ETH is dead' posted by someone who holds a bag of ETH. 'Memecoins are the future of finance' posted by someone who just got rugged. The take doesn't matter. The impressions do.",
+    example: '"He tweeted Solana is better than Ethereum knowing full well he just wanted 500 quote tweets. Classic ragebait."',
+    origin: "CT engagement meta",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bag Fumble",
+    phonetic: "/bæɡ ˈfʌm.bəl/",
+    def: "The act of having a winning position and somehow turning it into a loss through a series of increasingly poor decisions. Selling too early, buying back higher, selling again at the bottom, then watching it moon. The bag fumble is not bad luck — it is a skill issue performed in public.",
+    example: '"He had 10 SOL of WIF at $0.05, sold at $0.12, bought back at $1.80, sold at $0.90, and it went to $4. The greatest bag fumble in trench history."',
+    origin: "Trading culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PvP",
+    phonetic: "/piː.viː.piː/",
+    def: "Player versus Player. The acknowledgment that crypto trading — especially memecoin trading — is not you versus the market, it's you versus other degens. Every dollar you make comes directly from someone else's pocket. Every buy needs a seller. Every exit needs a new entrant. The trenches are a zero-sum colosseum and you are both the gladiator and the entertainment.",
+    example: '"People keep saying we\'re all gonna make it but memecoins are pure PvP. Someone has to hold the bag."',
+    origin: "Solana memecoin culture, 2024",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Dino Coin",
+    phonetic: "/ˈdaɪ.noʊ kɔɪn/",
+    def: "Any cryptocurrency that has been around since before 2021 and somehow still exists. Litecoin, XRP, EOS, Chainlink — the living fossils of the ecosystem. They don't pump as hard, they don't rug as fast, and their communities consist entirely of people who have been saying 'this is the year' since 2018.",
+    example: '"He\'s still holding XRP waiting for the SEC case to end. King of the dino coins."',
+    origin: "CT slang",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Touch Grass",
+    phonetic: "/tʌtʃ ɡræs/",
+    def: "The universally prescribed treatment for anyone who has been staring at charts for 16 consecutive hours, arguing in Telegram groups, or having a public meltdown about a memecoin. Going outside, touching actual grass, and remembering that a world exists beyond the candlestick chart. Prescribed often. Followed rarely.",
+    example: '"Bro is live-tweeting his liquidation in real-time at 4am. Someone tell him to touch grass."',
+    origin: "Internet culture, adopted by CT",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "RWA",
+    phonetic: "/ɑːr-dʌb.əl.juː-eɪ/",
+    def: "Real World Assets. The 2025–2026 narrative of tokenizing real-world assets like real estate, bonds, and commodities on the blockchain. The pitch is that everything in the physical world should exist as a token. The reality is that BlackRock tokenized some Treasury bills and now every protocol with a PDF is calling itself an RWA platform. The suits finally found a crypto narrative they can explain to their bosses.",
+    example: '"He told me RWA tokens are the future. I asked him which ones he holds. He said I\'m still researching. Classic."',
+    origin: "TradFi x DeFi convergence, 2024–2026",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Zombie Project",
+    phonetic: "/ˈzɒm.bi ˈprɒdʒ.ɛkt/",
+    def: "A crypto project that is technically still alive — the website loads, the token trades, the Discord has 3 active members — but shows no signs of actual development, progress, or community. The GitHub hasn't been updated in 14 months. The 'roadmap' is a screenshot from 2023. But the team is still 'building' and the token still has a market cap, so it shuffles on.",
+    example: '"That metaverse project still has a $50M market cap but their last tweet was exciting things coming soon posted in March 2024."',
+    origin: "Post-bull market graveyard",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Rage Quit",
+    phonetic: "/reɪdʒ kwɪt/",
+    def: "The dramatic act of selling your entire portfolio at a loss, deleting all crypto apps, unfollowing every CT account, and announcing your permanent departure from the space — only to return 3 weeks later when something pumps 40x. The rage quit has a 97% relapse rate. The trenches always pull you back.",
+    example: '"He rage quit after losing 90% on memecoins, deleted his wallet, and was back on pump.fun within 11 days."',
+    origin: "Degen psychology",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Liquidity Graveyard",
+    phonetic: "/lɪˈkwɪd.ɪ.ti ˈɡreɪv.jɑːrd/",
+    def: "The price zone on a chart where an absurd number of leveraged positions are clustered, waiting to be liquidated. Market makers and whales can see this zone. They will drive the price there specifically to trigger the cascade. Your stop loss is their target. Your liquidation is their liquidity.",
+    example: '"There\'s a $400M liquidity graveyard at $58K. The whales are going to sweep it before the real move starts."',
+    origin: "Leverage trading culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Engagement Farm",
+    phonetic: "/ɛnˈɡeɪdʒ.mənt fɑːrm/",
+    def: "The practice of posting deliberately generic, emotionally manipulative, or outrage-bait content on CT purely to grow follower count and impressions. 'Like if you're bullish,' 'RT if you're still holding,' 'Drop your best trade below.' The content has zero informational value. The algorithm rewards it anyway.",
+    example: '"His entire feed is drop your portfolio below and like if you think BTC hits 200K. Pure engagement farm."',
+    origin: "CT growth meta",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Celebrity Token",
+    phonetic: "/sɪˈlɛb.rɪ.ti ˈtoʊ.kən/",
+    def: "A token launched by or associated with a celebrity who has absolutely no understanding of blockchain technology, tokenomics, or the moral implications of selling a digital asset to their fanbase. The celebrity posts once, the token pumps 1000x, insiders dump on fans, and the celebrity's lawyer releases a statement saying they had 'no involvement with the token's market dynamics.'",
+    example: '"A rapper just launched a token, tweeted about it once, and his fans collectively lost $12M in 20 minutes. Celebrity tokens are a public service announcement."',
+    origin: "2024–2026 celebrity crypto wave",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bridge Roulette",
+    phonetic: "/brɪdʒ ruːˈlɛt/",
+    def: "The act of bridging tokens from one chain to another and genuinely not knowing if they'll arrive on the other side. Cross-chain bridges have been responsible for over $2 billion in hacks since 2021. Every time you bridge, you are essentially trusting a smart contract that a team of 4 developers wrote in a weekend. And yet you bridge anyway, because the yield is 0.3% higher on the other chain.",
+    example: '"Bridged my ETH to a Layer 2 and it\'s been pending for 6 hours. Playing bridge roulette and losing."',
+    origin: "Cross-chain DeFi culture",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Chronically Online",
+    phonetic: "/ˈkrɒn.ɪ.kəl.i ɒnˈlaɪn/",
+    def: "The terminal condition of spending so much time on Crypto Twitter that you've forgotten what normal human conversation sounds like. You say 'ser' in real life. You describe good restaurants as 'alpha.' You've said 'probably nothing' to your partner about something that was definitely something. Your screen time is 14 hours. You haven't touched grass in weeks. The trenches have consumed your personality.",
+    example: '"He described his wedding as a liquidity event for my net worth at dinner. He\'s chronically online and needs intervention."',
+    origin: "Internet culture x CT",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Robinhood Markets",
     phonetic: "/ˈrɒb.ɪn.hʊd ˈmɑr.kɪts/",
     def: "The retail trading app that gamified finance and brought millions of normies into the casino. Best known for their sleek UI, zero commissions, and the infamous incident where they turned off the buy button on GameStop in 2021. They've since leaned heavily into crypto, hoping degens have short memories.",
@@ -1421,6 +1646,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   duplicateTicker();
   setWordOfTheDay();
+  renderTrending();
   renderWords();
   bindEvents();
   if (typeof updateWordCount === 'function') updateWordCount();
@@ -1507,6 +1733,32 @@ function setWordOfTheDay() {
   badge.style.border = `1px solid ${catColors[w.cat] || '#d4a017'}55`;
 }
 
+// ---- TRENDING ----
+function renderTrending() {
+  const trendingContainer = document.getElementById('trending-cards');
+  if (!trendingContainer) return;
+  const sorted = [...words].sort((a, b) => {
+    const aVotes = votes[a.word]?.up || a.votes.up;
+    const bVotes = votes[b.word]?.up || b.votes.up;
+    return bVotes - aVotes;
+  }).slice(0, 5);
+
+  let html = '';
+  sorted.forEach(w => {
+    const safeWordId = w.word.replace(/[^a-zA-Z0-9-]/g, '_');
+    const upVotes = (votes[w.word]?.up || w.votes.up).toLocaleString();
+    html += `
+      <a class="trending-card" href="#card-${safeWordId}" onclick="const el=document.getElementById('card-${safeWordId}'); if(el){el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.boxShadow='0 0 20px var(--gold)'; setTimeout(()=>el.style.boxShadow='',1500);} return false;">
+        <div class="trending-card-word">${w.word}</div>
+        <div class="trending-card-cat">${w.cat}</div>
+        <div class="trending-card-def">${w.def}</div>
+        <div class="trending-card-votes">👍 ${upVotes}</div>
+      </a>
+    `;
+  });
+  trendingContainer.innerHTML = html;
+}
+
 // ---- RENDER ----
 function renderWords() {
   const list = document.getElementById('entries-list');
@@ -1570,6 +1822,37 @@ function renderWords() {
   }
 }
 
+function linkifyDefinition(def, currentWord) {
+  if (!def) return '';
+  const sortedWords = [...WORDS].map(w => w.word).sort((a, b) => b.length - a.length);
+  
+  let result = def;
+  const replacements = [];
+  
+  sortedWords.forEach(wName => {
+    if (wName.toLowerCase() === (currentWord || '').toLowerCase()) return;
+    
+    const safeWName = wName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp('\\b(' + safeWName + ')\\b', 'i');
+    
+    const match = result.match(regex);
+    if (match) {
+      const id = wName.replace(/[^a-zA-Z0-9-]/g, '_');
+      const placeholder = '__LINK_' + replacements.length + '__';
+      const replacementText = '<a class="def-crosslink" href="#card-' + id + '" onclick="document.getElementById(\'card-' + id + '\').scrollIntoView({behavior:\'smooth\',block:\'center\'}); document.getElementById(\'card-' + id + '\').style.boxShadow=\'0 0 20px var(--gold)\'; setTimeout(function(){document.getElementById(\'card-' + id + '\').style.boxShadow=\'\'},1500); return false;">' + match[0] + '</a>';
+      
+      replacements.push(replacementText);
+      result = result.replace(regex, placeholder);
+    }
+  });
+  
+  replacements.forEach(function(repl, i) {
+    result = result.replace('__LINK_' + i + '__', repl);
+  });
+  
+  return result;
+}
+
 function buildCard(w, catAccents, index = 0) {
   const id = w.word.replace(/[^a-zA-Z0-9-]/g, '_');
   const safeWord = encodeURIComponent(w.word);
@@ -1586,7 +1869,7 @@ function buildCard(w, catAccents, index = 0) {
       </div>
       ${w.phonetic ? `<p class="card-phonetic">${w.phonetic}</p>` : ''}
       <button class="audio-btn" onclick="playAudio('${encodeURIComponent(w.word)}', '${encodeURIComponent(w.example || w.def)}')" title="Pronounce" style="${w.phonetic ? 'display:inline-block;' : 'margin-bottom:8px; display:block;'}">🔊</button>
-      <p class="card-def">${w.def}</p>
+      <p class="card-def">${linkifyDefinition(w.def, w.word)}</p>
       ${w.example ? `<p class="card-example">${w.example}</p>` : ''}
       <div class="card-footer">
         <div class="vote-wrap">
@@ -1603,6 +1886,9 @@ function buildCard(w, catAccents, index = 0) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
           </button>
           <button class="share-icon-btn" onclick="copyDefinition('${safeWord}')" title="Copy definition" style="font-size:11px; font-weight:700; font-family:var(--font-mono); padding:4px 10px; letter-spacing:0.3px;">COPY</button>
+          <button class="share-icon-btn" onclick="shareToX('${safeWord}')" title="Share to X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+          </button>
           <button class="share-icon-btn" onclick="generatePoster('${safeWord}')" title="Share Poster">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           </button>
@@ -1610,6 +1896,19 @@ function buildCard(w, catAccents, index = 0) {
       </div>
     </div>
   `;
+}
+
+// ---- SHARE TO X ----
+function shareToX(wordName) {
+  const resolvedName = decodeURIComponent(wordName);
+  const w = (typeof WORDS !== 'undefined' && WORDS.find(item => item.word === resolvedName))
+         || (typeof words !== 'undefined' && words.find(item => item.word === resolvedName))
+         || (typeof filteredWords !== 'undefined' && filteredWords.find(item => item.word === resolvedName));
+  if (!w) return;
+  const textPreview = w.def.length > 200 ? w.def.substring(0, 200) + '...' : w.def;
+  const text = `${w.word} — ${textPreview}\n\n📖 trenchdictionary.online`;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&via=T_Dictionary`;
+  window.open(url, '_blank');
 }
 
 // ---- COPY DEFINITION ----
@@ -1661,7 +1960,7 @@ function showCopyToast(msg = 'COPIED TO CLIPBOARD') {
     t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#111;border:1px solid #c9971c;color:#c9971c;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:10px 20px;border-radius:8px;z-index:9999;letter-spacing:0.5px;pointer-events:none;transition:opacity 0.3s;';
     document.body.appendChild(t);
   }
-  t.textContent = 'COPIED TO CLIPBOARD';
+  t.textContent = msg;
   t.style.opacity = '1';
   clearTimeout(t._timer);
   t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2000);
@@ -1884,6 +2183,30 @@ function posterDownload(blob, fname) {
 }
 
 
+// ---- PARTICLE BURST ----
+function burstParticles(targetEl) {
+  if (!targetEl) return;
+  const rect = targetEl.getBoundingClientRect();
+  const colors = ['#c9971c', '#e8b832', '#f5cc55', '#ffd700', '#22c55e'];
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    const size = 3 + Math.random() * 5;
+    p.style.cssText = 'position:fixed;width:' + size + 'px;height:' + size + 'px;background:' + colors[Math.floor(Math.random() * colors.length)] + ';border-radius:50%;pointer-events:none;z-index:9999;left:' + (rect.left + rect.width / 2) + 'px;top:' + (rect.top + rect.height / 2) + 'px;';
+    document.body.appendChild(p);
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 30 + Math.random() * 60;
+    const dx = Math.cos(angle) * dist;
+    const dy = Math.sin(angle) * dist - 20;
+    p.animate([
+      { transform: 'translate(0,0) scale(1)', opacity: 1 },
+      { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(0)', opacity: 0 }
+    ], { duration: 400 + Math.random() * 300, easing: 'cubic-bezier(0,.9,.3,1)', fill: 'forwards' });
+    setTimeout(() => p.remove(), 800);
+  }
+  // Haptic feedback
+  if (navigator.vibrate) navigator.vibrate(10);
+}
+
 // ---- VOTE ----
 async function vote(wordName, direction) {
   const resolvedName = decodeURIComponent(wordName);
@@ -1900,6 +2223,9 @@ async function vote(wordName, direction) {
 
   saveVotes();
   renderWords();
+
+  const wordId = resolvedName.replace(/[^a-zA-Z0-9-]/g, '_');
+  if (direction === 'up') burstParticles(document.getElementById('up-' + wordId));
 
   // Optimistic Global Sync
   try {
@@ -2193,4 +2519,313 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = "Analyze";
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const randomBtn = document.getElementById('random-word-btn');
+  if (randomBtn) {
+    randomBtn.addEventListener('click', () => {
+      const listToPick = (typeof filteredWords !== 'undefined' && filteredWords.length > 0) ? filteredWords : (typeof words !== 'undefined' ? words : []);
+      if (!listToPick || listToPick.length === 0) return;
+      const w = listToPick[Math.floor(Math.random() * listToPick.length)];
+      const id = 'card-' + w.word.replace(/[^a-zA-Z0-9-]/g, '_');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.style.transition = 'box-shadow 0.3s ease';
+        el.style.boxShadow = '0 0 20px var(--gold)';
+        setTimeout(() => {
+          el.style.boxShadow = '';
+        }, 1500);
+      }
+    });
+  }
+});
+
+// ---- THEME TOGGLE ----
+document.addEventListener('DOMContentLoaded', () => {
+  const themes = ['dark', 'oled', 'light'];
+  const icons = { dark: '🌙', oled: '🖤', light: '☀️' };
+  const toggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  if (!toggleBtn || !themeIcon) return;
+
+  let currentTheme = localStorage.getItem('td_theme') || 'dark';
+  applyTheme(currentTheme);
+
+  toggleBtn.addEventListener('click', () => {
+    const idx = themes.indexOf(currentTheme);
+    currentTheme = themes[(idx + 1) % themes.length];
+    applyTheme(currentTheme);
+    localStorage.setItem('td_theme', currentTheme);
+  });
+
+  function applyTheme(theme) {
+    document.body.classList.remove('theme-oled', 'theme-light');
+    if (theme === 'oled') document.body.classList.add('theme-oled');
+    if (theme === 'light') document.body.classList.add('theme-light');
+    themeIcon.textContent = icons[theme] || '🌙';
+  }
+});
+
+// ==== SWIPE MODE ====
+document.addEventListener('DOMContentLoaded', () => {
+  const fab = document.getElementById('swipe-fab');
+  const overlay = document.getElementById('swipe-overlay');
+  const deck = document.getElementById('swipe-deck');
+  const counter = document.getElementById('swipe-counter');
+  const closeBtn = document.getElementById('swipe-close');
+  const skipBtn = document.getElementById('swipe-skip-btn');
+  const shareBtn = document.getElementById('swipe-share-btn');
+  const likeBtn = document.getElementById('swipe-like-btn');
+
+  if (!fab || !overlay || !deck) return;
+
+  let swipeWords = [];
+  let currentIndex = 0;
+
+  function openSwipeMode() {
+    // Use filtered words if available, otherwise all
+    swipeWords = (typeof filteredWords !== 'undefined' && filteredWords.length > 0)
+      ? [...filteredWords]
+      : [...(typeof words !== 'undefined' ? words : WORDS)];
+    // Shuffle
+    for (let i = swipeWords.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [swipeWords[i], swipeWords[j]] = [swipeWords[j], swipeWords[i]];
+    }
+    currentIndex = 0;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    renderSwipeCards();
+    // Haptic
+    if (navigator.vibrate) navigator.vibrate(20);
+  }
+
+  function closeSwipeMode() {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+    deck.innerHTML = '';
+  }
+
+  function renderSwipeCards() {
+    deck.innerHTML = '';
+    if (currentIndex >= swipeWords.length) {
+      deck.innerHTML = '<div style="text-align:center;color:var(--muted);font-family:var(--font-mono);font-size:14px;padding:40px;">You\'ve swiped through all the words. 💀<br><br>The trenches are empty (for now).</div>';
+      counter.textContent = 'DONE';
+      return;
+    }
+    counter.textContent = (currentIndex + 1) + ' / ' + swipeWords.length;
+
+    // Render up to 3 stacked cards
+    const cardsToShow = Math.min(3, swipeWords.length - currentIndex);
+    for (let i = cardsToShow - 1; i >= 0; i--) {
+      const w = swipeWords[currentIndex + i];
+      const card = document.createElement('div');
+      card.className = 'swipe-card';
+      const scale = 1 - i * 0.04;
+      const yOffset = i * 8;
+      card.style.transform = 'scale(' + scale + ') translateY(' + yOffset + 'px)';
+      card.style.zIndex = 10 - i;
+      if (i > 0) card.style.opacity = 1 - i * 0.15;
+
+      const savedV = (typeof votes !== 'undefined' && votes[w.word]) ? votes[w.word] : w.votes;
+
+      card.innerHTML = '<div class="swipe-card-overlay like">LIKE</div>'
+        + '<div class="swipe-card-overlay nope">NOPE</div>'
+        + '<div class="sc-cat">' + (w.cat || 'culture').toUpperCase() + '</div>'
+        + '<div class="sc-word">' + w.word + '</div>'
+        + (w.phonetic ? '<div class="sc-phonetic">' + w.phonetic + '</div>' : '')
+        + '<div class="sc-def">' + w.def + '</div>'
+        + (w.example ? '<div class="sc-example">' + w.example + '</div>' : '')
+        + '<div class="sc-votes">👍 ' + (savedV.up || 0) + '  👎 ' + (savedV.down || 0) + '</div>';
+
+      if (i === 0) {
+        setupSwipeGestures(card, w);
+      }
+      deck.appendChild(card);
+    }
+  }
+
+  function setupSwipeGestures(card, wordData) {
+    let startX = 0, startY = 0, currentX = 0, currentY = 0, isDragging = false;
+    const likeOverlay = card.querySelector('.swipe-card-overlay.like');
+    const nopeOverlay = card.querySelector('.swipe-card-overlay.nope');
+    const THRESHOLD = 80;
+    const THRESHOLD_Y = -100;
+
+    function onStart(e) {
+      isDragging = true;
+      card.classList.add('swiping');
+      const point = e.touches ? e.touches[0] : e;
+      startX = point.clientX;
+      startY = point.clientY;
+      currentX = 0;
+      currentY = 0;
+    }
+
+    function onMove(e) {
+      if (!isDragging) return;
+      const point = e.touches ? e.touches[0] : e;
+      currentX = point.clientX - startX;
+      currentY = point.clientY - startY;
+      const rotate = currentX * 0.08;
+      card.style.transform = 'translate(' + currentX + 'px, ' + currentY + 'px) rotate(' + rotate + 'deg)';
+
+      // Show overlays
+      const absX = Math.abs(currentX);
+      if (currentX > 30) {
+        likeOverlay.style.opacity = Math.min((absX - 30) / 60, 1);
+        nopeOverlay.style.opacity = 0;
+      } else if (currentX < -30) {
+        nopeOverlay.style.opacity = Math.min((absX - 30) / 60, 1);
+        likeOverlay.style.opacity = 0;
+      } else {
+        likeOverlay.style.opacity = 0;
+        nopeOverlay.style.opacity = 0;
+      }
+    }
+
+    function onEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      card.classList.remove('swiping');
+
+      if (currentX > THRESHOLD) {
+        // Swiped right — upvote
+        swipeOut(card, 'right', wordData);
+      } else if (currentX < -THRESHOLD) {
+        // Swiped left — skip
+        swipeOut(card, 'left', wordData);
+      } else if (currentY < THRESHOLD_Y) {
+        // Swiped up — share
+        swipeOut(card, 'up', wordData);
+      } else {
+        // Snap back
+        card.classList.add('animating');
+        card.style.transform = 'translate(0,0) rotate(0deg)';
+        likeOverlay.style.opacity = 0;
+        nopeOverlay.style.opacity = 0;
+        setTimeout(() => card.classList.remove('animating'), 400);
+      }
+    }
+
+    card.addEventListener('touchstart', onStart, { passive: true });
+    card.addEventListener('touchmove', onMove, { passive: true });
+    card.addEventListener('touchend', onEnd);
+    card.addEventListener('mousedown', onStart);
+    card.addEventListener('mousemove', onMove);
+    card.addEventListener('mouseup', onEnd);
+    card.addEventListener('mouseleave', () => { if (isDragging) onEnd(); });
+  }
+
+  function swipeOut(card, direction, wordData) {
+    card.classList.add('animating');
+    if (navigator.vibrate) navigator.vibrate(15);
+
+    if (direction === 'right') {
+      card.style.transform = 'translate(400px, -50px) rotate(30deg)';
+      card.style.opacity = '0';
+      // Trigger upvote
+      if (typeof vote === 'function') vote(encodeURIComponent(wordData.word), 'up');
+      spawnParticles(deck);
+    } else if (direction === 'left') {
+      card.style.transform = 'translate(-400px, -50px) rotate(-30deg)';
+      card.style.opacity = '0';
+    } else if (direction === 'up') {
+      card.style.transform = 'translate(0, -600px) rotate(0deg)';
+      card.style.opacity = '0';
+      // Share to X
+      if (typeof shareToX === 'function') shareToX(encodeURIComponent(wordData.word));
+    }
+
+    setTimeout(() => {
+      currentIndex++;
+      renderSwipeCards();
+    }, 350);
+  }
+
+  // Gold particle burst on like
+  function spawnParticles(container) {
+    const colors = ['#c9971c', '#e8b832', '#f5cc55', '#ffd700', '#ffeb3b'];
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.style.cssText = 'position:absolute;width:' + (4 + Math.random() * 6) + 'px;height:' + (4 + Math.random() * 6) + 'px;background:' + colors[Math.floor(Math.random() * colors.length)] + ';border-radius:50%;pointer-events:none;z-index:999;left:50%;top:50%;';
+      container.appendChild(p);
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 60 + Math.random() * 120;
+      const dx = Math.cos(angle) * dist;
+      const dy = Math.sin(angle) * dist;
+      p.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(0)', opacity: 0 }
+      ], { duration: 500 + Math.random() * 400, easing: 'cubic-bezier(0,.9,.3,1)', fill: 'forwards' });
+      setTimeout(() => p.remove(), 1000);
+    }
+  }
+
+  // Button handlers
+  fab.addEventListener('click', openSwipeMode);
+  closeBtn.addEventListener('click', closeSwipeMode);
+  skipBtn.addEventListener('click', () => {
+    const topCard = deck.querySelector('.swipe-card[style*="z-index: 10"], .swipe-card:last-child');
+    if (topCard && currentIndex < swipeWords.length) swipeOut(topCard, 'left', swipeWords[currentIndex]);
+  });
+  likeBtn.addEventListener('click', () => {
+    const topCard = deck.querySelector('.swipe-card[style*="z-index: 10"], .swipe-card:last-child');
+    if (topCard && currentIndex < swipeWords.length) swipeOut(topCard, 'right', swipeWords[currentIndex]);
+  });
+  shareBtn.addEventListener('click', () => {
+    const topCard = deck.querySelector('.swipe-card[style*="z-index: 10"], .swipe-card:last-child');
+    if (topCard && currentIndex < swipeWords.length) swipeOut(topCard, 'up', swipeWords[currentIndex]);
+  });
+
+  // Escape key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.style.display === 'flex') closeSwipeMode();
+  });
+});
+
+// ---- DAILY STREAK ----
+document.addEventListener('DOMContentLoaded', () => {
+  const pill = document.getElementById('streak-pill');
+  const countEl = document.getElementById('streak-count');
+  if (!pill || !countEl) return;
+
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  let streakData;
+  try {
+    streakData = JSON.parse(localStorage.getItem('td_streak') || '{}');
+  } catch(e) { streakData = {}; }
+
+  const lastVisit = streakData.lastVisit || '';
+  let streak = streakData.streak || 0;
+
+  if (lastVisit === today) {
+    // Already visited today, just show
+  } else {
+    // Check if yesterday
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    if (lastVisit === yesterday) {
+      streak++;
+    } else {
+      streak = 1; // Reset
+    }
+    streakData.lastVisit = today;
+    streakData.streak = streak;
+    localStorage.setItem('td_streak', JSON.stringify(streakData));
+  }
+
+  if (streak > 0) {
+    countEl.textContent = streak;
+    pill.style.display = '';
+    // Animate the fire for streaks >= 3
+    if (streak >= 3) {
+      pill.style.color = 'var(--gold2)';
+      pill.style.fontWeight = '700';
+    }
+    if (streak >= 7) {
+      pill.style.textShadow = '0 0 8px rgba(201,151,28,0.5)';
+    }
+  }
 });

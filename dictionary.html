@@ -18,6 +18,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+<script>
+  (function(){var t=localStorage.getItem('td_theme');if(t==='oled')document.documentElement.classList.add('theme-oled-preload');if(t==='light')document.documentElement.classList.add('theme-light-preload');})();
+</script>
 </head>
 <body>
   <!-- NAV -->
@@ -26,6 +29,10 @@
       <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
     </a>
     <div class="nav-links">
+      <button class="nav-btn theme-toggle-btn" id="theme-toggle" title="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="timeline.html" class="nav-btn">📜 Timeline</a>
       <a href="dictionary.html" class="nav-btn active">Dictionary</a>
       <a href="scanner.html" class="nav-btn">Scanner</a>
       <a href="submit.html" class="nav-btn">Contribute</a>
@@ -43,6 +50,7 @@
     <span>|</span>
     <span id="trending-meta-pill" style="display:none; color: var(--gold);">🔥 LIVE META: Scanning...</span>
     <span class="stat-pill"><strong id="word-count">0</strong> Words</span>
+    <span class="stat-pill" id="streak-pill" style="display:none;"><strong id="streak-count">0</strong>🔥 Streak</span>
   </div>
 
   <!-- TICKER -->
@@ -105,6 +113,7 @@
       <button class="tag" data-cat="nft">NFT</button>
       <button class="tag" data-cat="tech">Tech</button>
       <button class="tag" data-cat="person">Person</button>
+      <button class="tag" id="random-word-btn" style="border-color: var(--gold); color: var(--gold);">🎲 Random</button>
     </div>
   </div>
 
@@ -124,6 +133,14 @@
           </div>
           <div class="wotd-badge-cat" id="wotd-cat-badge"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- TRENDING -->
+    <section class="trending-section" id="trending-section">
+      <div class="trending-badge">🔥 Trending This Week</div>
+      <div class="trending-cards" id="trending-cards">
+        <!-- JS populated -->
       </div>
     </section>
 
@@ -289,6 +306,29 @@
       _stb.style.display = window.scrollY > 400 ? 'flex' : 'none';
     }, { passive: true });
   </script>
+  <!-- SWIPE MODE -->
+  <div id="swipe-overlay" class="swipe-overlay" style="display:none;">
+    <div class="swipe-header">
+      <span class="swipe-counter" id="swipe-counter">1 / 178</span>
+      <button class="swipe-close-btn" id="swipe-close">✕ Close</button>
+    </div>
+    <div class="swipe-hint">
+      <span>← SKIP</span>
+      <span>↑ SHARE</span>
+      <span>UPVOTE →</span>
+    </div>
+    <div class="swipe-deck" id="swipe-deck"></div>
+    <div class="swipe-actions">
+      <button class="swipe-action-btn swipe-skip" id="swipe-skip-btn">✕</button>
+      <button class="swipe-action-btn swipe-share" id="swipe-share-btn">𝕏</button>
+      <button class="swipe-action-btn swipe-like" id="swipe-like-btn">👍</button>
+    </div>
+  </div>
+
+  <button class="swipe-fab" id="swipe-fab" title="Swipe Mode">
+    🃏
+  </button>
+
   <!-- MOBILE BOTTOM NAV -->
   <nav class="mobile-nav" aria-label="Mobile navigation">
     <div class="mobile-nav-inner">

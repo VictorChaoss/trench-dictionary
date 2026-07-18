@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trench Timeline – Trench Dictionary</title>
+  <meta name="description" content="Every rug, every moon, every moment that shaped the trenches." />
+  <meta name="theme-color" content="#d4a017" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Trenches" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+<script>
+  (function(){var t=localStorage.getItem('td_theme');if(t==='oled')document.documentElement.classList.add('theme-oled-preload');if(t==='light')document.documentElement.classList.add('theme-light-preload');})();
+</script>
+<style>
+  .timeline-hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .timeline-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+  }
+  .timeline-hero p {
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+  
+  .timeline-container {
+    max-width: 900px;
+    margin: 0 auto 100px;
+    padding: 40px 20px;
+    position: relative;
+  }
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: var(--border);
+  }
+  
+  .timeline-event {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    padding-right: 40px;
+    position: relative;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-event.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .timeline-event:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-left: 40px;
+    padding-right: 0;
+    margin-left: 50%;
+  }
+  
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--gold);
+    z-index: 1;
+  }
+  .timeline-event:nth-child(even)::before {
+    left: -9px;
+    right: auto;
+  }
+  
+  .event-content {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    position: relative;
+  }
+  .event-content:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(212, 160, 23, 0.1);
+  }
+  
+  .event-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+    line-height: 1;
+  }
+  .event-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .event-desc {
+    color: var(--text2);
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  .event-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .event-links a {
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: rgba(212, 160, 23, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .event-links a:hover {
+    background: var(--gold);
+    color: #000;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-container::before {
+      left: 20px;
+      transform: none;
+    }
+    .timeline-event {
+      width: 100%;
+      padding-left: 50px;
+      padding-right: 0;
+      justify-content: flex-start;
+      margin-left: 0;
+    }
+    .timeline-event:nth-child(even) {
+      margin-left: 0;
+    }
+    .timeline-event::before,
+    .timeline-event:nth-child(even)::before {
+      left: 12px;
+      right: auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_transparent_crop.png" alt="Trench Dictionary Logo" />
+    </a>
+    <div class="nav-links">
+      <button class="nav-btn theme-toggle-btn" id="theme-toggle" title="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="timeline.html" class="nav-btn active">📜 Timeline</a>
+      <a href="dictionary.html" class="nav-btn">Dictionary</a>
+      <a href="scanner.html" class="nav-btn">Scanner</a>
+      <a href="submit.html" class="nav-btn">Contribute</a>
+      <a href="leaderboard.html" class="nav-btn primary">🏆 Leaderboard</a>
+    </div>
+  </nav>
+
+  <div class="timeline-hero">
+    <h1>THE TRENCH TIMELINE</h1>
+    <p>Every rug, every moon, every moment that shaped the trenches.</p>
+  </div>
+
+  <div class="timeline-container">
+    <!-- EVENT 1 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2009 JAN</div>
+        <div class="event-title">Bitcoin Genesis Block</div>
+        <div class="event-desc">Satoshi mines the first block, embedding "Chancellor on brink of second bailout for banks." The trenches begin.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Bitcoin">#Bitcoin</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 2 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2015 JUL</div>
+        <div class="event-title">Ethereum Launches</div>
+        <div class="event-desc">Vitalik's smart contract platform goes live. DeFi, NFTs, and a new era of gas fee complaints are born.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Ethereum">#Ethereum</a>
+          <a href="dictionary.html#Gas-Fees">#Gas Fees</a>
+          <a href="dictionary.html#Smart-Contract">#Smart Contract</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 3 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2017 DEC</div>
+        <div class="event-title">ICO Bubble Peak</div>
+        <div class="event-desc">Bitcoin hits $20K. Everyone launches an ICO. Most are vaporware.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Vaporware">#Vaporware</a>
+          <a href="dictionary.html#FOMO">#FOMO</a>
+          <a href="dictionary.html#Moonshot">#Moonshot</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 4 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2020 SUMMER</div>
+        <div class="event-title">DeFi Summer</div>
+        <div class="event-desc">Yield farming explodes. Everyone becomes a liquidity provider. Rug pulls become industrialized.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Yield-Farming">#Yield Farming</a>
+          <a href="dictionary.html#Rug-Pull">#Rug Pull</a>
+          <a href="dictionary.html#Degen">#Degen</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 5 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2021 JAN</div>
+        <div class="event-title">GameStop / Robinhood</div>
+        <div class="event-desc">Robinhood turns off the buy button. Retail loses trust in TradFi forever.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Robinhood-Markets">#Robinhood Markets</a>
+          <a href="dictionary.html#Diamond-Hands">#Diamond Hands</a>
+          <a href="dictionary.html#Paper-Hands">#Paper Hands</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 6 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2021 NOV</div>
+        <div class="event-title">All-Time High Mania</div>
+        <div class="event-desc">BTC hits $69K. NFTs sell for millions. Everyone thinks they're a genius.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Generational-Wealth">#Generational Wealth</a>
+          <a href="dictionary.html#Moonshot">#Moonshot</a>
+          <a href="dictionary.html#WAGMI">#WAGMI</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 7 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2022 MAY</div>
+        <div class="event-title">Terra Luna Collapse</div>
+        <div class="event-desc">$40B evaporates overnight. UST depegs. Do Kwon becomes the most hated man in crypto.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Rekt">#Rekt</a>
+          <a href="dictionary.html#Its-Over">#It's Over</a>
+          <a href="dictionary.html#Ponzinomics">#Ponzinomics</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 8 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2022 NOV</div>
+        <div class="event-title">FTX Collapse</div>
+        <div class="event-desc">Sam Bankman-Fried's empire crumbles. $8B in customer funds vanished. The Bahamas polycule enters the lexicon.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Bahamas-Polycule">#Bahamas Polycule</a>
+          <a href="dictionary.html#Rekt">#Rekt</a>
+          <a href="dictionary.html#FUD">#FUD</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 9 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2023</div>
+        <div class="event-title">Solana Memecoin Era Begins</div>
+        <div class="event-desc">pump.fun launches. Memecoins go from niche to mainstream. The trenches are born.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Pump.fun">#Pump.fun</a>
+          <a href="dictionary.html#The-Trenches">#The Trenches</a>
+          <a href="dictionary.html#Jeet">#Jeet</a>
+          <a href="dictionary.html#Aping">#Aping</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 10 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2024</div>
+        <div class="event-title">AI Agent Token Mania</div>
+        <div class="event-desc">AI meets crypto. Every project claims autonomous agents. Most are ChatGPT wrappers.</div>
+        <div class="event-links">
+          <a href="dictionary.html#AI-Agent-Token">#AI Agent Token</a>
+          <a href="dictionary.html#Grift-Cycle">#Grift Cycle</a>
+          <a href="dictionary.html#Vaporware">#Vaporware</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 11 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2024</div>
+        <div class="event-title">Points Meta Takes Over</div>
+        <div class="event-desc">Protocols replace airdrops with mysterious points systems. Farmers farm. Nobody knows the conversion rate.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Points-Meta">#Points Meta</a>
+          <a href="dictionary.html#Airdrop">#Airdrop</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 12 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2024</div>
+        <div class="event-title">Celebrity Token Wave</div>
+        <div class="event-desc">Trump, Melania, and every celebrity launch tokens. Fans become exit liquidity.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Celebrity-Token">#Celebrity Token</a>
+          <a href="dictionary.html#Trump-Token">#Trump Token</a>
+          <a href="dictionary.html#Melania-Token">#Melania Token</a>
+          <a href="dictionary.html#Exit-Liquidity">#Exit Liquidity</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 13 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2025</div>
+        <div class="event-title">Restaking Revolution</div>
+        <div class="event-desc">EigenLayer sparks recursive yield stacking. Nobody understands the risk. The APY is too good.</div>
+        <div class="event-links">
+          <a href="dictionary.html#Restaking">#Restaking</a>
+          <a href="dictionary.html#RWA">#RWA</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- EVENT 14 -->
+    <div class="timeline-event">
+      <div class="event-content">
+        <div class="event-year">2026</div>
+        <div class="event-title">Trench Dictionary Launches</div>
+        <div class="event-desc">The crypto slang bible goes live. 178+ words. No rugs pulled (yet).</div>
+        <div class="event-links">
+          <a href="dictionary.html#Trench-Dictionary">#Trench Dictionary</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-btn"><span class="mnb-icon">🏠</span><span>Home</span></a>
+      <a href="dictionary.html" class="mobile-nav-btn"><span class="mnb-icon">📖</span><span>Dictionary</span></a>
+      <a href="scanner.html" class="mobile-nav-btn"><span class="mnb-icon">🤖</span><span>Scanner</span></a>
+      <a href="submit.html" class="mobile-nav-btn"><span class="mnb-icon">✏️</span><span>Submit</span></a>
+      <a href="leaderboard.html" class="mobile-nav-btn"><span class="mnb-icon">🏆</span><span>Ranks</span></a>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    // Smooth fade-in animations as events scroll into view
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.timeline-event').forEach(event => {
+        observer.observe(event);
+      });
+    });
+  </script>
+</body>
+</html>

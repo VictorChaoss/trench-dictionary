@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trench Dictionary – The Crypto Slang Bible</title>
-  <meta name="description" content="The realest crypto slang bible. 139+ terms from the trenches, written by degens, for degens." />
+  <meta name="description" content="The realest crypto slang bible. 178+ terms from the trenches, written by degens, for degens." />
   <meta name="theme-color" content="#d4a017" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Trenches" />
   <!-- OG -->
   <meta property="og:title" content="Trench Dictionary – The Crypto Slang Bible" />
-  <meta property="og:description" content="The realest crypto slang bible. 139+ terms from the trenches." />
+  <meta property="og:description" content="The realest crypto slang bible. 178+ terms from the trenches." />
   <meta property="og:image" content="https://www.trenchdictionary.online/icon-512.png" />
   <meta property="og:url" content="https://www.trenchdictionary.online/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -690,6 +690,9 @@
       .lp-mnb:active { opacity: 0.6; }
     }
   </style>
+<script>
+  (function(){var t=localStorage.getItem('td_theme');if(t==='oled')document.documentElement.classList.add('theme-oled-preload');if(t==='light')document.documentElement.classList.add('theme-light-preload');})();
+</script>
 </head>
 <body>
 
@@ -707,6 +710,10 @@
       <img src="logo_transparent_crop.png" alt="Trench Dictionary" />
     </a>
     <div class="nav-links">
+      <button class="nav-btn theme-toggle-btn" id="theme-toggle" title="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="timeline.html" class="nav-btn">📜 Timeline</a>
       <a href="dictionary.html" class="nav-btn">Dictionary</a>
       <a href="#manifesto" class="nav-btn">Manifesto</a>
       <a href="scanner.html" class="nav-btn">Scanner</a>
@@ -723,7 +730,7 @@
   <section class="hero">
     <div class="hero-eyebrow">
       <span class="pulse"></span>
-      139+ Words &amp; Counting
+      178+ Words &amp; Counting
     </div>
     <div class="hero-logo-wrap">
       <img src="logo_transparent_crop.png" alt="Trench Dictionary" class="hero-logo" />
@@ -739,7 +746,7 @@
   <!-- STATS -->
   <div class="stats-row" id="stats-row">
     <div class="stat-card">
-      <span class="stat-num" id="landing-word-count">139</span>
+      <span class="stat-num" id="landing-word-count">178</span>
       <span class="stat-label">Words Defined</span>
     </div>
     <div class="stat-card">
@@ -781,7 +788,7 @@
         <div class="feature-icon">📖</div>
         <div class="feature-inner">
           <h2 class="feature-title">The Full Lexicon</h2>
-          <p class="feature-desc">139+ words. Every piece of crypto slang, degen lingo, KOL cabal terminology, and on-chain survival vocabulary — with definitions that don't pull punches. Search, filter by category, or browse A to Z.</p>
+          <p class="feature-desc">178+ words. Every piece of crypto slang, degen lingo, KOL cabal terminology, and on-chain survival vocabulary — with definitions that don't pull punches. Search, filter by category, or browse A to Z.</p>
           <span class="feature-tag">Browse →</span>
         </div>
         <span class="feature-arrow">↗</span>
@@ -901,5 +908,41 @@
     </div>
   </nav>
 
+  <script>
+    // Animated counter
+    function animateCounter(el, target, duration) {
+      if (el.dataset.animated) return;
+      el.dataset.animated = '1';
+      const isNum = !isNaN(parseInt(target));
+      if (!isNum) return; // Skip non-numeric like 'A-Z' or '∞'
+      const end = parseInt(target);
+      const start = 0;
+      const startTime = performance.now();
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        el.textContent = Math.round(start + (end - start) * eased);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target; // Restore original text (might have '+' etc)
+      }
+      requestAnimationFrame(update);
+    }
+
+    const statObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numEl = entry.target.querySelector('.stat-num');
+          if (numEl) {
+            const original = numEl.textContent;
+            animateCounter(numEl, original, 1200);
+          }
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.stat-card').forEach(card => statObserver.observe(card));
+  </script>
 </body>
 </html>
