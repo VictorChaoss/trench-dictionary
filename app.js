@@ -4,6 +4,78 @@
 
 const WORDS = [
   {
+    word: "Satoshi Nakamoto",
+    phonetic: "/səˈtoʊ.ʃi ˌnɑː.kəˈmoʊ.toʊ/",
+    def: "The mythical, anonymous creator of Bitcoin. The ultimate ghost who holds 1.1 million Bitcoin that hasn't moved in a decade. Disappeared in 2011, leaving behind a $70 billion wallet and endless conspiracy theories.",
+    example: '"Who is Satoshi? Craig Wright definitely isn\'t, that much we know."',
+    origin: "Bitcoin Whitepaper, 2008",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bitcoin Pizza",
+    phonetic: "/ˈbɪt.kɔɪn ˈpiːt.sə/",
+    def: "On May 22, 2010, Laszlo Hanyecz paid 10,000 BTC for two Papa John's pizzas. It was the first real-world Bitcoin transaction. Today, those two pizzas would cost over $700 million.",
+    example: '"Happy Bitcoin Pizza Day! Don\'t think about how much that pepperoni cost him."',
+    origin: "Bitcointalk Forum, 2010",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bitcointalk",
+    phonetic: "/ˈbɪt.kɔɪn tɔːk/",
+    def: "The ancient internet forum that served as the birthplace of crypto culture. It's where the word 'HODL' was invented, where the pizza was bought, and where Satoshi made his final post.",
+    example: '"If you want to read real crypto history, go dig through the 2011 archives on Bitcointalk."',
+    origin: "Internet History",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Faucets",
+    phonetic: "/ˈfɔː.sɪts/",
+    def: "Websites in 2010 that would literally give you 5 whole Bitcoins for free just for solving a CAPTCHA. People used them to buy World of Warcraft gold, completely unaware they were giving away generational wealth.",
+    example: '"I used to click faucets all day in high school, but I formatted that hard drive years ago."',
+    origin: "Early Crypto Era",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Cypherpunks",
+    phonetic: "/ˈsaɪ.fər.pʌŋks/",
+    def: "The original cryptography mailing list from the 90s that birthed the ideas behind Bitcoin. The ideological forefathers who actually cared about privacy, unlike modern degens who just want to trade monkey JPEGs.",
+    example: '"Bitcoin wasn\'t born out of thin air, it was the culmination of decades of cypherpunk research."',
+    origin: "Cryptography Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PGP Key",
+    phonetic: "/piː-dʒiː-piː kiː/",
+    def: "Pretty Good Privacy. The incredibly clunky encryption method you had to painstakingly learn if you wanted to message a vendor on the Silk Road without ending up in federal prison.",
+    example: '"Send me your PGP key so we can discuss this off the grid."',
+    origin: "Privacy Tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "AlphaBay",
+    phonetic: "/ˈæl.fəˌbeɪ/",
+    def: "The massive darknet market that took over after the Silk Road fell. It was taken down by law enforcement in 2017 because the mastermind founder accidentally used his personal Hotmail account to send welcome emails. Peak OpSec failure.",
+    example: '"AlphaBay was huge until the feds seized the servers."',
+    origin: "Dark Web",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "LocalBitcoins",
+    phonetic: "/ˈloʊ.kəl ˈbɪt.kɔɪnz/",
+    def: "Before Coinbase, there was LocalBitcoins. The peer-to-peer platform that usually involved meeting a stranger in a Starbucks parking lot to hand them $5,000 in physical cash in exchange for a USB drive containing Bitcoin. Pure trustless finance.",
+    example: '"I bought my first BTC off a guy from LocalBitcoins in a Wendy\'s parking lot."',
+    origin: "Crypto History",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Silk Road",
     phonetic: "/sɪlk roʊd/",
     def: "The original darknet market that gave Bitcoin its first actual use case. It operated as an anonymous Amazon for illicit goods until the FBI shut it down in 2013, leaving early adopters to realize their $40 weed purchase was now worth $2.5 million.",
