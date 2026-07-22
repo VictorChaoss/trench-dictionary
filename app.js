@@ -3034,48 +3034,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const randomBtn = document.getElementById('random-word-btn');
-  if (randomBtn) {
-    randomBtn.addEventListener('click', () => {
-      searchQuery = '';
-      const searchInput = document.getElementById('search-input');
-      if (searchInput) searchInput.value = '';
-      
-      activeCategory = 'all';
-      activeLetter = 'ALL';
-      document.querySelectorAll('.tag').forEach(btn => {
-        if (btn.id !== 'random-word-btn') {
-          btn.classList.toggle('active', btn.dataset.cat === 'all');
-        }
-      });
-      document.querySelectorAll('.az-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.letter === 'ALL');
-      });
-      
-      if (typeof renderWords === 'function') renderWords();
-      
-      if (typeof WORDS === 'undefined' || WORDS.length === 0) return;
-      const w = WORDS[Math.floor(Math.random() * WORDS.length)];
-      const id = 'card-' + w.word.replace(/[^a-zA-Z0-9-]/g, '_');
-      
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          const yOffset = -100; // Account for fixed header
-          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-          
-          el.style.transition = 'box-shadow 0.3s ease';
-          el.style.boxShadow = '0 0 20px var(--gold)';
-          setTimeout(() => {
-            el.style.boxShadow = '';
-          }, 1500);
-        }
-      }, 50);
-    });
-  }
-});
 
 // ---- THEME TOGGLE ----
 document.addEventListener('DOMContentLoaded', () => {
