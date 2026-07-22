@@ -4,6 +4,141 @@
 
 const WORDS = [
   {
+    word: "HODL",
+    phonetic: "/ˈhɒd.əl/",
+    def: "A 2013 typo on a Bitcoin forum that became the central religious doctrine of crypto. It means holding your bags while they go down 90% because selling means admitting you were wrong. It's pitched as a sign of conviction, but it's usually just paralysis disguised as strategy.",
+    example: '\"My portfolio is down $400k but I am HODLing for the long term.\"',
+    origin: "Bitcointalk forum, 2013",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Shitcoin",
+    phonetic: "/ˈʃɪt.kɔɪn/",
+    def: "Technically, any cryptocurrency with no inherent utility or value. Practically, it's the term Bitcoin Maxis use for Ethereum, Ethereum Maxis use for Solana, and Solana users use for whatever token they just bought on pump.fun 4 minutes ago.",
+    example: '\"I just moved my entire 401k into a dog-themed shitcoin on the Base network.\"',
+    origin: "Pre-2017 crypto forums",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "BTFD",
+    phonetic: "/biː-tiː-ɛf-diː/",
+    def: "Buy The Fucking Dip. The rallying cry screamed into Telegram groups whenever the market is entering a multi-year bear market. Often yelled by people who have no fiat left to actually buy the dip themselves.",
+    example: '\"Bitcoin just dropped 30% in an hour. BTFD bros, generational wealth is made here.\"',
+    origin: "Trading culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Maxi",
+    phonetic: "/ˈmæk.si/",
+    def: "Short for Maximalist. Someone who has tied their entire identity, net worth, and ego to a single blockchain. They view all other networks as scams, and spend 14 hours a day on Twitter arguing with people they've never met about block sizes.",
+    example: '\"He\'s a Bitcoin maxi. Don\'t even mention smart contracts around him unless you want a 4-hour lecture.\"',
+    origin: "Bitcoin culture, circa 2014",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Altcoin",
+    phonetic: "/ˈɒlt.kɔɪn/",
+    def: "Historically, any cryptocurrency that isn't Bitcoin. Today, it's a polite term for a token that is slowly bleeding to zero against Bitcoin while the founders tweet about 'expanding the ecosystem.'",
+    example: '\"Altcoin season is definitely starting next week (he has said this for 74 consecutive weeks).\"',
+    origin: "Early crypto days",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Normie",
+    phonetic: "/ˈnɔːr.mi/",
+    def: "A person who sleeps 8 hours a night, keeps their money in a checking account, and doesn't know what a seed phrase is. Degens view them with a mix of extreme superiority and quiet jealousy.",
+    example: '\"Trying to explain a liquidity pool to my normie friends at Thanksgiving was a mistake.\"',
+    origin: "Internet culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "No-Coiner",
+    phonetic: "/noʊ-ˈkɔɪn.ər/",
+    def: "Someone who owns zero crypto and makes sure everyone knows it. They pop up in your replies exclusively when the market is down 40% to tell you it was a Ponzi scheme all along, then vanish entirely during bull markets.",
+    example: '\"Peter Schiff is the final boss of the no-coiners.\"',
+    origin: "CT slang",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "SAFU",
+    phonetic: "/ˈsæf.uː/",
+    def: "Funds are safe. A meme originating from former Binance CEO CZ. Ironically, the louder a founder yells that funds are SAFU, the higher the probability that the protocol is currently being drained for $50 million.",
+    example: '\"The dev just paused withdrawals but he tweeted that funds are SAFU, so we\'re definitely cooked.\"',
+    origin: "CZ / Binance, 2018",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "The Flippening",
+    phonetic: "/ðə ˈflɪp.ən.ɪŋ/",
+    def: "The mythical, prophetic event where Ethereum's market cap finally overtakes Bitcoin's. ETH holders have been predicting it will happen 'next year' since 2017.",
+    example: '\"If ETH hits $10k and BTC stays here, the flippening is finally happening!\"',
+    origin: "Ethereum community, 2017",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "CEX",
+    phonetic: "/sɛks/ or /siː-iː-ɛks/",
+    def: "Centralized Exchange (e.g., Binance, Coinbase). Where normies buy their first crypto, and where degens get liquidated with 100x leverage by market makers who can see their stop losses.",
+    example: '\"I keep my long-term bags on a hardware wallet, but I use a CEX to gamble on leverage.\"',
+    origin: "Crypto trading",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "DEX",
+    phonetic: "/dɛks/",
+    def: "Decentralized Exchange (e.g., Uniswap, Raydium). A platform where you can trade tokens directly from your wallet without KYC. Also the place where you pay $40 in gas fees for a transaction that fails due to slippage.",
+    example: '\"The token isn\'t on a CEX yet, you have to buy it on a DEX and hope you don\'t get front-run.\"',
+    origin: "DeFi culture",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "The Halving",
+    phonetic: "/ðə ˈhæv.ɪŋ/",
+    def: "An event hardcoded into Bitcoin every four years where the mining reward gets cut in half. Treated by the community like a religious festival that guarantees a bull market, despite everyone already knowing exactly when it will happen.",
+    example: '\"Just wait until the halving, supply shock is going to send us to $100k.\"',
+    origin: "Bitcoin protocol",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Buidl",
+    phonetic: "/ˈbɪdl/",
+    def: "The developer's version of HODL. What crypto teams tweet when their token is down 95% and the community is demanding a marketing push. 'Ignore the price, we are buidling.' Usually means the GitHub hasn't been updated in 6 months.",
+    example: '\"We don\'t care about short term price action, our team is heads down buidling.\"',
+    origin: "Crypto dev culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bear Market",
+    phonetic: "/bɛər ˈmɑːr.kɪt/",
+    def: "A multi-year period of financial depression where everyone pretends they are 'in it for the tech.' Discord servers go silent. NFTs become untradeable JPEGs again. And you suddenly care a lot about dividend stocks.",
+    example: '\"I survived the 2022 bear market. Nothing can hurt me anymore.\"',
+    origin: "TradFi terminology",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bull Market",
+    phonetic: "/bʊl ˈmɑːr.kɪt/",
+    def: "A brief, manic period where logic ceases to exist, 19-year-olds become multi-millionaires from frog coins, and everyone believes they are a financial genius. Ends abruptly when everyone tries to cash out at the exact same time.",
+    example: '\"In a bull market, you can throw a dart at a list of tickers and make 300%.\"',
+    origin: "TradFi terminology",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "AI Agent Token",
     phonetic: "/eɪ.aɪ ˈeɪ.dʒənt ˈtoʊ.kən/",
     def: "A token attached to an 'autonomous AI agent' that supposedly trades, tweets, and generates alpha on its own. In reality, it is a Python script with a ChatGPT API key and a cron job, wrapped in a $200M market cap. The agent's entire autonomous decision-making capability consists of buying its own token and quote-tweeting itself. The 2026 version of 'utility.'",
