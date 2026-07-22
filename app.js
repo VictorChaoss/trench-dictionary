@@ -4,6 +4,69 @@
 
 const WORDS = [
   {
+    word: "Silk Road",
+    phonetic: "/sɪlk roʊd/",
+    def: "The original darknet market that gave Bitcoin its first actual use case. It operated as an anonymous Amazon for illicit goods until the FBI shut it down in 2013, leaving early adopters to realize their $40 weed purchase was now worth $2.5 million.",
+    example: '"If I hadn\'t spent those 50 BTC on the Silk Road, I\'d be a multi-millionaire today."',
+    origin: "Darknet, 2011",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Ross Ulbricht (DPR)",
+    phonetic: "/rɒs ˈʊl.brɪkt/",
+    def: "Known online as Dread Pirate Roberts. The idealistic libertarian founder of the Silk Road who inadvertently became the ultimate Bitcoin martyr, currently serving two life sentences plus 40 years.",
+    example: '"Free Ross."',
+    origin: "Darknet History",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Mt. Gox",
+    phonetic: "/maʊnt ɡɒks/",
+    def: "Originally a 'Magic: The Gathering' card exchange that accidentally became the world's largest Bitcoin exchange. In 2014, it got 'hacked' for 850,000 BTC, introducing a generation of early adopters to the concept of permanent financial trauma.",
+    example: '"I\'m still waiting on my Mt. Gox settlement from a decade ago."',
+    origin: "Crypto History, 2014",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Monero (XMR)",
+    phonetic: "/məˈnɛər.oʊ/",
+    def: "The only cryptocurrency that is actually used as a peer-to-peer currency, exclusively because the government cannot trace it. If someone asks to pay you in Monero, do not ask them what they do for a living.",
+    example: '"I only accept payments in Monero for... privacy reasons."',
+    origin: "Privacy Tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Tumbler (Mixer)",
+    phonetic: "/ˈtʌm.blər/",
+    def: "A smart contract service designed to mix your crypto with everyone else's to break the on-chain paper trail. Using one is the easiest way to make sure the FBI monitors your internet traffic for the rest of your life.",
+    example: '"The hacker ran the stolen funds through a tumbler, so they\'re gone forever."',
+    origin: "Privacy Tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "OpSec",
+    phonetic: "/ˈɒp.sɛk/",
+    def: "Operational Security. The strict set of privacy practices that criminals and degens think they have mastered, right up until they get arrested because they accidentally used their personal Gmail account to register a server.",
+    example: '"His OpSec was flawless until he logged into his Binance account without a VPN."',
+    origin: "Cybersecurity",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Darknet Market (DNM)",
+    phonetic: "/ˈdɑːrk.nɛt ˈmɑːr.kɪt/",
+    def: "An anonymous e-commerce platform accessed via Tor where UI bugs don't just result in a lost transaction, they result in 15 to 25 years in a federal penitentiary.",
+    example: '"Bitcoin was literally just DNM money before Wall Street got involved."',
+    origin: "Dark Web",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Whitepaper",
     phonetic: "/ˈwaɪtˌpeɪ.pər/",
     def: "A 40-page PDF filled with meaningless academic jargon, plagiarized math equations, and stock photos of server racks, designed entirely to convince you that a dog token is actually a revolutionary technological breakthrough.",
