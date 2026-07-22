@@ -3162,6 +3162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setupSwipeGestures(card, wordData) {
     let startX = 0, startY = 0, currentX = 0, currentY = 0, isDragging = false;
+    let ticking = false;
     const likeOverlay = card.querySelector('.swipe-card-overlay.like');
     const nopeOverlay = card.querySelector('.swipe-card-overlay.nope');
     const THRESHOLD = 80;
@@ -3175,15 +3176,13 @@ document.addEventListener('DOMContentLoaded', () => {
       startY = point.clientY;
       currentX = 0;
       currentY = 0;
+      ticking = false;
     }
 
-    function onMove(e) {
+    function updateTransform() {
       if (!isDragging) return;
-      const point = e.touches ? e.touches[0] : e;
-      currentX = point.clientX - startX;
-      currentY = point.clientY - startY;
       const rotate = currentX * 0.08;
-      card.style.transform = 'translate(' + currentX + 'px, ' + currentY + 'px) rotate(' + rotate + 'deg)';
+      card.style.transform = 'translate3d(' + currentX + 'px, ' + currentY + 'px, 0) rotate(' + rotate + 'deg)';
 
       // Show overlays
       const absX = Math.abs(currentX);
@@ -3196,6 +3195,19 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         likeOverlay.style.opacity = 0;
         nopeOverlay.style.opacity = 0;
+      }
+      ticking = false;
+    }
+
+    function onMove(e) {
+      if (!isDragging) return;
+      const point = e.touches ? e.touches[0] : e;
+      currentX = point.clientX - startX;
+      currentY = point.clientY - startY;
+
+      if (!ticking) {
+        requestAnimationFrame(updateTransform);
+        ticking = true;
       }
     }
 
@@ -3216,7 +3228,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // Snap back
         card.classList.add('animating');
-        card.style.transform = 'translate(0,0) rotate(0deg)';
+        card.style.transform = 'translate3d(0,0,0) rotate(0deg)';
         likeOverlay.style.opacity = 0;
         nopeOverlay.style.opacity = 0;
         setTimeout(() => card.classList.remove('animating'), 400);
@@ -3237,16 +3249,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navigator.vibrate) navigator.vibrate(15);
 
     if (direction === 'right') {
-      card.style.transform = 'translate(400px, -50px) rotate(30deg)';
+      card.style.transform = 'translate3d(400px, -50px, 0) rotate(30deg)';
       card.style.opacity = '0';
       // Trigger upvote
       if (typeof vote === 'function') vote(encodeURIComponent(wordData.word), 'up');
       spawnParticles(deck);
     } else if (direction === 'left') {
-      card.style.transform = 'translate(-400px, -50px) rotate(-30deg)';
+      card.style.transform = 'translate3d(-400px, -50px, 0) rotate(-30deg)';
       card.style.opacity = '0';
     } else if (direction === 'up') {
-      card.style.transform = 'translate(0, -600px) rotate(0deg)';
+      card.style.transform = 'translate3d(0, -600px, 0) rotate(0deg)';
       card.style.opacity = '0';
       // Share to X
       if (typeof shareToX === 'function') shareToX(encodeURIComponent(wordData.word));
