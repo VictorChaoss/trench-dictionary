@@ -4,6 +4,186 @@
 
 const WORDS = [
   {
+    word: "Whitepaper",
+    phonetic: "/ˈwaɪtˌpeɪ.pər/",
+    def: "A 40-page PDF filled with meaningless academic jargon, plagiarized math equations, and stock photos of server racks, designed entirely to convince you that a dog token is actually a revolutionary technological breakthrough.",
+    example: '"I didn\'t read the whitepaper, I just saw the logo was cute and aped my entire portfolio."',
+    origin: "Crypto culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Impermanent Loss",
+    phonetic: "/ɪmˈpɜːrmənənt lɒs/",
+    def: "The mathematical magic trick where you provide liquidity to a DEX to earn a 12% yield, but one of the tokens drops 80% in value, wiping out your entire net worth. But hey, at least you earned $4 in trading fees.",
+    example: '"I thought I was being a smart liquidity provider, but impermanent loss just vaporized my bags."',
+    origin: "DeFi",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Fiat",
+    phonetic: "/ˈfiː.æt/",
+    def: "Government-issued paper money that slowly loses its purchasing power every year. Ironically, it is the only metric degens use to measure how much wealth they have lost trading crypto.",
+    example: '"I hate the fiat financial system, but I really need some right now to pay my rent."',
+    origin: "Economics",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "P2E (Play-to-Earn)",
+    phonetic: "/piː-tuː-iː/",
+    def: "A genre of crypto games where the gameplay is excruciatingly boring, the graphics look like they're from 2004, but you can theoretically earn $0.14 an hour by clicking on a digital cow.",
+    example: '"I quit my job to play this P2E game full time. I make about three dollars a week."',
+    origin: "Crypto gaming, 2021",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "DAO",
+    phonetic: "/daʊ/",
+    def: "Decentralized Autonomous Organization. A Discord server with a shared bank account where absolutely nothing gets accomplished because 400 people have to hold a governance vote just to change the background color of the website.",
+    example: '"The DAO just spent three months and $40,000 in legal fees to decide what to name their new mascot."',
+    origin: "Crypto tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "VC (Venture Capital)",
+    phonetic: "/viː-siː/",
+    def: "Guys wearing Patagonia vests who buy a token in a private round at $0.001 and wait for it to list on an exchange so they can immediately dump it on retail investors at $2.00.",
+    example: '"Retail is just providing exit liquidity for the VCs again."',
+    origin: "TradFi / Tech",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "KYC",
+    phonetic: "/keɪ-waɪ-siː/",
+    def: "Know Your Customer. The terrifying process of uploading a high-res photo of your passport and driver's license to a shady exchange registered in the Seychelles just so you can withdraw your remaining $47.",
+    example: '"The exchange froze my account and is demanding KYC right as the token is pumping."',
+    origin: "Regulatory compliance",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Wash Trading",
+    phonetic: "/wɒʃ ˈtreɪ.dɪŋ/",
+    def: "When a developer trades a token back and forth between two of their own wallets 10,000 times a day to make the volume look huge, tricking retail into thinking the project actually has demand.",
+    example: '"The token has $5M volume but only 12 holders. It\'s just pure wash trading."',
+    origin: "Trading manipulation",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "SBF (Sam Bankman-Fried)",
+    phonetic: "/ɛs-biː-ɛf/",
+    def: "The final boss of crypto villains. Orchestrated the greatest \"whoopsie\" in financial history, vaporizing $8 billion of customer funds from a penthouse in the Bahamas while playing League of Legends.",
+    example: '"I lost my entire portfolio on FTX because I trusted SBF."',
+    origin: "FTX collapse, 2022",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Do Kwon",
+    phonetic: "/doʊ kwɒn/",
+    def: "The arrogant creator of Terra Luna who single-handedly wiped out $40 billion of wealth in 48 hours. Famous for tweeting 'your size is not size' right before his algorithmic stablecoin went to literally zero.",
+    example: '"He went from being a billionaire to hiding in Montenegro, total Do Kwon arc."',
+    origin: "Terra collapse, 2022",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Gwei",
+    phonetic: "/ɡweɪ/",
+    def: "The unit of measurement for gas fees on Ethereum. Used exclusively by degens to complain about how it just cost them $80 in transaction fees to send a $15 payment.",
+    example: '"Gas is at 200 gwei right now, I can\'t even afford to unstake my tokens."',
+    origin: "Ethereum tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bridging",
+    phonetic: "/ˈbrɪdʒ.ɪŋ/",
+    def: "Sending your money into a digital black hole and praying it appears on a different blockchain 40 minutes later. The most anxiety-inducing experience in Web3.",
+    example: '"I\'m bridging my ETH over to Arbitrum right now... please pray for me."',
+    origin: "Cross-chain tech",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Vesting Schedule",
+    phonetic: "/ˈvɛs.tɪŋ ˈʃɛd.juːl/",
+    def: "A predefined countdown timer that dictates exactly when the founders and VCs are legally allowed to unlock billions of tokens and dump them onto your head.",
+    example: '"I\'m not buying this coin, the VC vesting schedule unlocks 40% of the supply next week."',
+    origin: "Tokenomics",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Copytrading",
+    phonetic: "/ˈkɒp.iˌtreɪ.dɪŋ/",
+    def: "An automated feature where you connect your wallet to blindly follow the trades of a 'top influencer'. It is the most efficient way to ensure that when a KOL gets rugged, you automatically get rugged at the exact same time.",
+    example: '"I turned on copytrading for a whale wallet and woke up down 80%."',
+    origin: "Trading platforms",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Sunk Cost Fallacy",
+    phonetic: "/sʌŋk kɒst ˈfæl.ə.si/",
+    def: "The psychological phenomenon where you refuse to sell a token that is down 95% because 'I\'m already down this much, I might as well hold it to zero.'",
+    example: '"Selling now would make the loss real, so I\'m holding. Classic sunk cost fallacy."',
+    origin: "Behavioral economics",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Tether (USDT)",
+    phonetic: "/ˈtɛð.ər/",
+    def: "The digital dollar that occasionally prints 2 billion new tokens out of thin air on a Tuesday afternoon. Everyone collectively pretends it's backed 1-to-1 just to keep the entire market from collapsing.",
+    example: '"Tether printer just went brrr again, bullish for Bitcoin."',
+    origin: "Stablecoins",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Dead Cat Bounce",
+    phonetic: "/dɛd kæt baʊns/",
+    def: "A brief, pathetic pump in a coin's price during a massive crash, giving everyone false hope and triggering them to buy more right before it immediately resumes its journey to zero.",
+    example: '"I thought the bottom was in, but it was just a dead cat bounce."',
+    origin: "TradFi trading",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Giga-Brain",
+    phonetic: "/ˈɡɪɡ.ə-breɪn/",
+    def: "A sarcastic compliment for someone who just posted a 40-tweet thread filled with charts and moving averages explaining exactly why a dog coin is going to replace the US Dollar.",
+    example: '"Thanks for the 3-hour video analysis on Pepe coin, what a giga-brain take."',
+    origin: "Crypto Twitter",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Left Curve",
+    phonetic: "/lɛft kɜːrv/",
+    def: "A reference to the IQ bell curve meme. The guy who does zero research, blindly apes into memecoins based on the logo, and accidentally makes millions, vastly outperforming everyone who actually studies charts.",
+    example: '"He bought a coin named after a cat on a skateboard and made $500k. Absolute left curve genius."',
+    origin: "IQ Bell Curve Meme",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Mid Curve",
+    phonetic: "/mɪd kɜːrv/",
+    def: "The tragic middle of the bell curve. The guy who overthinks everything, uses complex technical analysis, reads the whitepapers, and consistently loses all his money to the left-curve apes.",
+    example: '"I spent three weeks researching the tokenomics while the left curve apes just bought it and 10x\'d. I am so mid curve."',
+    origin: "IQ Bell Curve Meme",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "jaredfromsubway.eth",
     phonetic: "/ˈdʒær.ɪd frɒm ˈsʌb.weɪ/",
     def: "The most infamous MEV (Maximal Extractable Value) bot on Ethereum. A silent, automated predator that front-runs your trades, sandwiches your transactions, and steals your slippage before you even realize your transaction went through.",
