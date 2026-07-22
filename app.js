@@ -4,6 +4,69 @@
 
 const WORDS = [
   {
+    word: "jaredfromsubway.eth",
+    phonetic: "/ˈdʒær.ɪd frɒm ˈsʌb.weɪ/",
+    def: "The most infamous MEV (Maximal Extractable Value) bot on Ethereum. A silent, automated predator that front-runs your trades, sandwiches your transactions, and steals your slippage before you even realize your transaction went through.",
+    example: '"I tried to buy a low-cap coin on Uniswap and got absolutely rinsed by jaredfromsubway.eth."',
+    origin: "Ethereum MEV, 2023",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Put the fries in the bag",
+    phonetic: "/pʊt ðə fraɪz ɪn ðə bæɡ/",
+    def: "The ultimate insult hurled at someone whose portfolio just went to zero, reminding them that their brief stint as a crypto day-trader is over and it is time to return to the service industry.",
+    example: '"You longed Solana at the absolute local top with 100x leverage? Bro, just put the fries in the bag."',
+    origin: "Internet culture, 2024",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Down Bad",
+    phonetic: "/daʊn bæd/",
+    def: "A state of severe financial and emotional distress. It occurs when a trader's portfolio has bled so heavily that they can no longer afford Uber Eats and have to start looking at regular job postings again.",
+    example: '"I\'m so down bad right now I might actually have to update my LinkedIn."',
+    origin: "Internet culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Schizo Posting",
+    phonetic: "/ˈskɪt.soʊ ˌpoʊ.stɪŋ/",
+    def: "The dominant communication style of crypto Twitter during a bear market. Consists of hyper-niche memes, borderline unreadable rants, and deeply unhinged conspiracy theories about market makers.",
+    example: '"The timeline is pure schizo posting right now, the market must be nuking."',
+    origin: "Internet culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Anon",
+    phonetic: "/əˈnɒn/",
+    def: "The universal greeting in the trenches. Used because nobody uses their real name, everyone is hiding behind an anime profile picture, and asking for personal details is considered an act of aggression.",
+    example: '"Good morning anon, ready to lose some money today?"',
+    origin: "4chan / Crypto culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Wagie",
+    phonetic: "/ˈweɪ.dʒi/",
+    def: "A derogatory term for someone with a 9-to-5 job. Usually thrown around by degens who are currently losing $400 a day trading memecoins but consider themselves \'financially free.\'",
+    example: '"Have fun at your desk job wagie, I\'m trading dog coins on the blockchain."',
+    origin: "Internet culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Heavy Bags",
+    phonetic: "/ˈhɛv.i bæɡz/",
+    def: "The portfolio of a trader who bought the absolute top. The tokens are now worth 98% less, but selling them means admitting defeat, so they are held forever as \'long-term investments.\'",
+    example: '"I can\'t sell right now, I\'m carrying incredibly heavy bags from the 2021 bull run."',
+    origin: "Trading culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "HODL",
     phonetic: "/ˈhɒd.əl/",
     def: "A 2013 typo on a Bitcoin forum that became the central religious doctrine of crypto. It means holding your bags while they go down 90% because selling means admitting you were wrong. It's pitched as a sign of conviction, but it's usually just paralysis disguised as strategy.",
