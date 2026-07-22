@@ -3038,19 +3038,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const randomBtn = document.getElementById('random-word-btn');
   if (randomBtn) {
     randomBtn.addEventListener('click', () => {
-      const listToPick = (typeof filteredWords !== 'undefined' && filteredWords.length > 0) ? filteredWords : (typeof words !== 'undefined' ? words : []);
-      if (!listToPick || listToPick.length === 0) return;
+      // Reset all filters and search query
+      searchQuery = '';
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) searchInput.value = '';
+      
+      activeCategory = 'all';
+      activeLetter = 'ALL';
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.cat === 'all'));
+      document.querySelectorAll('.letter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.letter === 'ALL'));
+      
+      // Re-render to ensure all cards exist in the DOM
+      if (typeof renderWords === 'function') renderWords();
+      
+      const listToPick = (typeof words !== 'undefined' ? words : []);
+      if (listToPick.length === 0) return;
+      
       const w = listToPick[Math.floor(Math.random() * listToPick.length)];
       const id = 'card-' + w.word.replace(/[^a-zA-Z0-9-]/g, '_');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.style.transition = 'box-shadow 0.3s ease';
-        el.style.boxShadow = '0 0 20px var(--gold)';
-        setTimeout(() => {
-          el.style.boxShadow = '';
-        }, 1500);
-      }
+      
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.style.transition = 'box-shadow 0.3s ease';
+          el.style.boxShadow = '0 0 20px var(--gold)';
+          setTimeout(() => {
+            el.style.boxShadow = '';
+          }, 1500);
+        }
+      }, 50);
     });
   }
 });
