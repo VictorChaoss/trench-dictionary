@@ -4,6 +4,114 @@
 
 const WORDS = [
   {
+    word: "Based",
+    phonetic: "/beɪst/",
+    def: "The highest compliment in the trenches. It means someone is acting completely true to themselves, completely unbothered by outside opinions, or just doing something exceptionally degenerate but respectable.",
+    example: '"The dev locked liquidity for 100 years and burned the admin keys. Incredibly based."',
+    origin: "Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Doxxed",
+    phonetic: "/dɒkst/",
+    def: "When a founder or developer reveals their true, legal identity. Theoretically meant to prevent rug pulls, though fully doxxed founders have still stolen millions and successfully fled to Dubai.",
+    example: '"The team is fully doxxed, which means when it goes to zero I know exactly who to sue."',
+    origin: "Cybersecurity",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Fren",
+    phonetic: "/frɛn/",
+    def: "The native internet spelling of 'friend.' In crypto, a 'fren' is usually an anonymous cartoon animal who will chat with you for six months on Telegram and then casually drain your wallet.",
+    example: '"Gm frens, what are we aping today?"',
+    origin: "Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Vitalik (Buterin)",
+    phonetic: "/vɪˈtæl.ɪk ˈbjuː.tər.ɪn/",
+    def: "The creator of Ethereum. A benevolent, alien-like genius who wears unicorn t-shirts, donates billions to charity, and occasionally writes 10,000-word blog posts on cryptography that nobody in the trenches actually understands.",
+    example: '"Vitalik just dumped the dog coins they sent to his public wallet. It\'s so over."',
+    origin: "Ethereum",
+    cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "In It For The Tech",
+    phonetic: "/ɪn ɪt fɔːr ðə tɛk/",
+    def: "The biggest, most universal lie in crypto. Uttered exclusively by people who are down 80% on their portfolio and are trying to justify why they haven't sold yet.",
+    example: '"I don\'t even care about the price crashing, I\'m just in it for the tech."',
+    origin: "Crypto Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Copium",
+    phonetic: "/ˈkoʊ.pi.əm/",
+    def: "A synthetic psychological drug consumed in massive quantities by bagholders attempting to convince themselves that a dead chart is just 'accumulating.'",
+    example: '"Reading the team\'s medium article about the new roadmap is pure copium."',
+    origin: "Twitch / Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Sats (Stacking Sats)",
+    phonetic: "/sæts/",
+    def: "Short for Satoshis, the smallest unit of a Bitcoin (0.00000001 BTC). 'Stacking sats' is the boomer-crypto philosophy of slowly and responsibly accumulating Bitcoin over time instead of trading memecoins.",
+    example: '"Ignore the noise, just keep stacking sats."',
+    origin: "Bitcoin",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bogdanoff (Dump Eet)",
+    phonetic: "/bɒɡˈdɑː.nɒf/",
+    def: "The late French twin brothers who became a crypto meme symbolizing the omnipotent market forces that perfectly time market crashes the exact second you buy in.",
+    example: '"He bought the absolute top? Dump eet."',
+    origin: "4chan / Bizonacci",
+    cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Sybil (Sybilling)",
+    phonetic: "/ˈsɪb.əl/",
+    def: "The act of writing a Python script to create 500 fake wallets to interact with a protocol, tricking the developers into giving you 500 times the airdrop allocation.",
+    example: '"The airdrop was completely farmed by sybils, real users got nothing."',
+    origin: "Computer Science",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Looks Rare",
+    phonetic: "/lʊks rɛər/",
+    def: "The ultimate NFT cope. What you say when you mint a procedurally generated ugly JPEG and you're desperately trying to convince someone on Twitter to buy it from you for 2 ETH.",
+    example: '"Wow, a laser-eyes monkey with a sombrero... looks rare."',
+    origin: "NFT Culture",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "IYKYK",
+    phonetic: "/aɪ-waɪ-keɪ-waɪ-keɪ/",
+    def: "'If You Know, You Know.' A phrase used by influencers to gatekeep information or artificially hype up a coin they bought five minutes ago.",
+    example: '"Huge news coming for this ecosystem tomorrow. IYKYK."',
+    origin: "Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Milady",
+    phonetic: "/mɪˈleɪ.di/",
+    def: "A collection of highly controversial, neo-chibi aesthetic NFTs. The community is an unhinged, heavily medicated subculture that effectively acts as the dark-web mafia of crypto Twitter.",
+    example: '"Never argue with an account that has a Milady profile picture, you will lose your mind."',
+    origin: "Remilia / NFT Culture",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Satoshi Nakamoto",
     phonetic: "/səˈtoʊ.ʃi ˌnɑː.kəˈmoʊ.toʊ/",
     def: "The mythical, anonymous creator of Bitcoin. The ultimate ghost who holds 1.1 million Bitcoin that hasn't moved in a decade. Disappeared in 2011, leaving behind a $70 billion wallet and endless conspiracy theories.",
