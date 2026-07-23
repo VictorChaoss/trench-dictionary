@@ -4,6 +4,105 @@
 
 const WORDS = [
   {
+    word: "HFSP",
+    phonetic: "/eɪtʃ-ɛf-ɛs-piː/",
+    def: "\"Have Fun Staying Poor.\" The ultimate toxic comeback used by crypto maxis when a nocoiner or traditional finance bro criticizes their portfolio. Usually tweeted right before the market crashes 60%.",
+    example: '"You really think keeping your money in a savings account at 2% APY is smart? HFSP."',
+    origin: "Bitcoin Maximalism",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Michael Saylor",
+    phonetic: "/ˈmaɪ.kəl ˈseɪ.lər/",
+    def: "The CEO of MicroStrategy and the ultimate Bitcoin gigabull. He speaks in cryptic poetry about how Bitcoin is \"digital energy\" and has leveraged his entire publicly traded software company into a massive Bitcoin ETF proxy.",
+    example: '"Saylor just bought another 10,000 BTC, time to long the market."',
+    origin: "MicroStrategy",
+    cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Gary Gensler",
+    phonetic: "/ˈɡɛr.i ˈɡɛnz.lər/",
+    def: "The Chairman of the SEC and public enemy #1 in the crypto trenches. Famous for declaring literally every token in existence (except Bitcoin) an unregistered security while simultaneously refusing to explain the rules.",
+    example: '"My bags just nuked 30% because Gensler went on CNBC again."',
+    origin: "SEC",
+    cat: "person",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Right Click Save",
+    phonetic: "/raɪt klɪk seɪv/",
+    def: "The ultimate boomer/nocoiner argument against NFTs. The act of simply right-clicking and saving a multi-million dollar JPEG to your desktop to prove that digital ownership is an illusion.",
+    example: '"You spent 50 ETH on that monkey? I just did a right click save for free."',
+    origin: "NFT Culture",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bart Pattern",
+    phonetic: "/bɑːrt ˈpæt.ərn/",
+    def: "A classic, incredibly frustrating crypto chart pattern where the price shoots straight up, moves sideways in a jagged line, and then instantly dumps straight back down—perfectly resembling Bart Simpson's head. Designed by market makers to liquidate everyone.",
+    example: '"Don\'t long the breakout, this chart is painting a massive Bart pattern."',
+    origin: "Technical Analysis",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Up Only",
+    phonetic: "/ʌp ˈoʊn.li/",
+    def: "The collective delusion during a raging bull market that gravity no longer exists and charts are physically incapable of printing red candles.",
+    example: '"We just broke all-time highs, it\'s strictly up only from here."',
+    origin: "Trading Culture",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Flash Loan Attack",
+    phonetic: "/flæʃ loʊn əˈtæk/",
+    def: "When a 16-year-old hacker uses a decentralized finance protocol to borrow $50 million with zero collateral for exactly three seconds, uses it to exploit a pricing bug in another protocol, and walks away with $5 million in profit.",
+    example: '"The protocol just got drained for $12M in a flash loan attack."',
+    origin: "DeFi / Security",
+    cat: "risk",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "TVL (Total Value Locked)",
+    phonetic: "/tiː-viː-ɛl/",
+    def: "\"Total Value Locked.\" A metric used to measure how much money is deposited into a DeFi protocol. Often manipulated by protocols depositing their own printed tokens to make themselves look heavily used.",
+    example: '"Their TVL looks huge, but it\'s all just circular yield farming."',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PFP",
+    phonetic: "/piː-ɛf-piː/",
+    def: "\"Profile Picture.\" The primary use case of most NFTs. In the trenches, your PFP acts as your resume, your tribal affiliation, and a signal of your net worth.",
+    example: '"I can\'t take financial advice from a guy with a free Reddit PFP."',
+    origin: "Internet Culture",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Bera",
+    phonetic: "/ˈbɛr.ə/",
+    def: "The native, intentional misspelling of \"bear\" stemming from the Berachain ecosystem. It spawned a massive cult of \"beras\" who type in broken English and trade aggressively.",
+    example: '"Ooga booga, bera market is over."',
+    origin: "Berachain",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Valhalla",
+    phonetic: "/vælˈhæl.ə/",
+    def: "The mythical promised land where degens go when they finally hit a 1000x trade, successfully cash out to fiat without getting rugged, and never have to look at a 1-minute chart ever again.",
+    example: '"Hold the line bros, we are riding this dog coin straight to Valhalla."',
+    origin: "Norse Mythology / Crypto",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
     word: "Based",
     phonetic: "/beɪst/",
     def: "The highest compliment in the trenches. It means someone is acting completely true to themselves, completely unbothered by outside opinions, or just doing something exceptionally degenerate but respectable.",
