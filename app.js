@@ -2325,6 +2325,402 @@ const WORDS = [
     origin: "Pump.fun Grift Architecture",
     cat: "tech",
     votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Based",
+    phonetic: "/beɪst/",
+    def: "A term of approval for someone who is true to themselves, holding a controversial but respected opinion. Often used to describe a project, dev, or trader doing something bold and good.",
+    example: '\"The dev burned all team tokens and locked liquidity. Unfathomably based.\"',
+    origin: "Internet Culture / Lil B",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Fade",
+    phonetic: "/feɪd/",
+    def: "To actively ignore or bet against a trade, project, or piece of advice. If you fade a good trade, you will regret it.",
+    example: '\"Everyone is buying this memecoin, but I\'m gonna fade it. Looks like a rug.\"',
+    origin: "Trading Terminology",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Max Bidding",
+    phonetic: "/mæks ˈbɪd.ɪŋ/",
+    def: "The act of buying into a project or narrative as heavily as possible. Going all in.",
+    example: '\"The charts are looking primed and the narrative is perfect. I am max bidding this dip.\"',
+    origin: "Crypto Twitter",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Send It",
+    phonetic: "/sɛnd ɪt/",
+    def: "A battle cry to push a token's price higher, or to execute a risky trade without overthinking. Just do it.",
+    example: '\"Stop looking at the 1-minute chart. Just buy and send it to Valhalla!\"',
+    origin: "Trading Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Copium",
+    phonetic: "/ˈkoʊ.pi.əm/",
+    def: "A fictional, highly addictive drug consumed by traders who are down 90% and need to invent irrational reasons why their bag will pump again.",
+    example: '\"He thinks the dev is going to buy back the token after soft-rugging... pure copium.\"',
+    origin: "Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Doxxed",
+    phonetic: "/dɒkst/",
+    def: "When the real-world identity of a developer or project founder is known to the public. Considered a safety feature, though doxxed devs still rug.",
+    example: '\"I only invest if the team is fully doxxed and has a track record.\"',
+    origin: "Internet Slang",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Undoxxed",
+    phonetic: "/ʌnˈdɒkst/",
+    def: "An anonymous team or developer whose real identities are hidden behind anime avatars.",
+    example: '\"The project raised $5 million but the team is completely undoxxed. Proceed with caution.\"',
+    origin: "Crypto Slang",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PFP",
+    phonetic: "/piː-ɛf-piː/",
+    def: "Profile Picture. A type of NFT designed to be used as a social media avatar to signal status, wealth, or community membership.",
+    example: '\"He bought a Bored Ape just to use it as his Twitter PFP.\"',
+    origin: "Internet Slang",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Threadoor",
+    phonetic: "/ˈθrɛd.ɔːr/",
+    def: "Someone on Crypto Twitter who obsessively writes long, overly formatted threads (usually 1/20) to farm engagement.",
+    example: '\"Here comes another threadoor explaining why this new L2 is the future of finance (1/45).\"',
+    origin: "Crypto Twitter",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PnL",
+    phonetic: "/piː-ɛn-ɛl/",
+    def: "Profit and Loss. The ultimate scorecard of a trader. Can be unrealized (paper money) or realized (actual money).",
+    example: '\"Don\'t ask a man his salary, don\'t ask a woman her age, and never ask a degen his PnL.\"',
+    origin: "Traditional Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Market Cap",
+    phonetic: "/ˈmɑːr.kɪt kæp/",
+    def: "The total value of a project's circulating supply (Price x Circulating Supply). The only metric that actually dictates if a token is 'cheap' or 'expensive'.",
+    example: '\"This coin is only 1 cent, but the market cap is $10 billion. It is not cheap.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "ATH",
+    phonetic: "/eɪ-tiː-eɪtʃ/",
+    def: "All-Time High. The highest price an asset has ever reached. Often followed by the realization that you should have taken profits.",
+    example: '\"We just broke ATH! We are going into price discovery mode.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "ATL",
+    phonetic: "/eɪ-tiː-ɛl/",
+    def: "All-Time Low. The absolute bottom price of an asset, usually where paper hands sell and diamond hands cry.",
+    example: '\"My entire portfolio is at an ATL, I might need to get a real job.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "LP",
+    phonetic: "/ɛl-piː/",
+    def: "Liquidity Pool. A smart contract containing funds that allows users to trade tokens on decentralized exchanges without a centralized order book.",
+    example: '\"The dev just pulled the LP. We got rugged.\"',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "FDV",
+    phonetic: "/ɛf-diː-viː/",
+    def: "Fully Diluted Valuation. The market cap of a project if all of its max supply was in circulation. A high FDV with a low circulating supply is a massive red flag.",
+    example: '\"They have a $100M market cap but a $5B FDV. When those VC tokens unlock, retail is getting dumped on.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Volume",
+    phonetic: "/ˈvɒl.juːm/",
+    def: "The total amount of money traded over a specific period. High volume validates a price move; low volume means nobody cares.",
+    example: '\"The price is pumping but the volume is completely dead. This is a trap.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "TVL",
+    phonetic: "/tiː-viː-ɛl/",
+    def: "Total Value Locked. The amount of funds deposited in a decentralized finance protocol. Used as a metric for how much trust and usage a protocol has.",
+    example: '\"This new DEX already has $500 million in TVL within a week of launching.\"',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "APY",
+    phonetic: "/eɪ-piː-waɪ/",
+    def: "Annual Percentage Yield. The return on investment over a year, taking compound interest into account. Often manipulated in DeFi to show insane numbers.",
+    example: '\"I\'m farming a new stablecoin pair for 10,000% APY. Surely this is sustainable.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "APR",
+    phonetic: "/eɪ-piː-ɑːr/",
+    def: "Annual Percentage Rate. Similar to APY, but without accounting for compound interest. The raw interest you earn in a year.",
+    example: '\"Staking this token gives a flat 12% APR.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Chop",
+    phonetic: "/tʃɒp/",
+    def: "A market condition where prices bounce up and down in a tight range with no clear direction, slowly bleeding out traders who try to guess the breakout.",
+    example: '\"This market is just pure chop. Best to sit on your hands and wait.\"',
+    origin: "Trading Terminology",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "NFT",
+    phonetic: "/ɛn-ɛf-tiː/",
+    def: "Non-Fungible Token. A unique digital asset stored on a blockchain. Can be art, music, or just a picture of a cartoon monkey that someone paid $300k for.",
+    example: '\"I right-clicked your NFT. It is mine now.\"',
+    origin: "Crypto Glossary",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "L1",
+    phonetic: "/ɛl-wʌn/",
+    def: "Layer 1. The base blockchain network where transactions are finalized. Examples include Bitcoin, Ethereum, and Solana.",
+    example: '\"Every cycle we get a new L1 that claims it will kill Ethereum.\"',
+    origin: "Blockchain Architecture",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "L2",
+    phonetic: "/ɛl-tuː/",
+    def: "Layer 2. A secondary framework built on top of a Layer 1 to handle transactions faster and cheaper, settling them back to the L1 later.",
+    example: '\"Ethereum gas is too high, I do all my trading on an L2 like Arbitrum now.\"',
+    origin: "Blockchain Architecture",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Staking",
+    phonetic: "/ˈsteɪ.kɪŋ/",
+    def: "Locking up your crypto assets in a protocol to earn rewards or secure the network. The easiest way to realize you can't sell when the market crashes.",
+    example: '\"I staked my tokens for 30 days and watched the price drop 80%.\"',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Private Key",
+    phonetic: "/ˈpraɪ.vət kiː/",
+    def: "The cryptographic master password to your crypto wallet. If someone gets this, they own your money. Never share it.",
+    example: '\"I accidentally pasted my private key in a Discord chat and my wallet was drained instantly.\"',
+    origin: "Cryptography",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Hot Wallet",
+    phonetic: "/hɒt ˈwɒl.ɪt/",
+    def: "A crypto wallet that is connected to the internet (like MetaMask). Convenient for trading, but vulnerable to hacks and drainers.",
+    example: '\"I keep a little bit of funds in my hot wallet for degen plays, but the rest stays offline.\"',
+    origin: "Crypto Security",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Multi-sig",
+    phonetic: "/ˈmʌl.ti-sɪɡ/",
+    def: "Multi-signature wallet. A wallet that requires multiple people to approve a transaction before it can be executed. Used by teams to prevent one dev from stealing the funds.",
+    example: '\"The project treasury is secured in a 3-of-5 multi-sig.\"',
+    origin: "Crypto Security",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Testnet",
+    phonetic: "/ˈtɛst.nɛt/",
+    def: "An alternative blockchain used for testing experimental features or dApps without risking real money.",
+    example: '\"I\'m interacting with the testnet everyday hoping they do an airdrop when mainnet launches.\"',
+    origin: "Blockchain Development",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Mainnet",
+    phonetic: "/ˈmeɪn.nɛt/",
+    def: "The primary, live blockchain network where transactions carry real-world value.",
+    example: '\"They delayed the mainnet launch again because of a bug found on testnet.\"',
+    origin: "Blockchain Development",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Snapshot",
+    phonetic: "/ˈsnæp.ʃɒt/",
+    def: "A record of all wallet balances on a blockchain at a specific block height. Usually taken right before an airdrop to determine who gets tokens.",
+    example: '\"The team just took the snapshot. If you didn\'t hold the token by block 14M, you aren\'t getting the airdrop.\"',
+    origin: "Crypto Ecosystem",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PoW",
+    phonetic: "/piː-oʊ-dʌb.əl.juː/",
+    def: "Proof of Work. A consensus mechanism where miners solve complex math problems using massive amounts of electricity to validate transactions and secure the network. Used by Bitcoin.",
+    example: '\"Environmentalists hate PoW because it uses as much energy as a small country.\"',
+    origin: "Blockchain Architecture",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PoS",
+    phonetic: "/piː-oʊ-ɛs/",
+    def: "Proof of Stake. A consensus mechanism where validators lock up their own crypto as collateral to secure the network, replacing energy-intensive miners.",
+    example: '\"Ethereum merged to PoS and reduced its energy consumption by 99%.\"',
+    origin: "Blockchain Architecture",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Renounced",
+    phonetic: "/rɪˈnaʊnst/",
+    def: "When a developer abandons ownership of a smart contract, meaning they can no longer change its code. Essential for memecoins to prove the dev can't freeze sales or mint new tokens.",
+    example: '\"Contract is renounced and LP is burned. This is officially a community takeover.\"',
+    origin: "DeFi Security",
+    cat: "scams",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Locked LP",
+    phonetic: "/lɒkt ɛl-piː/",
+    def: "When the liquidity pool tokens are locked in a third-party smart contract for a set duration, ensuring the developer cannot pull the liquidity (rug pull) during that time.",
+    example: '\"I checked DexScreener, the LP is locked for 6 months. We are safe for now.\"',
+    origin: "DeFi Security",
+    cat: "scams",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Sybil",
+    phonetic: "/ˈsɪb.əl/",
+    def: "A type of attack or farming method where one person creates thousands of fake wallets or identities to game an airdrop or vote in a DAO.",
+    example: '\"The airdrop got completely farmed by sybil attackers who wrote bots to automate transactions across 10,000 wallets.\"',
+    origin: "Computer Science",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Presale",
+    phonetic: "/ˈpriː.seɪl/",
+    def: "An event where early investors buy tokens before they are publicly listed on an exchange. A great way to get in early, or get scammed out of your funds entirely.",
+    example: '\"He sent 50 SOL to a random presale address on Twitter and never received a single token.\"',
+    origin: "Finance",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Whitelist",
+    phonetic: "/ˈwaɪt.lɪst/",
+    def: "An exclusive list of wallets that are granted early access to mint an NFT or buy into a presale. Often obtained by grinding for hours in a Discord server.",
+    example: '\"I spent 12 hours saying GM in their discord just to get whitelist for a project that minted out below cost.\"',
+    origin: "NFT Culture",
+    cat: "nft",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Soft Rug",
+    phonetic: "/sɒft rʌɡ/",
+    def: "When a project team doesn't explicitly steal funds, but instead slowly stops developing, stops tweeting, and abandons the community after making their money.",
+    example: '\"They said they were building a metaverse game, but it\'s been 6 months with no updates. Classic soft rug.\"',
+    origin: "Crypto Scams",
+    cat: "scams",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Hard Rug",
+    phonetic: "/hɑːrd rʌɡ/",
+    def: "A sudden, malicious exit scam where the developer outright drains the liquidity pool or treasury, immediately tanking the token price to zero.",
+    example: '\"I was asleep for 4 hours and woke up to a hard rug. My $500 is now worth 3 cents.\"',
+    origin: "Crypto Scams",
+    cat: "scams",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "SEC",
+    phonetic: "/ɛs-iː-siː/",
+    def: "The US Securities and Exchange Commission. The final boss of crypto, determined to classify every single token as an unregistered security.",
+    example: '\"The token dumped 30% today because the SEC sent them a Wells Notice.\"',
+    origin: "Regulation",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Gary Gensler",
+    phonetic: "/ˈɡæ.ri ˈɡɛnz.lər/",
+    def: "The Chairman of the SEC and public enemy number one for the crypto industry. Famous for avoiding the question of whether Ethereum is a security.",
+    example: '\"Gary Gensler won\'t let us have fun staying poor.\"',
+    origin: "Regulation",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "3AC",
+    phonetic: "/θriː eɪ-siː/",
+    def: "Three Arrows Capital. A massive crypto hedge fund that blew up spectacularly in 2022, causing a contagion effect that wiped out billions in the industry.",
+    example: '\"Su Zhu and Kyle Davies told us a supercycle was coming, right before 3AC collapsed the market.\"',
+    origin: "Crypto History",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Supercycle",
+    phonetic: "/ˈsuː.pər.saɪ.kəl/",
+    def: "A theoretical market phase where crypto goes mainstream and the traditional boom/bust cycles vanish, leading to a permanent bull market. Usually predicted right at the market top.",
+    example: '\"Every time someone tweets about the Supercycle, it\'s time to sell everything.\"',
+    origin: "Market Theory",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "ETF",
+    phonetic: "/iː-tiː-ɛf/",
+    def: "Exchange Traded Fund. A traditional financial product that tracks the price of an asset. The approval of the Bitcoin Spot ETF let boomers buy BTC in their retirement accounts.",
+    example: '\"The BlackRock ETF is accumulating 10,000 Bitcoin a day, the supply shock is imminent.\"',
+    origin: "Traditional Finance",
+    cat: "finance",
+    votes: { up: 0, down: 0 }
   }
 ];
 
