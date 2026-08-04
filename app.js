@@ -2721,6 +2721,87 @@ const WORDS = [
     origin: "Traditional Finance",
     cat: "finance",
     votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Pepe",
+    phonetic: "/ˈpɛpeɪ/",
+    def: "The most iconic frog meme in crypto. While originally a general internet meme, PEPE became one of the most successful memecoins in history, creating massive wealth for early holders.",
+    example: '\"The Pepe chart is looking incredibly bullish, I think we send it higher.\"',
+    origin: "Internet Culture / Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Doge",
+    phonetic: "/doʊʒ/",
+    def: "The original memecoin. Created as a joke based on the Doge meme, it gained a massive cult following, especially after Elon Musk started tweeting about it.",
+    example: '\"Doge to $1 is still the ultimate meme dream.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Shiba Inu",
+    phonetic: "/ˈʃiːbə ˈiːnuː/",
+    def: "The self-proclaimed 'Doge killer'. A massive dog-themed token that became a retail phenomenon during the 2021 bull run.",
+    example: '\"My uber driver was asking me how to buy Shiba Inu, that was the top signal.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Floki",
+    phonetic: "/ˈfloʊki/",
+    def: "Another dog coin, named after Elon Musk's actual Shiba Inu dog. Classic example of how a single tweet can spawn a billion-dollar asset.",
+    example: '\"Elon just posted a picture of his dog Floki, the coin is up 400%.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Brett",
+    phonetic: "/brɛt/",
+    def: "The mascot of the Base chain, based on a character from the Boy's Club comic (the same comic Pepe is from).",
+    example: '\"Brett is leading the meme rotation on Base right now.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "BOME",
+    phonetic: "/boʊm/",
+    def: "Book of Meme. A memecoin project on Solana that went from zero to a billion dollar market cap in record time, pioneering the 'presale' meta of 2024.",
+    example: '\"The BOME presale single-handedly revived the Solana meme ecosystem.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Slerf",
+    phonetic: "/slɜrf/",
+    def: "A legendary Solana memecoin where the developer accidentally burned the entire presale allocation (millions of dollars). The community rallied behind the mistake, making it a massive success.",
+    example: '\"The Slerf dev fumbled the bag so hard he accidentally created a legend.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Neiro",
+    phonetic: "/ˈnaɪroʊ/",
+    def: "A dog coin named after the new dog adopted by the owner of Kabosu (the original Doge dog). Sparked a massive PVP battle on-chain to decide the 'real' Neiro token.",
+    example: '\"There are 5 different Neiro tokens trending right now, it\'s pure PVP.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "HarryPotterObamaSonic10Inu",
+    phonetic: "/hɛri pɑtər oʊbɑmə sɑnɪk tɛn iːnuː/",
+    def: "Also known by its ticker BITCOIN. The ultimate shitpost coin that embraces pure absurdity and maximalist internet culture.",
+    example: '\"I can\'t believe my best performing asset this year is HarryPotterObamaSonic10Inu.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
   }
 ];
 
