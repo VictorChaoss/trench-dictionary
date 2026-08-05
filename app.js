@@ -2802,6 +2802,78 @@ const WORDS = [
     origin: "Memecoins",
     cat: "memes",
     votes: { up: 0, down: 0 }
+  },
+  {
+    word: "PVE",
+    phonetic: "/piː-viː-iː/",
+    def: "Player vs. Environment. A rare market condition (usually early bull market) where everyone makes money simply by holding, rather than fighting each other for exit liquidity.",
+    example: '\"We are finally back in a PVE market, you literally can\'t lose right now.\"',
+    origin: "Gaming / Market Theory",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Right Curve",
+    phonetic: "/raɪt kɜrv/",
+    def: "The final stage of the bell curve meme. The giga-brain who realizes that after all the complex over-analysis, the simplest, dumbest strategy is actually the best one.",
+    example: '\"He didn\'t read the whitepaper, he just bought the dog coin. Truly a right curve genius.\"',
+    origin: "Internet Culture",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Cult Coin",
+    phonetic: "/kʌlt kɔɪn/",
+    def: "A memecoin where the community behaves less like investors and more like a religious cult, relentlessly defending it and refusing to sell.",
+    example: '\"You can\'t short a cult coin, they will literally hold it to zero out of spite.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Flash Loan",
+    phonetic: "/flæʃ loʊn/",
+    def: "A massive, uncollateralized crypto loan that must be borrowed and repaid within the exact same transaction. Usually the culprit behind $100M protocol hacks.",
+    example: '\"Another protocol just got drained by a $50M flash loan exploit.\"',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Sandwich Attack",
+    phonetic: "/ˈsændwɪtʃ əˈtæk/",
+    def: "When a predatory MEV bot sees your pending buy order, buys the token before you to pump the price, and then dumps it immediately after your transaction goes through.",
+    example: '\"I tried to buy with high slippage and got absolutely destroyed by a sandwich attack.\"',
+    origin: "DeFi / MEV",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Fat Finger",
+    phonetic: "/fæt ˈfɪŋgər/",
+    def: "Accidentally adding or missing a zero on a trade. E.g., listing a $300,000 NFT for $3,000 and having it instantly sniped by a bot.",
+    example: '\"Someone just fat-fingered a Bored Ape for 0.1 ETH, RIP.\"',
+    origin: "Trading",
+    cat: "trading",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "LST",
+    phonetic: "/ɛl-ɛs-tiː/",
+    def: "Liquid Staking Token. Like normal staking, but you get a receipt token (like stETH) that you can go use to gamble on other DeFi protocols to double-dip your yield.",
+    example: '\"I\'m earning 4% on my ETH and farming another 15% with my LST on a lending market.\"',
+    origin: "DeFi",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Polymarket",
+    phonetic: "/ˈpɒliˌmɑrkɪt/",
+    def: "A decentralized prediction market where degens go to bet on literally anything—from the presidential election to whether a specific celebrity will tweet today.",
+    example: '\"I lost all my money on Polymarket betting that the ETF wouldn\'t get approved.\"',
+    origin: "Dapps",
+    cat: "culture",
+    votes: { up: 0, down: 0 }
   }
 ];
 
