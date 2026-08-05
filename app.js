@@ -2910,6 +2910,42 @@ const WORDS = [
     origin: "Blockchain Mechanics",
     cat: "tech",
     votes: { up: 0, down: 0 }
+  },
+  {
+    word: "SPX6900",
+    phonetic: "/ɛs-piː-ɛks sɪks-ti-naɪn hʌndrəd/",
+    def: "A memecoin whose entire premise is just 'we are going to flip the S&P 500.' The community is known for intense, mathematically absurd 'schizo-posting' about how the stock market is a scam.",
+    example: '\"I sold all my index funds to buy SPX6900, the stock market is cooked.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "MEW",
+    phonetic: "/mjuː/",
+    def: "Cat in a dogs world. The token that successfully kicked off the 'Cat Coin' rotation on Solana, trying to dethrone Doge, Shiba, and WIF.",
+    example: '\"Everyone was rotating out of WIF into MEW when the cat meta started.\"',
+    origin: "Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "MOTHER",
+    phonetic: "/ˈmʌðər/",
+    def: "The token launched by Iggy Azalea. While 99% of celebrity tokens (like the Andrew Tate or Davido coins) were instant rug pulls, MOTHER somehow survived and became a massive cultural meme for a few months.",
+    example: '\"I can\'t believe my MOTHER bag is outperforming my Ethereum bag.\"',
+    origin: "Celebrity Coins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Apu",
+    phonetic: "/ˈɑːpuː/",
+    def: "Apu Apustaja. The poorly drawn, younger, more naive version of Pepe the Frog. A staple meme that eventually became its own massive coin.",
+    example: '\"Frens don\'t let frens sell their Apu before the bull market.\"',
+    origin: "Internet Culture / Memecoins",
+    cat: "memes",
+    votes: { up: 0, down: 0 }
   }
 ];
 
