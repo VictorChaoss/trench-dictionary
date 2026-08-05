@@ -2894,11 +2894,11 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
-    word: "Phantom Burning",
-    phonetic: "/ˈfæntəm ˈbɜrnɪŋ/",
-    def: "A feature in the Phantom wallet that lets you permanently destroy scam tokens or NFTs that get airdropped to your wallet, rewarding you with a tiny amount of SOL in return.",
-    example: '\"I made a whole $2 this week just by phantom burning all the scam NFTs sent to my wallet.\"',
-    origin: "Solana Ecosystem",
+    word: "Burning",
+    phonetic: "/ˈbɜrnɪŋ/",
+    def: "Permanently removing tokens from circulation by sending them to an unspendable address. Also refers to a wallet feature (like in Phantom) where you can destroy scam tokens to reclaim a tiny bit of SOL.",
+    example: '\"The dev is burning the liquidity pool, and I\'m burning all the scam NFTs in my wallet.\"',
+    origin: "Blockchain Mechanics",
     cat: "tech",
     votes: { up: 0, down: 0 }
   },
