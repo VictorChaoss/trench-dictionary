@@ -2874,6 +2874,42 @@ const WORDS = [
     origin: "Dapps",
     cat: "culture",
     votes: { up: 0, down: 0 }
+  },
+  {
+    word: "OTC",
+    phonetic: "/oʊ-tiː-siː/",
+    def: "Over-The-Counter. A private trade negotiated between two parties outside of a public exchange. Usually done by whales or VCs to buy/sell massive amounts of tokens without tanking the chart.",
+    example: '\"The VC fund dumped their entire unlocked supply OTC for a 30% discount.\"',
+    origin: "Traditional Finance",
+    cat: "finance",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Drainer Link",
+    phonetic: "/ˈdreɪnər lɪŋk/",
+    def: "A malicious URL often posted by compromised Twitter accounts or Discord servers. Connecting your wallet and signing the transaction will result in all your assets being instantly stolen.",
+    example: '\"Don\'t click the link in that airdrop announcement, it\'s a drainer link.\"',
+    origin: "Security",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Phantom Burning",
+    phonetic: "/ˈfæntəm ˈbɜrnɪŋ/",
+    def: "A feature in the Phantom wallet that lets you permanently destroy scam tokens or NFTs that get airdropped to your wallet, rewarding you with a tiny amount of SOL in return.",
+    example: '\"I made a whole $2 this week just by phantom burning all the scam NFTs sent to my wallet.\"',
+    origin: "Solana Ecosystem",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
+  },
+  {
+    word: "Priority Fees",
+    phonetic: "/praɪˈɔrɪti fiːz/",
+    def: "An extra tip paid to validators to ensure your transaction gets processed first. Mandatory when the network is congested and everyone is trying to snipe the same memecoin.",
+    example: '\"I had to set my priority fees to 0.05 SOL just to get my swap to go through during the mint.\"',
+    origin: "Blockchain Mechanics",
+    cat: "tech",
+    votes: { up: 0, down: 0 }
   }
 ];
 
