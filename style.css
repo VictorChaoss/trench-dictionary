@@ -827,8 +827,8 @@ body {
 
 .submit-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 28px;
   align-items: flex-start;
 }
 
@@ -953,6 +953,42 @@ body {
 }
 
 .sidebar-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 6px; line-height: 1.6; }
+
+/* ---- REQUEST A WORD SECTION ---- */
+.request-section {
+  margin-top: 12px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.request-section-header {
+  margin-bottom: 20px;
+}
+
+.request-section-title {
+  font-family: var(--font-head);
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.request-section-sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.request-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+  .request-grid { grid-template-columns: 1fr; }
+}
 
 .request-form { padding: 18px; }
 

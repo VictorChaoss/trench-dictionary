@@ -624,12 +624,24 @@
           <button type="submit" class="submit-btn" id="submit-btn">Drop it into the trenches</button>
           <div class="submit-toast" id="submit-toast">✅ Word added to the trenches! It's live.</div>
         </form>
-        <div class="submit-sidebar">
-          <h3 class="sidebar-title">Request a Word</h3>
-          <p class="sidebar-sub">Heard something in the trenches you can't define? Request it and the community will define it.</p>
+      </div>
+
+      <!-- REQUEST A WORD — Full-width section below -->
+      <div class="request-section">
+        <div class="request-section-header">
+          <h3 class="request-section-title">🔎 Request a Word</h3>
+          <p class="request-section-sub">Heard something in the trenches you can't define? Drop it here and the community will define it.</p>
+        </div>
+        <div class="request-grid">
           <form class="request-form" id="request-form">
-            <input type="text" id="req-word" placeholder="What word needs defining?" maxlength="80" />
-            <textarea id="req-context" placeholder="Any context? Where did you hear it?" maxlength="300" rows="3"></textarea>
+            <div class="form-group">
+              <label for="req-word">Word / Phrase *</label>
+              <input type="text" id="req-word" placeholder="What word needs defining?" maxlength="80" />
+            </div>
+            <div class="form-group">
+              <label for="req-context">Context <span class="label-hint">(optional)</span></label>
+              <textarea id="req-context" placeholder="Where did you hear it? Any context helps." maxlength="300" rows="3"></textarea>
+            </div>
             <button type="submit" class="submit-btn" id="request-btn">Request a Definition</button>
             <div class="submit-toast" id="request-toast">Request logged! The trenches will answer.</div>
           </form>
