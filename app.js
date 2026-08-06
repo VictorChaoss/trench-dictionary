@@ -3548,6 +3548,37 @@ function burstParticles(targetEl) {
   if (navigator.vibrate) navigator.vibrate(10);
 }
 
+const SUPA_URL = 'https://hyblyfssbjozuctekuak.supabase.co/rest/v1/dictionary';
+const SUPA_KEY = 'sb_publishable_naX6qqbRp_AdtXNpHtpI2g_bHhNAErA';
+
+async function syncVoteToSupa(wordName, direction) {
+  try {
+    const res = await fetch(`${SUPA_URL}?word=eq.${encodeURIComponent(wordName)}&select=id,votes_up,votes_down`, {
+      headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` }
+    });
+    const data = await res.json();
+    if (!data || data.length === 0) return;
+    
+    const row = data[0];
+    const update = {};
+    if (direction === 'up') update.votes_up = (row.votes_up || 0) + 1;
+    if (direction === 'down') update.votes_down = (row.votes_down || 0) + 1;
+
+    await fetch(`${SUPA_URL}?id=eq.${row.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(update)
+    });
+  } catch(e) {
+    console.error("Failed to sync vote to DB:", e);
+  }
+}
+
 // ---- VOTE ----
 async function vote(wordName, direction) {
   const resolvedName = decodeURIComponent(wordName);
@@ -3569,15 +3600,7 @@ async function vote(wordName, direction) {
   if (direction === 'up') burstParticles(document.getElementById('up-' + wordId));
 
   // Optimistic Global Sync
-  try {
-    await fetch('/api/voteWord', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ wordObj: w, direction })
-    });
-  } catch (e) {
-    console.error("Failed to sync vote to DB:", e);
-  }
+  syncVoteToSupa(resolvedName, direction);
 }
 
 // ---- PERSIST VOTES ----
@@ -3680,10 +3703,23 @@ async function handleSubmit(e) {
   btn.disabled = true;
 
   try {
-    const res = await fetch('/api/submitWord', {
+    const res = await fetch(SUPA_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word, def, example, origin, cat, twitter_handle })
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ 
+        word, 
+        def, 
+        example: example || null, 
+        origin: origin || null, 
+        cat, 
+        twitter_handle: twitter_handle,
+        status: 'pending'
+      })
     });
 
     if (res.ok) {
@@ -3691,8 +3727,7 @@ async function handleSubmit(e) {
       document.getElementById('def-count').textContent = '0 / 500';
       showToast('submit-toast', 'Word submitted to the trenches! Awaiting community approval.', 'success');
     } else {
-      const errData = await res.json();
-      showToast('submit-toast', 'Failed to submit: ' + (errData.error || 'Server Error'), 'error');
+      showToast('submit-toast', 'Failed to submit.', 'error');
     }
   } catch(e) {
     showToast('submit-toast', 'Cannot connect to the trenches right now.', 'error');
@@ -3717,10 +3752,19 @@ async function handleRequest(e) {
   btn.disabled = true;
 
   try {
-    const res = await fetch('/api/submitWord', {
+    const res = await fetch(SUPA_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word: reqWord, isRequest: true })
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ 
+        word: reqWord, 
+        def: context || null,
+        status: 'requested'
+      })
     });
     if (res.ok) {
       document.getElementById('request-form').reset();
@@ -3743,7 +3787,9 @@ async function loadRequests() {
   if (!list) return; // Only exists on submit.html
   
   try {
-    const res = await fetch('/api/getWords?status=request');
+    const res = await fetch(`${SUPA_URL}?select=word,votes_up&status=eq.requested`, {
+      headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` }
+    });
     if (res.ok) {
       const data = await res.json();
       list.innerHTML = '';
@@ -3775,14 +3821,7 @@ async function upvoteRequest(wordParam, el) {
   el.classList.add('voted');
 
   try {
-    await fetch('/api/voteWord', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        wordObj: { word: wordParam },
-        direction: 'up'
-      })
-    });
+    await syncVoteToSupa(wordParam, 'up');
   } catch (e) {
     counter.textContent = originalCount;
     el.classList.remove('voted');

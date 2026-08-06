@@ -663,14 +663,37 @@
     // ---- LEADERBOARD ----
     const MEDALS = ['🥇','🥈','🥉'];
 
+    const SUPA_URL = 'https://hyblyfssbjozuctekuak.supabase.co/rest/v1/dictionary';
+    const SUPA_KEY = 'sb_publishable_naX6qqbRp_AdtXNpHtpI2g_bHhNAErA';
+
     async function loadLeaderboard() {
       const body = document.getElementById('lb-body');
       body.innerHTML = '<div class="lb-empty">Fetching rankings from the trenches...</div>';
 
       try {
-        const res = await fetch('/api/leaderboard');
+        const res = await fetch(`${SUPA_URL}?select=twitter_handle,votes_up,votes_down,status&status=eq.approved`, {
+          headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` }
+        });
         if (!res.ok) throw new Error('Failed');
-        const data = await res.json();
+        const allWords = await res.json();
+
+        // Group by twitter_handle
+        const userStats = {};
+        allWords.forEach(w => {
+          const handle = (w.twitter_handle || 'anon').trim().replace(/^@/, '').toLowerCase();
+          if (!handle) return;
+          if (!userStats[handle]) {
+            userStats[handle] = { handle: handle, originalHandle: w.twitter_handle, votes: 0, approved: 0 };
+          }
+          userStats[handle].approved += 1;
+          userStats[handle].votes += ((w.votes_up || 0) - (w.votes_down || 0));
+        });
+
+        // Convert to array and sort by votes descending, then approved descending
+        const data = Object.values(userStats).sort((a, b) => {
+          if (b.votes !== a.votes) return b.votes - a.votes;
+          return b.approved - a.approved;
+        }).slice(0, 50); // Top 50
 
         if (!data.length) {
           body.innerHTML = `
@@ -685,14 +708,15 @@
           const rank = i + 1;
           const medal = MEDALS[i] || '';
           const cls = rank <= 3 ? ` top-${rank}` : '';
-          const initial = (row.handle || '?')[0].toUpperCase();
+          const displayHandle = row.originalHandle || row.handle;
+          const initial = displayHandle[0].toUpperCase();
           return `
             <div class="lb-row${cls}">
               <div class="lb-rank">${medal || rank}</div>
               <div class="lb-handle-wrap">
                 <div class="lb-avatar">${initial}</div>
                 <div class="lb-handle">
-                  <a href="https://x.com/${row.handle}" target="_blank" rel="noopener">@${row.handle}</a>
+                  <a href="https://x.com/${displayHandle}" target="_blank" rel="noopener">@${displayHandle}</a>
                 </div>
               </div>
               <div class="lb-stat">${row.votes}<br><span class="lb-stat-sub">upvotes</span></div>

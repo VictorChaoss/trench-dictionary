@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trench-dict-v7';
+const CACHE_NAME = 'trench-dict-v8';
 
 // Static assets that never change — cache-first is fine
 const STATIC_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.woff', '.woff2'];
