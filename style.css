@@ -994,7 +994,12 @@ body {
   .request-grid { grid-template-columns: 1fr; }
 }
 
-.request-form { padding: 18px; }
+.request-form {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
 
 .request-btn {
   background: transparent;
@@ -1013,11 +1018,12 @@ body {
 .request-btn:hover { background: rgba(201,151,28,0.08); border-color: var(--gold2); }
 
 /* ---- PENDING REQUESTS ---- */
-.pending-requests {
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  border-radius: var(--radius);
-  padding: 16px;
+.submit-sidebar .pending-requests {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border2);
+  border-radius: 0;
+  padding: 16px 0 0;
 }
 
 .pending-title {
