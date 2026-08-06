@@ -57,7 +57,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 40px;
+  padding: 12px 32px;
   background: rgba(8,8,8,0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -88,9 +88,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   font-family: var(--font-body);
   text-decoration: none;
@@ -1111,7 +1111,7 @@ body {
   .stat-pill { font-size: 10px; padding: 3px 10px; }
 
   /* Dictionary page */
-  .main-content { padding: 20px 12px 90px; }
+  .main-content { padding: 20px 12px calc(90px + env(safe-area-inset-bottom, 0px)); }
   .wotd-card { padding: 18px 16px; }
   .wotd-word { font-size: clamp(32px, 10vw, 52px); }
   .wotd-body { flex-direction: column; gap: 12px; }
@@ -1149,7 +1149,7 @@ body {
 
   /* Search bar */
   .search-bar-outer { padding: 10px 12px; }
-  .search-wrap input { font-size: 15px; } /* 16px prevents iOS zoom */
+  .search-wrap input { font-size: 16px; } /* 16px prevents iOS zoom */
 
   /* Vote buttons — bigger tap targets */
   .vote-btn { padding: 6px 13px; font-size: 12px; }

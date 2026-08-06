@@ -30,7 +30,7 @@
   }
   .timeline-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 8vw, 4rem);
     color: var(--gold);
     margin-bottom: 15px;
     letter-spacing: 2px;
@@ -398,6 +398,10 @@
       <a href="leaderboard.html" class="mobile-nav-btn"><span class="mnb-icon">🏆</span><span>Ranks</span></a>
     </div>
   </nav>
+
+  <footer class="site-footer" style="border-top: 1px solid var(--border); padding: 32px 24px; text-align: center;">
+    <p style="font-size: 13px; color: var(--muted);">© 2025 Trench Dictionary. DYOR. NFA. WAGMI (probably).</p>
+  </footer>
 
   <script src="app.js?v=2"></script>
   <script>
