@@ -1681,7 +1681,7 @@ body.theme-light .stat-strip {
 .swipe-card:active { cursor: grabbing; }
 .swipe-card.swiping { transition: none; }
 .swipe-card.animating {
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .swipe-card .sc-word {

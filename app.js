@@ -4111,10 +4111,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof shareToX === 'function') shareToX(encodeURIComponent(wordData.word));
     }
 
+    // Faster reset for rapid swiping
     setTimeout(() => {
       currentIndex++;
       renderSwipeCards();
-    }, 350);
+    }, 150);
   }
 
   // Gold particle burst on like
