@@ -1958,15 +1958,6 @@ const WORDS = [
     votes: { up: 0, down: 0 }
   },
   {
-    word: "Zack Morris",
-    phonetic: "/zæk ˈmɒr.ɪs/",
-    def: "A battle-tested legendary trader who did the impossible: went head-to-head with the SEC in court over market manipulation charges, beat them, and walked free. However, the ultimate final boss was not the US government—it was the Solana trenches. Shortly after beating the feds, he notoriously got out-PVP'd and farmed as exit liquidity by KOL vitalyxyz on a meme coin near a $120M market cap. Absolute, undeniable proof that the SEC is light work compared to a 2024 crypto grifter cabal.",
-    example: '"Zack Morris literally beat the SEC in federal court just to become exit liquidity for a KOL\'s scam coin. The timeline is completely undefeated."',
-    origin: "Fintwit → Crypto Pipeline",
-    cat: "person",
-    votes: { up: 0, down: 0 }
-  },
-  {
     word: "Quant",
     phonetic: "/kwɒnt/",
     def: "A highly sophisticated algorithmic trader who writes complex Python scripts and utilizes machine learning models to analyze market inefficiencies, only to get completely destroyed and front-run by a 14-year-old on pump.fun using a free Telegram bot. Proof that a Ph.D. in Mathematics is useless against raw, weaponized autism.",
